@@ -17,7 +17,7 @@ const RollNoForm = () => {
 
     setError("");
     console.log("Submitted Roll No:", rollNo);
-    // You can perform further actions, like sening the data to an A
+    // You can perform further actions, like sening the data to an 
   };
 
   return (
