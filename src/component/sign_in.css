@@ -1,0 +1,24 @@
+.signin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 200px ;
+    width: 300px ;
+    border-radius: 5px;
+    box-shadow: 5px 5px gray;
+    margin: 100px 100px;
+    background: linear-gradient(rgb(91, 91, 163),rgb(83, 83, 231));
+
+}
+
+button{
+    width: 50px;
+    background: white;
+    margin-left: 110px;
+}
+
+input{
+    background: white;
+    color: none;
+}

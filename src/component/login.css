@@ -1,0 +1,52 @@
+.mainclass{
+    display: flex;
+    justify-content: center;
+    height: 610px;
+    padding-left: 10px;
+    background: linear-gradient(rgb(132, 132, 247),rgb(62, 62, 180));
+}
+
+.Login{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    border-radius: 5px;
+    padding: 0px 10px;
+    box-shadow: 5px 5px black;
+    height: 200px;
+    width: 200px;
+    padding-right: 30px;
+    margin: 50px 100px;
+    background:linear-gradient(rgb(85, 85, 238),rgb(47, 47, 148));
+
+}
+
+.Register{
+    display: flex;
+    justify-content: center;
+    padding: 0px 50px;
+    background: linear-gradient(rgb(82, 82, 189),rgb(47, 47, 148));
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 5px 5px black;
+    height: 300px;
+    width: 300px;
+    margin: 50px 100px;
+}
+
+label{
+    background: none;
+}
+input{
+    background: white;
+}
+
+h2{
+    background: none;
+}
+
+button{
+    width: 80px;
+    padding: 0px 10px;
+    background: white;
+}
