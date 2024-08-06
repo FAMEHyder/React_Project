@@ -1,7 +1,7 @@
-import React from 'react';
+
 import { Container, Typography, Box, Grid, ButtonBase } from '@mui/material';
 
-function Notes() {
+function Courses() {
   const courses = [
     'Mathematics', 'Physics', 'Chemistry', 'Biology', 'Computer',
     'Urdu', 'English', 'State Affairs','Cuurent Affairs'
@@ -15,7 +15,7 @@ function Notes() {
   return (
     <Container>
       <Typography variant="h4" gutterBottom>
-        Notes for each Subjects are available
+        Courses
       </Typography>
       <Grid container spacing={2}>
         {courses.map((course, index) => (
@@ -42,4 +42,4 @@ function Notes() {
   );
 }
 
-export default Notes;
+export default Courses;

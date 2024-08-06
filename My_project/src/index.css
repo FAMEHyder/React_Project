@@ -1,0 +1,15 @@
+/* index.css */
+
+body {
+    background: linear-gradient(rgb(94, 191, 236),rgb(2, 180, 250));
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+  
+  /* Ensure that the child elements don't inherit this background */
+  * {
+    background: none;
+  }
+  

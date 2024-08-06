@@ -1,7 +1,7 @@
-import React from 'react';
+
 import { Container, Typography, Box, Grid, ButtonBase } from '@mui/material';
 
-function Courses() {
+function Notes() {
   const courses = [
     'Mathematics', 'Physics', 'Chemistry', 'Biology', 'Computer',
     'Urdu', 'English', 'State Affairs','Cuurent Affairs'
@@ -13,9 +13,17 @@ function Courses() {
   };
 
   return (
-    <Container>
+    <Container
+    sx={{
+      marginTop: '100px',
+      backgroundColor: 'white', // Set the background color
+      padding: '16px', // Add some padding if needed
+      borderRadius: '8px', // Optional: Add rounded corners
+      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', // Optional: Add a shadow
+    }}
+    >
       <Typography variant="h4" gutterBottom>
-        Courses
+      Notes for each Subjects are available
       </Typography>
       <Grid container spacing={2}>
         {courses.map((course, index) => (
@@ -42,4 +50,4 @@ function Courses() {
   );
 }
 
-export default Courses;
+export default Notes;

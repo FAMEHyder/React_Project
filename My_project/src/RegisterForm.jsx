@@ -19,7 +19,15 @@ function RegisterForm() {
   };
 
   return (
-    <Container maxWidth="xs">
+    <Container maxWidth="xs"
+    sx={{
+      marginTop: '150px',
+      backgroundColor: 'white', // Set the background color
+      padding: '16px', // Add some padding if needed
+      borderRadius: '8px', // Optional: Add rounded corners
+      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', // Optional: Add a shadow
+    }}
+    >
       <Typography variant="h4" gutterBottom>
         Register
       </Typography>
