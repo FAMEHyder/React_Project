@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import AppBar from '@mui/material/AppBar'; // Import AppBar component for the top bar
 import Toolbar from '@mui/material/Toolbar'; // Import Toolbar component for the content within the AppBar
 import IconButton from '@mui/material/IconButton'; // Import IconButton for clickable icons

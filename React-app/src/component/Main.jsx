@@ -5,9 +5,9 @@ const Main = () => {
   const [shoes, setShoes] = useState([]);
 
   useEffect(() => {  }, []);
-    // fetch('https://fakestoreapi.com/products/category/men\'s%20clothing')
-    //   .then(response => response.json())
-    //   .then(data => setShoes(data));
+    fetch('https://fakestoreapi.com/products/category/men\'s%20clothing')
+      .then(response => response.json())
+      .then(data => setShoes(data));
 
 
   return (
@@ -34,12 +34,12 @@ const Main = () => {
                     ${shoe.price}
                   </Typography>
                   <Typography variant="body2" color="textSecondary">
-                    Address: Skardu, Alamdar Chowk, Shop No. 19
+                    Address: Sat_Tara Shoping Mall Skardu
                   </Typography>
                 </CardContent>
                 <Box sx={{ display: 'flex', justifyContent: 'space-between', p: 2 }}>
-                  <Button size="small" color="primary">Buy Now</Button>
-                  <Button size="small" color="primary">View Details</Button>
+                  <Button size="small" color="primary" variant = 'contained'>Buy Now</Button>
+                  <Button size="small" color="primary" variant = 'contained' >View Details</Button>
                 </Box>
               </Card>
             </Box>
