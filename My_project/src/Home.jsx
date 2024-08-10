@@ -82,7 +82,7 @@ function Home() {
           <Container>
             <Grid container spacing={3}>
               <Grid item xs={12} sm={6} md={4}>
-                <SectionPaper onClick={() => handleSectionClick('/sectioembers')}>
+                <SectionPaper onClick={() => handleSectionClick('/section/members')}>
                   <Typography variant="h5">Our Members</Typography>
                 </SectionPaper>
               </Grid>
