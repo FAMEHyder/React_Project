@@ -41,7 +41,7 @@
 
 
 import React from "react";
-import Counter from "./Counter";
+import CounterApp from "./CounterApp";
 // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 // import Header from './component/Header';
 // import Main from './component/Main';
@@ -69,7 +69,7 @@ const App = () => {
     
           <React.Fragment>
       
-            <Counter/>
+            <CounterApp/>
       
           </React.Fragment>
          
