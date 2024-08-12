@@ -1,19 +1,6 @@
-import { Container, Typography, Box ,useEffect} from '@mui/material';
-
+import { Container, Typography, Box } from '@mui/material';
 
 function About() {
-
-  const handleClick = ()=>{
-    useEffect(() => {  
-    
-      fetch('https://fakestoreapi.com/products/category/men\'s%20clothing')
-      response => response.json()
-      data => setShoes(data)
-      
-
-    }, []);
-
-  }
   return (
     <Container>
       <Box 
@@ -56,7 +43,6 @@ function About() {
             for students to succeed.
           </Typography>
         </Box>
-        <button onClick={() => handleClick()}>Shop Now</button>
       </Box>
     </Container>
   );
