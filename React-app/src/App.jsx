@@ -19,7 +19,7 @@
 //   return (
 //     <React.Fragment>
 
-//       {/* <Login/> */}
+      // {/* <Login/> */}
 //       {/* <Counter/> */}
 //       {/* <Sign_in/> */}
 //       {/* <Register/> */}
@@ -39,28 +39,41 @@
 // export default App
 
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './component/Header';
-import Main from './component/Main';
-import Footer from './component/Footer';
-import { Home } from './component/Home';
-import { Service } from './component/Home';
-import { AboutUs } from './component/Home';
-import { ContactUs } from './component/Home';
+
+import React from "react";
+import Counter from "./Counter";
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import Header from './component/Header';
+// import Main from './component/Main';
+// import Footer from './component/Footer';
+// import { Home } from './component/Home';
+// import { Service } from './component/Home';
+// import { AboutUs } from './component/Home';
+// import { ContactUs } from './component/Home';
 
 const App = () => {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/service" element={<Service />} />
-        <Route path="/about" element={<AboutUs />} />
-        <Route path="/contact" element={<ContactUs />} />
-      </Routes>
-      <Main />
-      <Footer />
-    </Router>
+  
+    // <Router>
+    //   <Header />
+    //   <Routes>
+    //     <Route path="/" element={<Home />} />
+    //     <Route path="/service" element={<Service />} />
+    //     <Route path="/about" element={<AboutUs />} />
+    //     <Route path="/contact" element={<ContactUs />} />
+    //   </Routes>
+    //   <Main />
+    //   <Footer />
+    // </Router>
+
+    
+          <React.Fragment>
+      
+            <Counter/>
+      
+          </React.Fragment>
+         
+      
   );
 };
 
