@@ -10,7 +10,6 @@ import medjol from '../Image/medjol.png';
 
 import kerman from '../Image/kerman.png'
 
-//raisin data
 import sultana from '../Image/sultana.png';
 
 
