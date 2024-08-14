@@ -1,6 +1,6 @@
 // src/components/MainStep.js
 import { useState } from 'react';
-import { Stepper, Step, StepLabel, Button } from '@mui/material';
+import { Stepper, Step, StepLabel, Button, Container } from '@mui/material';
 import { Formik, Form } from 'formik';
 import { useNavigate } from 'react-router-dom';
 import FirstStep from './FirstStep';
@@ -41,6 +41,7 @@ const MainStep = () => {
   };
 
   return (
+    <Container maxWidth='md' >
     <Formik
       initialValues={{
         firstName: '',
@@ -71,7 +72,7 @@ const MainStep = () => {
               onClick={handleBack}
               variant="contained"
               color="secondary"
-              style={{ marginRight: '10px' }}
+              style={{ marginRight: '10px', marginLeft: '10px'}}
             >
               Back
             </Button>
@@ -82,6 +83,7 @@ const MainStep = () => {
         </div>
       </Form>
     </Formik>
+    </Container>
   );
 };
 
