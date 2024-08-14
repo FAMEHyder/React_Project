@@ -11,17 +11,17 @@ function CounterApp() {
 
   // Decrement function
   const decrement = () => {
-    if (count > 1) {
+    if (count > 0) {
       setCount(prevCount => prevCount - 1);
     }
   };
 
   // useEffect to trigger alert and console on count change
   useEffect(() => {
-    if (count >= 1) {
+    if (count >= 0) {
       console.log(`Current count is: ${count}`);
     }
-    
+  
   }, [count]);
 
   return (
@@ -37,7 +37,7 @@ function CounterApp() {
         textAlign: 'center',
       }}
     >
-      <Typography variant="h4" gutterBottom>
+      <Typography fontFamily={"Cambria"} variant="h4" gutterBottom>
         Counter App
       </Typography>
       <Typography variant="h6" gutterBottom>
@@ -64,7 +64,7 @@ function CounterApp() {
           color="secondary"
           onClick={decrement}
           sx={{ mx: 2 }}
-          disabled={count <= 1}
+          disabled={count <= 0}
         >
           Decrement
         </Button>
