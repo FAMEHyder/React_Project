@@ -81,23 +81,26 @@
 
 
 
-import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
-import Main from './components/Main';
-import FirstStep from './components/FirstStep';
-import SecondStep from './components/SecondStep';
-import ThirdStep from './components/ThirdStep';
+// src/App.js
 
-function App() {
-    return (
-        <Router>
-            <Switch>
-                <Route path="/" exact component={Main} />
-                <Route path="/first" component={FirstStep} />
-                <Route path="/second" component={SecondStep} />
-                <Route path="/third" component={ThirdStep} />
-            </Switch>
-        </Router>
-    );
-}
+
+// src/App.jsx
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import MainStep from './formik/Main';
+
+const App = () => {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/step1" element={<MainStep />} />
+        <Route path="/step2" element={<MainStep />} />
+        <Route path="/step3" element={<MainStep />} />
+        <Route path="/step4" element={<MainStep />} />
+        <Route path="/" element={<MainStep />} />
+      </Routes>
+    </Router>
+  );
+};
 
 export default App;

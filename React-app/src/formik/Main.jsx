@@ -1,68 +1,88 @@
-import  { useState } from 'react';
+// src/components/MainStep.js
+import { useState } from 'react';
 import { Stepper, Step, StepLabel, Button } from '@mui/material';
-import { useHistory } from 'react-router-dom';
+import { Formik, Form } from 'formik';
+import { useNavigate } from 'react-router-dom';
 import FirstStep from './FirstStep';
 import SecondStep from './SecondStep';
-import ThirdStep from './ThirdStep';
+import ThirdStep from './ThirdStep'
+import FourthStep from './FouthStep';
+import { getValidationSchema } from './Validation';
 
-const Main = () => {
-    const [activeStep, setActiveStep] = useState(0);
-    const history = useHistory();
+const MainStep = () => {
+  const [step, setStep] = useState(0);
+  const navigate = useNavigate();
 
-    const steps = ['First Step', 'Second Step', 'Third Step'];
+  const steps = ['Personal Details', 'Contact Info', 'Phone Number', 'Address'];
 
-    const handleNext = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep + 1);
-    };
+  const handleNext = () => {
+    if (step < steps.length - 1) {
+      navigate(`/step${step + 2}`);
+      setStep(step + 1);
+    }
+  };
 
-    const handleBack = () => {
-        setActiveStep((prevActiveStep) => prevActiveStep - 1);
-    };
+  const handleBack = () => {
+    if (step > 0) {
+      navigate(`/step${step}`);
+      setStep(step - 1);
+    }
+  };
 
-    const handleNavigation = (step) => {
-        switch (step) {
-            case 0:
-                history.push('/first');
-                break;
-            case 1:
-                history.push('/second');
-                break;
-            case 2:
-                history.push('/third');
-                break;
-            default:
-                break;
-        }
-    };
+  const handleSubmit = (values, actions) => {
+    if (step === steps.length - 1) {
+      alert(JSON.stringify(values, null, 2));
+      actions.resetForm();
+      setStep(0);
+      navigate('/step1');
+    } else {
+      handleNext();
+    }
+  };
 
-    return (
+  return (
+    <Formik
+      initialValues={{
+        firstName: '',
+        lastName: '',
+        email: '',
+        phoneNumber: '',
+        address: '',
+      }}
+      validationSchema={getValidationSchema(step)}
+      onSubmit={handleSubmit}
+    >
+      <Form>
+        <Stepper activeStep={step}>
+          {steps.map((label) => (
+            <Step key={label}>
+              <StepLabel>{label}</StepLabel>
+            </Step>
+          ))}
+        </Stepper>
         <div>
-            <Stepper activeStep={activeStep}>
-                {steps.map((label) => (
-                    <Step key={label}>
-                        <StepLabel>{label}</StepLabel>
-                    </Step>
-                ))}
-            </Stepper>
-            {activeStep === 0 && <FirstStep />}
-            {activeStep === 1 && <SecondStep />}
-            {activeStep === 2 && <ThirdStep />}
-
-            <Button disabled={activeStep === 0} onClick={handleBack}>
-                Back
-            </Button>
+          {step === 0 && <FirstStep />}
+          {step === 1 && <SecondStep />}
+          {step === 2 && <ThirdStep />}
+          {step === 3 && <FourthStep />}
+          <div style={{ marginTop: '20px' }}>
             <Button
-                variant="contained"
-                color="primary"
-                onClick={() => {
-                    handleNext();
-                    handleNavigation(activeStep + 1);
-                }}
+              disabled={step === 0}
+              onClick={handleBack}
+              variant="contained"
+              color="secondary"
+              style={{ marginRight: '10px' }}
             >
-                {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+              Back
             </Button>
+            <Button type="submit" variant="contained" color="primary">
+              {step === steps.length - 1 ? 'Submit' : 'Next'}
+            </Button>
+          </div>
         </div>
-    );
+      </Form>
+    </Formik>
+  );
 };
 
-export default Main;
+export default MainStep;

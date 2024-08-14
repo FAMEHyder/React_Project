@@ -1,27 +1,26 @@
 
-import { useFormik } from 'formik';
+import { TextField } from '@mui/material';
+import { Field } from 'formik';
 
-const FirstStep = () => {
-    const formik = useFormik({
-        initialValues: { name: '' },
-        onSubmit: (values) => {
-            console.log(values);
-        },
-    });
-
-    return (
-        <form onSubmit={formik.handleSubmit}>
-            <label>Name</label>
-            <input 
-                id="name" 
-                name="name" 
-                type="text" 
-                onChange={formik.handleChange} 
-                value={formik.values.name}
-            />
-            <button type="submit">Next</button>
-        </form>
-    );
-};
+const FirstStep = () => (
+  <>
+    <Field
+      name="firstName"
+      as={TextField}
+      label="First Name"
+      variant="outlined"
+      fullWidth
+      margin="normal"
+    />
+    <Field
+      name="lastName"
+      as={TextField}
+      label="Last Name"
+      variant="outlined"
+      fullWidth
+      margin="normal"
+    />
+  </>
+);
 
 export default FirstStep;

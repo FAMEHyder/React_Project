@@ -2,12 +2,12 @@
 import { TextField } from '@mui/material';
 import { Field } from 'formik';
 
-const ThirdStep = () => (
+const FourthStep = () => (
   <>
     <Field
-      name="phoneNumber"
+      name="address"
       as={TextField}
-      label="Phone Number"
+      label="Address"
       variant="outlined"
       fullWidth
       margin="normal"
@@ -15,4 +15,4 @@ const ThirdStep = () => (
   </>
 );
 
-export default ThirdStep;
+export default FourthStep;
