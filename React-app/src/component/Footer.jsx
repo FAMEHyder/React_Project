@@ -8,7 +8,7 @@ const Footer = () => {
         <Typography variant="h6">Contact Us</Typography>
         <Typography>Email: Famehyder7777@gamil.com</Typography>
         <Typography>Address: Sat_Tara Shoping Mall Skardu</Typography>
-        <Typography>Phone: 123-456-7890</Typography>
+        <Typography>Phone: 03554526991</Typography>
       </Container>
     </Box>
   );
