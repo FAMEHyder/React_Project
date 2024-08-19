@@ -30,7 +30,7 @@ const DataTable = () => {
   return (
     <Container maxWidth="lg" sx={{ mt: 4 }}>
       <Typography variant="h4" gutterBottom>
-        Data Table
+        Data Table From Data Base
       </Typography>
       <MaterialReactTable
         columns={columns}
