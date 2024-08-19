@@ -86,21 +86,48 @@
 
 // src/App.jsx
 
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import MainStep from './formik/Main';
 
-const App = () => {
+
+
+
+
+
+
+
+
+// import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+// import MainStep from './formik/Main';
+
+// const App = () => {
+//   return (
+//     <Router>
+//       <Routes>
+//         <Route path="/step1" element={<MainStep />} />
+//         <Route path="/step2" element={<MainStep />} />
+//         <Route path="/step3" element={<MainStep />} />
+//         <Route path="/step4" element={<MainStep />} />
+//         <Route path="/" element={<MainStep />} />
+//       </Routes>
+//     </Router>
+//   );
+// };
+
+// export default App;
+
+
+
+// src/App.js
+
+import DataTable from './component/Table';
+import { CssBaseline } from '@mui/material';
+
+function App() {
   return (
-    <Router>
-      <Routes>
-        <Route path="/step1" element={<MainStep />} />
-        <Route path="/step2" element={<MainStep />} />
-        <Route path="/step3" element={<MainStep />} />
-        <Route path="/step4" element={<MainStep />} />
-        <Route path="/" element={<MainStep />} />
-      </Routes>
-    </Router>
+    <>
+      <CssBaseline />
+      <DataTable />
+    </>
   );
-};
+}
 
 export default App;
