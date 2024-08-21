@@ -6,14 +6,14 @@ import { Container, Typography } from '@mui/material';
 
 const DataTable = () => {
   const [data, setData] = useState([]);
-  const [loading, setLoading] = useState(true);
+ 
 
   useEffect(() => {
     // Fetching data from a fake API
     axios.get('https://jsonplaceholder.typicode.com/posts')
       .then((response) => {
         setData(response.data);
-        setLoading(false);
+        
       })
       .catch((error) => {
         console.error("There was an error fetching the data!", error);
@@ -35,7 +35,7 @@ const DataTable = () => {
       <MaterialReactTable
         columns={columns}
         data={data}
-        state={{ isLoading: loading }}
+        
         enableColumnResizing
         enablePagination
         enableRowSelection
