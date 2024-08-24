@@ -1,12 +1,13 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Grid, Card, CardContent, CardMedia, Typography, Container, Box, Dialog, DialogTitle, DialogContent, IconButton } from '@mui/material';
+import { Grid, Card, CardContent, CardMedia, Typography, Container, Box, Dialog, DialogTitle, DialogContent, IconButton, Skeleton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 const Main = () => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [open, setOpen] = useState(false);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -26,6 +27,8 @@ const Main = () => {
         setProducts(allProducts);
       } catch (error) {
         console.error("There was an error fetching the data!", error);
+      } finally {
+        setLoading(false); // Set loading to false after data is fetched
       }
     };
 
@@ -45,34 +48,47 @@ const Main = () => {
   return (
     <Container>
       <Grid container spacing={4}>
-        {products.slice(0, 20).map((product) => (
-          <Grid item key={product.id} xs={12} sm={6} md={4}>
-            <Box sx={{ height: '100%' }}>
-              <Card 
-                onClick={() => handleOpen(product)} 
-                sx={{ height: '100%', display: 'flex', flexDirection: 'column', ':hover': { boxShadow: 6 } }}
-              >
-                <CardMedia
-                  component="img"
-                  height="140"
-                  image={product.image}
-                  alt={product.title}
-                />
-                <CardContent sx={{ flexGrow: 1 }}>
-                  <Typography gutterBottom variant="h5" component="div">
-                    {product.title}
-                  </Typography>
-                  <Typography variant="h6" color="textPrimary">
-                    ${product.price}
-                  </Typography>
-                  <Typography variant="body2" color="textSecondary">
-                    Address: Sat_Tara Shopping Mall Skardu
-                  </Typography>
-                </CardContent>
-              </Card>
-            </Box>
-          </Grid>
-        ))}
+        {loading ? (
+          // Show skeletons while loading
+          Array.from(new Array(6)).map((_, index) => (
+            <Grid item key={index} xs={12} sm={6} md={4}>
+              <Box sx={{ height: '100%' }}>
+                <Skeleton variant="rectangular" height={140} />
+                <Skeleton variant="text" height={30} sx={{ mt: 1 }} />
+                <Skeleton variant="text" height={30} sx={{ mt: 1 }} />
+              </Box>
+            </Grid>
+          ))
+        ) : (
+          products.slice(0, 20).map((product) => (
+            <Grid item key={product.id} xs={12} sm={6} md={4}>
+              <Box sx={{ height: '100%' }}>
+                <Card 
+                  onClick={() => handleOpen(product)} 
+                  sx={{ height: '100%', display: 'flex', flexDirection: 'column', ':hover': { boxShadow: 6 } }}
+                >
+                  <CardMedia
+                    component="img"
+                    height="140"
+                    image={product.image}
+                    alt={product.title}
+                  />
+                  <CardContent sx={{ flexGrow: 1 }}>
+                    <Typography gutterBottom variant="h5" component="div">
+                      {product.title}
+                    </Typography>
+                    <Typography variant="h6" color="textPrimary">
+                      ${product.price}
+                    </Typography>
+                    <Typography variant="body2" color="textSecondary">
+                      Address: Sat_Tara Shopping Mall Skardu
+                    </Typography>
+                  </CardContent>
+                </Card>
+              </Box>
+            </Grid>
+          ))
+        )}
       </Grid>
 
       <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
@@ -92,7 +108,7 @@ const Main = () => {
           </IconButton>
         </DialogTitle>
         <DialogContent dividers>
-          {selectedProduct && (
+          {selectedProduct ? (
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <CardMedia
                 component="img"
@@ -110,6 +126,8 @@ const Main = () => {
                 ${selectedProduct.price}
               </Typography>
             </Box>
+          ) : (
+            <Skeleton variant="rectangular" width="100%" height={300} />
           )}
         </DialogContent>
       </Dialog>
