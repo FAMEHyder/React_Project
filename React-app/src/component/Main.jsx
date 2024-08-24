@@ -8,6 +8,7 @@ const Main = () => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [open, setOpen] = useState(false);
   const [loading, setLoading] = useState(true);
+  const [dialogLoading, setDialogLoading] = useState(false);
 
   useEffect(() => {
     const fetchProducts = async () => {
@@ -36,8 +37,20 @@ const Main = () => {
   }, []);
 
   const handleOpen = (product) => {
-    setSelectedProduct(product);
+    setSelectedProduct(null);
+    setDialogLoading(true);
     setOpen(true);
+
+    axios.get(`https://fakestoreapi.com/products/${product.id}`)
+      .then(response => {
+        setSelectedProduct(response.data);
+      })
+      .catch(error => {
+        console.error("There was an error fetching the product details!", error);
+      })
+      .finally(() => {
+        setDialogLoading(false); // Set loading to false after fetching product details
+      });
   };
 
   const handleClose = () => {
@@ -93,7 +106,7 @@ const Main = () => {
 
       <Dialog open={open} onClose={handleClose} maxWidth="md" fullWidth>
         <DialogTitle>
-          {selectedProduct?.title}
+          {selectedProduct?.title || "Loading..."}
           <IconButton
             aria-label="close"
             onClick={handleClose}
@@ -108,7 +121,14 @@ const Main = () => {
           </IconButton>
         </DialogTitle>
         <DialogContent dividers>
-          {selectedProduct ? (
+          {dialogLoading ? (
+            <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+              <Skeleton variant="rectangular" width="100%" height={300} />
+              <Skeleton variant="text" width="60%" height={30} sx={{ mt: 2 }} />
+              <Skeleton variant="text" width="80%" height={20} sx={{ mt: 1 }} />
+              <Skeleton variant="text" width="40%" height={20} sx={{ mt: 1 }} />
+            </Box>
+          ) : selectedProduct ? (
             <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
               <CardMedia
                 component="img"
@@ -127,7 +147,9 @@ const Main = () => {
               </Typography>
             </Box>
           ) : (
-            <Skeleton variant="rectangular" width="100%" height={300} />
+            <Typography variant="body2" color="textSecondary">
+              Failed to load product details.
+            </Typography>
           )}
         </DialogContent>
       </Dialog>
