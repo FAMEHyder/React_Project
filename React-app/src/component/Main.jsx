@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import axios from 'axios';
-import { Grid, Card, CardContent, CardMedia, Typography, Container, Box, Dialog, DialogTitle, DialogContent, IconButton, Skeleton } from '@mui/material';
+import { Grid, Card, CardContent, CardMedia, Typography, Container, Box, Dialog, DialogTitle, DialogContent, IconButton, Button, Skeleton } from '@mui/material';
 import CloseIcon from '@mui/icons-material/Close';
 
 const Main = () => {
@@ -58,11 +58,18 @@ const Main = () => {
     setSelectedProduct(null);
   };
 
+  const handleAddToCart = () => {
+    console.log(`${selectedProduct?.title} added to cart!`);
+  };
+
+  const handleBuyNow = () => {
+    console.log(`Proceed to buy ${selectedProduct?.title}!`);
+  };
+
   return (
     <Container>
       <Grid container spacing={4}>
         {loading ? (
-          // Show skeletons while loading
           Array.from(new Array(6)).map((_, index) => (
             <Grid item key={index} xs={12} sm={6} md={4}>
               <Box sx={{ height: '100%' }}>
@@ -145,6 +152,16 @@ const Main = () => {
               <Typography variant="h5" color="textPrimary">
                 ${selectedProduct.price}
               </Typography>
+
+              {/* Add buttons for Add to Cart and Buy Now here */}
+              <Box mt={3} display="flex" justifyContent="flex-end" gap={1} width="100%">
+                <Button variant="contained" color="primary" size="large" onClick={handleAddToCart}>
+                  Add to Cart
+                </Button>
+                <Button variant="contained" color="secondary" size="large" onClick={handleBuyNow}>
+                  Buy Now
+                </Button>
+              </Box>
             </Box>
           ) : (
             <Typography variant="body2" color="textSecondary">

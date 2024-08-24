@@ -45,7 +45,8 @@ const ProductDetails = () => {
           <Typography variant="body2" gutterBottom>Category: {product.category}</Typography>
           <Typography variant="body2" gutterBottom>Rating: {product.rating.rate} ({product.rating.count} reviews)</Typography>
 
-          <Box mt={3} display="flex" justifyContent="space-around">
+          {/* Buttons added here */}
+          <Box mt={3} display="flex" justifyContent="space-between">
             <Button variant="contained" color="primary" size="large" onClick={handleAddToCart}>
               Add to Cart
             </Button>
