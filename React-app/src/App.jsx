@@ -42,42 +42,44 @@
 
 // import React from "react";
 // import CounterApp from "./CounterApp";
-// // import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-// // import Header from './component/Header';
-// // import Main from './component/Main';
-// // import Footer from './component/Footer';
-// // import { Home } from './component/Home';
-// // import { Service } from './component/Home';
-// // import { AboutUs } from './component/Home';
-// // import { ContactUs } from './component/Home';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './component/Header';
+import Main from './component/Main';
+import Footer from './component/Footer';
+import { Home } from './component/Home';
+import { Service } from './component/Home';
+import { AboutUs } from './component/Home';
+import { ContactUs } from './component/Home';
+import ProductDetails from './component/productDetail';
 
-// const App = () => {
-//   return (
+const App = () => {
+  return (
   
-//     // <Router>
-//     //   <Header />
-//     //   <Routes>
-//     //     <Route path="/" element={<Home />} />
-//     //     <Route path="/service" element={<Service />} />
-//     //     <Route path="/about" element={<AboutUs />} />
-//     //     <Route path="/contact" element={<ContactUs />} />
-//     //   </Routes>
-//     //   <Main />
-//     //   <Footer />
-//     // </Router>
+    <Router>
+      <Header />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/service" element={<Service />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
+        <Route path="/product/:id" element={<ProductDetails />} />
+      </Routes>
+      <Main />
+      <Footer />
+    </Router>
 
     
-//           <React.Fragment>
+          // <React.Fragment>
       
-//             <CounterApp/>
+          //   <CounterApp/>
       
-//           </React.Fragment>
+          // </React.Fragment>
          
       
-//   );
-// };
+  );
+};
 
-// export default App;
+export default App;
 
 
 
@@ -118,16 +120,23 @@
 
 // src/App.js
 
-import DataTable from './component/Table';
-import { CssBaseline } from '@mui/material';
 
-function App() {
-  return (
-    <>
-      <CssBaseline />
-      <DataTable />
-    </>
-  );
-}
 
-export default App;
+
+
+
+
+
+// import DataTable from './component/Table';
+// import { CssBaseline } from '@mui/material';
+
+// function App() {
+//   return (
+//     <>
+//       <CssBaseline />
+//       <DataTable />
+//     </>
+//   );
+// }
+
+// export default App;
