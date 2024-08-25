@@ -17,11 +17,10 @@ const Navbar = styled(AppBar)({
   left: 0,
   marginBottom: '20px',
   height: '60px',
-  // marginTop:'5px',
   marginLeft: '5px',
   zIndex: 1205,
-  // background: 'linear-gradient(to right, rgb(51, 51, 196),rgb(6, 110, 180))', // blueGrey gradient
-  background: 'black',
+  background: 'white',
+  color:'black',
 });
 
 const NavbarButton = styled(Button)(({ theme }) => ({
@@ -69,9 +68,9 @@ function Home() {
   return (
     <>
       <Navbar>
-        <Toolbar>
+        <Toolbar >
           <img src={IMG} alt="pic" height={50} width={60} style={{ marginBottom: '0px' }} />
-          <div style={{ marginBottom: '0px', position: 'relative', left: '75%' }}>
+          <div style={{ marginBottom: '0px', position: 'relative', left: '75%',}}>
             <NavbarButton component={Link} to="/login">Login</NavbarButton>
             <NavbarButton component={Link} to="/register">Register</NavbarButton>
             <NavbarButton component={Link} to="/about">About</NavbarButton>
