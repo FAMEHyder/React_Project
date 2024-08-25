@@ -10,29 +10,30 @@ import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
 import IMG from "./image/Logo.png";
 import backgroundImage from './image/member.png';
-
+import book from './image/book.png';
+import notes from './image/notes.png';
 
 const Navbar = styled(AppBar)({
   position: 'fixed',
   left: 0,
-  marginBottom: '20px',
-  height: '60px',
+  marginBottom: '0px',
+  height: '100px',
   marginLeft: '5px',
   zIndex: 1205,
   background: 'white',
-  color:'black',
 });
 
 const NavbarButton = styled(Button)(({ theme }) => ({
   marginLeft: theme.spacing(1),
-  color: 'white',
+  color: 'black',
+  marginTop:'50px',
 }));
 
 const SectionPaper = styled(Paper)({
   padding: '2px',
   textAlign: 'center',
   background: 'skyblue',
-  marginBottom: '4px',
+  marginBottom: '5px',
   marginTop: '30px',
   height: '200px',
   display: 'flex',
@@ -40,15 +41,14 @@ const SectionPaper = styled(Paper)({
   justifyContent: 'center',
   boxShadow: [5000],
   cursor: 'pointer',
-  '&:hover': {
-    background: '#1E90FF',
-  },
+  // '&:hover': {
+  //   background: 'lightgray',
+  // },
 });
 
 const MainContainer = styled('div')({
   display: 'flex',
   marginTop: '64px',
-
 });
 
 const Content = styled('main')({
@@ -59,18 +59,16 @@ const Content = styled('main')({
 function Home() {
   const navigate = useNavigate();
 
-
   const handleSectionClick = (path) => {
     navigate(path);
-
   };
 
   return (
     <>
       <Navbar>
         <Toolbar >
-          <img src={IMG} alt="pic" height={50} width={60} style={{ marginBottom: '0px' }} />
-          <div style={{ marginBottom: '0px', position: 'relative', left: '75%',}}>
+          <img src={IMG} alt="pic" height={100} width={100} style={{ marginBottom: '0px' }} />
+          <div style={{ marginBottom: '0px', position: 'relative', left: '75%', }}>
             <NavbarButton component={Link} to="/login">Login</NavbarButton>
             <NavbarButton component={Link} to="/register">Register</NavbarButton>
             <NavbarButton component={Link} to="/about">About</NavbarButton>
@@ -81,52 +79,117 @@ function Home() {
         <Content>
           <Container>
             <Grid container spacing={3}>
+              {/* Upper Section */}
               <Grid item xs={12} sm={6} md={4}>
                 <SectionPaper
                   onClick={() => handleSectionClick('/section/members')}
                   style={{
-                
                     backgroundImage: `url(${backgroundImage})`,
-                    backgroundSize: 'cover ', // Ensure the image covers the entire area
-                    backgroundRepeat: 'no-repeat', // Prevent image repetition
-                    backgroundPosition: 'center', // Center the background image
-                    height: '69%', // Adjust the height as necessary
-                    width: '90%', // Adjust the width as necessary
-                    color: '#fff', // Optional: Set text color to ensure visibility on the background
-                    padding: '20px', // Optional: Add some padding to the content
-                    boxShadow : '3px 3px 3px 3px black'
-                    
-
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    height: '120%',
+                    width: '90%',
+                    color: '#fff',
+                    padding: '20px',
+                    boxShadow: '3px 3px 3px 3px black'
                   }}
                 >
-                  <Typography variant="h5">Our Members</Typography>
                 </SectionPaper>
+                <Typography variant="h5" marginLeft={15}>Our Members</Typography>
+              </Grid>
+              <Grid item xs={12} sm={6} md={4}>
+                <SectionPaper
+                  onClick={() => handleSectionClick('/section/courses')}
+                  style={{
+                    backgroundImage: `url(${book})`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    height: '120%',
+                    width: '90%',
+                    color: '#fff',
+                    padding: '20px',
+                    boxShadow: '3px 3px 3px 3px black'
+                  }}>
+                </SectionPaper>
+                <Typography marginLeft={15} variant="h5">Courses</Typography>
+              </Grid>
+              <Grid item xs={12} sm={6} md={4}>
+                <SectionPaper
+                  onClick={() => handleSectionClick('/section/notes')}
+                  style={{
+                    backgroundImage: `url(${notes})`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    height: '120%',
+                    width: '90%',
+                    color: '#fff',
+                    padding: '20px',
+                    boxShadow: '3px 3px 3px 3px black'
+                  }}
+                >
+                </SectionPaper>
+                <Typography marginLeft={15} variant="h5">Notes</Typography>
+              </Grid>
 
+              {/* Add some space between upper and lower sections */}
+              <Grid item xs={12}>
+                <div style={{ marginBottom: '60px' }}></div>
+              </Grid>
+
+              {/* Lower Section */}
+              <Grid item xs={12} sm={6} md={4}>
+                <SectionPaper
+                  onClick={() => handleSectionClick('/section/online-classes')}
+                  style={{
+                    backgroundImage: `url(${backgroundImage})`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    height: '120%',
+                    width: '90%',
+                    color: '#fff',
+                    padding: '20px',
+                    boxShadow: '3px 3px 3px 3px black'
+                  }}>
+                </SectionPaper>
+                <Typography marginLeft={15} variant="h5">Online Classes</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
-                <SectionPaper onClick={() => handleSectionClick('/section/courses')}>
-                  <Typography variant="h5">Courses</Typography>
+                <SectionPaper
+                  onClick={() => handleSectionClick('/section/registercourses')}
+                  style={{
+                    backgroundImage: `url(${backgroundImage})`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    height: '120%',
+                    width: '90%',
+                    color: '#fff',
+                    padding: '20px',
+                    boxShadow: '3px 3px 3px 3px black'
+                  }}>
                 </SectionPaper>
+                <Typography marginLeft={15} variant="h5">Register to Course</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
-                <SectionPaper onClick={() => handleSectionClick('/section/notes')}>
-                  <Typography variant="h5">Notes</Typography>
+                <SectionPaper
+                  onClick={() => handleSectionClick('/section/results')}
+                  style={{
+                    backgroundImage: `url(${backgroundImage})`,
+                    backgroundSize: 'cover',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundPosition: 'center',
+                    height: '120%',
+                    width: '90%',
+                    color: '#fff',
+                    padding: '20px',
+                    boxShadow: '3px 3px 3px 3px black'
+                  }}>
                 </SectionPaper>
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <SectionPaper onClick={() => handleSectionClick('/section/online-classes')}>
-                  <Typography variant="h5">Online Classes</Typography>
-                </SectionPaper>
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <SectionPaper onClick={() => handleSectionClick('/section/registercourses')}>
-                  <Typography variant="h5">Register to Course</Typography>
-                </SectionPaper>
-              </Grid>
-              <Grid item xs={12} sm={6} md={4}>
-                <SectionPaper onClick={() => handleSectionClick('/section/results')}>
-                  <Typography variant="h5">Results</Typography>
-                </SectionPaper>
+                <Typography variant="h5" marginLeft={15}>Results</Typography>
               </Grid>
             </Grid>
           </Container>
