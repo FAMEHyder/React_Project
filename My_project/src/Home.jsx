@@ -15,6 +15,7 @@ import notes from './image/notes.png';
 import classes from './image/classes.png';
 import exams from './image/exams.png';
 import results from './image/results.png';
+import bg from './image/bg.png';
 
 const Navbar = styled(AppBar)({
   position: 'fixed',
@@ -29,34 +30,68 @@ const Navbar = styled(AppBar)({
 const NavbarButton = styled(Button)(({ theme }) => ({
   marginLeft: theme.spacing(1),
   color: 'black',
-  marginTop:'50px',
+  marginTop: '50px',
 }));
 
 const SectionPaper = styled(Paper)({
-  padding: '2px',
-  textAlign: 'center',
-  background: 'skyblue',
-  marginBottom: '5px',
+  // padding: '2px',
+  // background: 'none',
   marginTop: '30px',
-  height: '200px',
-  display: 'flex',
-  alignItems: 'end',
-  justifyContent: 'center',
-  boxShadow: [5000],
+  // display: 'flex',
+  // justifyContent: 'center',
   cursor: 'pointer',
-  // '&:hover': {
-  //   background: 'lightgray',
-  // },
+  // textAlign: 'center',
+  // marginBottom: '5px',
+  // height: '200px',
+  // alignItems: 'end',
+  // boxShadow: [5000],
 });
 
 const MainContainer = styled('div')({
   display: 'flex',
   marginTop: '64px',
+  flexDirection: 'column', // Make it a column layout to add top component and footer
 });
 
 const Content = styled('main')({
   flexGrow: 1,
   padding: '20px',
+});
+
+const TopComponent = styled(Paper)({
+  textAlign: 'center',
+  padding: '20px',
+  position: 'relative', // Make sure the component is positioned relative
+  marginTop: '50px',
+  marginBottom: '0px',
+  backgroundImage: `url(${bg})`,
+  backgroundRepeat: 'no-repeat',
+  backgroundSize: 'cover',
+  height: '400px',
+  color: 'black',
+  boxShadow: '5px 5px gray',
+  overflow: 'hidden', // Ensures the overlay fits within the component boundaries
+  zIndex: 1, // Set z-index for content
+  
+  // Add the overlay using a pseudo-element
+  '&::before': {
+    content: '""',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0, 0, 0, 0.6)', // Black color with 50% transparency
+    zIndex: -1, // Ensure the overlay is behind the content
+  },
+});
+
+const Footer = styled('footer')({
+  textAlign: 'center',
+  padding: '10px',
+  background: '#333',
+  color: 'white',
+  marginTop: '20px',
 });
 
 function Home() {
@@ -79,6 +114,28 @@ function Home() {
         </Toolbar>
       </Navbar>
       <MainContainer marginTop='100px'>
+        {/* Top Component */}
+        <TopComponent
+          style={{
+            marginTop: '50px',
+            marginBottom: '0px',
+            backgroundImage: `url(${bg})`,
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'cover',
+            height: '500px',
+            color: 'black',
+            boxShadow: '5px 5px gray',
+           
+          }}
+        >
+          <Typography
+            variant='contained'
+            marginRight='50px'
+
+          >IQRA YOUTH EDUCATIONAL FOUNDATION </Typography>
+
+        </TopComponent>
+
         <Content>
           <Container>
             <Grid container spacing={3}>
@@ -197,6 +254,12 @@ function Home() {
             </Grid>
           </Container>
         </Content>
+
+        {/* Footer */}
+        <Footer style={{ marginTop: '150px', marginBottom: '0px' }}>
+
+          © 2024 IQRA YOUTH EDUCATIONAL FOUNDATION. All Rights Reserved.
+        </Footer>
       </MainContainer>
     </>
   );
