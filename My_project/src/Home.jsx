@@ -12,6 +12,9 @@ import IMG from "./image/Logo.png";
 import backgroundImage from './image/member.png';
 import book from './image/book.png';
 import notes from './image/notes.png';
+import classes from './image/classes.png';
+import exams from './image/exams.png';
+import results from './image/results.png';
 
 const Navbar = styled(AppBar)({
   position: 'fixed',
@@ -144,7 +147,7 @@ function Home() {
                 <SectionPaper
                   onClick={() => handleSectionClick('/section/online-classes')}
                   style={{
-                    backgroundImage: `url(${backgroundImage})`,
+                    backgroundImage: `url(${classes})`,
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
@@ -161,7 +164,7 @@ function Home() {
                 <SectionPaper
                   onClick={() => handleSectionClick('/section/registercourses')}
                   style={{
-                    backgroundImage: `url(${backgroundImage})`,
+                    backgroundImage: `url(${exams})`,
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
@@ -172,13 +175,13 @@ function Home() {
                     boxShadow: '3px 3px 3px 3px black'
                   }}>
                 </SectionPaper>
-                <Typography marginLeft={15} variant="h5">Register to Course</Typography>
+                <Typography marginLeft={5} variant="h5">Register For Preboard Exams</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
                 <SectionPaper
                   onClick={() => handleSectionClick('/section/results')}
                   style={{
-                    backgroundImage: `url(${backgroundImage})`,
+                    backgroundImage: `url(${results})`,
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',

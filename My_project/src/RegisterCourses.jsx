@@ -14,11 +14,11 @@ function RegisterCourses() {
     
     >
       <Typography variant="h4"  gutterBottom>
-        Register to Course
+        Preboard Registration
         
       </Typography>
       <TextField
-      label = "Register A Course"
+      label = "Register Now"
       variant="outlined"
       fullWidth
       margin='normel'
@@ -52,7 +52,7 @@ function RegisterCourses() {
       }}
 
       >
-          Register
+          Submit
         </Button>
        
     </Container>
