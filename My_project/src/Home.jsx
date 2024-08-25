@@ -16,14 +16,36 @@ import classes from './image/classes.png';
 import exams from './image/exams.png';
 import results from './image/results.png';
 import bg from './image/bg.png';
+import { keyframes } from '@mui/system';
 
+const typing = keyframes`
+  from { width: 0; }
+  to { width: 55%; }
+`;
+
+const blink = keyframes`
+  1000% { border-color: transparent; }
+`;
+
+const TypingText = styled(Typography)({
+  // marginTop:'200px',
+  fontWeight: 'bold',
+  fontSize: '1.45rem',
+  color:'white',
+  whiteSpace: 'nowrap',
+  overflow: 'hidden',
+  // borderRight: '0px solid white', // Cursor effect
+  width: '100%',
+  display: 'inline-block',
+  animation: `${typing} 3.5s steps(30) infinite alternate, ${blink} 0.5s step-end infinite`,
+});
 const Navbar = styled(AppBar)({
-  position: 'fixed',
-  left: 0,
-  marginBottom: '0px',
+  // position: 'fixed',
+  // left: 0,
+  // marginBottom: '0px',
   height: '100px',
   marginLeft: '5px',
-  zIndex: 1205,
+  // zIndex: 1205,
   background: 'white',
 });
 
@@ -31,6 +53,7 @@ const NavbarButton = styled(Button)(({ theme }) => ({
   marginLeft: theme.spacing(1),
   color: 'black',
   marginTop: '50px',
+  fontWeight:'600',
 }));
 
 const SectionPaper = styled(Paper)({
@@ -59,7 +82,7 @@ const Content = styled('main')({
 });
 
 const TopComponent = styled(Paper)({
-  textAlign: 'center',
+  // textAlign: 'center',
   padding: '20px',
   position: 'relative', // Make sure the component is positioned relative
   marginTop: '50px',
@@ -81,7 +104,7 @@ const TopComponent = styled(Paper)({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.6)', // Black color with 50% transparency
+    backgroundColor: 'rgba(0, 0, 0, 0.8)', // Black color with 50% transparency
     zIndex: -1, // Ensure the overlay is behind the content
   },
 });
@@ -121,18 +144,16 @@ function Home() {
             marginBottom: '0px',
             backgroundImage: `url(${bg})`,
             backgroundRepeat: 'no-repeat',
-            backgroundSize: 'cover',
+            backgroundSize: 'fix',
             height: '500px',
             color: 'black',
-            boxShadow: '5px 5px gray',
+            boxShadow: '5px 3px gray',
            
           }}
         >
-          <Typography
-            variant='contained'
-            marginRight='50px'
-
-          >IQRA YOUTH EDUCATIONAL FOUNDATION </Typography>
+          <Typography style={{ fontWeight: '1000', fontFamily: 'Arial Black, Gadget, sans-serif', marginTop:'200px', marginBottom:'10px', color:'white', fontSize: '2rem', }}>IQRA YOUTH EDUCATIONAL FOUNDATION </Typography>
+          <TypingText>WE AIM TO QUALITY EDUCATION </TypingText><br />
+          <TypingText>WE AIM TO SUPPORT STUDENTS </TypingText>
 
         </TopComponent>
 
