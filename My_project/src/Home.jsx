@@ -17,6 +17,7 @@ import exams from './image/exams.png';
 import results from './image/results.png';
 import bg from './image/bg.png';
 import { keyframes } from '@mui/system';
+import useScrollTrigger from '@mui/material/useScrollTrigger';
 
 const typing = keyframes`
   from { width: 0; }
@@ -24,56 +25,46 @@ const typing = keyframes`
 `;
 
 const blink = keyframes`
-  1000% { border-color: transparent; }
+  100% { border-color: transparent; }
 `;
 
 const TypingText = styled(Typography)({
-  // marginTop:'200px',
   fontWeight: 'bold',
   fontSize: '1.45rem',
   color:'white',
   whiteSpace: 'nowrap',
   overflow: 'hidden',
-  // borderRight: '0px solid white', // Cursor effect
   width: '100%',
   display: 'inline-block',
   animation: `${typing} 3.5s steps(30) infinite alternate, ${blink} 0.5s step-end infinite`,
 });
-const Navbar = styled(AppBar)({
-  // position: 'fixed',
-  // left: 0,
-  // marginBottom: '0px',
-  height: '100px',
-  marginLeft: '5px',
-  // zIndex: 1205,
-  background: 'white',
-});
 
-const NavbarButton = styled(Button)(({ theme }) => ({
-  marginLeft: theme.spacing(1),
-  color: 'black',
-  marginTop: '50px',
-  fontWeight:'600',
+const Navbar = styled(AppBar)(({ trigger }) => ({
+  background: 'white',
+  transition: '0.3s',
+  boxShadow: trigger ? '0 4px 10px rgba(0, 0, 0, 0.3)' : 'none',
 }));
 
+const NavbarButton = styled(Button)({
+  marginLeft: '10px',
+  color: 'black',
+  fontWeight:'600',
+  marginTop:'90px',
+});
+
 const SectionPaper = styled(Paper)({
-  // padding: '2px',
-  // background: 'none',
-  marginTop: '30px',
-  // display: 'flex',
-  // justifyContent: 'center',
   cursor: 'pointer',
-  // textAlign: 'center',
-  // marginBottom: '5px',
-  // height: '200px',
-  // alignItems: 'end',
-  // boxShadow: [5000],
+  transition: 'transform 0.2s ease-in-out',
+  '&:hover': {
+    transform: 'scale(1.05)',
+  },
+  boxShadow: '3px 3px 3px 3px black',
 });
 
 const MainContainer = styled('div')({
   display: 'flex',
   marginTop: '64px',
-  flexDirection: 'column', // Make it a column layout to add top component and footer
+  flexDirection: 'column',
 });
 
 const Content = styled('main')({
@@ -82,9 +73,8 @@ const Content = styled('main')({
 });
 
 const TopComponent = styled(Paper)({
-  // textAlign: 'center',
   padding: '20px',
-  position: 'relative', // Make sure the component is positioned relative
+  position: 'relative',
   marginTop: '50px',
   marginBottom: '0px',
   backgroundImage: `url(${bg})`,
@@ -93,10 +83,8 @@ const TopComponent = styled(Paper)({
   height: '400px',
   color: 'black',
   boxShadow: '5px 5px gray',
-  overflow: 'hidden', // Ensures the overlay fits within the component boundaries
-  zIndex: 1, // Set z-index for content
-  
-  // Add the overlay using a pseudo-element
+  overflow: 'hidden',
+  zIndex: 1,
   '&::before': {
     content: '""',
     position: 'absolute',
@@ -104,8 +92,8 @@ const TopComponent = styled(Paper)({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.8)', // Black color with 50% transparency
-    zIndex: -1, // Ensure the overlay is behind the content
+    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    zIndex: -1,
   },
 });
 
@@ -119,6 +107,7 @@ const Footer = styled('footer')({
 
 function Home() {
   const navigate = useNavigate();
+  const trigger = useScrollTrigger({ threshold: 100 });
 
   const handleSectionClick = (path) => {
     navigate(path);
@@ -126,41 +115,28 @@ function Home() {
 
   return (
     <>
-      <Navbar>
-        <Toolbar >
-          <img src={IMG} alt="pic" height={100} width={100} style={{ marginBottom: '0px' }} />
-          <div style={{ marginBottom: '0px', position: 'relative', left: '75%', }}>
+      <Navbar trigger={trigger}>
+        <Toolbar>
+          <img src={IMG} alt="pic" height={100} width={100} />
+          <div style={{ marginLeft: 'auto' }}>
             <NavbarButton component={Link} to="/login">Login</NavbarButton>
             <NavbarButton component={Link} to="/register">Register</NavbarButton>
             <NavbarButton component={Link} to="/about">About</NavbarButton>
           </div>
         </Toolbar>
       </Navbar>
-      <MainContainer marginTop='100px'>
-        {/* Top Component */}
-        <TopComponent
-          style={{
-            marginTop: '50px',
-            marginBottom: '0px',
-            backgroundImage: `url(${bg})`,
-            backgroundRepeat: 'no-repeat',
-            backgroundSize: 'fix',
-            height: '500px',
-            color: 'black',
-            boxShadow: '5px 3px gray',
-           
-          }}
-        >
-          <Typography style={{ fontWeight: '1000', fontFamily: 'Arial Black, Gadget, sans-serif', marginTop:'200px', marginBottom:'10px', color:'white', fontSize: '2rem', }}>IQRA YOUTH EDUCATIONAL FOUNDATION </Typography>
-          <TypingText>WE AIM TO QUALITY EDUCATION </TypingText><br />
-          <TypingText>WE AIM TO SUPPORT STUDENTS </TypingText>
-
+      <MainContainer>
+        <TopComponent>
+          <Typography style={{ fontWeight: '1000', fontFamily: 'Arial Black, Gadget, sans-serif', marginTop:'200px', color:'white', fontSize: '2rem' }}>
+            IQRA YOUTH EDUCATIONAL FOUNDATION
+          </Typography>
+          <TypingText>WE AIM TO QUALITY EDUCATION</TypingText><br />
+          <TypingText>WE AIM TO SUPPORT STUDENTS</TypingText>
         </TopComponent>
 
         <Content>
           <Container>
             <Grid container spacing={3}>
-              {/* Upper Section */}
               <Grid item xs={12} sm={6} md={4}>
                 <SectionPaper
                   onClick={() => handleSectionClick('/section/members')}
@@ -169,15 +145,10 @@ function Home() {
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
-                    height: '120%',
-                    width: '90%',
-                    color: '#fff',
-                    padding: '20px',
-                    boxShadow: '3px 3px 3px 3px black'
+                    height: '200px',
                   }}
-                >
-                </SectionPaper>
-                <Typography variant="h5" marginLeft={15}>Our Members</Typography>
+                />
+                <Typography variant="h5" align="center">Our Members</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
                 <SectionPaper
@@ -187,14 +158,10 @@ function Home() {
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
-                    height: '120%',
-                    width: '90%',
-                    color: '#fff',
-                    padding: '20px',
-                    boxShadow: '3px 3px 3px 3px black'
-                  }}>
-                </SectionPaper>
-                <Typography marginLeft={15} variant="h5">Courses</Typography>
+                    height: '200px',
+                  }}
+                />
+                <Typography variant="h5" align="center">Courses</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
                 <SectionPaper
@@ -204,23 +171,16 @@ function Home() {
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
-                    height: '120%',
-                    width: '90%',
-                    color: '#fff',
-                    padding: '20px',
-                    boxShadow: '3px 3px 3px 3px black'
+                    height: '200px',
                   }}
-                >
-                </SectionPaper>
-                <Typography marginLeft={15} variant="h5">Notes</Typography>
+                />
+                <Typography variant="h5" align="center">Notes</Typography>
               </Grid>
 
-              {/* Add some space between upper and lower sections */}
               <Grid item xs={12}>
-                <div style={{ marginBottom: '60px' }}></div>
+                <div style={{ marginBottom: '5px' }}></div>
               </Grid>
 
-              {/* Lower Section */}
               <Grid item xs={12} sm={6} md={4}>
                 <SectionPaper
                   onClick={() => handleSectionClick('/section/online-classes')}
@@ -229,14 +189,10 @@ function Home() {
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
-                    height: '120%',
-                    width: '90%',
-                    color: '#fff',
-                    padding: '20px',
-                    boxShadow: '3px 3px 3px 3px black'
-                  }}>
-                </SectionPaper>
-                <Typography marginLeft={15} variant="h5">Online Classes</Typography>
+                    height: '200px',
+                  }}
+                />
+                <Typography variant="h5" align="center">Online Classes</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
                 <SectionPaper
@@ -246,14 +202,10 @@ function Home() {
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
-                    height: '120%',
-                    width: '90%',
-                    color: '#fff',
-                    padding: '20px',
-                    boxShadow: '3px 3px 3px 3px black'
-                  }}>
-                </SectionPaper>
-                <Typography marginLeft={5} variant="h5">Register For Preboard Exams</Typography>
+                    height: '200px',
+                  }}
+                />
+                <Typography variant="h5" align="center">Register For Preboard Exams</Typography>
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
                 <SectionPaper
@@ -263,22 +215,16 @@ function Home() {
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
-                    height: '120%',
-                    width: '90%',
-                    color: '#fff',
-                    padding: '20px',
-                    boxShadow: '3px 3px 3px 3px black'
-                  }}>
-                </SectionPaper>
-                <Typography variant="h5" marginLeft={15}>Results</Typography>
+                    height: '200px',
+                  }}
+                />
+                <Typography variant="h5" align="center">Results</Typography>
               </Grid>
             </Grid>
           </Container>
         </Content>
 
-        {/* Footer */}
-        <Footer style={{ marginTop: '150px', marginBottom: '0px' }}>
-
+        <Footer>
           © 2024 IQRA YOUTH EDUCATIONAL FOUNDATION. All Rights Reserved.
         </Footer>
       </MainContainer>
