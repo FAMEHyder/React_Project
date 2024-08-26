@@ -1,15 +1,16 @@
 
 import { Container, Typography, Box, Grid, ButtonBase } from '@mui/material';
-
-function Notes() {
+import { useNavigate } from 'react-router-dom';
+function SelectClass() {
+  const navigate = useNavigate();
   const courses = [
-    'Mathematics', 'Physics', 'Chemistry', 'Biology', 'Computer',
-    'Urdu', 'English', 'State Affairs','Cuurent Affairs'
+    '9th', '10th', 'First Year', 'Second Year'
   ];
 
-  const handleCourseClick = (course) => {
-    console.log(`Clicked on ${course}`);
-    // You can add further actions here, such as navigation or displaying more details
+  const handleClassClick = (path) => {
+    
+    navigate(path);
+
   };
 
   return (
@@ -23,12 +24,12 @@ function Notes() {
     }}
     >
       <Typography variant="h4" gutterBottom>
-      These Subjects are available
+      These Classes are available
       </Typography>
       <Grid container spacing={2}>
         {courses.map((course, index) => (
           <Grid item xs={12} sm={6} md={4} key={index}>
-            <ButtonBase onClick={() => handleCourseClick(course)} sx={{ width: '100%' }}>
+            <ButtonBase onClick={() => handleClassClick('/Notes')} sx={{ width: '100%' }}>
               <Box 
                 mb={2} 
                 p={2} 
@@ -50,4 +51,4 @@ function Notes() {
   );
 }
 
-export default Notes;
+export default SelectClass;

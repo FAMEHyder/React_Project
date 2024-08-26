@@ -8,7 +8,7 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import backgroundImage from './image/member.png';
+import member from './image/member.png';
 import book from './image/book.png';
 import notes from './image/notes.png';
 import classes from './image/classes.png';
@@ -16,7 +16,7 @@ import exams from './image/exams.png';
 import results from './image/results.png';
 import bg from './image/bg.png';
 import { keyframes } from '@mui/system';
-import useScrollTrigger from '@mui/material/useScrollTrigger';
+// import Logo from './image/Logo.png';
 
 const typing = keyframes`
   from { width: 0; }
@@ -107,7 +107,6 @@ const Footer = styled('footer')({
 
 function Home() {
   const navigate = useNavigate();
-  const trigger = useScrollTrigger({ threshold: 100 });
 
   const handleSectionClick = (path) => {
     navigate(path);
@@ -115,7 +114,7 @@ function Home() {
 
   return (
     <>
-      <Navbar trigger={trigger}>
+      <Navbar>
         <Toolbar>
           
           <div style={{ marginLeft: 'auto' }}>
@@ -133,7 +132,7 @@ function Home() {
           <TypingText>WE AIM TO QUALITY EDUCATION</TypingText><br />
           <TypingText>WE AIM TO SUPPORT STUDENTS</TypingText>
         </TopComponent>
-
+        
         <Content>
           <Container>
             <Grid container spacing={3}>
@@ -141,7 +140,7 @@ function Home() {
                 <SectionPaper
                   onClick={() => handleSectionClick('/section/members')}
                   style={{
-                    backgroundImage: `url(${backgroundImage})`,
+                    backgroundImage: `url(${member})`,
                     backgroundSize: 'cover',
                     backgroundRepeat: 'no-repeat',
                     backgroundPosition: 'center',
@@ -152,7 +151,7 @@ function Home() {
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
                 <SectionPaper
-                  onClick={() => handleSectionClick('/section/courses')}
+                  onClick={() => handleSectionClick('/section/SelectClass')}
                   style={{
                     backgroundImage: `url(${book})`,
                     backgroundSize: 'cover',
@@ -165,7 +164,7 @@ function Home() {
               </Grid>
               <Grid item xs={12} sm={6} md={4}>
                 <SectionPaper
-                  onClick={() => handleSectionClick('/section/notes')}
+                  onClick={() => handleSectionClick('/section/SelectClass')}
                   style={{
                     backgroundImage: `url(${notes})`,
                     backgroundSize: 'cover',
