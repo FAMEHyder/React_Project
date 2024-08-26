@@ -1,60 +1,60 @@
 
-import { Container, Button, TextField, Typography } from '@mui/material';
+import { Container, Button,Typography, TextField, Box } from '@mui/material';
 
 function RegisterCourses() {
   return (
-    <Container maxWidth = "xs"
+    <Container maxWidth= "xs" 
     sx={{
-      marginTop: '200px',
+      marginTop: '50px',
+      height:'520px',
       backgroundColor: 'white', // Set the background color
-      padding: '16px', // Add some padding if needed
+      padding: '1px', // Add some padding if needed
       borderRadius: '8px', // Optional: Add rounded corners
-      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', // Optional: Add a shadow
+      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.5)', // Optional: Add a shadow
     }}
-    
     >
-      <Typography variant="h4"  gutterBottom>
-        Preboard Registration
-        
+      <Typography variant="h4" gutterBottom>
+        Register Now
       </Typography>
-      <TextField
-      label = "Register Now"
-      variant="outlined"
-      fullWidth
-      margin='normel'
-      placeholder='Subject Name'
-        sx={{
-          '& label.Mui-focused': {
-            color: 'black',
-          },
-          '& .MuiOutlinedInput-root': {
-            '& fieldset': {
-              borderColor: 'darkgray',
-            },
-            '&:hover fieldset': {
-              borderColor: 'black',
-            },
-            '&.Mui-focused fieldset': {
-              borderColor: 'black',
-            },
-          },
-          '& .MuiInputBase-input': {
-            color: 'black',
-          },
-        }}
-      />
-    
-      
-      <Button type="submit" variant="contained" color="primary" fullWidth
-       sx={{
-        marginTop: '4px',
-        
-      }}
+      <Box>
+        <TextField
+          label="Enter Your Name"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+        />
+        <TextField
+          label="Enter Your Father Name"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+        />
+        <TextField
+          label="Enter Your Institute Name"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+        />
+        <TextField
+          label="Enter Your Class"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+        />
+        <TextField
+          label="Enter Your Group"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+        />
 
-      >
-          Submit
+        <Button
+          variant="contained"
+          fullWidth
+        >
+          Submit Form
         </Button>
-       
+      </Box>
     </Container>
   );
 }

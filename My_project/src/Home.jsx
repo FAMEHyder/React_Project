@@ -8,7 +8,6 @@ import Grid from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import IMG from "./image/Logo.png";
 import backgroundImage from './image/member.png';
 import book from './image/book.png';
 import notes from './image/notes.png';
@@ -39,31 +38,32 @@ const TypingText = styled(Typography)({
   animation: `${typing} 3.5s steps(30) infinite alternate, ${blink} 0.5s step-end infinite`,
 });
 
-const Navbar = styled(AppBar)(({ trigger }) => ({
+const Navbar = styled(AppBar)(() => ({
   background: 'white',
-  transition: '0.3s',
-  boxShadow: trigger ? '0 4px 10px rgba(0, 0, 0, 0.3)' : 'none',
+  // transition: '0.3s',
+  height:'50px',
+  // boxShadow: trigger ? '0 4px 10px rgba(0, 0, 0, 0.3)' : 'none',
 }));
 
 const NavbarButton = styled(Button)({
   marginLeft: '10px',
   color: 'black',
   fontWeight:'600',
-  marginTop:'90px',
+  // marginTop:'90px',
 });
 
 const SectionPaper = styled(Paper)({
   cursor: 'pointer',
   transition: 'transform 0.2s ease-in-out',
   '&:hover': {
-    transform: 'scale(1.05)',
+    transform: 'scale(1.03)',
   },
   boxShadow: '3px 3px 3px 3px black',
 });
 
 const MainContainer = styled('div')({
   display: 'flex',
-  marginTop: '64px',
+  // marginTop: '64px',
   flexDirection: 'column',
 });
 
@@ -73,7 +73,7 @@ const Content = styled('main')({
 });
 
 const TopComponent = styled(Paper)({
-  padding: '20px',
+  padding: '50px',
   position: 'relative',
   marginTop: '50px',
   marginBottom: '0px',
@@ -82,7 +82,7 @@ const TopComponent = styled(Paper)({
   backgroundSize: 'cover',
   height: '400px',
   color: 'black',
-  boxShadow: '5px 5px gray',
+  // boxShadow: '5px 5px gray',
   overflow: 'hidden',
   zIndex: 1,
   '&::before': {
@@ -92,7 +92,7 @@ const TopComponent = styled(Paper)({
     left: 0,
     right: 0,
     bottom: 0,
-    backgroundColor: 'rgba(0, 0, 0, 0.8)',
+    backgroundColor: 'rgba(0, 0, 0, 0.6)',
     zIndex: -1,
   },
 });
@@ -117,7 +117,7 @@ function Home() {
     <>
       <Navbar trigger={trigger}>
         <Toolbar>
-          <img src={IMG} alt="pic" height={100} width={100} />
+          
           <div style={{ marginLeft: 'auto' }}>
             <NavbarButton component={Link} to="/login">Login</NavbarButton>
             <NavbarButton component={Link} to="/register">Register</NavbarButton>

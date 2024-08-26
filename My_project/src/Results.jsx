@@ -9,11 +9,11 @@ function Results() {
       backgroundColor: 'white', // Set the background color
       padding: '16px', // Add some padding if needed
       borderRadius: '8px', // Optional: Add rounded corners
-      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)', // Optional: Add a shadow
+      boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.5)', // Optional: Add a shadow
     }}
     >
       <Typography variant="h4" gutterBottom>
-        Results
+        Enter Your Roll NO
       </Typography>
       <Box>
         <TextField
@@ -22,12 +22,7 @@ function Results() {
           fullWidth
           margin="normal"
         />
-        <TextField
-          label="Name"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-        />
+       
 
         <Button
           variant="contained"
