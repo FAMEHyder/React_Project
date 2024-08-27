@@ -5,6 +5,7 @@ import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Grid';
+import ButtonBase from '@mui/material/Grid';
 import Paper from '@mui/material/Paper';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
@@ -17,6 +18,35 @@ import results from './image/results.png';
 import bg from './image/bg.png';
 import { keyframes } from '@mui/system';
 // import Logo from './image/Logo.png';
+import face from './image/face.png';
+import wp from './image/wp.png';
+import ins from './image/ins.png';
+
+// SocialMediaSection Component
+const SocialMediaSection = styled(Paper)({
+  display: 'flex',
+  justifyContent: 'space-around',
+  // alignItems: 'center',
+  // backgroundColor: '#f4f4f4',
+  padding: '20px',
+  marginTop: '20px',
+  boxShadow: '3px 3px 3px 3px gray',
+  width: '100%',
+  // marginRight:'60px',
+});
+
+const SocialMediaButton = styled(ButtonBase)({
+  width: '100px',
+  height: '100px',
+  backgroundSize: 'cover',
+  backgroundRepeat: 'no-repeat',
+  backgroundPosition: 'center',
+  borderRadius: '50%',
+  boxShadow: '0px 2px 10px rgba(0, 0, 0, 1)',
+  '&:hover': {
+    transform: 'scale(1.1)',
+  },
+});
 
 const typing = keyframes`
   from { width: 0; }
@@ -225,6 +255,22 @@ function Home() {
                 <Typography variant="h5" align="center">Results</Typography>
               </Grid>
             </Grid>
+            {/* Social Media Section */}
+              <Typography marginTop={5} fontSize={50}>Social Media Sites</Typography>
+            <SocialMediaSection>
+              <SocialMediaButton
+                onClick={() => window.open('https://www.facebook.com/profile.php?id=100077870918618&mibextid=ZbWKwL', '_blank')}
+                style={{ backgroundImage: `url(${face})` }}
+              />
+              <SocialMediaButton
+                onClick={() => window.open('https://www.whatsapp.com', '_blank')}
+                style={{ backgroundImage: `url(${wp})` }}
+              />
+              <SocialMediaButton
+                onClick={() => window.open('https://www.instagram.com', '_blank')}
+                style={{ backgroundImage: `url(${ins})` }}
+              />
+            </SocialMediaSection>
           </Container>
         </Content>
         
