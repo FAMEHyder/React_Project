@@ -20,7 +20,7 @@ import { keyframes } from '@mui/system';
 
 const typing = keyframes`
   from { width: 0; }
-  to { width: 55%; }
+  to { width: 200%; }
 `;
 
 const blink = keyframes`
@@ -72,7 +72,7 @@ const TopComponent = styled(Paper)({
   padding: '50px',
   position: 'relative',
   marginTop: '50px',
-  marginBottom: '0px',
+  // marginBottom: '0px',
   backgroundImage: `url(${bg})`,
   backgroundRepeat: 'no-repeat',
   backgroundSize: 'cover',
@@ -131,7 +131,7 @@ function Home() {
       </Navbar>
       <MainContainer>
         <TopComponent>
-          <Typography style={{ fontWeight: '1000', fontFamily: 'Arial Black, Gadget, sans-serif', marginTop:'200px', color:'white', fontSize: '2rem' }}>
+          <Typography style={{ fontFamily: 'Arial Black, Gadget, sans-serif', marginTop:'200px', color:'white', fontSize: '2rem' }}>
             IQRA YOUTH EDUCATIONAL FOUNDATION
           </Typography>
           <TypingText>WE AIM TO QUALITY EDUCATION</TypingText><br />
@@ -227,7 +227,7 @@ function Home() {
             </Grid>
           </Container>
         </Content>
-
+        
         <Footer>
           <Container>
             <Grid container spacing={3}>
