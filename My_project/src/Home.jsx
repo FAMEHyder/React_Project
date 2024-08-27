@@ -44,7 +44,14 @@ const SocialMediaButton = styled(ButtonBase)({
   borderRadius: '50%',
   boxShadow: '0px 2px 10px rgba(0, 0, 0, 1)',
   '&:hover': {
-    transform: 'scale(1.1)',
+    // transform: 'scale(1.1)',
+    transform: 'rotate(5deg)',
+    boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.3)',
+    color: '#FF5733',
+    backgroundColor: 'rgba(0, 0, 0, 0.1)',
+    textDecoration: 'underline',
+    cursor: 'pointer',
+    opacity: 0.8,
   },
 });
 
