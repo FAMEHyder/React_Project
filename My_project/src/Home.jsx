@@ -40,16 +40,13 @@ const TypingText = styled(Typography)({
 
 const Navbar = styled(AppBar)(() => ({
   background: 'white',
-  // transition: '0.3s',
   height:'50px',
-  // boxShadow: trigger ? '0 4px 10px rgba(0, 0, 0, 0.3)' : 'none',
 }));
 
 const NavbarButton = styled(Button)({
   marginLeft: '10px',
   color: 'black',
   fontWeight:'600',
-  // marginTop:'90px',
 });
 
 const SectionPaper = styled(Paper)({
@@ -63,7 +60,6 @@ const SectionPaper = styled(Paper)({
 
 const MainContainer = styled('div')({
   display: 'flex',
-  // marginTop: '64px',
   flexDirection: 'column',
 });
 
@@ -82,7 +78,6 @@ const TopComponent = styled(Paper)({
   backgroundSize: 'cover',
   height: '400px',
   color: 'black',
-  // boxShadow: '5px 5px gray',
   overflow: 'hidden',
   zIndex: 1,
   '&::before': {
@@ -99,10 +94,21 @@ const TopComponent = styled(Paper)({
 
 const Footer = styled('footer')({
   textAlign: 'center',
-  padding: '10px',
+  padding: '20px',
   background: '#333',
   color: 'white',
   marginTop: '20px',
+});
+
+const FooterCard = styled(Paper)({
+  padding: '20px',
+  textAlign: 'center',
+  backgroundColor: '#444',
+  color: 'white',
+  boxShadow: '0px 2px 10px rgba(0, 0, 0, 0.5)',
+  '&:hover': {
+    backgroundColor: '#555',
+  },
 });
 
 function Home() {
@@ -116,7 +122,6 @@ function Home() {
     <>
       <Navbar>
         <Toolbar>
-          
           <div style={{ marginLeft: 'auto' }}>
             <NavbarButton component={Link} to="/login">Login</NavbarButton>
             <NavbarButton component={Link} to="/register">Register</NavbarButton>
@@ -224,7 +229,37 @@ function Home() {
         </Content>
 
         <Footer>
-          © 2024 IQRA YOUTH EDUCATIONAL FOUNDATION. All Rights Reserved.
+          <Container>
+            <Grid container spacing={3}>
+              <Grid item xs={12} sm={4}>
+                <FooterCard>
+                  <Typography variant="h6">Contact Us</Typography>
+                  <Typography variant="body1">
+                    Reach out to us via email or phone.
+                  </Typography>
+                </FooterCard>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <FooterCard>
+                  <Typography variant="h6">Our Services</Typography>
+                  <Typography variant="body1">
+                    Learn more about the services we offer.
+                  </Typography>
+                </FooterCard>
+              </Grid>
+              <Grid item xs={12} sm={4}>
+                <FooterCard>
+                  <Typography variant="h6">Join Us</Typography>
+                  <Typography variant="body1">
+                    Become a member of our foundation today.
+                  </Typography>
+                </FooterCard>
+              </Grid>
+            </Grid>
+          </Container>
+          <Typography style={{ marginTop: '20px' }}>
+            © 2024 IQRA YOUTH EDUCATIONAL FOUNDATION. All Rights Reserved.
+          </Typography>
         </Footer>
       </MainContainer>
     </>
