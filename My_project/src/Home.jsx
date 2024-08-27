@@ -235,7 +235,11 @@ function Home() {
                 <FooterCard>
                   <Typography variant="h6">Contact Us</Typography>
                   <Typography variant="body1">
-                    Reach out to us via email or phone.
+                    Email : famehyder9999@gmail.com <br />
+                    Email : famehyder7777@gmail.com <br />
+                    Phone : +923554526991 <br />
+                    Phone : +923417405991
+                    
                   </Typography>
                 </FooterCard>
               </Grid>
@@ -243,7 +247,11 @@ function Home() {
                 <FooterCard>
                   <Typography variant="h6">Our Services</Typography>
                   <Typography variant="body1">
-                    Learn more about the services we offer.
+                    We help students getting quality education <br />
+                    We help provide carrier counsuling  <br />
+                    We help students both financially & morally <br />
+                    We help students building self confidence <br />
+
                   </Typography>
                 </FooterCard>
               </Grid>
@@ -251,7 +259,11 @@ function Home() {
                 <FooterCard>
                   <Typography variant="h6">Join Us</Typography>
                   <Typography variant="body1">
-                    Become a member of our foundation today.
+                    Join us to Help Humanity<br />
+                    Join us to Help Students<br />
+                    Join us to promote education<br />
+                    Join us to promote good wills<br />
+
                   </Typography>
                 </FooterCard>
               </Grid>
