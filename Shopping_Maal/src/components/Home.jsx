@@ -4,9 +4,7 @@ import { Grid, Card, CardContent, CardMedia, Typography, AppBar, Toolbar, Button
 
 const Home = () => {
   const [products, setProducts] = useState([]);
-  const [filteredProducts, setFilteredProducts] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [category, setCategory] = useState('all'); // New state for category
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,32 +13,15 @@ const Home = () => {
       .then(data => {
         setProducts(data);
         setLoading(false);
-        filterProducts(data, category); // Apply filtering based on category
       })
       .catch(error => {
         console.error('Error fetching data:', error);
         setLoading(false);
       });
-  }, [category]);
+  }, []);
 
   const handleCardClick = (id) => {
     navigate(`/product/${id}`);
-  };
-
-  const filterProducts = (products, category) => {
-    let filtered = products;
-
-    if (category === 'shoes') {
-      // Example filter for shoe products; adjust criteria as needed
-      filtered = products.filter(product =>
-        product.title.toLowerCase().includes('shoe') || 
-        product.description.toLowerCase().includes('shoe')
-      );
-    }
-
-    // Add more conditions for other categories if needed
-
-    setFilteredProducts(filtered);
   };
 
   return (
@@ -50,10 +31,9 @@ const Home = () => {
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
             My Product Store
           </Typography>
-          <Button color="inherit" onClick={() => setCategory('jewelries')}>Jewelries</Button>
-          <Button color="inherit" onClick={() => setCategory('womens-clothing')}>Cloths for Women</Button>
-          <Button color="inherit" onClick={() => setCategory('mens-clothing')}>Cloths for Men</Button>
-          <Button color="inherit" onClick={() => setCategory('shoes')}>Shoes</Button>
+          <Button color="inherit" onClick={() => navigate('/jewelries')}>Jewelries</Button>
+          <Button color="inherit" onClick={() => navigate('/womens-clothing')}>Cloths for Women</Button>
+          <Button color="inherit" onClick={() => navigate('/mens-clothing')}>cloths for men</Button>
         </Toolbar>
       </AppBar>
 
@@ -73,7 +53,7 @@ const Home = () => {
               </Grid>
             ))
           ) : (
-            filteredProducts.map(product => (
+            products.map(product => (
               <Grid item xs={12} sm={6} md={4} key={product.id}>
                 <Card onClick={() => handleCardClick(product.id)} sx={{ cursor: 'pointer', display: 'flex', flexDirection: 'column', height: '100%' }}>
                   <CardMedia
