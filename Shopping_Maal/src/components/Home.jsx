@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Grid, Card, CardContent, CardMedia, Typography, AppBar, Toolbar, Button, Container, Skeleton } from '@mui/material';
+import { Grid, Card, CardContent, CardMedia, Typography, AppBar, Toolbar, Button, Container, Skeleton, Box } from '@mui/material';
 
 const Home = () => {
   const [products, setProducts] = useState([]);
@@ -25,17 +25,38 @@ const Home = () => {
   };
 
   return (
-    <Container>
-      <AppBar position="static">
+    <Container maxWidth='2g' sx={{ padding: 0 }}>
+      <AppBar sx={{width:1350}}>
         <Toolbar>
           <Typography variant="h6" sx={{ flexGrow: 1 }}>
-            My Product Store
+            Sat_Tara
           </Typography>
           <Button color="inherit" onClick={() => navigate('/jewelries')}>Jewelries</Button>
           <Button color="inherit" onClick={() => navigate('/womens-clothing')}>Cloths for Women</Button>
-          <Button color="inherit" onClick={() => navigate('/mens-clothing')}>cloths for men</Button>
+          <Button color="inherit" onClick={() => navigate('/mens-clothing')}>Cloths for Men</Button>
         </Toolbar>
       </AppBar>
+
+      <Box
+        sx={{
+          height: 600, // Adjust height as needed
+       
+        width:'100%',
+          
+          backgroundImage: 'url(https://media.istockphoto.com/id/1249219777/photo/shopping-online-concept-parcel-or-paper-cartons-with-a-shopping-cart-logo-in-a-trolley-on-a.jpg?s=1024x1024&w=is&k=20&c=Gsr6lZkBHjjeP5o18w9_mvnWxMZBqB-ncOi6tqh87hM=)', // Replace with your image URL
+          backgroundSize: 'cover',
+          backgroundPosition: 'center',
+          padding:0,
+          margin:0,
+        //   display: 'flex',
+        //   alignItems: 'center',
+        //   justifyContent: 'center',
+        //   color: 'white',
+        //   textAlign: 'center',
+        //   mb: 4
+        }}
+      >
+      </Box>
 
       <main>
         <Grid container spacing={2} sx={{ padding: 3 }}>
