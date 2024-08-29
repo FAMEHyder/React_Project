@@ -84,7 +84,7 @@ const Home = () => {
                         }}
                     >
                         <Card sx={{
-                            width: '100%', height: 300, margin: 1, display: 'flex', flexDirection: 'column', alignItems: 'center',
+                            width: '50%', height: 245, margin: 1, display: 'flex', flexDirection: 'column', alignItems: 'center',
                             '&:hover': {
                                 transform: 'scale(1.05)', // Slightly increase the card size
                                 boxShadow: 6, // Add a shadow on hover
@@ -102,7 +102,7 @@ const Home = () => {
                         </Card>
 
                         <Card sx={{
-                            width: '100%', height: 300, margin: 1, display: 'flex', flexDirection: 'column', alignItems: 'center',
+                            width: '50%', height: 245, margin: 1, display: 'flex', flexDirection: 'column', alignItems: 'center',
                             '&:hover': {
                                 transform: 'scale(1.05)', // Slightly increase the card size
                                 boxShadow: 6, // Add a shadow on hover
@@ -120,7 +120,7 @@ const Home = () => {
                         </Card>
 
                         <Card sx={{
-                            width: '100%', height: 300, margin: 1, display: 'flex', flexDirection: 'column', alignItems: 'center',
+                            width: '50%', height: 245, margin: 1, display: 'flex', flexDirection: 'column', alignItems: 'center',
                             '&:hover': {
                                 transform: 'scale(1.05)', // Slightly increase the card size
                                 boxShadow: 6, // Add a shadow on hover
@@ -148,20 +148,47 @@ const Home = () => {
             </Box>
 
             <footer>
-                <Grid container spacing={2} sx={{ padding: 3, width: '100%', marginTop: 2 }}>
-                    <Grid item xs={12} md={4}>
-                        <div className="footer-card">
+                <Grid container spacing={2}
+                    sx={{
+                        padding: 3,
+                        width: '100%',
+                        marginTop: 2,
+                        backgroundColor: 'lightgray',
+
+                    }}>
+                    <Grid item xs={12} md={4} 
+                    sx={{
+                        backgroundColor:'gray',
+                        borderRadius:'5px',
+                        width:'5px',
+
+                    }}>
+                        <div className="footer-card" >
                             <Typography variant="h6">About Us</Typography>
-                            <Typography variant="body2">Learn more about our company and mission.</Typography>
+                            <Typography variant="body2">
+                                Sat_Tara Shopping Maal <br />
+                                Near YaadGar Chowk  <br />
+                                Skardu <br />
+                                Baltistan</Typography>
                         </div>
                     </Grid>
                     <Grid item xs={12} md={4}>
                         <div className="footer-card">
+                            
                             <Typography variant="h6">Contact Us</Typography>
-                            <Typography variant="body2">Get in touch with us for any inquiries.</Typography>
+                            <Typography variant="body2">
+                                Email : famehyder9999@gmail.com <br />
+                                Email : famehyder7777@gmail.com <br />
+                                Phone : +923554526991 <br />
+                                Phone : +923417405991</Typography>
                         </div>
                     </Grid>
-                    <Grid item xs={12} md={4}>
+                    <Grid item xs={12} md={4} sx={{
+                        backgroundColor:'gray',
+                        borderRadius:'5px',
+                        
+
+                    }}>
                         <div className="footer-card">
                             <Typography variant="h6">Join Us</Typography>
                             <Typography variant="body2">Find out how you can be a part of our team.</Typography>

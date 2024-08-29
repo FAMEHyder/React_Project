@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 import PropTypes from 'prop-types'; // Import PropTypes for prop validation
 import { Grid, Card, CardContent, CardMedia, Typography, Container, Skeleton } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 
 const CategoryComponent = ({ category }) => {
   const [products, setProducts] = useState([]);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate(); // Use useNavigate for routing
 
   useEffect(() => {
     fetch(`https://fakestoreapi.com/products/category/${category}`)
@@ -18,6 +20,11 @@ const CategoryComponent = ({ category }) => {
         setLoading(false);
       });
   }, [category]);
+
+  const handleCardClick = (id) => {
+    // Navigate to the ProductDetails component with the product ID
+    navigate(`/product/${id}`);
+  };
 
   return (
     <Container>
@@ -39,7 +46,10 @@ const CategoryComponent = ({ category }) => {
           ) : (
             products.map(product => (
               <Grid item xs={12} sm={6} md={4} key={product.id}>
-                <Card sx={{ display: 'flex', flexDirection: 'column', height: '100%' }}>
+                <Card
+                  sx={{ display: 'flex', flexDirection: 'column', height: '100%', cursor: 'pointer' }}
+                  onClick={() => handleCardClick(product.id)} // Handle click event
+                >
                   <CardMedia
                     component="img"
                     sx={{ height: 200, objectFit: 'contain', width: '100%' }}
