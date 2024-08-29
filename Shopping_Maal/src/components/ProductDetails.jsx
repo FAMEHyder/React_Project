@@ -1,11 +1,12 @@
 import { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams,useNavigate } from 'react-router-dom';
 import { Container, Typography, Card, CardContent, CardMedia, Grid, Skeleton, Button, Stack } from '@mui/material';
 
 const ProductDetails = () => {
   const { id } = useParams();
   const [product, setProduct] = useState(null);
   const [loading, setLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Replace this URL with the URL of your fake API
@@ -62,7 +63,12 @@ const ProductDetails = () => {
             <Typography variant="h6">${product.price}</Typography>
             <Typography variant="body1">{product.description}</Typography>
             <Stack direction="row" spacing={2} sx={{ marginTop: 2 }}>
-              <Button variant="contained" color="primary">Add to Cart</Button>
+              
+              <Button variant="contained" color="primary" 
+              onClick={() => navigate("/")}
+
+
+              >Add to Cart</Button>
               <Button variant="contained" color="secondary">Buy Now</Button>
             </Stack>
           </CardContent>
