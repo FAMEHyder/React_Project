@@ -75,7 +75,7 @@ const Home = () => {
                               ,
 
                               '&:hover': {
-                                 backgroundColor:'lightblue', // Slightly increase the card size
+                                 backgroundColor:'white', // Slightly increase the card size
                                  transform:'scale(1.09)',
                                  boxShadow: 6, // Add a shadow on hover
                                 }
@@ -158,7 +158,7 @@ const Home = () => {
                               zIndex: 1 ,
                               
                               '&:hover': {
-                                  backgroundColor:'lightblue', // Slightly increase the card size
+                                  backgroundColor:'white', // Slightly increase the card size
                                   transform:'scale(1.09)',
                                   boxShadow: 6, // Add a shadow on hover
                                 }
