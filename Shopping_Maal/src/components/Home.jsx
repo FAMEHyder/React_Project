@@ -30,8 +30,8 @@ const Home = () => {
     };
 
     return (
-        <Container maxWidth={false} sx={{ padding: 0 }}>
-            <AppBar position="fixed" sx={{ width: '100%' }}>
+        <Container maxWidth={false} sx={{ border:2 ,width:1350, marginRight:10}}>
+            <AppBar sx={{ width: '100%' }}>
                 <Toolbar>
                     <Typography variant="h6" sx={{ flexGrow: 1 }}>
                         Sat_Tara
@@ -49,6 +49,7 @@ const Home = () => {
                     width: '100%',
                     backgroundImage: 'url(https://media.istockphoto.com/id/1249219777/photo/shopping-online-concept-parcel-or-paper-cartons-with-a-shopping-cart-logo-in-a-trolley-on-a.jpg?s=1024x1024&w=is&k=20&c=Gsr6lZkBHjjeP5o18w9_mvnWxMZBqB-ncOi6tqh87hM=)',
                     backgroundSize: 'cover',
+                
                     backgroundPosition: 'center',
                     display: 'flex',
                     alignItems: 'center',
@@ -67,9 +68,21 @@ const Home = () => {
                     }}
                 >
                     <IconButton
-                        sx={{ position: 'absolute', left: 0, zIndex: 1 }}
-                        onClick={handlePrev}
-                    >
+                        sx={{ position: 'absolute',
+                              left: 0,
+                              backgroundColor:'white',
+                              zIndex: 1
+                              ,
+
+                              '&:hover': {
+                                 backgroundColor:'lightblue', // Slightly increase the card size
+                                 transform:'scale(1.09)',
+                                 boxShadow: 6, // Add a shadow on hover
+                                }
+                            }}
+                            onClick={handlePrev}
+                            
+                            >
                         <ArrowBackIcon />
                     </IconButton>
 
@@ -95,7 +108,7 @@ const Home = () => {
                                 sx={{ width: '100%', height: 200, objectFit: 'cover' }}
                                 image="https://c7.alamy.com/comp/DNT2XP/gold-jewelry-little-india-singapore-DNT2XP.jpg"
                                 alt="jewelries"
-                            />
+                                />
                             <CardContent sx={{ textAlign: 'center' }}>
                                 <Typography variant="h6">Jewelries</Typography>
                             </CardContent>
@@ -113,7 +126,7 @@ const Home = () => {
                                 sx={{ width: '100%', height: 200, objectFit: 'cover' }}
                                 image="https://media.istockphoto.com/id/916092484/photo/women-clothes-hanging-on-hangers-clothing-rails-fashion-design.jpg?s=1024x1024&w=is&k=20&c=m_-tKfvNIumZYwW9V_3JO6ulWMPRLhPvXX0gsbJAe58="
                                 alt="Cloths for women"
-                            />
+                                />
                             <CardContent sx={{ textAlign: 'center' }}>
                                 <Typography variant="h6">Cloths for Women</Typography>
                             </CardContent>
@@ -131,7 +144,7 @@ const Home = () => {
                                 sx={{ width: '100%', height: 200, objectFit: 'cover' }}
                                 image="https://media.istockphoto.com/id/1293366109/photo/this-one-match-perfect-with-me.webp?s=1024x1024&w=is&k=20&c=ljpyNgsm90gjZHYRuHWfLXU-PTZk7IERjJW5v3NZ70U="
                                 alt="Cloths for Men"
-                            />
+                                />
                             <CardContent sx={{ textAlign: 'center' }}>
                                 <Typography variant="h6">Cloths for Men</Typography>
                             </CardContent>
@@ -139,7 +152,18 @@ const Home = () => {
                     </Box>
 
                     <IconButton
-                        sx={{ position: 'absolute', right: 0, zIndex: 1 }}
+                        sx={{ position: 'absolute',
+                            right: 0,
+                              backgroundColor:'white',
+                              zIndex: 1 ,
+                              
+                              '&:hover': {
+                                  backgroundColor:'lightblue', // Slightly increase the card size
+                                  transform:'scale(1.09)',
+                                  boxShadow: 6, // Add a shadow on hover
+                                }
+                            
+                            }}
                         onClick={handleNext}
                     >
                         <ArrowForwardIcon />
@@ -148,54 +172,58 @@ const Home = () => {
             </Box>
 
             <footer>
-                <Grid container spacing={2}
-                    sx={{
-                        padding: 3,
-                        width: '100%',
-                        marginTop: 2,
-                        backgroundColor: 'lightgray',
+  <Grid container spacing={2}
+    sx={{
+      padding: 3,
+    //   width: '1400px',
+      marginTop: 2,
+      backgroundColor: 'gray',
+    }}>
+    
+    <Grid item xs={12} md={4}>
+      <Card sx={{ backgroundColor: 'lightgray', borderRadius: '5px', padding: 2 }}>
+        <CardContent>
+          <Typography variant="h6">About Us</Typography>
+          <Typography variant="body2">
+            Sat_Tara Shopping Maal <br />
+            Near YaadGar Chowk  <br />
+            Skardu <br />
+            Baltistan
+          </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+    
+    <Grid item xs={12} md={4}>
+      <Card sx={{ backgroundColor: 'lightgray', borderRadius: '5px', padding: 2 }}>
+        <CardContent>
+          <Typography variant="h6">Contact Us</Typography>
+          <Typography variant="body2">
+            Email: famehyder9999@gmail.com <br />
+            Email: famehyder7777@gmail.com <br />
+            Phone: +923554526991 <br />
+            Phone: +923417405991
+          </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+    
+    <Grid item xs={12} md={4}>
+      <Card sx={{ backgroundColor: 'lightgray', borderRadius: '5px', padding: 2 }}>
+        <CardContent>
+          <Typography variant="h6">Join Us</Typography>
+          <Typography variant="body2">
+            Lorem ipsum dolor sit amet consec elit. <br />
+            Dolores, nostrum optio quae eos tempoa <br />
+            perferendis similique. Reiciendis, cort. <br />
+            Sapiente nam non ipsum et voluptate alias?
+          </Typography>
+        </CardContent>
+      </Card>
+    </Grid>
+  </Grid>
+</footer>
 
-                    }}>
-                    <Grid item xs={12} md={4} 
-                    sx={{
-                        backgroundColor:'gray',
-                        borderRadius:'5px',
-                        width:'5px',
-
-                    }}>
-                        <div className="footer-card" >
-                            <Typography variant="h6">About Us</Typography>
-                            <Typography variant="body2">
-                                Sat_Tara Shopping Maal <br />
-                                Near YaadGar Chowk  <br />
-                                Skardu <br />
-                                Baltistan</Typography>
-                        </div>
-                    </Grid>
-                    <Grid item xs={12} md={4}>
-                        <div className="footer-card">
-                            
-                            <Typography variant="h6">Contact Us</Typography>
-                            <Typography variant="body2">
-                                Email : famehyder9999@gmail.com <br />
-                                Email : famehyder7777@gmail.com <br />
-                                Phone : +923554526991 <br />
-                                Phone : +923417405991</Typography>
-                        </div>
-                    </Grid>
-                    <Grid item xs={12} md={4} sx={{
-                        backgroundColor:'gray',
-                        borderRadius:'5px',
-                        
-
-                    }}>
-                        <div className="footer-card">
-                            <Typography variant="h6">Join Us</Typography>
-                            <Typography variant="body2">Find out how you can be a part of our team.</Typography>
-                        </div>
-                    </Grid>
-                </Grid>
-            </footer>
         </Container>
     );
 };

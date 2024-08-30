@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { useParams,useNavigate } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { Container, Typography, Card, CardContent, CardMedia, Grid, Skeleton, Button, Stack } from '@mui/material';
 
 const ProductDetails = () => {
@@ -21,6 +21,16 @@ const ProductDetails = () => {
         setLoading(false);
       });
   }, [id]);
+
+  const handleclick = ()=>{
+    navigate("/")
+    alert("added to cart successfully")
+
+  }
+
+  const handlepurchase=()=>{
+    navigate("/buy")
+  }
 
   if (loading) {
     return (
@@ -63,18 +73,19 @@ const ProductDetails = () => {
             <Typography variant="h6">${product.price}</Typography>
             <Typography variant="body1">{product.description}</Typography>
             <Stack direction="row" spacing={2} sx={{ marginTop: 2 }}>
-              
-              <Button variant="contained" color="primary" 
-              onClick={() => navigate("/")}
 
+              <Button variant="contained" color="primary"
+                onClick={handleclick}
 
               >Add to Cart</Button>
-              <Button variant="contained" color="secondary">Buy Now</Button>
-            </Stack>
-          </CardContent>
-        </Grid>
+            <Button variant="contained" color="secondary"
+            onClick={handlepurchase}
+            >Buy Now</Button>
+          </Stack>
+        </CardContent>
       </Grid>
-    </Container>
+    </Grid>
+    </Container >
   );
 };
 
