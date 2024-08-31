@@ -30,7 +30,7 @@ const Home = () => {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ width: '100%', paddingLeft: 0, paddingRight: 0 }}>
+        <Container maxWidth="xxl" sx={{ width: '100%', paddingLeft: 0, paddingRight: 0 }}>
             <AppBar position="fixed">
                 <Toolbar>
                     <Typography variant="h6" sx={{ flexGrow: 1 }}>
