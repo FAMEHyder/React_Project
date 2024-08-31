@@ -7,7 +7,7 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack';
 const Home = () => {
     const [products, setProducts] = useState([]);
     const [currentSlide, setCurrentSlide] = useState(0);
-    const slidesToShow = 1;  // Show only one card at a time
+    const slidesToShow = 1;
     const navigate = useNavigate();
 
     useEffect(() => {
@@ -30,8 +30,8 @@ const Home = () => {
     };
 
     return (
-        <Container maxWidth={false} sx={{ border:2 ,width:1350, marginRight:10}}>
-            <AppBar sx={{ width: '100%' }}>
+        <Container maxWidth="xl" sx={{ width: '100%', paddingLeft: 0, paddingRight: 0 }}>
+            <AppBar position="fixed">
                 <Toolbar>
                     <Typography variant="h6" sx={{ flexGrow: 1 }}>
                         Sat_Tara
@@ -45,16 +45,16 @@ const Home = () => {
             <Box
                 sx={{
                     position: 'relative',
-                    height: 600,
+                    height: { xs: 300, sm: 400, md: 500, lg: 600 },
                     width: '100%',
                     backgroundImage: 'url(https://media.istockphoto.com/id/1249219777/photo/shopping-online-concept-parcel-or-paper-cartons-with-a-shopping-cart-logo-in-a-trolley-on-a.jpg?s=1024x1024&w=is&k=20&c=Gsr6lZkBHjjeP5o18w9_mvnWxMZBqB-ncOi6tqh87hM=)',
                     backgroundSize: 'cover',
-                
                     backgroundPosition: 'center',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
-                    marginTop: '64px', // Adjust if the AppBar height is different
+                    marginTop: '64px',
+                    marginLeft: 0,
                 }}
             >
                 <Box
@@ -68,21 +68,9 @@ const Home = () => {
                     }}
                 >
                     <IconButton
-                        sx={{ position: 'absolute',
-                              left: 0,
-                              backgroundColor:'white',
-                              zIndex: 1
-                              ,
-
-                              '&:hover': {
-                                 backgroundColor:'white', // Slightly increase the card size
-                                 transform:'scale(1.09)',
-                                 boxShadow: 6, // Add a shadow on hover
-                                }
-                            }}
-                            onClick={handlePrev}
-                            
-                            >
+                        sx={{ position: 'absolute', left: 0, zIndex: 1 }}
+                        onClick={handlePrev}
+                    >
                         <ArrowBackIcon />
                     </IconButton>
 
@@ -96,55 +84,79 @@ const Home = () => {
                             transition: 'transform 0.5s ease',
                         }}
                     >
-                        <Card sx={{
-                            width: '50%', height: 245, margin: 1, display: 'flex', flexDirection: 'column', alignItems: 'center',
-                            '&:hover': {
-                                transform: 'scale(1.05)', // Slightly increase the card size
-                                boxShadow: 6, // Add a shadow on hover
-                            },
-                        }} onClick={() => navigate('/jewelries')}>
+                        <Card
+                            sx={{
+                                width: { xs: '80%', sm: '70%', md: '50%' },
+                                height: 245,
+                                margin: 1,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                '&:hover': {
+                                    transform: 'scale(1.05)',
+                                    boxShadow: 6,
+                                },
+                            }}
+                            onClick={() => navigate('/jewelries')}
+                        >
                             <CardMedia
                                 component="img"
                                 sx={{ width: '100%', height: 200, objectFit: 'cover' }}
                                 image="https://c7.alamy.com/comp/DNT2XP/gold-jewelry-little-india-singapore-DNT2XP.jpg"
                                 alt="jewelries"
-                                />
+                            />
                             <CardContent sx={{ textAlign: 'center' }}>
                                 <Typography variant="h6">Jewelries</Typography>
                             </CardContent>
                         </Card>
 
-                        <Card sx={{
-                            width: '50%', height: 245, margin: 1, display: 'flex', flexDirection: 'column', alignItems: 'center',
-                            '&:hover': {
-                                transform: 'scale(1.05)', // Slightly increase the card size
-                                boxShadow: 6, // Add a shadow on hover
-                            },
-                        }} onClick={() => navigate('/womens-clothing')}>
+                        <Card
+                            sx={{
+                                width: { xs: '80%', sm: '70%', md: '50%' },
+                                height: 245,
+                                margin: 1,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                '&:hover': {
+                                    transform: 'scale(1.05)',
+                                    boxShadow: 6,
+                                },
+                            }}
+                            onClick={() => navigate('/womens-clothing')}
+                        >
                             <CardMedia
                                 component="img"
                                 sx={{ width: '100%', height: 200, objectFit: 'cover' }}
                                 image="https://media.istockphoto.com/id/916092484/photo/women-clothes-hanging-on-hangers-clothing-rails-fashion-design.jpg?s=1024x1024&w=is&k=20&c=m_-tKfvNIumZYwW9V_3JO6ulWMPRLhPvXX0gsbJAe58="
-                                alt="Cloths for women"
-                                />
+                                alt="Cloths for Women"
+                            />
                             <CardContent sx={{ textAlign: 'center' }}>
                                 <Typography variant="h6">Cloths for Women</Typography>
                             </CardContent>
                         </Card>
 
-                        <Card sx={{
-                            width: '50%', height: 245, margin: 1, display: 'flex', flexDirection: 'column', alignItems: 'center',
-                            '&:hover': {
-                                transform: 'scale(1.05)', // Slightly increase the card size
-                                boxShadow: 6, // Add a shadow on hover
-                            },
-                        }} onClick={() => navigate('/mens-clothing')}>
+                        <Card
+                            sx={{
+                                width: { xs: '80%', sm: '70%', md: '50%' },
+                                height: 245,
+                                margin: 1,
+                                display: 'flex',
+                                flexDirection: 'column',
+                                alignItems: 'center',
+                                '&:hover': {
+                                    transform: 'scale(1.05)',
+                                    boxShadow: 6,
+                                },
+                            }}
+                            onClick={() => navigate('/mens-clothing')}
+                        >
                             <CardMedia
                                 component="img"
                                 sx={{ width: '100%', height: 200, objectFit: 'cover' }}
                                 image="https://media.istockphoto.com/id/1293366109/photo/this-one-match-perfect-with-me.webp?s=1024x1024&w=is&k=20&c=ljpyNgsm90gjZHYRuHWfLXU-PTZk7IERjJW5v3NZ70U="
                                 alt="Cloths for Men"
-                                />
+                            />
                             <CardContent sx={{ textAlign: 'center' }}>
                                 <Typography variant="h6">Cloths for Men</Typography>
                             </CardContent>
@@ -152,18 +164,7 @@ const Home = () => {
                     </Box>
 
                     <IconButton
-                        sx={{ position: 'absolute',
-                            right: 0,
-                              backgroundColor:'white',
-                              zIndex: 1 ,
-                              
-                              '&:hover': {
-                                  backgroundColor:'white', // Slightly increase the card size
-                                  transform:'scale(1.09)',
-                                  boxShadow: 6, // Add a shadow on hover
-                                }
-                            
-                            }}
+                        sx={{ position: 'absolute', right: 0, zIndex: 1 }}
                         onClick={handleNext}
                     >
                         <ArrowForwardIcon />
@@ -172,58 +173,50 @@ const Home = () => {
             </Box>
 
             <footer>
-  <Grid container spacing={2}
-    sx={{
-      padding: 3,
-    //   width: '1400px',
-      marginTop: 2,
-      backgroundColor: 'gray',
-    }}>
-    
-    <Grid item xs={12} md={4}>
-      <Card sx={{ backgroundColor: 'lightgray', borderRadius: '5px', padding: 2 }}>
-        <CardContent>
-          <Typography variant="h6">About Us</Typography>
-          <Typography variant="body2">
-            Sat_Tara Shopping Maal <br />
-            Near YaadGar Chowk  <br />
-            Skardu <br />
-            Baltistan
-          </Typography>
-        </CardContent>
-      </Card>
-    </Grid>
-    
-    <Grid item xs={12} md={4}>
-      <Card sx={{ backgroundColor: 'lightgray', borderRadius: '5px', padding: 2 }}>
-        <CardContent>
-          <Typography variant="h6">Contact Us</Typography>
-          <Typography variant="body2">
-            Email: famehyder9999@gmail.com <br />
-            Email: famehyder7777@gmail.com <br />
-            Phone: +923554526991 <br />
-            Phone: +923417405991
-          </Typography>
-        </CardContent>
-      </Card>
-    </Grid>
-    
-    <Grid item xs={12} md={4}>
-      <Card sx={{ backgroundColor: 'lightgray', borderRadius: '5px', padding: 2 }}>
-        <CardContent>
-          <Typography variant="h6">Join Us</Typography>
-          <Typography variant="body2">
-            Lorem ipsum dolor sit amet consec elit. <br />
-            Dolores, nostrum optio quae eos tempoa <br />
-            perferendis similique. Reiciendis, cort. <br />
-            Sapiente nam non ipsum et voluptate alias?
-          </Typography>
-        </CardContent>
-      </Card>
-    </Grid>
-  </Grid>
-</footer>
+                <Grid container spacing={2} sx={{ padding: 3, marginTop: 2, backgroundColor: 'gray', width: '100%', marginLeft: 0 }}>
+                    <Grid item xs={12} md={4}>
+                        <Card sx={{ backgroundColor: 'lightgray', borderRadius: '5px', padding: 2 }}>
+                            <CardContent>
+                                <Typography variant="h6">About Us</Typography>
+                                <Typography variant="body2">
+                                    Sat_Tara Shopping Maal <br />
+                                    Near YaadGar Chowk  <br />
+                                    Skardu <br />
+                                    Baltistan
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
 
+                    <Grid item xs={12} md={4}>
+                        <Card sx={{ backgroundColor: 'lightgray', borderRadius: '5px', padding: 2 }}>
+                            <CardContent>
+                                <Typography variant="h6">Contact Us</Typography>
+                                <Typography variant="body2">
+                                    Email: famehyder9999@gmail.com <br />
+                                    Email: famehyder7777@gmail.com <br />
+                                    Phone: +923554526991 <br />
+                                    Phone: +923417405991
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+
+                    <Grid item xs={12} md={4}>
+                        <Card sx={{ backgroundColor: 'lightgray', borderRadius: '5px', padding: 2 }}>
+                            <CardContent>
+                                <Typography variant="h6">Join Us</Typography>
+                                <Typography variant="body2">
+                                    Lorem ipsum dolor sit amet consec elit. <br />
+                                    Dolores, nostrum optio quae eos tempoa <br />
+                                    perferendis similique. Reiciendis, cort. <br />
+                                    Sapiente nam non ipsum et voluptate alias?
+                                </Typography>
+                            </CardContent>
+                        </Card>
+                    </Grid>
+                </Grid>
+            </footer>
         </Container>
     );
 };
