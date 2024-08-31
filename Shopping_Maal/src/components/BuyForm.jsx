@@ -22,6 +22,12 @@ const BuyForm = () => {
     navigate("/");
   };
 
+  const handlecancel = ()=>{
+    
+    navigate("/")
+
+  }
+
   return (
     <Container>
       <Box sx={{ maxWidth: 600, margin: '0 auto', mt: 4 }}>
@@ -81,6 +87,8 @@ const BuyForm = () => {
           <Button variant="contained" color="primary" type="submit" sx={{ mt: 2 }}>
             Submit
           </Button>
+
+          <Button variant='contained' color='secondary' onClick={handlecancel} sx={{ mt: 2 , marginLeft:2 }}>Cancel</Button>
         </form>
       </Box>
     </Container>
