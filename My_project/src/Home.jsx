@@ -103,7 +103,7 @@ const MainContainer = styled('div')({
 const Content = styled('main')({
   flexGrow: 1,
   padding: '20px',
-});
+}); 
 
 const TopComponent = styled(Paper)({
   padding: '50px',

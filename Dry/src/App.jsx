@@ -1,13 +1,18 @@
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 
-import './App.css'
 import Home from './components/Home'
+import AlmondData from './components/AlmondData';
 
 function App() {
 
   return (
-    <>
-     <Home/>
-    </>
+    <Router>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/:id" element={<AlmondData />} />
+
+      </Routes>
+    </Router>
   )
 }
 
