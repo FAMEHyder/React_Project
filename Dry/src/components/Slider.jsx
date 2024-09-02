@@ -70,6 +70,7 @@ const SliderComponent = () => {
 
   const handleClick = (Id) => {
     navigate(`/${Id}`);
+    // navigate(Id);
   };
 
   return (
