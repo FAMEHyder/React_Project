@@ -1,15 +1,16 @@
 import { Card, CardContent, CardMedia, Typography, Grid, Container } from '@mui/material';
-
+import w180 from '../Image/w180.png'
+import jambo from '../Image/jambo.png';
 // Sample data for cashew types
 const cashewTypes = [
   {
     name: 'W-180 (King of Cashews)',
-    image: 'path_to_king_cashews_image.jpg',
+    image: w180,
     description: 'W-180, known as the "King of Cashews," is the largest and highest quality cashew nut available.',
   },
   {
     name: 'W-210 (Jumbo Cashews)',
-    image: 'path_to_jumbo_cashews_image.jpg',
+    image: jambo,
     description: 'W-210 cashews are large, high-quality nuts, perfect for gourmet snacks and recipes.',
   },
   {
@@ -73,7 +74,7 @@ const CashewCards = () => {
             <Card>
               <CardMedia
                 component="img"
-                height="140"
+                height="200"
                 image={cashew.image}
                 alt={cashew.name}
               />
