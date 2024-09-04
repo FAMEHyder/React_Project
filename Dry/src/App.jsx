@@ -10,10 +10,11 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/1" element={<AlmondData/>} />
-        <Route path="/2" element={<CashewData/>} />
-        {/* <Route path="/:id" element={<AlmondData/>} />
-        <Route path="/:id" element={<cashewData/>} /> */}
+        {/* <Route path="/1" element={<AlmondData/>} />
+        <Route path="/2" element={<CashewData/>} /> */}
+
+        <Route path="/:id" element={<AlmondData/>} />
+        <Route path="/:id" element={<CashewData/>} />
 
       </Routes>
     </Router>
