@@ -71,6 +71,7 @@ const CategoryComponent = ({ category }) => {
           )}
         </Grid>
       </main>
+      
     </Container>
   );
 };
@@ -81,3 +82,4 @@ CategoryComponent.propTypes = {
 };
 
 export default CategoryComponent;
+
