@@ -2,7 +2,7 @@ import { Card, CardContent, CardMedia, Typography, Grid, Container } from '@mui/
 import w180 from '../Image/w180.png'
 import jambo from '../Image/jambo.png';
 import w240 from '../Image/w240.png';
-
+import w230 from '../Image/w230.png';
 
 
 // Sample data for cashew types
@@ -24,7 +24,7 @@ const cashewTypes = [
   },
   {
     name: 'W-320',
-    image: 'path_to_w320_cashews_image.jpg',
+    image: w230,
     description: 'W-320 is one of the most common cashew grades, used widely in snacks and cooking.',
   },
   {
