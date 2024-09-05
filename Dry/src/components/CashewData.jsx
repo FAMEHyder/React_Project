@@ -3,7 +3,10 @@ import w180 from '../Image/w180.png'
 import jambo from '../Image/jambo.png';
 import w240 from '../Image/w240.png';
 import w230 from '../Image/w230.png';
-
+import w450 from '../Image/w450.png';
+import splites from '../Image/splites.png';
+import butts from '../Image/butts.png';
+import pieces from '../Image/pieces.png';
 
 // Sample data for cashew types
 const cashewTypes = [
@@ -29,22 +32,22 @@ const cashewTypes = [
   },
   {
     name: 'W-450',
-    image: 'path_to_w450_cashews_image.jpg',
+    image: w450,
     description: 'W-450 cashews are smaller and more affordable, often used in bulk or recipes.',
   },
   {
     name: 'Splits',
-    image: 'path_to_splits_cashews_image.jpg',
+    image: splites,
     description: 'Splits are naturally split cashews, often used in cooking and baking.',
   },
   {
     name: 'Butts',
-    image: 'path_to_butts_cashews_image.jpg',
+    image: butts,
     description: 'Cashew butts are the bottom parts of the nut, used in cooking and for cashew products.',
   },
   {
     name: 'Pieces',
-    image: 'path_to_pieces_cashews_image.jpg',
+    image: pieces,
     description: 'Pieces are smaller fragments used in various recipes, including sweets and snacks.',
   },
   {
