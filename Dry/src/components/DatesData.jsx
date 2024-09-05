@@ -3,6 +3,10 @@ import medjol from '../Image/medjol.png';
 import noor from '../Image/noor.png';
 import barhi from '../Image/barhi.png';
 import ajwa from '../Image/ajwa.png'
+import zahidi from '../Image/zahidi.png';
+import khudri from '../Image/khudri.png';
+import halwi from '../Image/halwi.png';
+import sukkari from '../Image/sukkari.png'
 
 const dateVarieties = [
   {
@@ -27,22 +31,22 @@ const dateVarieties = [
   },
   {
     name: 'Zahidi',
-    image: 'https://example.com/zahidi.jpg',
+    image: zahidi,
     description: 'Zahidi dates are semi-dry, mildly sweet, and commonly used for making date sugar or pastes.',
   },
   {
     name: 'Khudri',
-    image: 'https://example.com/khudri.jpg',
+    image: khudri,
     description: 'Dark brown and medium-sweet, Khudri dates are often eaten as a snack or used in dishes.',
   },
   {
     name: 'Halawi',
-    image: 'https://example.com/halawi.jpg',
+    image: halwi,
     description: 'Sweet and soft with a caramel-like taste, Halawi dates are a perfect treat.',
   },
   {
     name: 'Sukkari',
-    image: 'https://example.com/sukkari.jpg',
+    image: sukkari,
     description: 'Known for their buttery texture and extreme sweetness, Sukkari dates are popular in the Middle East.',
   },
 ];
