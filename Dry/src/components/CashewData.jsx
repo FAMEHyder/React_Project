@@ -7,6 +7,10 @@ import w450 from '../Image/w450.png';
 import splites from '../Image/splites.png';
 import butts from '../Image/butts.png';
 import pieces from '../Image/pieces.png';
+import babybits from '../Image/babybits.png';
+import roasted from '../Image/roasted.png';
+import flavor from '../Image/flavor.png';
+import fla from '../Image/flavor.png';
 
 // Sample data for cashew types
 const cashewTypes = [
@@ -52,22 +56,22 @@ const cashewTypes = [
   },
   {
     name: 'Baby Bits',
-    image: 'path_to_baby_bits_cashews_image.jpg',
+    image: babybits,
     description: 'Baby Bits are tiny fragments of cashews, often used in industrial applications or for making cashew flour.',
   },
   {
     name: 'Roasted Cashews',
-    image: 'path_to_roasted_cashews_image.jpg',
+    image: roasted,
     description: 'Roasted cashews have a rich flavor, enhanced by roasting. Available salted or unsalted.',
   },
   {
     name: 'Salted Cashews',
-    image: 'path_to_salted_cashews_image.jpg',
+    image: flavor,
     description: 'Salted cashews are roasted and salted for flavor, making them a popular snack.',
   },
   {
     name: 'Flavored Cashews',
-    image: 'path_to_flavored_cashews_image.jpg',
+    image: fla,
     description: 'Flavored cashews are coated or mixed with various spices or sweeteners like honey, chili, or garlic.',
   },
 ];
