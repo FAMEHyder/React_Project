@@ -1,6 +1,10 @@
 import { Card, CardContent, CardMedia, Typography, Grid, Container } from '@mui/material';
 import w180 from '../Image/w180.png'
 import jambo from '../Image/jambo.png';
+import w240 from '../Image/w240.png';
+
+
+
 // Sample data for cashew types
 const cashewTypes = [
   {
@@ -15,7 +19,7 @@ const cashewTypes = [
   },
   {
     name: 'W-240',
-    image: 'path_to_w240_cashews_image.jpg',
+    image: w240,
     description: 'W-240 is a popular size that offers a balance between size and affordability.',
   },
   {
