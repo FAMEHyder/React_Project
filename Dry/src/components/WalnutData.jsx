@@ -1,6 +1,6 @@
 import { Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
-import eng from "../Image/englishwalnut.png";
-
+import eng from "../Image/engwalnut.png";
+import black from '../Image/blackwalnut.png'
 const walnutData = [
   {
     name: 'English Walnuts (Persian Walnuts)',
@@ -9,7 +9,7 @@ const walnutData = [
   },
   {
     name: 'Black Walnuts',
-    image: 'https://example.com/black-walnuts.jpg', // Replace with a valid image URL
+    image: black, // Replace with a valid image URL
     description: 'Black walnuts have a bold, earthy flavor with harder shells than English walnuts.'
   },
   {

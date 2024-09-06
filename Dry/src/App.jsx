@@ -14,8 +14,8 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/1" element={<AlmondData/>} />
         <Route path="/2" element={<CashewData/>} />
-        <Route path="/7" element={<DatesData/>} />
         <Route path="/3" element={<WalnutData/>} />
+        <Route path="/7" element={<DatesData/>} />
 
         {/* <Route path="/:id" element={<AlmondData/>} />
         <Route path="/:id" element={<CashewData/>} /> */}
