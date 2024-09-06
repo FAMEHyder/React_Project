@@ -4,6 +4,7 @@ import Home from './components/Home'
 import AlmondData from './components/AlmondData';
 import CashewData from './components/CashewData';
 import DatesData from './components/DatesData';
+import WalnutData from './components/WalnutData';
 
 function App() {
 
@@ -14,6 +15,7 @@ function App() {
         <Route path="/1" element={<AlmondData/>} />
         <Route path="/2" element={<CashewData/>} />
         <Route path="/7" element={<DatesData/>} />
+        <Route path="/3" element={<WalnutData/>} />
 
         {/* <Route path="/:id" element={<AlmondData/>} />
         <Route path="/:id" element={<CashewData/>} /> */}
