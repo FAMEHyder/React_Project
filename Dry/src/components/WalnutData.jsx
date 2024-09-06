@@ -3,6 +3,8 @@ import eng from "../Image/engwalnut.png";
 import black from '../Image/blackwalnut.png';
 import white from '../Image/whitewaalnut.png';
 import cali from '../Image/californiawanlut.png';
+import chand from '../Image/chandlerwalnut.png';
+import man from '../Image/marchanwalnut.png';
 
 const walnutData = [
   {
