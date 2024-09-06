@@ -1,6 +1,9 @@
 import { Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
 import eng from "../Image/engwalnut.png";
-import black from '../Image/blackwalnut.png'
+import black from '../Image/blackwalnut.png';
+import white from '../Image/whitewaalnut.png';
+import cali from '../Image/californiawanlut.png';
+
 const walnutData = [
   {
     name: 'English Walnuts (Persian Walnuts)',
