@@ -1,8 +1,8 @@
 import { Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
 import eng from "../Image/engwalnut.png";
 import black from '../Image/blackwalnut.png';
-import white from '../Image/whitewaalnut.png';
-import cali from '../Image/californiawanlut.png';
+import white from '../Image/whitewalnut.png';
+import cali from '../Image/cali.png';
 import chand from '../Image/chandlerwalnut.png';
 import man from '../Image/marchanwalnut.png';
 
@@ -47,7 +47,7 @@ const WalnutCards = () => {
           <Card>
             <CardMedia
               component="img"
-              height="140"
+              height="200"
               image={walnut.image}
               alt={walnut.name}
             />
