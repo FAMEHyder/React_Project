@@ -51,11 +51,24 @@ const Home = () => {
         }}
       >
         <SliderComponent/>
-        <AlmondData/>
-        <CashewData/>
-        <DatesData/>
-        <WalnutData/>
+        
+      </Box>
 
+      <Box
+      sx={{
+        marginTop:'30px',
+
+      }}
+      
+      >
+        <Typography marginLeft={60} fontSize={30} fontWeight={800} fontFamily={'cambria'}>Almonds and its Varieties</Typography>
+      <AlmondData/>
+        <Typography marginTop={10} marginLeft={60} fontSize={30} fontWeight={800} fontFamily={'cambria'}>Cashews and its Varieties</Typography>
+        <CashewData/>
+        <Typography marginTop={10} marginLeft={60} fontSize={30} fontWeight={800} fontFamily={'cambria'}>Dates and its Varieties</Typography>
+        <DatesData/>
+        <Typography marginTop={10} marginLeft={60} fontSize={30} fontWeight={800} fontFamily={'cambria'}>Walnuts and its Varieties</Typography>
+        <WalnutData/>
 
       </Box>
     </Container>
