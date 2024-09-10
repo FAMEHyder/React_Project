@@ -54,6 +54,8 @@ const Home = () => {
         <AlmondData/>
         <CashewData/>
         <DatesData/>
+        <WalnutData/>
+
 
       </Box>
     </Container>
