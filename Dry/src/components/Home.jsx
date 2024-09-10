@@ -4,6 +4,8 @@ import SliderComponent from '../components/Slider'; // Adjust the path as necess
 import AlmondData from '../components/AlmondData.jsx';
 import CashewData from '../components/CashewData.jsx';
 import DatesData from '../components/DatesData.jsx';
+import WalnutData from '../components/WalnutData.jsx';
+
 const Home = () => {
   return (
     <Container
