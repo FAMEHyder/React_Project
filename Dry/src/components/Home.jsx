@@ -1,7 +1,7 @@
 import { AppBar, Toolbar, Button, Typography, Box, Container } from '@mui/material';
 import bg from '../Image/bg.png';
 import SliderComponent from '../components/Slider'; // Adjust the path as necessary
-
+import AlmondData from '../components/AlmondData.jsx';
 const Home = () => {
   return (
     <Container
@@ -47,6 +47,7 @@ const Home = () => {
         }}
       >
         <SliderComponent/>
+        <AlmondData/>
       </Box>
     </Container>
   );
