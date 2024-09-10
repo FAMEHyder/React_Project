@@ -2,6 +2,7 @@ import { AppBar, Toolbar, Button, Typography, Box, Container } from '@mui/materi
 import bg from '../Image/bg.png';
 import SliderComponent from '../components/Slider'; // Adjust the path as necessary
 import AlmondData from '../components/AlmondData.jsx';
+import CashewData from '../components/CashewData.jsx';
 const Home = () => {
   return (
     <Container
@@ -48,6 +49,7 @@ const Home = () => {
       >
         <SliderComponent/>
         <AlmondData/>
+        <CashewData/>
       </Box>
     </Container>
   );
