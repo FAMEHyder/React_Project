@@ -12,7 +12,6 @@ import roasted from '../Image/roasted.png';
 import flavor from '../Image/flavor.png';
 import fla from '../Image/flavor.png';
 
-// Sample data for cashew types
 const cashewTypes = [
   {
     name: 'W-180 (King of Cashews)',
