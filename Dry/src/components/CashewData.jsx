@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Typography, Grid, Container } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Grid} from '@mui/material';
 import w180 from '../Image/w180.png'
 import jambo from '../Image/jambo.png';
 import w240 from '../Image/w240.png';
@@ -76,8 +76,8 @@ const cashewTypes = [
 ];
 
 const CashewCards = () => {
-  return (
-    <Container>
+ 
+    return (
       <Grid container spacing={2}>
         {cashewTypes.map((cashew) => (
           <Grid item xs={12} sm={6} md={3} key={cashew.id}>
@@ -101,8 +101,7 @@ const CashewCards = () => {
           </Grid>
         ))}
       </Grid>
-    </Container>
-  );
+    );
 };
 
 export default CashewCards;
