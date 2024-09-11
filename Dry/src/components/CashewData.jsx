@@ -81,7 +81,11 @@ const CashewCards = () => {
       <Grid container spacing={2}>
         {cashewTypes.map((cashew) => (
           <Grid item xs={12} sm={6} md={3} key={cashew.id}>
-            <Card>
+            <Card
+            sx={{
+              height: 400,
+
+          }}>
               <CardMedia
                 component="img"
                 height="200"
