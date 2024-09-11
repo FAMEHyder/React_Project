@@ -41,13 +41,19 @@ const walnutData = [
 
 const WalnutCards = () => {
   return (
-    <Grid container spacing={3}>
-      {walnutData.map((walnut, index) => (
-        <Grid item xs={12} sm={6} md={4} key={index}>
-          <Card>
+    <Grid container spacing={2}>
+      {walnutData.map((walnut) => (
+        <Grid item xs={12} sm={6} md={3} key={walnut.id}>
+          <Card  
+          
+          sx={{
+              height: 400,
+
+          }}>
             <CardMedia
               component="img"
               height="200"
+              width={100}
               image={walnut.image}
               alt={walnut.name}
             />

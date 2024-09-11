@@ -56,7 +56,12 @@ const DateCards = () => {
     <Grid container spacing={2}>
       {dateVarieties.map((date) => (
         <Grid item xs={12} sm={6} md={3} key={date.id}>
-          <Card>
+          <Card
+          sx={{
+            height: 400,
+
+        }}
+          >
             <CardMedia
               component="img"
               height="200"
