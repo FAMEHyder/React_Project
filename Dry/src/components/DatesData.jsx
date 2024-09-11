@@ -1,4 +1,4 @@
-import { Grid, Card, CardContent, CardMedia, Typography, Container } from '@mui/material';
+import { Grid, Card, CardContent, CardMedia, Typography} from '@mui/material';
 import medjol from '../Image/medjol.png';
 import noor from '../Image/noor.png';
 import barhi from '../Image/barhi.png';
@@ -53,30 +53,29 @@ const dateVarieties = [
 
 const DateCards = () => {
   return (
-    <Container>
-      <Grid container spacing={4}>
-        {dateVarieties.map((date, index) => (
-          <Grid item xs={12} sm={6} md={3} key={index}>
-            <Card>
-              <CardMedia
-                component="img"
-                height="200"
-                image={date.image}
-                alt={date.name}
-              />
-              <CardContent>
-                <Typography variant="h6" component="div">
-                  {date.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {date.description}
-                </Typography>
-              </CardContent>
-            </Card>
-          </Grid>
-        ))}
-      </Grid>
-    </Container>
+    <Grid container spacing={2}>
+      {dateVarieties.map((date) => (
+        <Grid item xs={12} sm={6} md={3} key={date.id}>
+          <Card>
+            <CardMedia
+              component="img"
+              height="200"
+              width={100}
+              image={date.image}
+              alt={date.name}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {date.name}
+              </Typography>
+              <Typography variant="body2" color="text.secondary">
+                {date.description}
+              </Typography>
+            </CardContent>
+          </Card>
+        </Grid>
+      ))}
+    </Grid>
   );
 };
 
