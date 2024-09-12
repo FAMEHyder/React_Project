@@ -11,7 +11,7 @@ app.use(express.json());
 const DataBaseConnection = async ()=>{
     try {
         await mongoose.connect(process.env.MONGO_URL);
-        console.log("connected succesfully");
+        console.log("connected. succesfully");
     }
     catch{
         console.log ("something went wrong");
