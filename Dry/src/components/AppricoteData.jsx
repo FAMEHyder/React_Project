@@ -1,79 +1,92 @@
 import { Card, CardContent, CardMedia, Typography, Grid} from '@mui/material';
-import w180 from '../Image/w180.png'
-import jambo from '../Image/jambo.png';
-import w240 from '../Image/w240.png';
-import w230 from '../Image/w230.png';
-import w450 from '../Image/w450.png';
-import splites from '../Image/splites.png';
-import butts from '../Image/butts.png';
-import pieces from '../Image/pieces.png';
-import babybits from '../Image/babybits.png';
-import roasted from '../Image/roasted.png';
-import flavor from '../Image/flavor.png';
-import fla from '../Image/flavor.png';
+import tilton from '../Image/w180.png'
+import moorpark from '../Image/jambo.png';
+import perfection from '../Image/w240.png';
+import blenheim from '../Image/w230.png';
+import goldkist from '../Image/w450.png';
+import chinese from '../Image/splites.png';
+import tomcot from '../Image/butts.png';
+import katy from '../Image/pieces.png';
+import royal from '../Image/babybits.png';
+import pugetgold from '../Image/roasted.png';
+import autumnglo from '../Image/flavor.png';
+import harcot from '../Image/flavor.png';
 
 const cashewTypes = [
-  { id:9,
-    name: 'W-180 (King of Cashews)',
-    image: w180,
-    description: 'W-180, known as the "King of Cashews," is the largest and highest quality cashew nut available.',
+  { 
+    id: 9,
+    name: 'Moorpark Apricot',
+    image: moorpark,
+    description: 'Moorpark apricots are large, juicy, and known for their sweet, rich flavor. Perfect for fresh eating and preserves.',
   },
-  { id:10,
-    name: 'W-210 (Jumbo Cashews)',
-    image: jambo,
-    description: 'W-210 cashews are large, high-quality nuts, perfect for gourmet snacks and recipes.',
+  { 
+    id: 10,
+    name: 'Tilton Apricot',
+    image: tilton,
+    description: 'Tilton apricots have a tangy, sweet flavor and are commonly used for drying and cooking.',
   },
-  { id:11,
-    name: 'W-240',
-    image: w240,
-    description: 'W-240 is a popular size that offers a balance between size and affordability.',
+  { 
+    id: 11,
+    name: 'Perfection Apricot',
+    image: perfection,
+    description: 'Perfection apricots are large with a firm texture and bright orange color, often used in fresh dishes.',
   },
-  { id:12,
-    name: 'W-320',
-    image: w230,
-    description: 'W-320 is one of the most common cashew grades, used widely in snacks and cooking.',
+  { 
+    id: 12,
+    name: 'Blenheim Apricot',
+    image: blenheim,
+    description: 'Blenheim apricots are sweet and juicy, ideal for both fresh consumption and drying.',
   },
-  { id:13,
-    name: 'W-450',
-    image: w450,
-    description: 'W-450 cashews are smaller and more affordable, often used in bulk or recipes.',
+  { 
+    id: 13,
+    name: 'Gold Kist Apricot',
+    image: goldkist,
+    description: 'Gold Kist apricots are early ripening with a sweet and slightly tart flavor, often enjoyed fresh.',
   },
-  { id:14,
-    name: 'Splits',
-    image: splites,
-    description: 'Splits are naturally split cashews, often used in cooking and baking.',
+  { 
+    id: 14,
+    name: 'Chinese/Mormon Apricot',
+    image: chinese,
+    description: 'Chinese or Mormon apricots are small, hardy, and have a sweet, mild flavor, often grown in cooler climates.',
   },
-  { id:15,
-    name: 'Butts',
-    image: butts,
-    description: 'Cashew butts are the bottom parts of the nut, used in cooking and for cashew products.',
+  { 
+    id: 15,
+    name: 'Tomcot Apricot',
+    image: tomcot,
+    description: 'Tomcot apricots ripen early and are known for their vibrant color and balanced sweet-tart flavor.',
   },
-  { id:16,
-    name: 'Pieces',
-    image: pieces,
-    description: 'Pieces are smaller fragments used in various recipes, including sweets and snacks.',
+  { 
+    id: 16,
+    name: 'Katy Apricot',
+    image: katy,
+    description: 'Katy apricots are large, sweet, and flavorful, commonly enjoyed fresh or in salads.',
   },
-  { id:17,
-    name: 'Baby Bits',
-    image: babybits,
-    description: 'Baby Bits are tiny fragments of cashews, often used in industrial applications or for making cashew flour.',
+  { 
+    id: 17,
+    name: 'Royal Apricot',
+    image: royal,
+    description: 'Royal apricots have an intense flavor and are often used for canning and drying.',
   },
-  { id:18,
-    name: 'Roasted Cashews',
-    image: roasted,
-    description: 'Roasted cashews have a rich flavor, enhanced by roasting. Available salted or unsalted.',
+  { 
+    id: 18,
+    name: 'Puget Gold Apricot',
+    image: pugetgold,
+    description: 'Puget Gold apricots thrive in cooler climates and are known for their sweet, delicious taste.',
   },
-  { id:19,
-    name: 'Salted Cashews',
-    image: flavor,
-    description: 'Salted cashews are roasted and salted for flavor, making them a popular snack.',
+  { 
+    id: 19,
+    name: 'Autumn Glo Apricot',
+    image: autumnglo,
+    description: 'Autumn Glo apricots ripen later in the season, with a juicy texture and rich, sweet flavor.',
   },
-  { id:20,
-    name: 'Flavored Cashews',
-    image: fla,
-    description: 'Flavored cashews are coated or mixed with various spices or sweeteners like honey, chili, or garlic.',
+  { 
+    id: 20,
+    name: 'Harcot Apricot',
+    image: harcot,
+    description: 'Harcot apricots are known for their excellent flavor and are perfect for fresh eating or making jams.',
   },
 ];
+
 
 const CashewCards = () => {
  
