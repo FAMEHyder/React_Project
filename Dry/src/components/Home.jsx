@@ -23,15 +23,6 @@ const Home = () => {
           <Typography variant="h6" component="div" sx={{ flex: 1 }}>
             SatTara Dryfruits
           </Typography>
-          <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1 }}>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Almonds</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Cashews</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Walnuts</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Pistachios</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Raisins</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Dried Apricots</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Dates</Button>
-          </Box>
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
             <Button color="inherit" onClick={() => handleClick('/1')}>Almonds</Button>
             <Button color="inherit" onClick={() => handleClick('/2')}>Cashews</Button>
