@@ -5,8 +5,13 @@ import AlmondData from '../components/AlmondData.jsx';
 import CashewData from '../components/CashewData.jsx';
 import DatesData from '../components/DatesData.jsx';
 import WalnutData from '../components/WalnutData.jsx';
+import { useNavigate } from 'react-router-dom';
 
 const Home = () => {
+  const navigate = useNavigate();
+  const handleClick = (path)=>{
+    navigate(path)
+  }
   return (
     <Container
       maxWidth={false}
@@ -19,13 +24,13 @@ const Home = () => {
             SatTara Dryfruits
           </Typography>
           <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1 }}>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }}>Almonds</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }}>Cashews</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }}>Walnuts</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }}>Pistachios</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }}>Raisins</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }}>Dried Apricots</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }}>Dates</Button>
+            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/1')}>Almonds</Button>
+            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/1')}>Cashews</Button>
+            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/1')}>Walnuts</Button>
+            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/1')}>Pistachios</Button>
+            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/1')}>Raisins</Button>
+            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/1')}>Dried Apricots</Button>
+            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/1')}>Dates</Button>
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
             <Button color="inherit">Almonds</Button>
