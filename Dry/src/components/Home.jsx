@@ -26,7 +26,7 @@ const Home = () => {
           <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1 }}>
             <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/1')}>Almonds</Button>
             <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/2')}>Cashews</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/3')}>Walnuts</Button>
+            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Walnuts</Button>
             <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Pistachios</Button>
             <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Raisins</Button>
             <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Dried Apricots</Button>
@@ -35,7 +35,7 @@ const Home = () => {
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
             <Button color="inherit" >Almonds</Button>
             <Button color="inherit" >Cashews</Button>
-            <Button color="inherit" >Walnuts</Button>
+            <Button color="inherit" onClick={() => handleClick('/3')}>Walnuts</Button>
             <Button color="inherit" onClick={() => handleClick('/4')}>Pistachios</Button>
             <Button color="inherit" onClick={() => handleClick('/5')}>Raisins</Button>
             <Button color="inherit" onClick={() => handleClick('/6')}>Dried Apricots</Button>
