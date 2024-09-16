@@ -33,13 +33,13 @@ const Home = () => {
             <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/7')}>Dates</Button>
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
-            <Button color="inherit">Almonds</Button>
-            <Button color="inherit">Cashews</Button>
-            <Button color="inherit">Walnuts</Button>
-            <Button color="inherit">Pistachios</Button>
-            <Button color="inherit">Raisins</Button>
-            <Button color="inherit">Dried Apricots</Button>
-            <Button color="inherit">Dates</Button>
+            <Button color="inherit" >Almonds</Button>
+            <Button color="inherit" >Cashews</Button>
+            <Button color="inherit" >Walnuts</Button>
+            <Button color="inherit" >Pistachios</Button>
+            <Button color="inherit" >Raisins</Button>
+            <Button color="inherit" >Dried Apricots</Button>
+            <Button color="inherit" onClick={() => handleClick('/7')}>Dates</Button>
           </Box>
         </Toolbar>
       </AppBar>
