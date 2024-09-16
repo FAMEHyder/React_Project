@@ -9,42 +9,50 @@ import halwi from '../Image/halwi.png';
 import sukkari from '../Image/sukkari.png'
 
 const dateVarieties = [
-  {
+  { 
+    id:33,
     name: 'Medjool',
     image: medjol, // Replace with actual image URLs
     description: 'Large, soft, and rich in flavor, Medjool dates are known as the "king of dates".',
   },
-  {
+  { 
+    id:34,
     name: 'Deglet Noor',
     image: noor,
     description: 'Semi-dry with a mild sweetness, Deglet Noor dates are versatile and often used in cooking.',
   },
-  {
+  { 
+    id:35,
     name: 'Barhi',
     image: barhi,
     description: 'Soft, chewy, and very sweet, Barhi dates are often enjoyed fresh or at the yellow stage.',
   },
-  {
+  { 
+    id:36,
     name: 'Ajwa',
     image: ajwa,
     description: 'Rich in flavor and soft in texture, Ajwa dates are famous for their cultural and religious significance.',
   },
-  {
+  { 
+    id:37,
     name: 'Zahidi',
     image: zahidi,
     description: 'Zahidi dates are semi-dry, mildly sweet, and commonly used for making date sugar or pastes.',
   },
-  {
+  { 
+    id:38,
     name: 'Khudri',
     image: khudri,
     description: 'Dark brown and medium-sweet, Khudri dates are often eaten as a snack or used in dishes.',
   },
-  {
+  { 
+    id:39,
     name: 'Halawi',
     image: halwi,
     description: 'Sweet and soft with a caramel-like taste, Halawi dates are a perfect treat.',
   },
-  {
+  { 
+    id:40,
     name: 'Sukkari',
     image: sukkari,
     description: 'Known for their buttery texture and extreme sweetness, Sukkari dates are popular in the Middle East.',
