@@ -24,7 +24,7 @@ const Home = () => {
             SatTara Dryfruits
           </Typography>
           <Box sx={{ display: 'flex', flexWrap: 'wrap', justifyContent: 'center', gap: 1 }}>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/1')}>Almonds</Button>
+            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Almonds</Button>
             <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Cashews</Button>
             <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Walnuts</Button>
             <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Pistachios</Button>
@@ -33,7 +33,7 @@ const Home = () => {
             <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Dates</Button>
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
-            <Button color="inherit" >Almonds</Button>
+            <Button color="inherit" onClick={() => handleClick('/1')}>Almonds</Button>
             <Button color="inherit" onClick={() => handleClick('/2')}>Cashews</Button>
             <Button color="inherit" onClick={() => handleClick('/3')}>Walnuts</Button>
             <Button color="inherit" onClick={() => handleClick('/4')}>Pistachios</Button>
