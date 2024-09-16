@@ -30,7 +30,7 @@ const Home = () => {
             <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/4')}>Pistachios</Button>
             <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/5')}>Raisins</Button>
             <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/6')}>Dried Apricots</Button>
-            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} onClick={() => handleClick('/7')}>Dates</Button>
+            <Button color="inherit" sx={{ display: { xs: 'block', sm: 'none' } }} >Dates</Button>
           </Box>
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
             <Button color="inherit" >Almonds</Button>
@@ -38,7 +38,7 @@ const Home = () => {
             <Button color="inherit" >Walnuts</Button>
             <Button color="inherit" >Pistachios</Button>
             <Button color="inherit" >Raisins</Button>
-            <Button color="inherit" >Dried Apricots</Button>
+            <Button color="inherit" onClick={() => handleClick('/6')}>Dried Apricots</Button>
             <Button color="inherit" onClick={() => handleClick('/7')}>Dates</Button>
           </Box>
         </Toolbar>
