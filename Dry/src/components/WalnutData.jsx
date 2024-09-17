@@ -27,7 +27,7 @@ const walnutData = [
     image: cali, // Replace with a valid image URL
     description: 'These walnuts are grown in California, known for their rich flavor and high quality.'
   },
-  {
+  { id :69,
     name: 'Chandler Walnuts',
     image: chand, // Replace with a valid image URL
     description: 'Chandler walnuts are a variant of English walnuts, valued for their light-colored kernel.'
