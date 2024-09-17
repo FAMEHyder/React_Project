@@ -12,7 +12,7 @@ const walnutData = [
     image: eng, // Replace with a valid image URL
     description: 'English walnuts are known for their mild flavor and thin, easy-to-crack shells.'
   },
-  {
+  { id:66,
     name: 'Black Walnuts',
     image: black, // Replace with a valid image URL
     description: 'Black walnuts have a bold, earthy flavor with harder shells than English walnuts.'
