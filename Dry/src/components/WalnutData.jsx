@@ -32,7 +32,7 @@ const walnutData = [
     image: chand, // Replace with a valid image URL
     description: 'Chandler walnuts are a variant of English walnuts, valued for their light-colored kernel.'
   },
-  {
+  { id :69,
     name: 'Manchurian Walnuts',
     image: man, // Replace with a valid image URL
     description: 'Manchurian walnuts are smaller with thicker shells, able to grow in colder climates.'
