@@ -22,7 +22,7 @@ const walnutData = [
     image: white, // Replace with a valid image URL
     description: 'White walnuts are sweeter and oilier compared to other varieties, but harder to find.'
   },
-  {
+  { id :68,
     name: 'Northern California Walnuts',
     image: cali, // Replace with a valid image URL
     description: 'These walnuts are grown in California, known for their rich flavor and high quality.'
