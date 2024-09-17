@@ -17,7 +17,7 @@ const walnutData = [
     image: black, // Replace with a valid image URL
     description: 'Black walnuts have a bold, earthy flavor with harder shells than English walnuts.'
   },
-  {
+  { id :67,
     name: 'White Walnuts (Butternuts)',
     image: white, // Replace with a valid image URL
     description: 'White walnuts are sweeter and oilier compared to other varieties, but harder to find.'
