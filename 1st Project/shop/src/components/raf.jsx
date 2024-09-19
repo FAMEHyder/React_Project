@@ -14,9 +14,11 @@ import medjol from '../Image/medjol.png';
 //pistachio 
 import kerman from '../Image/kerman.png'
 
+//raisin data
 import sultana from '../Image/sultana.png';
 
 
+// walnut
 import eng from "../Image/engwalnut.png";
 
 const ProductData = [
