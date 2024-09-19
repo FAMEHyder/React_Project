@@ -1,14 +1,17 @@
 import nonpareil from '../Image/nonpareil.png';
 
+//apricot pics
 import chuli1 from '../Image/chuli1.png'
 
 
+//cashews pics
 import w180 from '../Image/w180.png'
 
 
+//dates pics
 import medjol from '../Image/medjol.png';
 
- 
+//pistachio 
 import kerman from '../Image/kerman.png'
 
 import sultana from '../Image/sultana.png';
