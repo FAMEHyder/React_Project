@@ -1,6 +1,6 @@
 import nonpareil from '../Image/nonpareil.png';
 
-//apricot pics
+//apricot 
 import chuli1 from '../Image/chuli1.png'
 
 
