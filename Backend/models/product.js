@@ -1,6 +1,6 @@
 import mongoose from "mongoose";
 
-import Review from "./review.js"
+import Review from "./review.js";
 
 // Product Schema
 const productSchema = new mongoose.Schema(
@@ -82,4 +82,4 @@ const subCategorySchema = new mongoose.Schema(
 const SubCategory = mongoose.model('SubCategory', subCategorySchema);
 const Product = mongoose.model('Product', productSchema);
 
-export { SubCategory, Product };
+export { SubCategory, Product,Review };

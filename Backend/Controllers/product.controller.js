@@ -21,19 +21,45 @@ console.log("Request", req.body)
 
 
 export const getProductById= async (req, res, next) => {
+    const {id}=req.params;
 
     try {
-        
+        const getProduct=await Product.findById(id);
+        res.status(200).json({
+            message:`Successfully get the product detail which id id: ${id}`,
+            data:getProduct
+        })
     } catch (error) {
+        console.log(error)
+        res
+        .status(500)
+        .json({
+            message:"Something went wrong in server side...",
+            err:error
+        })
         
     }
 }
 
-export const getProducts= async (req, res, next) => {
+export const delProduct= async (req, res, next) => {
+    const {id}=req.params;
 
     try {
-        
+        const del=await Product.findByIdAndDelete(id);
+        res
+        .status(200)
+        .json({
+            message:"Successfully delete..",
+            data:del
+        })
     } catch (error) {
+        console.log(error)
+        res
+        .status(500)
+        .json({
+            message:"Something went wrong in server side...",
+            err:error
+        })
         
     }
 }

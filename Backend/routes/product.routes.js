@@ -7,16 +7,16 @@ import {
     updatePrduct
 } from "./controllers/product.controller.js";
 
-const router = express.Router();
+const prodrouter = express.Router();
 
 
 
-router.post('/', addProduct);
-router.get('/', getProducts);
-router.get('/:id', getProductById);
-router.put('/:id', updatePrduct);
-router.delete('/:id', deleteProduct);
+prodrouter.post('/add', addProduct);
+prodrouter.get('/get/:id', getProducts);
+prodrouter.delete('/del/:id', getProductById);
+prodrouter.put('/:id', updatePrduct);
+
 
 //http://localhost:8000/api/user/register
 
-export default router;
+export default prodrouter;
