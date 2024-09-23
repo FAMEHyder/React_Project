@@ -17,7 +17,7 @@ const cashewTypes = [
     id: 53,
     name: 'Moorpark Apricot',
     image: moorpark,
-    description: 'Moorpark apricots are large, juicy, and known for their sweet, rich flavor. Perfect for fresh eating and preserves.',
+    description: 'Moorpaaark apricots are large, juicy, and known for their sweet, rich flavor. Perfect for fresh eating and preserves.',
   },
   { 
     id: 54,
