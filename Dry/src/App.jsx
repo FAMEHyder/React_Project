@@ -8,6 +8,7 @@ import WalnutData from './components/WalnutData';
 import RaisinData from './components/RaisinData';
 import AppricotData from './components/AppricoteData';
 import PistachioData from './components/PistachioData';
+import ProductDetails from './components/ProductDetails';
 
 function App() {
 
@@ -22,6 +23,8 @@ function App() {
         <Route path="/5" element={<RaisinData/>} />
         <Route path="/6" element={<AppricotData/>} />
         <Route path="/7" element={<DatesData/>} />
+        <Route path="/product/:id" element={<ProductDetails />} /> {/* Dynamic route for product details */}
+
 
         {/* <Route path="/:id" element={<AlmondData/>} />
         <Route path="/:id" element={<CashewData/>} /> */}
