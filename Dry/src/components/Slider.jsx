@@ -30,6 +30,8 @@ const sliderSettings = {
   centerMode: true,
   centerPadding: '0',
   arrows: true,
+  autoplay: true, // Enable autoplay
+  autoplaySpeed: 1000, // Time between slides in milliseconds (3 seconds)
   appendDots: (dots) => (
     <Box
       sx={{
@@ -64,6 +66,7 @@ const sliderSettings = {
     />
   ),
 };
+
 
 const SliderComponent = () => {
   const navigate = useNavigate();
