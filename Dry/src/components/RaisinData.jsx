@@ -1,10 +1,10 @@
 import { Card, CardContent, CardMedia, Typography, Grid} from '@mui/material';
-import sultana from '../Image/sultana.png'
+import sultana from '../Image/sultana.png';
 import golden from '../Image/golden.png';
 import black from '../Image/black.png';
 import current from '../Image/current.png';
 import flame from '../Image/flame.png';
-import manoka from '../Image/manoka.png';
+import manoka from '../Image/manuka.png';
 import green from '../Image/green.png';
 import red from '../Image/red.png';
 
