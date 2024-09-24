@@ -13,6 +13,7 @@ import DatesData from '../components/DatesData.jsx';
 import WalnutData from '../components/WalnutData.jsx';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import Footer from './Footer.jsx';
 
 const Home = () => {
   const navigate = useNavigate();
@@ -30,7 +31,7 @@ const Home = () => {
     }, 3000); // Change image every 3 seconds
 
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
-  }, []);
+  }, );
 
   return (
     <Container
@@ -91,6 +92,7 @@ const Home = () => {
           Walnuts and its Varieties
         </Typography>
         <WalnutData />
+        <Footer/>
       </Box>
     </Container>
   );

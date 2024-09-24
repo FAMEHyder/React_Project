@@ -1,5 +1,5 @@
-
 import { Grid, Card, CardContent, CardMedia, Typography } from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import nonpareil from '../Image/nonpareil.png';
 import carmel from '../Image/carmel.png';
 import sonora from '../Image/sonora.png';
@@ -8,6 +8,8 @@ import mission from '../Image/mission.png';
 import california from '../Image/california.png';
 import fritz from '../Image/fritz.png';
 import peerless from '../Image/peerless.png';
+
+// Almond data array
 const almondData = [
   {
     id: 1,
@@ -59,20 +61,29 @@ const almondData = [
   },
 ];
 
+// AlmondCards Component
 const AlmondCards = () => {
+  const navigate = useNavigate(); // Hook for programmatic navigation
+
+  // Function to handle card clicks and navigate to product details
+  const handleCardClick = (almondId) => {
+    navigate(`/product/${almondId}`); // Navigates to the product details page with almond ID in the URL
+  };
+
   return (
     <Grid container spacing={2}>
       {almondData.map((almond) => (
         <Grid item xs={12} sm={6} md={3} key={almond.id}>
           <Card
-          sx={{
-            height: 400,
-
-        }}>
+            onClick={() => handleCardClick(almond.id)} // Make the card clickable
+            sx={{
+              height: 400,
+              cursor: 'pointer', // Show pointer cursor on hover
+            }}
+          >
             <CardMedia
               component="img"
               height="200"
-              width={100}
               image={almond.picture}
               alt={almond.name}
             />
