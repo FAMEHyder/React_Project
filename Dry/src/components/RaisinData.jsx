@@ -12,88 +12,65 @@ import pugetgold from '../Image/roasted.png';
 import autumnglo from '../Image/flavor.png';
 import harcot from '../Image/flavor.png';
 
-const cashewTypes = [
+const raisinTypes = [
   { 
     id: 53,
-    name: 'Moorpark Apricot',
+    name: 'Sultana Raisin',
     image: moorpark,
-    description: 'Moorpaaark apricots are large, juicy, and known for their sweet, rich flavor. Perfect for fresh eating and preserves.',
+    description: 'Sultana raisins are light yellow and known for their juicy and sweet flavor.',
   },
   { 
     id: 54,
-    name: 'Tilton Apricot',
+    name: 'Golden Raisin',
     image: tilton,
-    description: 'Tilton apricots have a tangy, sweet flavor and are commonly used for drying and cooking.',
+    description: 'Golden raisins are plumper and have a milder flavor compared to regular raisins.',
   },
   { 
     id: 55,
-    name: 'Perfection Apricot',
+    name: 'Black Raisin',
     image: perfection,
-    description: 'Perfection apricots are large with a firm texture and bright orange color, often used in fresh dishes.',
+    description: 'Black raisins are dark and have a sweet, tangy flavor, made from red or black seedless grapes.',
   },
   { 
     id: 56,
-    name: 'Blenheim Apricot',
+    name: 'Currant',
     image: blenheim,
-    description: 'Blenheim apricots are sweet and juicy, ideal for both fresh consumption and drying.',
+    description: 'Currants are small, dark raisins with a tart and intense flavor, often used in baking.',
   },
   { 
     id: 57,
-    name: 'Gold Kist Apricot',
+    name: 'Flame Raisin',
     image: goldkist,
-    description: 'Gold Kist apricots are early ripening with a sweet and slightly tart flavor, often enjoyed fresh.',
+    description: 'Flame raisins are large, dark, and have a sweet, fruity flavor, often enjoyed as snacks.',
   },
   { 
     id: 58,
-    name: 'Chinese/Mormon Apricot',
+    name: 'Monukka Raisin',
     image: chinese,
-    description: 'Chinese or Mormon apricots are small, hardy, and have a sweet, mild flavor, often grown in cooler climates.',
+    description: 'Monukka raisins are larger with a rich, sweet flavor and chewy texture.',
   },
   { 
     id: 59,
-    name: 'Tomcot Apricot',
+    name: 'Green Raisin',
     image: tomcot,
-    description: 'Tomcot apricots ripen early and are known for their vibrant color and balanced sweet-tart flavor.',
+    description: 'Green raisins are slightly tart and made from green grapes, retaining a greenish hue.',
   },
   { 
     id: 60,
-    name: 'Katy Apricot',
+    name: 'Red Raisin',
     image: katy,
-    description: 'Katy apricots are large, sweet, and flavorful, commonly enjoyed fresh or in salads.',
-  },
-  { 
-    id: 61,
-    name: 'Royal Apricot',
-    image: royal,
-    description: 'Royal apricots have an intense flavor and are often used for canning and drying.',
-  },
-  { 
-    id: 62,
-    name: 'Puget Gold Apricot',
-    image: pugetgold,
-    description: 'Puget Gold apricots thrive in cooler climates and are known for their sweet, delicious taste.',
-  },
-  { 
-    id: 63,
-    name: 'Autumn Glo Apricot',
-    image: autumnglo,
-    description: 'Autumn Glo apricots ripen later in the season, with a juicy texture and rich, sweet flavor.',
-  },
-  { 
-    id: 64,
-    name: 'Harcot Apricot',
-    image: harcot,
-    description: 'Harcot apricots are known for their excellent flavor and are perfect for fresh eating or making jams.',
+    description: 'Red raisins are made from red grapes and have a sweet flavor with a lighter red color.',
   },
 ];
+
 
 
 const CashewCards = () => {
  
     return (
       <Grid container spacing={2}>
-        {cashewTypes.map((cashew) => (
-          <Grid item xs={12} sm={6} md={3} key={cashew.id}>
+        {raisinTypes.map((raisin) => (
+          <Grid item xs={12} sm={6} md={3} key={raisin.id}>
             <Card
             sx={{
               height: 400,
@@ -103,15 +80,15 @@ const CashewCards = () => {
                 component="img"
                 height="200"
                 width={100}
-                image={cashew.image}
-                alt={cashew.name}
+                image={raisin.image}
+                alt={raisin.name}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  {cashew.name}
+                  {raisin.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {cashew.description}
+                  {raisin.description}
                 </Typography>
               </CardContent>
             </Card>
