@@ -7,10 +7,7 @@ import goldkist from '../Image/w450.png';
 import chinese from '../Image/splites.png';
 import tomcot from '../Image/butts.png';
 import katy from '../Image/pieces.png';
-import royal from '../Image/babybits.png';
-import pugetgold from '../Image/roasted.png';
-import autumnglo from '../Image/flavor.png';
-import harcot from '../Image/flavor.png';
+
 
 const pistachioTypes = [
   { 
