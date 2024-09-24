@@ -12,88 +12,65 @@ import pugetgold from '../Image/roasted.png';
 import autumnglo from '../Image/flavor.png';
 import harcot from '../Image/flavor.png';
 
-const cashewTypes = [
+const pistachioTypes = [
   { 
-    id: 41,
-    name: 'Moorpark Apricot',
+    id: 53,
+    name: 'Kerman Pistachio',
     image: moorpark,
-    description: 'Moorpark apricots are large, juicy, and known for their sweet, rich flavor. Perfect for fresh eating and preserves.',
+    description: 'Kerman pistachios are known for their large size, creamy texture, and rich flavor, making them a popular variety.',
   },
   { 
-    id: 42,
-    name: 'Tilton Apricot',
+    id: 54,
+    name: 'Turkish Antep Pistachio',
     image: tilton,
-    description: 'Tilton apricots have a tangy, sweet flavor and are commonly used for drying and cooking.',
+    description: 'Turkish Antep pistachios are smaller with a strong flavor and are often used in Turkish desserts like baklava.',
   },
   { 
-    id: 43,
-    name: 'Perfection Apricot',
+    id: 55,
+    name: 'Iranian Fandoghi Pistachio',
     image: perfection,
-    description: 'Perfection apricots are large with a firm texture and bright orange color, often used in fresh dishes.',
+    description: 'Iranian Fandoghi pistachios are round and smaller, with a distinctive flavor that is popular in the Middle East.',
   },
   { 
-    id: 44,
-    name: 'Blenheim Apricot',
+    id: 56,
+    name: 'Bronte Pistachio',
     image: blenheim,
-    description: 'Blenheim apricots are sweet and juicy, ideal for both fresh consumption and drying.',
+    description: 'Bronte pistachios are grown in Sicily and are prized for their unique, vibrant green color and intense flavor.',
   },
   { 
-    id: 45,
-    name: 'Gold Kist Apricot',
+    id: 57,
+    name: 'Kalehghouchi Pistachio',
     image: goldkist,
-    description: 'Gold Kist apricots are early ripening with a sweet and slightly tart flavor, often enjoyed fresh.',
+    description: 'Kalehghouchi pistachios are large and round, known for their open shells and rich taste.',
   },
   { 
-    id: 46,
-    name: 'Chinese/Mormon Apricot',
+    id: 58,
+    name: 'Badami Pistachio',
     image: chinese,
-    description: 'Chinese or Mormon apricots are small, hardy, and have a sweet, mild flavor, often grown in cooler climates.',
+    description: 'Badami pistachios are long and thin, often used in Indian and Middle Eastern cuisines for their distinct flavor.',
   },
   { 
-    id: 47,
-    name: 'Tomcot Apricot',
+    id: 59,
+    name: 'Akbari Pistachio',
     image: tomcot,
-    description: 'Tomcot apricots ripen early and are known for their vibrant color and balanced sweet-tart flavor.',
+    description: 'Akbari pistachios are long and large, with a smooth texture and mild, buttery flavor.',
   },
   { 
-    id: 48,
-    name: 'Katy Apricot',
+    id: 60,
+    name: 'Red Pistachio',
     image: katy,
-    description: 'Katy apricots are large, sweet, and flavorful, commonly enjoyed fresh or in salads.',
-  },
-  { 
-    id: 49,
-    name: 'Royal Apricot',
-    image: royal,
-    description: 'Royal apricots have an intense flavor and are often used for canning and drying.',
-  },
-  { 
-    id: 50,
-    name: 'Puget Gold Apricot',
-    image: pugetgold,
-    description: 'Puget Gold apricots thrive in cooler climates and are known for their sweet, delicious taste.',
-  },
-  { 
-    id: 51,
-    name: 'Autumn Glo Apricot',
-    image: autumnglo,
-    description: 'Autumn Glo apricots ripen later in the season, with a juicy texture and rich, sweet flavor.',
-  },
-  { 
-    id: 52,
-    name: 'Harcot Apricot',
-    image: harcot,
-    description: 'Harcot apricots are known for their excellent flavor and are perfect for fresh eating or making jams.',
+    description: 'Red pistachios are dyed with a bright red color and have a crunchy texture, making them popular as a snack.',
   },
 ];
+
 
 
 const CashewCards = () => {
  
     return (
       <Grid container spacing={2}>
-        {cashewTypes.map((cashew) => (
-          <Grid item xs={12} sm={6} md={3} key={cashew.id}>
+        {pistachioTypes.map((pistachio) => (
+          <Grid item xs={12} sm={6} md={3} key={pistachio.id}>
             <Card
             sx={{
               height: 400,
@@ -103,15 +80,15 @@ const CashewCards = () => {
                 component="img"
                 height="200"
                 width={100}
-                image={cashew.image}
-                alt={cashew.name}
+                image={pistachio.image}
+                alt={pistachio.name}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  {cashew.name}
+                  {pistachio.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {cashew.description}
+                  {pistachio.description}
                 </Typography>
               </CardContent>
             </Card>
