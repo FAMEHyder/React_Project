@@ -1,61 +1,61 @@
 import { Card, CardContent, CardMedia, Typography, Grid} from '@mui/material';
-import tilton from '../Image/w180.png'
-import moorpark from '../Image/jambo.png';
-import perfection from '../Image/w240.png';
-import blenheim from '../Image/w230.png';
-import goldkist from '../Image/w450.png';
-import chinese from '../Image/splites.png';
-import tomcot from '../Image/butts.png';
-import katy from '../Image/pieces.png';
+import sultana from '../Image/sultana.png'
+import golden from '../Image/golden.png';
+import black from '../Image/black.png';
+import current from '../Image/current.png';
+import flame from '../Image/flame.png';
+import manoka from '../Image/manoka.png';
+import green from '../Image/green.png';
+import red from '../Image/red.png';
 
 
 const raisinTypes = [
   { 
     id: 53,
     name: 'Sultana Raisin',
-    image: moorpark,
+    image: sultana,
     description: 'Sultana raisins are light yellow and known for their juicy and sweet flavor.',
   },
   { 
     id: 54,
     name: 'Golden Raisin',
-    image: tilton,
+    image: golden,
     description: 'Golden raisins are plumper and have a milder flavor compared to regular raisins.',
   },
   { 
     id: 55,
     name: 'Black Raisin',
-    image: perfection,
+    image: black,
     description: 'Black raisins are dark and have a sweet, tangy flavor, made from red or black seedless grapes.',
   },
   { 
     id: 56,
     name: 'Currant',
-    image: blenheim,
+    image: current,
     description: 'Currants are small, dark raisins with a tart and intense flavor, often used in baking.',
   },
   { 
     id: 57,
     name: 'Flame Raisin',
-    image: goldkist,
+    image: flame,
     description: 'Flame raisins are large, dark, and have a sweet, fruity flavor, often enjoyed as snacks.',
   },
   { 
     id: 58,
     name: 'Monukka Raisin',
-    image: chinese,
+    image: manoka,
     description: 'Monukka raisins are larger with a rich, sweet flavor and chewy texture.',
   },
   { 
     id: 59,
     name: 'Green Raisin',
-    image: tomcot,
+    image: green,
     description: 'Green raisins are slightly tart and made from green grapes, retaining a greenish hue.',
   },
   { 
     id: 60,
     name: 'Red Raisin',
-    image: katy,
+    image: red,
     description: 'Red raisins are made from red grapes and have a sweet flavor with a lighter red color.',
   },
 ];
