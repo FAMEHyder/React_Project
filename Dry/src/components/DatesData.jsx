@@ -78,7 +78,7 @@ const DateCards = () => {
   };
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{mt:10}}>
       {dateVarieties.map((date) => (
         <Grid item xs={12} sm={6} md={3} key={date.id}>
           <Card

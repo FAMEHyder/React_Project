@@ -10,12 +10,13 @@ const ProductDetails = () => {
   }
 
   return (
-    <Container maxWidth="md" sx={{ mt: 4 }}>
+    <Container maxWidth="md" sx={{ mt: 20 }}>
       <Card>
         <Grid container spacing={2}>
           {/* Product Image */}
           <Grid item xs={12} sm={6}>
             <CardMedia
+            
               component="img"
               height="400"
               image={product.image}

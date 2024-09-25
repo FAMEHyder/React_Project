@@ -9,20 +9,22 @@ import RaisinData from './components/RaisinData';
 import AppricotData from './components/AppricoteData';
 import PistachioData from './components/PistachioData';
 import ProductDetails from './components/ProductDetails';
+import Navbar from './components/Navbar';
 
 function App() {
 
   return (
     <Router>
+      <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/1" element={<AlmondData/>} />
-        <Route path="/2" element={<CashewData/>} />
-        <Route path="/3" element={<WalnutData/>} />
-        <Route path="/4" element={<PistachioData/>} />
-        <Route path="/5" element={<RaisinData/>} />
-        <Route path="/6" element={<AppricotData/>} />
-        <Route path="/7" element={<DatesData/>} />
+        <Route path="/1" element={<AlmondData />} />
+        <Route path="/2" element={<CashewData />} />
+        <Route path="/3" element={<WalnutData />} />
+        <Route path="/4" element={<PistachioData />} />
+        <Route path="/5" element={<RaisinData />} />
+        <Route path="/6" element={<AppricotData />} />
+        <Route path="/7" element={<DatesData />} />
         <Route path="/productDetails" element={<ProductDetails />} />
 
         {/* <Route path="/:id" element={<AlmondData/>} />

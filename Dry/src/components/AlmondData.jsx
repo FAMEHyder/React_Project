@@ -81,7 +81,7 @@ const AlmondCards = () => {
   };
 
   return (
-    <Grid container spacing={2}>
+    <Grid container spacing={2} sx={{mt:10}}>
       {almondData.map((almond) => (
         <Grid item xs={12} sm={6} md={3} key={almond.id}>
           <Card

@@ -1,4 +1,12 @@
-import { AppBar, Toolbar, Button, Typography, Box, Container } from '@mui/material';
+import { Box, Container, Typography } from '@mui/material';
+import { useState, useEffect } from 'react';
+import SliderComponent from '../components/Slider'; // Adjust the path as necessary
+import AlmondData from '../components/AlmondData.jsx';
+import CashewData from '../components/CashewData.jsx';
+import DatesData from '../components/DatesData.jsx';
+import WalnutData from '../components/WalnutData.jsx';
+import Footer from './Footer.jsx';
+import Navbar from '../components/Navbar'; // Import the Navbar
 import bg from '../Image/bg1.png';
 import bg1 from '../Image/bg1.png';
 import bg2 from '../Image/bg2.png';
@@ -6,23 +14,9 @@ import bg3 from '../Image/bg6.png';
 import bg4 from '../Image/bg4.png';
 import bg5 from '../Image/bg5.png';
 import bg6 from '../Image/bg6.png';
-import SliderComponent from '../components/Slider'; // Adjust the path as necessary
-import AlmondData from '../components/AlmondData.jsx';
-import CashewData from '../components/CashewData.jsx';
-import DatesData from '../components/DatesData.jsx';
-import WalnutData from '../components/WalnutData.jsx';
-import { useNavigate } from 'react-router-dom';
-import { useState, useEffect } from 'react';
-import Footer from './Footer.jsx';
 
 const Home = () => {
-  const navigate = useNavigate();
-  const handleClick = (path) => {
-    navigate(path);
-  };
-
   const backgrounds = [bg, bg1, bg2, bg3, bg4, bg5, bg6]; // Array of background images
-
   const [currentBg, setCurrentBg] = useState(0);
 
   useEffect(() => {
@@ -44,22 +38,7 @@ const Home = () => {
         minHeight: '100vh',
       }}
     >
-      <AppBar>
-        <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
-          <Typography variant="h6" component="div" sx={{ flex: 1, fontSize: { xs: '1.2rem', sm: '1.5rem' } }}>
-            SatTara Dryfruits
-          </Typography>
-          <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
-            <Button color="inherit" onClick={() => handleClick('/1')}>Almonds</Button>
-            <Button color="inherit" onClick={() => handleClick('/2')}>Cashews</Button>
-            <Button color="inherit" onClick={() => handleClick('/3')}>Walnuts</Button>
-            <Button color="inherit" onClick={() => handleClick('/4')}>Pistachios</Button>
-            <Button color="inherit" onClick={() => handleClick('/5')}>Raisins</Button>
-            <Button color="inherit" onClick={() => handleClick('/6')}>Dried Apricots</Button>
-            <Button color="inherit" onClick={() => handleClick('/7')}>Dates</Button>
-          </Box>
-        </Toolbar>
-      </AppBar>
+      <Navbar /> {/* Use the Navbar component here */}
 
       <Box
         sx={{
@@ -121,9 +100,9 @@ const Home = () => {
           Walnuts and its Varieties
         </Typography>
         <WalnutData />
-
       </Box>
-        <Footer />
+
+      <Footer />
     </Container>
   );
 };

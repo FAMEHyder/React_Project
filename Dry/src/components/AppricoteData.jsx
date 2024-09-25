@@ -111,7 +111,7 @@ const AppricotCards = () => {
   };
  
     return (
-      <Grid container spacing={2}>
+      <Grid container spacing={2} sx={{mt:10}}>
         {AppricotTypes.map((appricot) => (
           <Grid item xs={12} sm={6} md={3} key={appricot.id}>
             <Card 
