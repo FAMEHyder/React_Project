@@ -6,7 +6,6 @@ import CashewData from '../components/CashewData.jsx';
 import DatesData from '../components/DatesData.jsx';
 import WalnutData from '../components/WalnutData.jsx';
 import Footer from './Footer.jsx';
-import Navbar from '../components/Navbar'; // Import the Navbar
 import bg from '../Image/bg1.png';
 import bg1 from '../Image/bg1.png';
 import bg2 from '../Image/bg2.png';
@@ -38,7 +37,6 @@ const Home = () => {
         minHeight: '100vh',
       }}
     >
-      <Navbar /> {/* Use the Navbar component here */}
 
       <Box
         sx={{

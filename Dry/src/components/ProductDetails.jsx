@@ -44,7 +44,7 @@ const ProductDetails = () => {
               <Button variant="contained" color="primary" sx={{ mr: 2 }}>
                 Add to Cart
               </Button>
-              <Button variant="outlined" color="secondary">
+              <Button variant="contained" color="secondary">
                 Buy Now
               </Button>
             </CardContent>
