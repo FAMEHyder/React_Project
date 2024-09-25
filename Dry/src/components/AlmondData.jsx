@@ -14,56 +14,56 @@ const almondData = [
   {
     id: 1,
     name: 'Nonpareil',
-    picture: nonpareil,
+    image: nonpareil,
     description: 'Thin-skinned, easy to blanch, and used in many almond products.',
     price: 10.99,  // Add price for example
   },
   {
     id: 2,
     name: 'Carmel',
-    picture: carmel,
+    image: carmel,
     description: 'Similar to Nonpareil but with a slightly wrinkled surface, often used for roasting.',
     price: 9.99,
   },
   {
     id: 3,
     name: 'Sonora',
-    picture: sonora,
+    image: sonora,
     description: 'Long, narrow almonds with a light color, commonly used in desserts.',
     price: 12.99,
   },
   {
     id: 4,
     name: 'Butte',
-    picture: butte,
+    image: butte,
     description: 'Thicker-skinned, good for roasting and used in confectionery.',
     price: 8.99,
   },
   {
     id: 5,
     name: 'Mission',
-    picture: mission,
+    image: mission,
     description: 'Darker skin, known for its slightly bittersweet flavor, often used in baking.',
     price: 11.99,
   },
   {
     id: 6,
     name: 'California',
-    picture: california,
+    image: california,
     description: 'A category that includes several almond varieties, typically used for processed almond products.',
     price: 13.99,
   },
   {
     id: 7,
     name: 'Fritz',
-    picture: fritz,
+    image: fritz,
     description: 'Small and hard, often used in almond paste and marzipan.',
     price: 14.99,
   },
   {
     id: 8,
     name: 'Peerless',
-    picture: peerless,
+    image: peerless,
     description: 'Commonly used in snacks, known for its mild flavor.',
     price: 9.49,
   },
@@ -71,11 +71,13 @@ const almondData = [
 
 // AlmondCards Component
 const AlmondCards = () => {
+
   const navigate = useNavigate(); // Hook for programmatic navigation
 
   // Function to handle card clicks and navigate to product details
   const handleCardClick = (product) => {
     navigate(`/productDetails`, { state: { product } });
+
   };
 
   return (
@@ -92,7 +94,7 @@ const AlmondCards = () => {
             <CardMedia
               component="img"
               height="200"
-              image={almond.picture}
+              image={almond.image}
               alt={almond.name}
             />
             <CardContent>

@@ -102,10 +102,11 @@ const CashewCards = () => {
       {cashewTypes.map((cashew) => (
         <Grid item xs={12} sm={6} md={3} key={cashew.id}>
           <Card
-            onClick={() => handleCardClick(cashew.id)} // Make the card clickable
+            onClick={() => handleCardClick(cashew)} // Make the card clickable
 
             sx={{
               height: 400,
+              cursor: 'pointer',
 
             }}>
             <CardMedia

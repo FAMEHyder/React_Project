@@ -13,75 +13,87 @@ import chuli10 from '../Image/chuli10.png';
 import chuli11 from '../Image/chuli11.png';
 import chuli12 from '../Image/chuli12.png';
 
-const cashewTypes = [
+const AppricotTypes = [
   { 
     id: 9,
+    price:20,
     name: 'Moorpark Apricot',
     image: chuli1,
     description: 'Moorpark apricots are large, juicy, and known for their sweet, rich flavor. Perfect for fresh eating and preserves.',
   },
   { 
     id: 10,
+    price:20,
     name: 'Tilton Apricot',
     image: chuli2,
     description: 'Tilton apricots have a tangy, sweet flavor and are commonly used for drying and cooking.',
   },
   { 
     id: 11,
+    price:20,
     name: 'Perfection Apricot',
     image: chuli3,
     description: 'Perfection apricots are large with a firm texture and bright orange color, often used in fresh dishes.',
   },
   { 
     id: 12,
+    price:20,
     name: 'Blenheim Apricot',
     image: chuli4,
     description: 'Blenheim apricots are sweet and juicy, ideal for both fresh consumption and drying.',
   },
   { 
     id: 13,
+    price:20,
     name: 'Gold Kist Apricot',
     image: chuli5,
     description: 'Gold Kist apricots are early ripening with a sweet and slightly tart flavor, often enjoyed fresh.',
   },
   { 
     id: 14,
+    price:20,
     name: 'Chinese/Mormon Apricot',
     image: chuli6,
     description: 'Chinese or Mormon apricots are small, hardy, and have a sweet, mild flavor, often grown in cooler climates.',
   },
   { 
     id: 15,
+    price:20,
     name: 'Tomcot Apricot',
     image: chuli7,
     description: 'Tomcot apricots ripen early and are known for their vibrant color and balanced sweet-tart flavor.',
   },
   { 
     id: 16,
+    price:20,
     name: 'Katy Apricot',
     image: chuli8,
     description: 'Katy apricots are large, sweet, and flavorful, commonly enjoyed fresh or in salads.',
   },
   { 
     id: 17,
+    price:20,
     name: 'Royal Apricot',
     image: chuli9,
     description: 'Royal apricots have an intense flavor and are often used for canning and drying.',
   },
   { 
     id: 18,
+    price:20,
     name: 'Puget Gold Apricot',
     image: chuli10,
     description: 'Puget Gold apricots thrive in cooler climates and are known for their sweet, delicious taste.',
   },
   { 
     id: 19,
+    price:20,
     name: 'Autumn Glo Apricot',
     image: chuli11,
     description: 'Autumn Glo apricots ripen later in the season, with a juicy texture and rich, sweet flavor.',
   },
   { 
     id: 20,
+    price:20,
     name: 'Harcot Apricot',
     image: chuli12,
     description: 'Harcot apricots are known for their excellent flavor and are perfect for fresh eating or making jams.',
@@ -100,15 +112,15 @@ const AppricotCards = () => {
  
     return (
       <Grid container spacing={2}>
-        {cashewTypes.map((appricot) => (
+        {AppricotTypes.map((appricot) => (
           <Grid item xs={12} sm={6} md={3} key={appricot.id}>
             <Card 
-              onClick={() => handleCardClick(appricot.id)} // Make the card clickable
+              onClick={() => handleCardClick(appricot)} // Make the card clickable
 
             sx={{
               height: 400,
-
-          }}>
+              cursor: 'pointer',
+              }}>
               <CardMedia
                 component="img"
                 height="200"

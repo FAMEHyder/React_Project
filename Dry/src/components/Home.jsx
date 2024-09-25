@@ -21,7 +21,7 @@ const Home = () => {
     navigate(path);
   };
 
-  const backgrounds = [bg,bg1, bg2, bg3,bg4,bg5,bg6,];  // Array of background images
+  const backgrounds = [bg, bg1, bg2, bg3, bg4, bg5, bg6]; // Array of background images
 
   const [currentBg, setCurrentBg] = useState(0);
 
@@ -31,17 +31,22 @@ const Home = () => {
     }, 3000); // Change image every 3 seconds
 
     return () => clearInterval(intervalId); // Cleanup interval on component unmount
-  }, );
+  },);
 
   return (
     <Container
       maxWidth={false}
       disableGutters
-      sx={{ padding: 0, display: 'flex', flexDirection: 'column', minHeight: '100vh' }}
+      sx={{
+        padding: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
     >
       <AppBar>
         <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
-          <Typography variant="h6" component="div" sx={{ flex: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flex: 1, fontSize: { xs: '1.2rem', sm: '1.5rem' } }}>
             SatTara Dryfruits
           </Typography>
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
@@ -66,34 +71,59 @@ const Home = () => {
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: '200vh', // Full height for demonstration purposes
+          height: { xs: '80vh', sm: '100vh', md: '120vh' }, // Responsive height
         }}
       >
         <SliderComponent />
       </Box>
 
-      <Box sx={{ marginTop: '30px' }}>
-        <Typography marginLeft={60} fontSize={30} fontWeight={800} fontFamily={'cambria'}>
+      <Box sx={{ marginTop: '30px', paddingX: { xs: 2, sm: 4, md: 8 } }}>
+        <Typography
+          marginTop={5}
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
+        >
           Almonds and its Varieties
         </Typography>
         <AlmondData />
 
-        <Typography marginTop={10} marginLeft={60} fontSize={30} fontWeight={800} fontFamily={'cambria'}>
+        <Typography
+          marginTop={10}
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
+        >
           Cashews and its Varieties
         </Typography>
         <CashewData />
 
-        <Typography marginTop={10} marginLeft={60} fontSize={30} fontWeight={800} fontFamily={'cambria'}>
+        <Typography
+          marginTop={10}
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
+        >
           Dates and its Varieties
         </Typography>
         <DatesData />
 
-        <Typography marginTop={10} marginLeft={60} fontSize={30} fontWeight={800} fontFamily={'cambria'}>
+        <Typography
+          marginTop={10}
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
+        >
           Walnuts and its Varieties
         </Typography>
         <WalnutData />
-        <Footer/>
+
       </Box>
+        <Footer />
     </Container>
   );
 };
