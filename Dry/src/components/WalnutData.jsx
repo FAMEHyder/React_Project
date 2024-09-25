@@ -5,34 +5,40 @@ import white from '../Image/whitewalnut.png';
 import cali from '../Image/cali.png';
 import chand from '../Image/chandlerwalnut.png';
 import man from '../Image/marchanwalnut.png';
-
+import { useNavigate } from 'react-router-dom';
 const walnutData = [
-  { id:65,
+  {
+    id: 65,
     name: 'English Walnuts (Persian Walnuts)',
     image: eng, // Replace with a valid image URL
     description: 'English walnuts are known for their mild flavor and thin, easy-to-crack shells.'
   },
-  { id:66,
+  {
+    id: 66,
     name: 'Black Walnuts',
     image: black, // Replace with a valid image URL
     description: 'Black walnuts have a bold, earthy flavor with harder shells than English walnuts.'
   },
-  { id :67,
+  {
+    id: 67,
     name: 'White Walnuts (Butternuts)',
     image: white, // Replace with a valid image URL
     description: 'White walnuts are sweeter and oilier compared to other varieties, but harder to find.'
   },
-  { id :68,
+  {
+    id: 68,
     name: 'Northern California Walnuts',
     image: cali, // Replace with a valid image URL
     description: 'These walnuts are grown in California, known for their rich flavor and high quality.'
   },
-  { id :69,
+  {
+    id: 69,
     name: 'Chandler Walnuts',
     image: chand, // Replace with a valid image URL
     description: 'Chandler walnuts are a variant of English walnuts, valued for their light-colored kernel.'
   },
-  { id :70,
+  {
+    id: 70,
     name: 'Manchurian Walnuts',
     image: man, // Replace with a valid image URL
     description: 'Manchurian walnuts are smaller with thicker shells, able to grow in colder climates.'
@@ -40,16 +46,24 @@ const walnutData = [
 ];
 
 const WalnutCards = () => {
+  const navigate = useNavigate(); // Hook for programmatic navigation
+
+  // Function to handle card clicks and navigate to product details
+  const handleCardClick = (product) => {
+    navigate(`/productDetails`, { state: { product } });
+  };
+
   return (
     <Grid container spacing={2}>
       {walnutData.map((walnut) => (
         <Grid item xs={12} sm={6} md={3} key={walnut.id}>
-          <Card  
-          
-          sx={{
+          <Card
+            onClick={() => handleCardClick(walnut.id)}
+
+            sx={{
               height: 400,
 
-          }}>
+            }}>
             <CardMedia
               component="img"
               height="200"
