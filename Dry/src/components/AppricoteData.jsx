@@ -89,7 +89,7 @@ const cashewTypes = [
 ];
 
 
-const CashewCards = () => {
+const AppricotCards = () => {
 
   const navigate = useNavigate(); // Hook for programmatic navigation
 
@@ -100,10 +100,10 @@ const CashewCards = () => {
  
     return (
       <Grid container spacing={2}>
-        {cashewTypes.map((cashew) => (
-          <Grid item xs={12} sm={6} md={3} key={cashew.id}>
+        {cashewTypes.map((appricot) => (
+          <Grid item xs={12} sm={6} md={3} key={appricot.id}>
             <Card 
-              onClick={() => handleCardClick(cashew.id)} // Make the card clickable
+              onClick={() => handleCardClick(appricot.id)} // Make the card clickable
 
             sx={{
               height: 400,
@@ -113,15 +113,15 @@ const CashewCards = () => {
                 component="img"
                 height="200"
                 width={100}
-                image={cashew.image}
-                alt={cashew.name}
+                image={appricot.image}
+                alt={appricot.name}
               />
               <CardContent>
                 <Typography gutterBottom variant="h5" component="div">
-                  {cashew.name}
+                  {appricot.name}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  {cashew.description}
+                  {appricot.description}
                 </Typography>
               </CardContent>
             </Card>
@@ -131,4 +131,4 @@ const CashewCards = () => {
     );
 };
 
-export default CashewCards;
+export default AppricotCards;
