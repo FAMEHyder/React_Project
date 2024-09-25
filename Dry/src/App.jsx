@@ -23,8 +23,7 @@ function App() {
         <Route path="/5" element={<RaisinData/>} />
         <Route path="/6" element={<AppricotData/>} />
         <Route path="/7" element={<DatesData/>} />
-        <Route path="/product/:id" element={<ProductDetails />} /> {/* Dynamic route for product details */}
-
+        <Route path="/productDetails" element={<ProductDetails />} />
 
         {/* <Route path="/:id" element={<AlmondData/>} />
         <Route path="/:id" element={<CashewData/>} /> */}

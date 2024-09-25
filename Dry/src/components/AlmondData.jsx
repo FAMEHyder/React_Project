@@ -66,8 +66,8 @@ const AlmondCards = () => {
   const navigate = useNavigate(); // Hook for programmatic navigation
 
   // Function to handle card clicks and navigate to product details
-  const handleCardClick = (almondId) => {
-    navigate(`/product/${almondId}`); // Navigates to the product details page with almond ID in the URL
+  const handleCardClick = (product) => {
+    navigate(`/productDetails`, { state: { product } });
   };
 
   return (

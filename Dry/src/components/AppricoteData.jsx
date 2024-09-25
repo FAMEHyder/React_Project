@@ -1,4 +1,5 @@
 import { Card, CardContent, CardMedia, Typography, Grid} from '@mui/material';
+import { useNavigate } from 'react-router-dom';
 import chuli1 from '../Image/chuli1.png'
 import chuli2 from '../Image/chuli2.png';
 import chuli3 from '../Image/chuli3.png';
@@ -89,12 +90,21 @@ const cashewTypes = [
 
 
 const CashewCards = () => {
+
+  const navigate = useNavigate(); // Hook for programmatic navigation
+
+  // Function to handle card clicks and navigate to product details
+  const handleCardClick = (product) => {
+    navigate(`/productDetails`, { state: { product } });
+  };
  
     return (
       <Grid container spacing={2}>
         {cashewTypes.map((cashew) => (
           <Grid item xs={12} sm={6} md={3} key={cashew.id}>
-            <Card
+            <Card 
+              onClick={() => handleCardClick(cashew.id)} // Make the card clickable
+
             sx={{
               height: 400,
 

@@ -6,7 +6,8 @@ import ajwa from '../Image/ajwa.png'
 import zahidi from '../Image/zahidi.png';
 import khudri from '../Image/khudri.png';
 import halwi from '../Image/halwi.png';
-import sukkari from '../Image/sukkari.png'
+import sukkari from '../Image/sukkari.png';
+import { useNavigate } from 'react-router-dom';
 
 const dateVarieties = [
   { 
@@ -60,11 +61,22 @@ const dateVarieties = [
 ];
 
 const DateCards = () => {
+
+  const navigate = useNavigate(); // Hook for programmatic navigation
+
+  // Function to handle card clicks and navigate to product details
+  const handleCardClick = (product) => {
+    navigate(`/productDetails`, { state: { product } });
+  };
+
   return (
     <Grid container spacing={2}>
       {dateVarieties.map((date) => (
         <Grid item xs={12} sm={6} md={3} key={date.id}>
           <Card
+
+onClick={() => handleCardClick(date.id)}
+  
           sx={{
             height: 400,
 
