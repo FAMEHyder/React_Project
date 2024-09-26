@@ -80,7 +80,7 @@ const CashewCards = () => {
 
 
   return (
-    <Grid container spacing={2} sx={{mt:10}}>
+    <Grid container spacing={2} sx={{mt:12}}>
       {raisinTypes.map((raisin) => (
         <Grid item xs={12} sm={6} md={3} key={raisin.id}>
           <Card
@@ -88,6 +88,9 @@ const CashewCards = () => {
 
             sx={{
               height: 400,
+              // boxShadow:'2px 2px 2px 2px gray',
+              boxShadow:5,
+
               cursor: 'pointer',
 
             }}>

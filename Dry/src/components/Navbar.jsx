@@ -10,12 +10,22 @@ const Navbar = () => {
 
   return (
     <AppBar>
+       <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1,marginLeft:120 }}>
+
+        <Button color="inherit" onClick={() => handleClick('/1')}>Sign In</Button>
+        <Button color="inherit" onClick={() => handleClick('/1')}>Sign Up</Button>
+        
+        
+        </Box>
       <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
+        
+        
         <Typography variant="h6" component="div" 
                   onClick={() => handleClick('/')}
                   sx={{ flex: 1, cursor:'pointer', fontSize: { xs: '1.2rem', sm: '1.5rem' } }}>
           SatTara Dryfruits
         </Typography>
+       
         <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
           <Button color="inherit" onClick={() => handleClick('/1')}>Almonds</Button>
           <Button color="inherit" onClick={() => handleClick('/2')}>Cashews</Button>

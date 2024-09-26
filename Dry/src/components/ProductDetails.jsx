@@ -10,7 +10,7 @@ const ProductDetails = () => {
   }
 
   return (
-    <Container maxWidth="md" sx={{ mt: 20 }}>
+    <Container maxWidth="md" sx={{ mt: 20, boxShadow:5 }}>
       <Card>
         <Grid container spacing={2}>
           {/* Product Image */}

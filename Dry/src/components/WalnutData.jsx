@@ -60,7 +60,7 @@ const WalnutCards = () => {
   };
 
   return (
-    <Grid container spacing={2} sx={{mt:10}}>
+    <Grid container spacing={2} sx={{mt:12, mb:10}}>
       {walnutData.map((walnut) => (
         <Grid item xs={12} sm={6} md={3} key={walnut.id}>
           <Card
@@ -69,6 +69,8 @@ const WalnutCards = () => {
             sx={{
               height: 400,
               cursor: 'pointer',
+              // boxShadow:'2px 2px 2px 2px lightgray',
+              boxShadow:5,
 
             }}>
             <CardMedia
