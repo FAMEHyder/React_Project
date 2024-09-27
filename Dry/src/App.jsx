@@ -13,6 +13,7 @@ import Navbar from './components/Navbar';
 import LoginForm from './components/LoginForm';
 import SignUp from './components/SignUp.jsx';
 import OrderForm from './components/OrderForm.jsx';
+import ProductDetailsTable from './components/PrductDetailTable.jsx';
 
 function App() {
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/Signup" element={<SignUp />} />
         <Route path="/Signin" element={<LoginForm />} />
         <Route path="/OrderForm" element={<OrderForm />} />
+        <Route path="/ProductTable" element={<ProductDetailsTable />} />
 
         {/* <Route path="/:id" element={<AlmondData/>} />
         <Route path="/:id" element={<CashewData/>} /> */}
