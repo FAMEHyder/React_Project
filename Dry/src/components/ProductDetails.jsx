@@ -1,6 +1,6 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Container, Grid, Typography, Card, CardMedia, CardContent, Button } from '@mui/material';
-
+import ProductDetailsTable from './ProductDetailsTable';
 const ProductDetails = () => {
   const navigate = useNavigate();
 
@@ -66,6 +66,7 @@ const ProductDetails = () => {
       </Card>
 
       {/* You can add related products or other details below */}
+      <ProductDetailsTable product={product} />
     </Container>
   );
 };
