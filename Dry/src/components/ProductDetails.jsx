@@ -2,6 +2,8 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Container, Grid, Typography, Card, CardMedia, CardContent, Button } from '@mui/material';
 
 const ProductDetails = () => {
+  const navigate = useNavigate();
+
   const location = useLocation();
   const { product } = location.state || {}; // Access product data from location state
 
@@ -9,10 +11,9 @@ const ProductDetails = () => {
     return <Typography variant="h6" align="center">No product details available</Typography>;
   }
 
-  const navigate = useNavigate();
 
-  handleclick (path)=>{
-    navigate (path)
+  const handleclick = (path)=>{
+    navigate (path);
 
   }
 
