@@ -16,6 +16,10 @@ const ProductDetails = () => {
     navigate (path);
 
   }
+  const handlecartclick =() => {
+
+    alert('Added to cart successfully');
+  }
 
   return (
     <Container maxWidth="md" sx={{ mt: 20, boxShadow:5 }}>
@@ -49,7 +53,7 @@ const ProductDetails = () => {
               </Typography>
 
               {/* Buttons for actions */}
-              <Button variant="contained" color="primary" sx={{ mr: 2 }}>
+              <Button variant="contained" color="primary" sx={{ mr: 2 }} onClick={(handlecartclick)}>
                 Add to Cart
               </Button>
               <Button variant="contained" color="secondary" onClick={() => handleclick('/Signup')}
