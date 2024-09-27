@@ -56,7 +56,7 @@ const ProductDetails = () => {
               <Button variant="contained" color="primary" sx={{ mr: 2 }} onClick={(handlecartclick)}>
                 Add to Cart
               </Button>
-              <Button variant="contained" color="secondary" onClick={() => handleclick('/Signup')}
+              <Button variant="contained" color="secondary" onClick={() => handleclick('/OrderForm')}
               >
                 Buy Now
               </Button>
