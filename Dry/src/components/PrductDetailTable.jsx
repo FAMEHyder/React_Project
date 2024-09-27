@@ -1,4 +1,4 @@
-import React from 'react';
+import PropTypes from 'prop-types'; // Import PropTypes
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
 const ProductDetailsTable = ({ product }) => {
@@ -40,6 +40,17 @@ const ProductDetailsTable = ({ product }) => {
       </Table>
     </TableContainer>
   );
+};
+
+// Prop validation for the product object
+ProductDetailsTable.propTypes = {
+  product: PropTypes.shape({
+    name: PropTypes.string.isRequired,
+    description: PropTypes.string.isRequired,
+    price: PropTypes.number.isRequired,
+    category: PropTypes.string.isRequired,
+    image: PropTypes.string, // Optional, in case the image is not provided
+  }).isRequired,
 };
 
 export default ProductDetailsTable;
