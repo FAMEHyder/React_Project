@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { Container, Grid, Typography, Card, CardMedia, CardContent, Button } from '@mui/material';
 
 const ProductDetails = () => {
@@ -7,6 +7,13 @@ const ProductDetails = () => {
 
   if (!product) {
     return <Typography variant="h6" align="center">No product details available</Typography>;
+  }
+
+  const navigate = useNavigate();
+
+  navigate (path)=>{
+    navigate (path)
+
   }
 
   return (
@@ -44,7 +51,7 @@ const ProductDetails = () => {
               <Button variant="contained" color="primary" sx={{ mr: 2 }}>
                 Add to Cart
               </Button>
-              <Button variant="contained" color="secondary" onClick={() => navigate('/Signup')}
+              <Button variant="contained" color="secondary" onClick={() => handleclick('/Signup')}
               >
                 Buy Now
               </Button>
