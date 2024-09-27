@@ -59,7 +59,7 @@ function LoginForm() {
           fullWidth
           onClick={() => navigate('/Signup')}
         >
-          Don't have an account? Register here
+          Did not have an account? Register here
         </Button>
       </form>
     </Container>
