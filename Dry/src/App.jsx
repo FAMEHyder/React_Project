@@ -12,7 +12,7 @@ import ProductDetails from './components/ProductDetails';
 import Navbar from './components/Navbar';
 import LoginForm from './components/LoginForm';
 import SignUp from './components/SignUp.jsx';
-
+import OrderForm from './components/OrderForm.jsx';
 
 function App() {
 
@@ -31,6 +31,7 @@ function App() {
         <Route path="/productDetails" element={<ProductDetails />} />
         <Route path="/Signup" element={<SignUp />} />
         <Route path="/Signin" element={<LoginForm />} />
+        <Route path="/OrderForm" element={<OrderForm />} />
 
         {/* <Route path="/:id" element={<AlmondData/>} />
         <Route path="/:id" element={<CashewData/>} /> */}
