@@ -11,7 +11,7 @@ const ProductDetails = () => {
 
   const navigate = useNavigate();
 
-  navigate (path)=>{
+  handleclick (path)=>{
     navigate (path)
 
   }
