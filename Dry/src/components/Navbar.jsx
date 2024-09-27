@@ -12,8 +12,8 @@ const Navbar = () => {
     <AppBar>
        <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1,marginLeft:120 }}>
 
-        <Button color="inherit" onClick={() => handleClick('/1')}>Sign In</Button>
-        <Button color="inherit" onClick={() => handleClick('/1')}>Sign Up</Button>
+        <Button color="inherit" onClick={() => handleClick('/Signin')}>Sign In</Button>
+        <Button color="inherit" onClick={() => handleClick('/Signup')}>Sign Up</Button>
         
         
         </Box>

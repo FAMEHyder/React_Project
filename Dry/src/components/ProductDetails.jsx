@@ -44,7 +44,8 @@ const ProductDetails = () => {
               <Button variant="contained" color="primary" sx={{ mr: 2 }}>
                 Add to Cart
               </Button>
-              <Button variant="contained" color="secondary">
+              <Button variant="contained" color="secondary" onClick={() => navigate('/Signup')}
+              >
                 Buy Now
               </Button>
             </CardContent>

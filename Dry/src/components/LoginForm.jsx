@@ -57,7 +57,7 @@ function LoginForm() {
         <Button
           variant="text"
           fullWidth
-          onClick={() => navigate('/register')}
+          onClick={() => navigate('/Signup')}
         >
           Don't have an account? Register here
         </Button>

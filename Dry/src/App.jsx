@@ -10,6 +10,9 @@ import AppricotData from './components/AppricoteData';
 import PistachioData from './components/PistachioData';
 import ProductDetails from './components/ProductDetails';
 import Navbar from './components/Navbar';
+import LoginForm from './components/LoginForm';
+import SignUp from './components/SignUp.jsx';
+
 
 function App() {
 
@@ -26,6 +29,8 @@ function App() {
         <Route path="/6" element={<AppricotData />} />
         <Route path="/7" element={<DatesData />} />
         <Route path="/productDetails" element={<ProductDetails />} />
+        <Route path="/Signup" element={<SignUp />} />
+        <Route path="/Signin" element={<LoginForm />} />
 
         {/* <Route path="/:id" element={<AlmondData/>} />
         <Route path="/:id" element={<CashewData/>} /> */}
