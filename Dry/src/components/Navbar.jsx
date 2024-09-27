@@ -1,6 +1,7 @@
 import { AppBar, Toolbar, Button, Typography, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
+import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -15,8 +16,8 @@ const Navbar = () => {
 
         <Button color="inherit" onClick={() => handleClick('/Signin')}>Sign In</Button>
         <Button color="inherit" onClick={() => handleClick('/Signup')}>Sign Up</Button>
-        <Button color="inherit" onClick={() => handleClick('/')}> <ShoppingCartIcon />
-        </Button>
+        <Button color="inherit" onClick={() => handleClick('/')}> <ShoppingCartIcon /></Button>
+        <Button color="inherit" onClick={() => handleClick('/')}> <CheckCircleIcon /></Button>
         
         
         </Box>
