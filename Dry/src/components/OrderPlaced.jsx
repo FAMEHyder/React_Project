@@ -1,7 +1,13 @@
-import PropTypes from 'prop-types'; // Import PropTypes
+
+import { Typography } from '@mui/material';
+import PropTypes from 'prop-types'; 
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
 const ProductDetailsTable = ({ product }) => {
+  if (!product) {
+    return <Typography variant="h6" align="center">Product data not available</Typography>;
+  }
+
   return (
     <TableContainer component={Paper}>
       <Table>
@@ -16,25 +22,25 @@ const ProductDetailsTable = ({ product }) => {
             <TableCell component="th" scope="row">
               Product Name
             </TableCell>
-            <TableCell>{product.name}</TableCell>
+            <TableCell>{product.name || 'N/A'}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
               Description
             </TableCell>
-            <TableCell>{product.description}</TableCell>
+            <TableCell>{product.description || 'N/A'}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
               Price
             </TableCell>
-            <TableCell>${product.price}</TableCell>
+            <TableCell>{product.price ? `$${product.price}` : 'N/A'}</TableCell>
           </TableRow>
           <TableRow>
             <TableCell component="th" scope="row">
               Category
             </TableCell>
-            <TableCell>{product.category}</TableCell>
+            <TableCell>{product.category || 'N/A'}</TableCell>
           </TableRow>
         </TableBody>
       </Table>
@@ -42,15 +48,14 @@ const ProductDetailsTable = ({ product }) => {
   );
 };
 
-// Prop validation for the product object
 ProductDetailsTable.propTypes = {
   product: PropTypes.shape({
-    name: PropTypes.string.isRequired,
-    description: PropTypes.string.isRequired,
-    price: PropTypes.number.isRequired,
-    category: PropTypes.string.isRequired,
-    image: PropTypes.string, // Optional, in case the image is not provided
-  }).isRequired,
+    name: PropTypes.string,
+    description: PropTypes.string,
+    price: PropTypes.number,
+    category: PropTypes.string,
+    image: PropTypes.string,
+  }),
 };
 
 export default ProductDetailsTable;

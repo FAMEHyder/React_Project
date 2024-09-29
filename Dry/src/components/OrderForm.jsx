@@ -116,7 +116,7 @@ const OrderForm = () => {
 
         {submitted && (
           <Typography variant="body1" color="green" textAlign="center">
-            Order submitted successfully!
+            Order Placed successfully!
           </Typography>
         )}
       </Box>
