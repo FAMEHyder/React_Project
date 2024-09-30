@@ -17,7 +17,7 @@ const Navbar = () => {
         <Button color="inherit" onClick={() => handleClick('/Signin')}>Sign In</Button>
         <Button color="inherit" onClick={() => handleClick('/Signup')}>Sign Up</Button>
         <Button color="inherit" onClick={() => handleClick('/')}> <ShoppingCartIcon /></Button>
-        <Button color="inherit" onClick={() => handleClick('/ProductTable')}> <CheckCircleIcon /></Button>
+        <Button color="inherit" onClick={() => handleClick('/productDetails')}> <CheckCircleIcon /></Button>
         
         
         </Box>

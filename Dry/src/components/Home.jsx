@@ -5,6 +5,9 @@ import AlmondData from '../components/AlmondData.jsx';
 import CashewData from '../components/CashewData.jsx';
 import DatesData from '../components/DatesData.jsx';
 import WalnutData from '../components/WalnutData.jsx';
+import ApprocoteData from '../components/AppricoteData.jsx';
+import PistachioData from '../components/PistachioData.jsx';
+import RaisinData from '../components/RaisinData.jsx';
 import Footer from './Footer.jsx';
 import bg from '../Image/bg1.png';
 import bg1 from '../Image/bg1.png';
@@ -98,6 +101,39 @@ const Home = () => {
           Walnuts and its Varieties
         </Typography>
         <WalnutData />
+
+        <Typography
+          marginTop={10}
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
+        >
+          Appricotes and its Varieties
+        </Typography>
+        <ApprocoteData />
+
+        <Typography
+          marginTop={10}
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
+        >
+          Raisins and its Varieties
+        </Typography>
+        <RaisinData />
+
+        <Typography
+          marginTop={10}
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
+        >
+          Pistachios and its Varieties
+        </Typography>
+        <PistachioData />
       </Box>
 
       <Footer />
