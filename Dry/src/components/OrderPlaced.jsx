@@ -3,7 +3,7 @@ import { Typography } from '@mui/material';
 import PropTypes from 'prop-types'; 
 import { Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper } from '@mui/material';
 
-const ProductDetailsTable = ({ product }) => {
+const OrderPlaced = ({ product }) => {
   if (!product) {
     return <Typography variant="h6" align="center">Product data not available</Typography>;
   }
@@ -48,7 +48,7 @@ const ProductDetailsTable = ({ product }) => {
   );
 };
 
-ProductDetailsTable.propTypes = {
+OrderPlaced.propTypes = {
   product: PropTypes.shape({
     name: PropTypes.string,
     description: PropTypes.string,
@@ -58,4 +58,4 @@ ProductDetailsTable.propTypes = {
   }),
 };
 
-export default ProductDetailsTable;
+export default OrderPlaced;
