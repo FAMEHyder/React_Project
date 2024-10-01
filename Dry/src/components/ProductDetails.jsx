@@ -1,8 +1,10 @@
 import { useLocation, useNavigate } from 'react-router-dom';
 import { Container, Grid, Typography, Card, CardMedia, CardContent, Button } from '@mui/material';
+import { useCart } from '../context/Cart';
 const ProductDetails = () => {
     const navigate = useNavigate();
-
+    const { cart, addItem } = useCart()
+    console.log('cart', cart)
     const location = useLocation();
     const { product } = location.state || {}; // Access product data from location state
 
@@ -18,6 +20,7 @@ const ProductDetails = () => {
     const handlecartclick = () => {
 
         alert('Added to cart successfully');
+        addItem(product);
     }
 
     return (
