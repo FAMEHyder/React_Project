@@ -50,6 +50,8 @@ const Home = () => {
           flex: 1,
           display: 'flex',
           justifyContent: 'center',
+          transition: 'background-image 1s ease-in-out',
+          backgroundColor:'rgba(0, 0, 0, 0.5)',
           alignItems: 'center',
           height: { xs: '80vh', sm: '100vh', md: '120vh' }, // Responsive height
         }}
