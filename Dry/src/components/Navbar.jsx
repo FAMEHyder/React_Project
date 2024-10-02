@@ -52,15 +52,15 @@ const Navbar = () => {
 
           <Box variant="h6" component="div"
             onClick={() => handleClick('/')}
-            sx={{ flex: 1, cursor: 'pointer', fontSize: { xs: '1.2rem', sm: '1.5rem' } }}>
-            style={{
+            sx={{ flex: 1,
+             cursor: 'pointer',
+              fontSize: { xs: '1.2rem', sm: '1.5rem' },
               backgroundImage: `url(${Cl})`,
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
               height: '200px',
-            }}
-
+              }}>
           </Box>
 
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
