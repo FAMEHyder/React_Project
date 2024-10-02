@@ -15,11 +15,6 @@ const Navbar = () => {
   const handleClick = (path) => {
     navigate(path);
   };
-  // Editing the item in the cart
-  // const handleEditItem = () => {
-  //   // Example of updating the price
-  //   editItem(updatedItem);
-  // };
 
   // Deleting the item from the cart
   const handleDeleteItem = (id) => {
@@ -50,18 +45,21 @@ const Navbar = () => {
         <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
 
 
-          <Box 
+          <Box
             onClick={() => handleClick('/')}
             sx={{
               paddingX: { xs: 2, sm: 4, md: 8 },
-              flex: 1,
+              // flex: 1,
               cursor: 'pointer',
               backgroundImage: `url(${Cl})`,
-              backgroundSize: 'contained',
+              backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
-              height: '50px',
-              width: '10px',
+              height: 50,
+              width: '150px',
+              marginRight:10,
+              transform: 'scale(3.5)',      // Scale the image to appear larger
+              transformOrigin: 'center',
             }}
           >
 
