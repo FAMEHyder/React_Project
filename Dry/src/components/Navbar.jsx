@@ -32,7 +32,7 @@ const Navbar = () => {
   };
   return (
     <>
-      <AppBar>
+      <AppBar sx={{ backgroundColor: 'gray' }}>
         <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1, marginLeft: 120 }}>
 
           <Button color="inherit" onClick={() => handleClick('/Signin')}>Sign In</Button>
@@ -59,7 +59,7 @@ const Navbar = () => {
               width: '150px',
               marginRight:10,
               transform: 'scale(3.9)',      // Scale the image to appear larger
-              transformOrigin: 'center',
+              transformOrigin: 'left',
 
             }}
           >
