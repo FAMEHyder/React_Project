@@ -50,17 +50,20 @@ const Navbar = () => {
         <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
 
 
-          <Box variant="h6" component="div"
+          <Box 
             onClick={() => handleClick('/')}
-            sx={{ flex: 1,
-             cursor: 'pointer',
+            sx={{
+              flex: 1,
+              cursor: 'pointer',
               backgroundImage: `url(${Cl})`,
-              backgroundSize: 'cover',
+              backgroundSize: 'contained',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
-              height: '20px',
-              width:'10px',
-              }}>
+              height: '50px',
+              width: '10px',
+            }}
+          >
+
           </Box>
 
           <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
