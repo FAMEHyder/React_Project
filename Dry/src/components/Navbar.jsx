@@ -5,7 +5,7 @@ import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useCart } from '../context/Cart'; // Import the CartContext hook
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, List, ListItem, Typography } from '@mui/material';
 import { useState } from 'react';
-import Cl from '../Image/CompanyLogo.jpg';
+import Cl from '../Image/CompanyLogo.png';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -54,12 +54,12 @@ const Navbar = () => {
             onClick={() => handleClick('/')}
             sx={{ flex: 1,
              cursor: 'pointer',
-              fontSize: { xs: '1.2rem', sm: '1.5rem' },
               backgroundImage: `url(${Cl})`,
               backgroundSize: 'cover',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'center',
-              height: '200px',
+              height: '20px',
+              width:'10px',
               }}>
           </Box>
 
