@@ -42,7 +42,7 @@ const handleCloseDialog = () => {
         <Button color="inherit" onClick={() => handleClick('/Signin')}>Sign In</Button>
         <Button color="inherit" onClick={() => handleClick('/Signup')}>Sign Up</Button>
         <Button color="inherit" onClick={() => handleOpenDialog()}> <ShoppingCartIcon /></Button>
-        <Button color="inherit" onClick={() => handleClick('/productDetails')}> <CheckCircleIcon /></Button>
+        <Button color="inherit" onClick={() => handleOpenDialog()}> <CheckCircleIcon /></Button>
         
         
         </Box>
@@ -68,27 +68,42 @@ const handleCloseDialog = () => {
     </AppBar>
     {/* MUI Dialog */}
     <Dialog open={open} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
-        <DialogTitle>Cart Items</DialogTitle>
-        <DialogContent>
-          {/* <Button onClick={handleAddItem}>Add </Button> */}
-          {/* <Button onClick={handleEditItem}>Edit Sukkari Price</Button> */}
+  <DialogTitle>Cart Items</DialogTitle>
+  <DialogContent>
+    {/* List of Cart Items */}
+    <List>
+      {cart.map((item) => (
+        <ListItem key={item.id} style={{ display: 'flex', alignItems: 'center' }}>
+          {/* Display item image */}
+          <img 
+            src={item.image} 
+            alt={item.name} 
+            style={{ width: 50, height: 50, marginRight: '16px' }} // Adjust size and spacing
+          />
           
-          {/* List of Cart Items */}
-          <List>
-            {cart.map((item) => (
-              <ListItem key={item.id}>
-                <Typography>
-                  {item.image} {item.name} - ${item.price} 
-                </Typography>
-                <Button onClick={()=>handleDeleteItem(item.id)}>Del</Button>
-              </ListItem>
-            ))}
-          </List>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseDialog}>Close</Button>
-        </DialogActions>
-      </Dialog>
+          {/* Display item details */}
+          <Typography variant="body1">
+            {item.name} - ${item.price}
+          </Typography>
+          
+          {/* Delete button */}
+          <Button 
+            variant="contained" 
+            color="secondary" 
+            onClick={() => handleDeleteItem(item.id)}
+            style={{ marginLeft: 'auto' }}
+          >
+            Delete
+          </Button>
+        </ListItem>
+      ))}
+    </List>
+  </DialogContent>
+  <DialogActions>
+    <Button onClick={handleCloseDialog}>Close</Button>
+  </DialogActions>
+</Dialog>
+
 
     </>
   );

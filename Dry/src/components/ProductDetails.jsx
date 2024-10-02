@@ -15,7 +15,7 @@ const ProductDetails = () => {
 
     const handleclick = (path) => {
         navigate(path);
-
+        addItem(product);
     }
     const handlecartclick = () => {
 
