@@ -53,6 +53,7 @@ const Navbar = () => {
           <Box 
             onClick={() => handleClick('/')}
             sx={{
+              paddingX: { xs: 2, sm: 4, md: 8 },
               flex: 1,
               cursor: 'pointer',
               backgroundImage: `url(${Cl})`,
