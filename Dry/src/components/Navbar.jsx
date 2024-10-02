@@ -1,11 +1,11 @@
-import { AppBar, Toolbar,   Box } from '@mui/material';
+import { AppBar, Toolbar, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import { useCart } from '../context/Cart'; // Import the CartContext hook
 import { Dialog, DialogTitle, DialogContent, DialogActions, Button, List, ListItem, Typography } from '@mui/material';
 import { useState } from 'react';
-import Cl from '../Image/CompanyLogo.png';
+import Cl from '../Image/CompanyLogo.jpg';
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -15,95 +15,102 @@ const Navbar = () => {
   const handleClick = (path) => {
     navigate(path);
   };
-// Editing the item in the cart
-// const handleEditItem = () => {
-//   // Example of updating the price
-//   editItem(updatedItem);
-// };
+  // Editing the item in the cart
+  // const handleEditItem = () => {
+  //   // Example of updating the price
+  //   editItem(updatedItem);
+  // };
 
-// Deleting the item from the cart
-const handleDeleteItem = (id) => {
-  deleteItem(id);
-};
+  // Deleting the item from the cart
+  const handleDeleteItem = (id) => {
+    deleteItem(id);
+  };
 
-// Function to open dialog
-const handleOpenDialog = () => {
-  setOpen(true);
-};
+  // Function to open dialog
+  const handleOpenDialog = () => {
+    setOpen(true);
+  };
 
-// Function to close dialog
-const handleCloseDialog = () => {
-  setOpen(false);
-};
+  // Function to close dialog
+  const handleCloseDialog = () => {
+    setOpen(false);
+  };
   return (
     <>
-    <AppBar>
-       <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1,marginLeft:120 }}>
+      <AppBar>
+        <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1, marginLeft: 120 }}>
 
-        <Button color="inherit" onClick={() => handleClick('/Signin')}>Sign In</Button>
-        <Button color="inherit" onClick={() => handleClick('/Signup')}>Sign Up</Button>
-        <Button color="inherit" onClick={() => handleOpenDialog()}> <ShoppingCartIcon /></Button>
-        <Button color="inherit" onClick={() => handleOpenDialog()}> <CheckCircleIcon /></Button>
-        
-        
+          <Button color="inherit" onClick={() => handleClick('/Signin')}>Sign In</Button>
+          <Button color="inherit" onClick={() => handleClick('/Signup')}>Sign Up</Button>
+          <Button color="inherit" onClick={() => handleOpenDialog()}> <ShoppingCartIcon /></Button>
+          <Button color="inherit" onClick={() => handleOpenDialog()}> <CheckCircleIcon /></Button>
+
+
         </Box>
-      <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
-        
-        
-        <Typography variant="h6" component="div" 
-                  onClick={() => handleClick('/')}
-                  sx={{ flex: 1, cursor:'pointer', fontSize: { xs: '1.2rem', sm: '1.5rem' } }}>
-          
-        </Typography>
-       
-        <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
-          <Button color="inherit" onClick={() => handleClick('/1')}>Almonds</Button>
-          <Button color="inherit" onClick={() => handleClick('/2')}>Cashews</Button>
-          <Button color="inherit" onClick={() => handleClick('/3')}>Walnuts</Button>
-          <Button color="inherit" onClick={() => handleClick('/4')}>Pistachios</Button>
-          <Button color="inherit" onClick={() => handleClick('/5')}>Raisins</Button>
-          <Button color="inherit" onClick={() => handleClick('/6')}>Dried Apricots</Button>
-          <Button color="inherit" onClick={() => handleClick('/7')}>Dates</Button>
-        </Box>
-      </Toolbar>
-    </AppBar>
-    {/* MUI Dialog */}
-    <Dialog open={open} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
-  <DialogTitle>Cart Items</DialogTitle>
-  <DialogContent>
-    {/* List of Cart Items */}
-    <List>
-      {cart.map((item) => (
-        <ListItem key={item.id} style={{ display: 'flex', alignItems: 'center' }}>
-          {/* Display item image */}
-          <img 
-            src={item.image} 
-            alt={item.name} 
-            style={{ width: 50, height: 50, marginRight: '16px' }} // Adjust size and spacing
-          />
-          
-          {/* Display item details */}
-          <Typography variant="body1">
-            {item.name} - ${item.price}
-          </Typography>
-          
-          {/* Delete button */}
-          <Button 
-            variant="contained" 
-            color="secondary" 
-            onClick={() => handleDeleteItem(item.id)}
-            style={{ marginLeft: 'auto' }}
-          >
-            Delete
-          </Button>
-        </ListItem>
-      ))}
-    </List>
-  </DialogContent>
-  <DialogActions>
-    <Button onClick={handleCloseDialog}>Close</Button>
-  </DialogActions>
-</Dialog>
+        <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
+
+
+          <Box variant="h6" component="div"
+            onClick={() => handleClick('/')}
+            sx={{ flex: 1, cursor: 'pointer', fontSize: { xs: '1.2rem', sm: '1.5rem' } }}>
+            style={{
+              backgroundImage: `url(${Cl})`,
+              backgroundSize: 'cover',
+              backgroundRepeat: 'no-repeat',
+              backgroundPosition: 'center',
+              height: '200px',
+            }}
+
+          </Box>
+
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
+            <Button color="inherit" onClick={() => handleClick('/1')}>Almonds</Button>
+            <Button color="inherit" onClick={() => handleClick('/2')}>Cashews</Button>
+            <Button color="inherit" onClick={() => handleClick('/3')}>Walnuts</Button>
+            <Button color="inherit" onClick={() => handleClick('/4')}>Pistachios</Button>
+            <Button color="inherit" onClick={() => handleClick('/5')}>Raisins</Button>
+            <Button color="inherit" onClick={() => handleClick('/6')}>Dried Apricots</Button>
+            <Button color="inherit" onClick={() => handleClick('/7')}>Dates</Button>
+          </Box>
+        </Toolbar>
+      </AppBar>
+      {/* MUI Dialog */}
+      <Dialog open={open} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
+        <DialogTitle>Cart Items</DialogTitle>
+        <DialogContent>
+          {/* List of Cart Items */}
+          <List>
+            {cart.map((item) => (
+              <ListItem key={item.id} style={{ display: 'flex', alignItems: 'center' }}>
+                {/* Display item image */}
+                <img
+                  src={item.image}
+                  alt={item.name}
+                  style={{ width: 50, height: 50, marginRight: '16px' }} // Adjust size and spacing
+                />
+
+                {/* Display item details */}
+                <Typography variant="body1">
+                  {item.name} - ${item.price}
+                </Typography>
+
+                {/* Delete button */}
+                <Button
+                  variant="contained"
+                  color="secondary"
+                  onClick={() => handleDeleteItem(item.id)}
+                  style={{ marginLeft: 'auto' }}
+                >
+                  Delete
+                </Button>
+              </ListItem>
+            ))}
+          </List>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseDialog}>Close</Button>
+        </DialogActions>
+      </Dialog>
 
 
     </>
