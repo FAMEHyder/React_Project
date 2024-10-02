@@ -54,12 +54,13 @@ const Navbar = () => {
               backgroundImage: `url(${Cl})`,
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'center',
-              height: 50,
+              backgroundPosition: 'left',
+              height: 40,
               width: '150px',
               marginRight:10,
-              transform: 'scale(3.5)',      // Scale the image to appear larger
+              transform: 'scale(3.9)',      // Scale the image to appear larger
               transformOrigin: 'center',
+
             }}
           >
 
