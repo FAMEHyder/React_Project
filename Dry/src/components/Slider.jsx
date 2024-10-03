@@ -38,7 +38,6 @@ const SliderComponent = () => {
   const navigate = useNavigate();
 
   const handleClick = (Id) => {
-    // navigate(`/${Id}`);
     navigate(Id);
   };
 
