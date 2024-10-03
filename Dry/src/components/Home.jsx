@@ -81,13 +81,13 @@ const Home = () => {
       </Box>
 
       <Box sx={{ marginTop: '200px', paddingX: { xs: 2, sm: 4, md: 8 } }}>
-        <SliderComponent />
         <Typography
           fontSize={{ xs: 24, sm: 30 }}
           fontWeight={800}
           fontFamily={'cambria'}
           textAlign="center"
         >
+        <SliderComponent />
           Almonds and its Varieties
         </Typography>
         <AlmondData />
