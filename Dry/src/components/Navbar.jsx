@@ -33,7 +33,7 @@ const Navbar = () => {
   return (
     <>
       <AppBar sx={{ backgroundColor: 'gray' }}>
-        <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1, marginLeft: 120 }}>
+        <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1, marginLeft: 120,backgroundColor: 'green' }}>
 
           <Button color="inherit" onClick={() => handleClick('/Signin')}>Sign In</Button>
           <Button color="inherit" onClick={() => handleClick('/Signup')}>Sign Up</Button>
