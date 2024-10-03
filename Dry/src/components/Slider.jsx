@@ -22,49 +22,16 @@ const images = [
 ];
 
 const sliderSettings = {
-  dots: true,
+  // dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 3,
+  slidesToShow: 5,
   slidesToScroll: 1,
   centerMode: true,
   centerPadding: '0',
   arrows: true,
-  autoplay: true, // Enable autoplay
-  autoplaySpeed: 1000, // Time between slides in milliseconds (3 seconds)
-  appendDots: (dots) => (
-    <Box
-      sx={{
-        position: 'absolute',
-        bottom: '10px',
-        width: '100%',
-        display: 'flex',
-        justifyContent: 'center',
-      }}
-    >
-      <Box
-        sx={{
-          display: 'flex',
-          gap: '5px',
-        }}
-      >
-        {dots}
-      </Box>
-    </Box>
-  ),
-  customPaging: (i) => (
-    <Box
-      sx={{
-        width: '12px',
-        height: '12px',
-        borderRadius: '50%',
-        backgroundColor: 'white',
-        opacity: i === 0 ? 1 : 0.5,
-        transition: 'opacity 0.3s',
-        cursor: 'pointer',
-      }}
-    />
-  ),
+  autoplay: true, 
+  autoplaySpeed: 1000, 
 };
 
 
