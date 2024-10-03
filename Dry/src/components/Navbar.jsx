@@ -66,7 +66,7 @@ const Navbar = () => {
 
           </Box>
 
-          <Box sx={{ display: { xs: 'none', sm: 'flex' }, color:'black', gap: 1 }}>
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, color:'black', gap: 1,fontWeight:'Bold' }}>
             <Button color="inherit" onClick={() => handleClick('/1')}>Almonds</Button>
             <Button color="inherit" onClick={() => handleClick('/2')}>Cashews</Button>
             <Button color="inherit" onClick={() => handleClick('/3')}>Walnuts</Button>
