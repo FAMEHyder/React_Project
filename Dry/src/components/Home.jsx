@@ -78,9 +78,9 @@ const Home = () => {
           },
         }}
       >
+        <SliderComponent />
       </Box>
 
-        <SliderComponent />
       <Box sx={{ marginTop: '200px', paddingX: { xs: 2, sm: 4, md: 8 } }}>
         <Typography
           fontSize={{ xs: 24, sm: 30 }}
