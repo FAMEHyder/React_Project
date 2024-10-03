@@ -42,18 +42,37 @@ const Home = () => {
     >
 
       <Box
-        sx={{
-          backgroundImage: `url(${backgrounds[currentBg]})`, // Dynamically set the background image
-          backgroundSize: 'cover',
-          backgroundRepeat: 'no-repeat',
-          backgroundPosition: 'center',
+         sx={{
+          position: 'relative',
           flex: 1,
           display: 'flex',
           justifyContent: 'center',
-          transition: 'background-image 1s ease-in-out',
-          backgroundColor:'rgba(0, 0, 0, 0.5)',
           alignItems: 'center',
           height: { xs: '80vh', sm: '100vh', md: '120vh' }, // Responsive height
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage: `url(${backgrounds[currentBg]})`, // Dynamically set the background image
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            zIndex: -2, // Ensures it's behind everything
+            transition: 'background-image 1s ease-in-out',
+          },
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.6)', // Black transparent overlay
+            zIndex: -1, // Ensures it's between the image and content
+          },
         }}
       >
         <SliderComponent />

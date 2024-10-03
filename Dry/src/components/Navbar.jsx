@@ -32,8 +32,8 @@ const Navbar = () => {
   };
   return (
     <>
-      <AppBar sx={{ backgroundColor: 'gray' }}>
-        <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1, marginLeft: 120,backgroundColor: 'green' }}>
+      <AppBar sx={{ backgroundColor: 'white' }}>
+        <Box sx={{ width:'100%', display: { xs: 'none', sm: 'flex' }, gap: 1, marginLeft: 'auto',backgroundColor: 'darkgreen',justifyContent:'end' }}>
 
           <Button color="inherit" onClick={() => handleClick('/Signin')}>Sign In</Button>
           <Button color="inherit" onClick={() => handleClick('/Signup')}>Sign Up</Button>
@@ -55,10 +55,10 @@ const Navbar = () => {
               backgroundSize: 'contain',
               backgroundRepeat: 'no-repeat',
               backgroundPosition: 'left',
-              height: 40,
+              height: 70,
               width: '150px',
               marginRight:10,
-              transform: 'scale(3.9)',      // Scale the image to appear larger
+              // transform: 'scale(1.9)',      // Scale the image to appear larger
               transformOrigin: 'left',
 
             }}
@@ -66,7 +66,7 @@ const Navbar = () => {
 
           </Box>
 
-          <Box sx={{ display: { xs: 'none', sm: 'flex' }, gap: 1 }}>
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, color:'black', gap: 1 }}>
             <Button color="inherit" onClick={() => handleClick('/1')}>Almonds</Button>
             <Button color="inherit" onClick={() => handleClick('/2')}>Cashews</Button>
             <Button color="inherit" onClick={() => handleClick('/3')}>Walnuts</Button>
