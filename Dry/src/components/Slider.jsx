@@ -82,7 +82,6 @@ const SliderComponent = () => {
                   height: '100%',
                   background: `url(${image.src}) center center / cover no-repeat`,
                   boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
-                  // borderRadius: '10px',
                   position: 'relative',
                 }}
               >
