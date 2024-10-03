@@ -22,7 +22,6 @@ const images = [
 ];
 
 const sliderSettings = {
-  // dots: true,
   infinite: true,
   speed: 500,
   slidesToShow: 4,
@@ -59,7 +58,7 @@ const SliderComponent = () => {
               transition: 'transform 0.5s, z-index 0.5s',
               '&.slick-center': {
                 transform: 'scale(1)', // Scale up the center slide
-                zIndex: 1, // Bring the center slide to the front
+                zIndex: 2, // Bring the center slide to the front
               },
             }}
           >
