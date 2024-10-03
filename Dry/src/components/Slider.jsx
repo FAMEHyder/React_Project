@@ -25,7 +25,7 @@ const sliderSettings = {
   // dots: true,
   infinite: true,
   speed: 500,
-  slidesToShow: 5,
+  slidesToShow: 4,
   slidesToScroll: 1,
   centerMode: true,
   centerPadding: '0',
@@ -84,7 +84,7 @@ const SliderComponent = () => {
                   height: '100%',
                   background: `url(${image.src}) center center / cover no-repeat`,
                   boxShadow: '0 4px 10px rgba(0,0,0,0.3)',
-                  borderRadius: '10px',
+                  // borderRadius: '10px',
                   position: 'relative',
                 }}
               >
