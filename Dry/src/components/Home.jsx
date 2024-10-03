@@ -44,14 +44,16 @@ const Home = () => {
       <Box
          sx={{
           position: 'relative',
+          
           flex: 1,
           display: 'flex',
           justifyContent: 'center',
           alignItems: 'center',
-          height: { xs: '80vh', sm: '100vh', md: '120vh' }, // Responsive height
+          height: { xs: '120vh', sm: '150vh', md: '200vh' }, // Responsive height
           '&::before': {
             content: '""',
             position: 'absolute',
+            height:'700px',
             top: 0,
             left: 0,
             right: 0,
@@ -70,17 +72,17 @@ const Home = () => {
             left: 0,
             right: 0,
             bottom: 0,
+            height:'700px',
             backgroundColor: 'rgba(0, 0, 0, 0.6)', // Black transparent overlay
             zIndex: -1, // Ensures it's between the image and content
           },
         }}
       >
-        <SliderComponent />
       </Box>
 
-      <Box sx={{ marginTop: '30px', paddingX: { xs: 2, sm: 4, md: 8 } }}>
+        <SliderComponent />
+      <Box sx={{ marginTop: '200px', paddingX: { xs: 2, sm: 4, md: 8 } }}>
         <Typography
-          marginTop={5}
           fontSize={{ xs: 24, sm: 30 }}
           fontWeight={800}
           fontFamily={'cambria'}
@@ -91,7 +93,6 @@ const Home = () => {
         <AlmondData />
 
         <Typography
-          marginTop={10}
           fontSize={{ xs: 24, sm: 30 }}
           fontWeight={800}
           fontFamily={'cambria'}
@@ -102,7 +103,6 @@ const Home = () => {
         <CashewData />
 
         <Typography
-          marginTop={10}
           fontSize={{ xs: 24, sm: 30 }}
           fontWeight={800}
           fontFamily={'cambria'}
@@ -113,7 +113,6 @@ const Home = () => {
         <DatesData />
 
         <Typography
-          marginTop={10}
           fontSize={{ xs: 24, sm: 30 }}
           fontWeight={800}
           fontFamily={'cambria'}
@@ -124,7 +123,6 @@ const Home = () => {
         <WalnutData />
 
         <Typography
-          marginTop={10}
           fontSize={{ xs: 24, sm: 30 }}
           fontWeight={800}
           fontFamily={'cambria'}
@@ -135,7 +133,6 @@ const Home = () => {
         <ApprocoteData />
 
         <Typography
-          marginTop={10}
           fontSize={{ xs: 24, sm: 30 }}
           fontWeight={800}
           fontFamily={'cambria'}
@@ -146,7 +143,6 @@ const Home = () => {
         <RaisinData />
 
         <Typography
-          marginTop={10}
           fontSize={{ xs: 24, sm: 30 }}
           fontWeight={800}
           fontFamily={'cambria'}

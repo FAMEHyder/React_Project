@@ -9,7 +9,6 @@ import california from '../Image/california.png';
 import fritz from '../Image/fritz.png';
 import peerless from '../Image/peerless.png';
 
-// Almond data array
 const almondData = [
   {
     id: 1,
