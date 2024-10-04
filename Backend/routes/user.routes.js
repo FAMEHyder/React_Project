@@ -2,6 +2,7 @@ import  express  from "express"
 
 import  Register  from '../Controllers/user.controller.js';
 import {Login} from '../Controllers/login.controller.js';
+
 const router = express.Router();
 
 

@@ -51,7 +51,7 @@ const ProductDetails = () => {
                             </Typography>
 
                             <Typography variant="h6" color="primary" gutterBottom>
-                                Price: ${product.price}
+                                Price: ${product.price} /200g
                             </Typography>
 
                             {/* Buttons for actions */}

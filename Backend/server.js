@@ -7,7 +7,6 @@ import DataBaseConnection from './database/database.js';
 
 
 dotenv.config();
-
 const app = express()
 
 app.use(express.json());
