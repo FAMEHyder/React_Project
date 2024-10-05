@@ -6,7 +6,7 @@ import { useCart } from '../context/Cart';
 
 const ProductDetails = () => {
     const navigate = useNavigate();
-    const { cart, addItem } = useCart();
+    const { /*cart,*/ addItem } = useCart();
     const location = useLocation();
     const { product } = location.state || {}; // Access product data from location state
 
