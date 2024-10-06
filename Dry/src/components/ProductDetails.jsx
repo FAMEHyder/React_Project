@@ -11,7 +11,7 @@ const ProductDetails = () => {
     const { product } = location.state || {}; // Access product data from location state
 
     // State to handle the quantity of product in kg
-    const [quantity, setQuantity] = useState(1); // Default quantity is 1kg
+    const [quantity, setQuantity] = useState(100); // Default quantity is 1kg
 
     if (!product) {
         return <Typography variant="h6" align="center">No product details available</Typography>;
@@ -19,13 +19,13 @@ const ProductDetails = () => {
 
     // Function to handle quantity increment
     const increaseQuantity = () => {
-        setQuantity((prev) => prev + 1);
+        setQuantity((prev) => prev + 100);
     };
 
     // Function to handle quantity decrement
     const decreaseQuantity = () => {
-        if (quantity > 1) {
-            setQuantity((prev) => prev - 1);
+        if (quantity > 100) {
+            setQuantity((prev) => prev - 100);
         }
     };
 
@@ -76,7 +76,7 @@ const ProductDetails = () => {
                                     <Remove />
                                 </IconButton>
                                 <Typography variant="h6" sx={{ mx: 2 }}>
-                                    {quantity} 00g
+                                    {quantity} g
                                 </Typography>
                                 <IconButton onClick={increaseQuantity} color="primary">
                                     <Add />
