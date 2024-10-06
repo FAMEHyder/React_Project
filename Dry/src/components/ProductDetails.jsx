@@ -76,7 +76,7 @@ const ProductDetails = () => {
                                     <Remove />
                                 </IconButton>
                                 <Typography variant="h6" sx={{ mx: 2 }}>
-                                    {quantity} g
+                                    {quantity} 00g
                                 </Typography>
                                 <IconButton onClick={increaseQuantity} color="primary">
                                     <Add />
