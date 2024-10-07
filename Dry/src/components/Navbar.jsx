@@ -126,7 +126,7 @@ const Navbar = () => {
                 },
               }}
             >
-              Dry Fruits
+              Products
             </Button>
 
             {/* Dropdown Menu */}

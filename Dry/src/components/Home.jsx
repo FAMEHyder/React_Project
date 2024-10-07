@@ -1,293 +1,161 @@
-// Navbar.jsx
-import { AppBar, Toolbar, Box, Button, Menu, MenuItem } from '@mui/material';
-import { useNavigate } from 'react-router-dom';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { useCart } from '../context/Cart'; // Import the CartContext hook
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  List,
-  ListItem,
-  Typography,
-} from '@mui/material';
-import { useState } from 'react';
-import Cl from '../Image/CompanyLogo.png';
+import { Box, Container, Typography } from '@mui/material';
+import { useState, useEffect } from 'react';
+import SliderComponent from '../components/Slider'; // Adjust the path as necessary
+import AlmondData from '../components/AlmondData.jsx';
+import CashewData from '../components/CashewData.jsx';
+import DatesData from '../components/DatesData.jsx';
+import WalnutData from '../components/WalnutData.jsx';
+import ApprocoteData from '../components/AppricoteData.jsx';
+import PistachioData from '../components/PistachioData.jsx';
+import RaisinData from '../components/RaisinData.jsx';
+import Footer from './Footer.jsx';
+import bg from '../Image/bg1.png';
+import bg1 from '../Image/bg1.png';
+import bg2 from '../Image/bg2.png';
+import bg3 from '../Image/bg6.png';
+import bg4 from '../Image/bg4.png';
+import bg5 from '../Image/bg5.png';
+import bg6 from '../Image/bg6.png';
 
-const Navbar = () => {
-  const navigate = useNavigate();
-  const { cart, deleteItem } = useCart();
-  const [open, setOpen] = useState(false); // State to manage the dialog
-  const [anchorEl, setAnchorEl] = useState(null); // State to manage dropdown
+const Home = () => {
+  const backgrounds = [bg, bg1, bg2, bg3, bg4, bg5, bg6]; // Array of background images
+  const [currentBg, setCurrentBg] = useState(0);
 
-  const handleClick = (path) => {
-    navigate(path);
-  };
+  useEffect(() => {
+    const intervalId = setInterval(() => {
+      setCurrentBg((prevBg) => (prevBg + 1) % backgrounds.length); // Loop through images
+    }, 3000); // Change image every 3 seconds
 
-  // Deleting the item from the cart
-  const handleDeleteItem = (id) => {
-    deleteItem(id);
-  };
-
-  // Function to open dialog
-  const handleOpenDialog = () => {
-    setOpen(true);
-  };
-
-  // Function to close dialog
-  const handleCloseDialog = () => {
-    setOpen(false);
-  };
-
-  // Open dropdown menu
-  const handleOpenMenu = (event) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  // Close dropdown menu
-  const handleCloseMenu = () => {
-    setAnchorEl(null);
-  };
+    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+  },);
 
   return (
-    <>
-      <AppBar sx={{ backgroundColor: 'white' }}>
-        {/* Top Bar with Sign In, Sign Up, Cart, and Check Icons */}
-        <Box
-          sx={{
-            width: '100%',
-            display: { xs: 'none', sm: 'flex' },
-            gap: 1,
-            marginLeft: 'auto',
-            backgroundColor: 'darkgreen',
-            justifyContent: 'end',
-            padding: '0 16px', // Added padding for better spacing
-          }}
+    <Container
+      maxWidth={false}
+      disableGutters
+      sx={{
+        padding: 0,
+        display: 'flex',
+        flexDirection: 'column',
+        minHeight: '100vh',
+      }}
+    >
+
+      <Box
+         sx={{
+          position: 'relative',
+          
+          flex: 1,
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          height: { xs: '120vh', sm: '150vh', md: '200vh' }, // Responsive height
+          '&::before': {
+            content: '""',
+            position: 'absolute',
+            height:'700px',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundImage: `url(${backgrounds[currentBg]})`, // Dynamically set the background image
+            backgroundSize: 'cover',
+            backgroundRepeat: 'no-repeat',
+            backgroundPosition: 'center',
+            zIndex: -2, // Ensures it's behind everything
+            transition: 'background-image 1s ease-in-out',
+          },
+          '&::after': {
+            content: '""',
+            position: 'absolute',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            height:'700px',
+            backgroundColor: 'rgba(0, 0, 0, 0.6)', // Black transparent overlay
+            zIndex: -1, // Ensures it's between the image and content
+          },
+        }}
+      >
+      </Box>
+
+      <Box sx={{ marginTop: '200px', paddingX: { xs: 2, sm: 4, md: 8 } }}>
+        <Typography
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
         >
-          <Button color="inherit" onClick={() => handleClick('/signin')}>
-            Sign In
-          </Button>
-          <Button color="inherit" onClick={() => handleClick('/signup')}>
-            Sign Up
-          </Button>
-          <Button color="inherit" onClick={handleOpenDialog}>
-            <ShoppingCartIcon />
-          </Button>
-          <Button color="inherit" onClick={handleOpenDialog}>
-            <CheckCircleIcon />
-          </Button>
-        </Box>
+        <SliderComponent />
+          Almonds and its Varieties
+        </Typography>
+        <AlmondData />
 
-        {/* Main Toolbar with Logo and Navigation Links */}
-        <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
-          {/* Company Logo */}
-          <Box
-            onClick={() => handleClick('/')}
-            sx={{
-              paddingX: { xs: 2, sm: 4, md: 8 },
-              cursor: 'pointer',
-              backgroundImage: `url(${Cl})`,
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
-              backgroundPosition: 'left',
-              height: 70,
-              width: '150px',
-              marginRight: 10,
-              transformOrigin: 'left',
-            }}
-          />
+        <Typography
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
+        >
+          Cashews and its Varieties
+        </Typography>
+        <CashewData />
 
-          {/* Navigation Links */}
-          <Box
-            sx={{
-              display: { xs: 'none', sm: 'flex' },
-              color: 'black',
-              gap: 2,
-              fontWeight: 8,
-              alignItems: 'center', // Vertically center the buttons
-            }}
-          >
-            {/* Dropdown Button for Dry Fruits */}
-            <Button
-              color="inherit"
-              onClick={handleOpenMenu} // Open dropdown
-              endIcon={<ArrowDropDownIcon />} // Add dropdown icon
-              sx={{
-                color: 'black',
-                fontSize: '1rem',
-                fontWeight: 'bold',
-                textTransform: 'none', // Keep text as is
-                '&:hover': {
-                  backgroundColor: 'lightgreen',
-                  color: 'darkgreen',
-                },
-              }}
-            >
-              Dry Fruits
-            </Button>
+        <Typography
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
+        >
+          Dates and its Varieties
+        </Typography>
+        <DatesData />
 
-            {/* Dropdown Menu */}
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleCloseMenu}
-              PaperProps={{
-                style: {
-                  backgroundColor: 'lightgray', // Dropdown background color
-                  borderRadius: '8px',
-                  boxShadow: '0px 3px 6px rgba(0,0,0,0.2)',
-                },
-              }}
-              MenuListProps={{
-                sx: {
-                  padding: 0, // Remove default padding
-                },
-              }}
-            >
-              {[
-                { name: 'Almonds', path: '/1' },
-                { name: 'Cashews', path: '/2' },
-                { name: 'Walnuts', path: '/3' },
-                { name: 'Pistachios', path: '/4' },
-                { name: 'Raisins', path: '/5' },
-                { name: 'Dried Apricots', path: '/6' },
-                { name: 'Dates', path: '/7' },
-              ].map((fruit) => (
-                <MenuItem
-                  key={fruit.name}
-                  onClick={() => {
-                    handleClick(fruit.path);
-                    handleCloseMenu();
-                  }}
-                  sx={{
-                    fontSize: '0.9rem',
-                    fontWeight: 'medium',
-                    color: 'black',
-                    padding: '10px 20px',
-                    '&:hover': {
-                      backgroundColor: 'darkgreen',
-                      color: 'white',
-                    },
-                  }}
-                >
-                  {fruit.name}
-                </MenuItem>
-              ))}
-            </Menu>
+        <Typography
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
+        >
+          Walnuts and its Varieties
+        </Typography>
+        <WalnutData />
 
-            {/* Additional Navigation Buttons */}
-            <Button
-              color="inherit"
-              onClick={() => handleClick('/about')}
-              sx={{
-                textTransform: 'none',
-                fontWeight: 'bold',
-                '&:hover': {
-                  backgroundColor: 'lightgreen',
-                  color: 'darkgreen',
-                },
-              }}
-            >
-              About Us
-            </Button>
-            <Button
-              color="inherit"
-              onClick={() => handleClick('/contact')}
-              sx={{
-                textTransform: 'none',
-                fontWeight: 'bold',
-                '&:hover': {
-                  backgroundColor: 'lightgreen',
-                  color: 'darkgreen',
-                },
-              }}
-            >
-              Contact Us
-            </Button>
-            {/* External Link to Facebook Page */}
-            <Button
-              color="inherit"
-              component="a"
-              href="https://www.facebook.com/YourFacebookPage" // Replace with your Facebook URL
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                textTransform: 'none',
-                fontWeight: 'bold',
-                '&:hover': {
-                  backgroundColor: 'lightgreen',
-                  color: 'darkgreen',
-                },
-              }}
-            >
-              Page
-            </Button>
-            {/* External Link to Blogs */}
-            <Button
-              color="inherit"
-              component="a"
-              href="https://yourblogurl.com" // Replace with your Blog URL
-              target="_blank"
-              rel="noopener noreferrer"
-              sx={{
-                textTransform: 'none',
-                fontWeight: 'bold',
-                '&:hover': {
-                  backgroundColor: 'lightgreen',
-                  color: 'darkgreen',
-                },
-              }}
-            >
-              Blogs
-            </Button>
-          </Box>
-        </Toolbar>
-      </AppBar>
+        <Typography
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
+        >
+          Appricotes and its Varieties
+        </Typography>
+        <ApprocoteData />
 
-      {/* MUI Dialog for Cart */}
-      <Dialog open={open} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
-        <DialogTitle>Cart Items</DialogTitle>
-        <DialogContent>
-          {/* List of Cart Items */}
-          <List>
-            {cart.map((item) => (
-              <ListItem
-                key={item.id}
-                sx={{ display: 'flex', alignItems: 'center' }}
-              >
-                {/* Display item image */}
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  style={{ width: 50, height: 50, marginRight: '16px' }} // Adjust size and spacing
-                />
-                {/* Display item details */}
-                <Typography variant="body1">
-                  {item.name} - ${item.price}
-                </Typography>
+        <Typography
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
+        >
+          Raisins and its Varieties
+        </Typography>
+        <RaisinData />
 
-                {/* Delete button */}
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => handleDeleteItem(item.id)}
-                  sx={{ marginLeft: 'auto' }}
-                >
-                  Delete
-                </Button>
-              </ListItem>
-            ))}
-          </List>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseDialog}>Close</Button>
-        </DialogActions>
-      </Dialog>
-    </>
+        <Typography
+          fontSize={{ xs: 24, sm: 30 }}
+          fontWeight={800}
+          fontFamily={'cambria'}
+          textAlign="center"
+        >
+          Pistachios and its Varieties
+        </Typography>
+        <PistachioData />
+      </Box>
+
+      <Footer />
+    </Container>
   );
 };
 
-export default Navbar;
+export default Home;
