@@ -6,7 +6,7 @@ import AlmondData from '../components/AlmondData.jsx';
 import CashewData from '../components/CashewData.jsx';
 import DatesData from '../components/DatesData.jsx';
 import WalnutData from '../components/WalnutData.jsx';
-import ApricotData from '../components/ApricotData.jsx'; // Corrected component name
+import ApricotData from '../components/AppricoteData.jsx'; // Corrected component name
 import PistachioData from '../components/PistachioData.jsx';
 import RaisinData from '../components/RaisinData.jsx';
 import Footer from './Footer.jsx';
