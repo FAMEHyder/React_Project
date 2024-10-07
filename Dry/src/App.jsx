@@ -37,6 +37,8 @@ function App() {
         <Route path="/Signin" element={<LoginForm />} />
         <Route path="/OrderForm" element={<OrderForm />} />
         <Route path="/ProductTable" element={<OrderPlaced />} />
+        <Route path="/about" element={<AboutUs />} />
+        <Route path="/contact" element={<ContactUs />} />
 
         {/* <Route path="/:id" element={<AlmondData/>} />
         <Route path="/:id" element={<CashewData/>} /> */}
