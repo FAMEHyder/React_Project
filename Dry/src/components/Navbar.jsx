@@ -1,12 +1,21 @@
+// Navbar.jsx
 import { AppBar, Toolbar, Box, Button, Menu, MenuItem } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useCart } from '../context/Cart'; // Import the CartContext hook
-import { Dialog, DialogTitle, DialogContent, DialogActions, List, ListItem, Typography } from '@mui/material';
+import {
+  Dialog,
+  DialogTitle,
+  DialogContent,
+  DialogActions,
+  List,
+  ListItem,
+  Typography,
+} from '@mui/material';
 import { useState } from 'react';
 import Cl from '../Image/CompanyLogo.png';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'; // Dropdown icon
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -46,14 +55,35 @@ const Navbar = () => {
   return (
     <>
       <AppBar sx={{ backgroundColor: 'white' }}>
-        <Box sx={{ width: '100%', display: { xs: 'none', sm: 'flex' }, gap: 1, marginLeft: 'auto', backgroundColor: 'darkgreen', justifyContent: 'end' }}>
-          <Button color="inherit" onClick={() => handleClick('/Signin')}>Sign In</Button>
-          <Button color="inherit" onClick={() => handleClick('/Signup')}>Sign Up</Button>
-          <Button color="inherit" onClick={() => handleOpenDialog()}><ShoppingCartIcon /></Button>
-          <Button color="inherit" onClick={() => handleOpenDialog()}><CheckCircleIcon /></Button>
+        {/* Top Bar with Sign In, Sign Up, Cart, and Check Icons */}
+        <Box
+          sx={{
+            width: '100%',
+            display: { xs: 'none', sm: 'flex' },
+            gap: 1,
+            marginLeft: 'auto',
+            backgroundColor: 'darkgreen',
+            justifyContent: 'end',
+            padding: '0 16px', // Added padding for better spacing
+          }}
+        >
+          <Button color="inherit" onClick={() => handleClick('/signin')}>
+            Sign In
+          </Button>
+          <Button color="inherit" onClick={() => handleClick('/signup')}>
+            Sign Up
+          </Button>
+          <Button color="inherit" onClick={handleOpenDialog}>
+            <ShoppingCartIcon />
+          </Button>
+          <Button color="inherit" onClick={handleOpenDialog}>
+            <CheckCircleIcon />
+          </Button>
         </Box>
 
+        {/* Main Toolbar with Logo and Navigation Links */}
         <Toolbar sx={{ justifyContent: 'space-between', flexWrap: 'wrap' }}>
+          {/* Company Logo */}
           <Box
             onClick={() => handleClick('/')}
             sx={{
@@ -70,12 +100,31 @@ const Navbar = () => {
             }}
           />
 
-          <Box sx={{ display: { xs: 'none', sm: 'flex' }, color: 'black', gap: 2, fontWeight: 8 }}>
+          {/* Navigation Links */}
+          <Box
+            sx={{
+              display: { xs: 'none', sm: 'flex' },
+              color: 'black',
+              gap: 2,
+              fontWeight: 8,
+              alignItems: 'center', // Vertically center the buttons
+            }}
+          >
             {/* Dropdown Button for Dry Fruits */}
             <Button
               color="inherit"
               onClick={handleOpenMenu} // Open dropdown
               endIcon={<ArrowDropDownIcon />} // Add dropdown icon
+              sx={{
+                color: 'black',
+                fontSize: '1rem',
+                fontWeight: 'bold',
+                textTransform: 'none', // Keep text as is
+                '&:hover': {
+                  backgroundColor: 'lightgreen',
+                  color: 'darkgreen',
+                },
+              }}
             >
               Dry Fruits
             </Button>
@@ -85,33 +134,130 @@ const Navbar = () => {
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}
               onClose={handleCloseMenu}
+              PaperProps={{
+                style: {
+                  backgroundColor: 'lightgray', // Dropdown background color
+                  borderRadius: '8px',
+                  boxShadow: '0px 3px 6px rgba(0,0,0,0.2)',
+                },
+              }}
+              MenuListProps={{
+                sx: {
+                  padding: 0, // Remove default padding
+                },
+              }}
             >
-              <MenuItem onClick={() => { handleClick('/1'); handleCloseMenu(); }}>Almonds</MenuItem>
-              <MenuItem onClick={() => { handleClick('/2'); handleCloseMenu(); }}>Cashews</MenuItem>
-              <MenuItem onClick={() => { handleClick('/3'); handleCloseMenu(); }}>Walnuts</MenuItem>
-              <MenuItem onClick={() => { handleClick('/4'); handleCloseMenu(); }}>Pistachios</MenuItem>
-              <MenuItem onClick={() => { handleClick('/5'); handleCloseMenu(); }}>Raisins</MenuItem>
-              <MenuItem onClick={() => { handleClick('/6'); handleCloseMenu(); }}>Dried Apricots</MenuItem>
-              <MenuItem onClick={() => { handleClick('/7'); handleCloseMenu(); }}>Dates</MenuItem>
+              {[
+                { name: 'Almonds', path: '/1' },
+                { name: 'Cashews', path: '/2' },
+                { name: 'Walnuts', path: '/3' },
+                { name: 'Pistachios', path: '/4' },
+                { name: 'Raisins', path: '/5' },
+                { name: 'Dried Apricots', path: '/6' },
+                { name: 'Dates', path: '/7' },
+              ].map((fruit) => (
+                <MenuItem
+                  key={fruit.name}
+                  onClick={() => {
+                    handleClick(fruit.path);
+                    handleCloseMenu();
+                  }}
+                  sx={{
+                    fontSize: '0.9rem',
+                    fontWeight: 'medium',
+                    color: 'black',
+                    padding: '10px 20px',
+                    '&:hover': {
+                      backgroundColor: 'darkgreen',
+                      color: 'white',
+                    },
+                  }}
+                >
+                  {fruit.name}
+                </MenuItem>
+              ))}
             </Menu>
 
-            {/* Additional Buttons */}
-            <Button color="inherit" onClick={() => handleClick('/about')}>About Us</Button>
-            <Button color="inherit" onClick={() => handleClick('/contact')}>Contact Us</Button>
-            <Button color="inherit" onClick={() => handleClick('/page')}>Page</Button>
-            <Button color="inherit" onClick={() => handleClick('/blogs')}>Blogs</Button>
+            {/* Additional Navigation Buttons */}
+            <Button
+              color="inherit"
+              onClick={() => handleClick('/about')}
+              sx={{
+                textTransform: 'none',
+                fontWeight: 'bold',
+                '&:hover': {
+                  backgroundColor: 'lightgreen',
+                  color: 'darkgreen',
+                },
+              }}
+            >
+              About Us
+            </Button>
+            <Button
+              color="inherit"
+              onClick={() => handleClick('/contact')}
+              sx={{
+                textTransform: 'none',
+                fontWeight: 'bold',
+                '&:hover': {
+                  backgroundColor: 'lightgreen',
+                  color: 'darkgreen',
+                },
+              }}
+            >
+              Contact Us
+            </Button>
+            {/* External Link to Facebook Page */}
+            <Button
+              color="inherit"
+              component="a"
+              href="https://www.facebook.com/YourFacebookPage" // Replace with your Facebook URL
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                textTransform: 'none',
+                fontWeight: 'bold',
+                '&:hover': {
+                  backgroundColor: 'lightgreen',
+                  color: 'darkgreen',
+                },
+              }}
+            >
+              Page
+            </Button>
+            {/* External Link to Blogs */}
+            <Button
+              color="inherit"
+              component="a"
+              href="https://yourblogurl.com" // Replace with your Blog URL
+              target="_blank"
+              rel="noopener noreferrer"
+              sx={{
+                textTransform: 'none',
+                fontWeight: 'bold',
+                '&:hover': {
+                  backgroundColor: 'lightgreen',
+                  color: 'darkgreen',
+                },
+              }}
+            >
+              Blogs
+            </Button>
           </Box>
         </Toolbar>
       </AppBar>
 
-      {/* MUI Dialog */}
+      {/* MUI Dialog for Cart */}
       <Dialog open={open} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
         <DialogTitle>Cart Items</DialogTitle>
         <DialogContent>
           {/* List of Cart Items */}
           <List>
             {cart.map((item) => (
-              <ListItem key={item.id} style={{ display: 'flex', alignItems: 'center' }}>
+              <ListItem
+                key={item.id}
+                sx={{ display: 'flex', alignItems: 'center' }}
+              >
                 {/* Display item image */}
                 <img
                   src={item.image}
@@ -128,7 +274,7 @@ const Navbar = () => {
                   variant="contained"
                   color="secondary"
                   onClick={() => handleDeleteItem(item.id)}
-                  style={{ marginLeft: 'auto' }}
+                  sx={{ marginLeft: 'auto' }}
                 >
                   Delete
                 </Button>
