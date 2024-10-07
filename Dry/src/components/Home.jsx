@@ -1,11 +1,12 @@
-import { Box, Container, Typography } from '@mui/material';
+// Home.jsx
+import { Box, Container, Typography, Skeleton } from '@mui/material';
 import { useState, useEffect } from 'react';
 import SliderComponent from '../components/Slider'; // Adjust the path as necessary
 import AlmondData from '../components/AlmondData.jsx';
 import CashewData from '../components/CashewData.jsx';
 import DatesData from '../components/DatesData.jsx';
 import WalnutData from '../components/WalnutData.jsx';
-import ApprocoteData from '../components/AppricoteData.jsx';
+import ApricotData from '../components/ApricotData.jsx'; // Corrected component name
 import PistachioData from '../components/PistachioData.jsx';
 import RaisinData from '../components/RaisinData.jsx';
 import Footer from './Footer.jsx';
@@ -20,14 +21,23 @@ import bg6 from '../Image/bg6.png';
 const Home = () => {
   const backgrounds = [bg, bg1, bg2, bg3, bg4, bg5, bg6]; // Array of background images
   const [currentBg, setCurrentBg] = useState(0);
+  const [loading, setLoading] = useState(true); // Loading state
 
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentBg((prevBg) => (prevBg + 1) % backgrounds.length); // Loop through images
     }, 3000); // Change image every 3 seconds
 
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
-  },);
+    // Simulate data loading
+    const loadData = setTimeout(() => {
+      setLoading(false);
+    }, 2000); // 2 seconds loading time
+
+    return () => {
+      clearInterval(intervalId); // Cleanup interval on component unmount
+      clearTimeout(loadData); // Cleanup timeout on component unmount
+    };
+  }, [backgrounds.length]);
 
   return (
     <Container
@@ -40,11 +50,10 @@ const Home = () => {
         minHeight: '100vh',
       }}
     >
-
+      {/* Background Image Section */}
       <Box
-         sx={{
+        sx={{
           position: 'relative',
-          
           flex: 1,
           display: 'flex',
           justifyContent: 'center',
@@ -53,12 +62,12 @@ const Home = () => {
           '&::before': {
             content: '""',
             position: 'absolute',
-            height:'700px',
+            height: '700px',
             top: 0,
             left: 0,
             right: 0,
             bottom: 0,
-            backgroundImage: `url(${backgrounds[currentBg]})`, // Dynamically set the background image
+            backgroundImage: `url(${backgrounds[currentBg]})`, // Corrected syntax
             backgroundSize: 'cover',
             backgroundRepeat: 'no-repeat',
             backgroundPosition: 'center',
@@ -72,87 +81,251 @@ const Home = () => {
             left: 0,
             right: 0,
             bottom: 0,
-            height:'700px',
+            height: '700px',
             backgroundColor: 'rgba(0, 0, 0, 0.6)', // Black transparent overlay
             zIndex: -1, // Ensures it's between the image and content
           },
         }}
       >
+        {loading && (
+          <Skeleton
+            variant="rectangular"
+            width="100%"
+            height="100%"
+            sx={{ position: 'absolute', top: 0, left: 0, zIndex: -3 }}
+          />
+        )}
       </Box>
 
-      <Box sx={{ marginTop: '200px', paddingX: { xs: 2, sm: 4, md: 8 } }}>
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
-        <SliderComponent />
-          Almonds and its Varieties
-        </Typography>
-        <AlmondData />
+      {/* Main Content Section */}
+      <Box sx={{ marginTop: { xs: '150px', sm: '180px', md: '200px' }, paddingX: { xs: 2, sm: 4, md: 8 } }}>
+        {/* Almonds Section */}
+        <Box sx={{ mb: 4 }}>
+          {loading ? (
+            <>
+              <Skeleton
+                variant="text"
+                width={{ xs: '80%', sm: '60%' }}
+                height={40}
+                sx={{ margin: '0 auto', display: 'block' }}
+              />
+              <Skeleton
+                variant="rectangular"
+                height={200}
+                sx={{ marginTop: '1rem', borderRadius: '8px' }}
+              />
+            </>
+          ) : (
+            <>
+              <Typography
+                fontSize={{ xs: 24, sm: 30 }}
+                fontWeight={800}
+                fontFamily={'cambria'}
+                textAlign="center"
+                gutterBottom
+              >
+                <SliderComponent />
+                Almonds and its Varieties
+              </Typography>
+              <AlmondData />
+            </>
+          )}
+        </Box>
 
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
-          Cashews and its Varieties
-        </Typography>
-        <CashewData />
+        {/* Cashews Section */}
+        <Box sx={{ mb: 4 }}>
+          {loading ? (
+            <>
+              <Skeleton
+                variant="text"
+                width={{ xs: '80%', sm: '60%' }}
+                height={40}
+                sx={{ margin: '0 auto', display: 'block' }}
+              />
+              <Skeleton
+                variant="rectangular"
+                height={200}
+                sx={{ marginTop: '1rem', borderRadius: '8px' }}
+              />
+            </>
+          ) : (
+            <>
+              <Typography
+                fontSize={{ xs: 24, sm: 30 }}
+                fontWeight={800}
+                fontFamily={'cambria'}
+                textAlign="center"
+                gutterBottom
+              >
+                Cashews and its Varieties
+              </Typography>
+              <CashewData />
+            </>
+          )}
+        </Box>
 
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
-          Dates and its Varieties
-        </Typography>
-        <DatesData />
+        {/* Dates Section */}
+        <Box sx={{ mb: 4 }}>
+          {loading ? (
+            <>
+              <Skeleton
+                variant="text"
+                width={{ xs: '80%', sm: '60%' }}
+                height={40}
+                sx={{ margin: '0 auto', display: 'block' }}
+              />
+              <Skeleton
+                variant="rectangular"
+                height={200}
+                sx={{ marginTop: '1rem', borderRadius: '8px' }}
+              />
+            </>
+          ) : (
+            <>
+              <Typography
+                fontSize={{ xs: 24, sm: 30 }}
+                fontWeight={800}
+                fontFamily={'cambria'}
+                textAlign="center"
+                gutterBottom
+              >
+                Dates and its Varieties
+              </Typography>
+              <DatesData />
+            </>
+          )}
+        </Box>
 
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
-          Walnuts and its Varieties
-        </Typography>
-        <WalnutData />
+        {/* Walnuts Section */}
+        <Box sx={{ mb: 4 }}>
+          {loading ? (
+            <>
+              <Skeleton
+                variant="text"
+                width={{ xs: '80%', sm: '60%' }}
+                height={40}
+                sx={{ margin: '0 auto', display: 'block' }}
+              />
+              <Skeleton
+                variant="rectangular"
+                height={200}
+                sx={{ marginTop: '1rem', borderRadius: '8px' }}
+              />
+            </>
+          ) : (
+            <>
+              <Typography
+                fontSize={{ xs: 24, sm: 30 }}
+                fontWeight={800}
+                fontFamily={'cambria'}
+                textAlign="center"
+                gutterBottom
+              >
+                Walnuts and its Varieties
+              </Typography>
+              <WalnutData />
+            </>
+          )}
+        </Box>
 
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
-          Appricotes and its Varieties
-        </Typography>
-        <ApprocoteData />
+        {/* Apricots Section */}
+        <Box sx={{ mb: 4 }}>
+          {loading ? (
+            <>
+              <Skeleton
+                variant="text"
+                width={{ xs: '80%', sm: '60%' }}
+                height={40}
+                sx={{ margin: '0 auto', display: 'block' }}
+              />
+              <Skeleton
+                variant="rectangular"
+                height={200}
+                sx={{ marginTop: '1rem', borderRadius: '8px' }}
+              />
+            </>
+          ) : (
+            <>
+              <Typography
+                fontSize={{ xs: 24, sm: 30 }}
+                fontWeight={800}
+                fontFamily={'cambria'}
+                textAlign="center"
+                gutterBottom
+              >
+                Apricots and its Varieties
+              </Typography>
+              <ApricotData />
+            </>
+          )}
+        </Box>
 
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
-          Raisins and its Varieties
-        </Typography>
-        <RaisinData />
+        {/* Raisins Section */}
+        <Box sx={{ mb: 4 }}>
+          {loading ? (
+            <>
+              <Skeleton
+                variant="text"
+                width={{ xs: '80%', sm: '60%' }}
+                height={40}
+                sx={{ margin: '0 auto', display: 'block' }}
+              />
+              <Skeleton
+                variant="rectangular"
+                height={200}
+                sx={{ marginTop: '1rem', borderRadius: '8px' }}
+              />
+            </>
+          ) : (
+            <>
+              <Typography
+                fontSize={{ xs: 24, sm: 30 }}
+                fontWeight={800}
+                fontFamily={'cambria'}
+                textAlign="center"
+                gutterBottom
+              >
+                Raisins and its Varieties
+              </Typography>
+              <RaisinData />
+            </>
+          )}
+        </Box>
 
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
-          Pistachios and its Varieties
-        </Typography>
-        <PistachioData />
+        {/* Pistachios Section */}
+        <Box sx={{ mb: 4 }}>
+          {loading ? (
+            <>
+              <Skeleton
+                variant="text"
+                width={{ xs: '80%', sm: '60%' }}
+                height={40}
+                sx={{ margin: '0 auto', display: 'block' }}
+              />
+              <Skeleton
+                variant="rectangular"
+                height={200}
+                sx={{ marginTop: '1rem', borderRadius: '8px' }}
+              />
+            </>
+          ) : (
+            <>
+              <Typography
+                fontSize={{ xs: 24, sm: 30 }}
+                fontWeight={800}
+                fontFamily={'cambria'}
+                textAlign="center"
+                gutterBottom
+              >
+                Pistachios and its Varieties
+              </Typography>
+              <PistachioData />
+            </>
+          )}
+        </Box>
       </Box>
 
+      {/* Footer Section */}
       <Footer />
     </Container>
   );
