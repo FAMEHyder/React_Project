@@ -16,7 +16,6 @@ import OrderForm from './components/OrderForm.jsx';
 import OrderPlaced from './components/OrderPlaced.jsx';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
-
 function App() {
   
 
@@ -44,6 +43,8 @@ function App() {
         <Route path="/:id" element={<CashewData/>} /> */}
 
       </Routes>
+      
+
     </Router>
   )
 }
