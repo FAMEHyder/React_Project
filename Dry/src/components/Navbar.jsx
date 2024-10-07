@@ -1,5 +1,4 @@
 import { AppBar, Toolbar, Box, Button, Menu, MenuItem } from '@mui/material';
-import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import { useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
@@ -7,6 +6,7 @@ import { useCart } from '../context/Cart'; // Import the CartContext hook
 import { Dialog, DialogTitle, DialogContent, DialogActions, List, ListItem, Typography } from '@mui/material';
 import { useState } from 'react';
 import Cl from '../Image/CompanyLogo.png';
+import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown'; // Dropdown icon
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -70,11 +70,12 @@ const Navbar = () => {
             }}
           />
 
-          <Box sx={{ display: { xs: 'none', sm: 'flex' }, color: 'black', gap: 1, fontWeight: 8 }}>
+          <Box sx={{ display: { xs: 'none', sm: 'flex' }, color: 'black', gap: 2, fontWeight: 8 }}>
             {/* Dropdown Button for Dry Fruits */}
             <Button
               color="inherit"
               onClick={handleOpenMenu} // Open dropdown
+              endIcon={<ArrowDropDownIcon />} // Add dropdown icon
             >
               Dry Fruits
             </Button>
@@ -93,6 +94,12 @@ const Navbar = () => {
               <MenuItem onClick={() => { handleClick('/6'); handleCloseMenu(); }}>Dried Apricots</MenuItem>
               <MenuItem onClick={() => { handleClick('/7'); handleCloseMenu(); }}>Dates</MenuItem>
             </Menu>
+
+            {/* Additional Buttons */}
+            <Button color="inherit" onClick={() => handleClick('/about')}>About Us</Button>
+            <Button color="inherit" onClick={() => handleClick('/contact')}>Contact Us</Button>
+            <Button color="inherit" onClick={() => handleClick('/page')}>Page</Button>
+            <Button color="inherit" onClick={() => handleClick('/blogs')}>Blogs</Button>
           </Box>
         </Toolbar>
       </AppBar>
