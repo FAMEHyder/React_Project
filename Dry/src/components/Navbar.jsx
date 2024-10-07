@@ -211,7 +211,7 @@ const Navbar = () => {
             <Button
               color="inherit"
               component="a"
-              href="https://www.facebook.com/YourFacebookPage" // Replace with your Facebook URL
+              href="https://www.facebook.com/profile.php?id=100077870918618" // Replace with your Facebook URL
               target="_blank"
               rel="noopener noreferrer"
               sx={{
@@ -229,7 +229,7 @@ const Navbar = () => {
             <Button
               color="inherit"
               component="a"
-              href="https://yourblogurl.com" // Replace with your Blog URL
+              href="https://famehyderblogs.blogspot.com/2021/03/fame-hyder-blogs.html" // Replace with your Blog URL
               target="_blank"
               rel="noopener noreferrer"
               sx={{
