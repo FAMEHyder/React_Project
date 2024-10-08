@@ -22,7 +22,7 @@ const dateVarieties = [
     price:50,
     name: 'Deglet Noor',
     image: noor,
-    description: 'Semi-dry with a mild sweetness, Deglet Noor dates are versatile and often used in cooking.',
+    description: 'Deglet Noor dates are known for their semi-dry texture and mild sweetness, making them one of the most popular date varieties in the world. Their firmness and delicate flavor allow them to be versatile in both sweet and savory dishes. They are often used in cooking, baking, and as a snack. Because they aren t overly sticky or too sweet, they are great for stuffing, chopping into salads, blending into smoothies, or incorporating into recipes like date bars and energy bites.',
   },
   {
     id: 35,
