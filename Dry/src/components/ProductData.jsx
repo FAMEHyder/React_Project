@@ -74,7 +74,7 @@ import white from '../Image/whitewalnut.png';
 import cali from '../Image/cali.png';
 import chand from '../Image/chandlerwalnut.png';
 import man from '../Image/marchanwalnut.png';
-const almondData = [
+const ProductData = [
   {
     id: 1,
     Category:'Almonds',
@@ -193,6 +193,8 @@ const almondData = [
                  'Their juicy flesh is perfect for preserves and canning, capturing their flavor for year-round enjoyment. ' + 
                  'Moorpark apricots are also great for baking and can enhance desserts with their luscious taste. ' + 
                  'Due to their size and sweetness, they are a favorite among apricot lovers.',
+                 
+    rating: 4.5,   // Rating out of 5
   },
   { 
     id: 10,
@@ -205,6 +207,8 @@ const almondData = [
                  'They are often dried to enhance their flavor, resulting in a chewy texture thats perfect for snacking. ' + 
                  'In cooking, Tilton apricots add a delightful flavor to sauces and desserts. ' + 
                  'Their culinary uses make them a staple for both home cooks and professional chefs.',
+                 
+    rating: 4.5,   // Rating out of 5
   },
   { 
     id: 11,
@@ -217,6 +221,8 @@ const almondData = [
                  'Their firm texture makes them ideal for slicing, ensuring they hold up well in salads and platters. ' + 
                  'Perfection apricots are best enjoyed fresh, allowing their full flavor to shine. ' + 
                  'Their size and appearance make them popular for garnishing and showcasing in culinary presentations.',
+                 
+    rating: 4.5,   // Rating out of 5
   },
   { 
     id: 12,
@@ -229,6 +235,8 @@ const almondData = [
                  'They are also excellent for drying, which concentrates their flavor and sweetness even further. ' + 
                  'Blenheim apricots can be used in various recipes, from desserts to savory dishes, adding a unique twist. ' + 
                  'Their versatility and flavor make them a beloved choice among fruit enthusiasts.',
+                 
+    rating: 4.5,   // Rating out of 5
   },
   { 
     id: 13,
@@ -241,6 +249,8 @@ const almondData = [
                  'Their early ripening makes them a popular choice for those looking to enjoy fresh fruit earlier in the season. ' + 
                  'Gold Kist apricots are great for snacking and can also be used in salads for added flavor. ' + 
                  'Their balance of sweetness and tartness adds complexity to various dishes and desserts.',
+                 
+    rating: 4.5,   // Rating out of 5
   },
   { 
     id: 14,
@@ -253,6 +263,8 @@ const almondData = [
                  'Their small size does not compromise their flavor, which is mild yet sweet, making them enjoyable fresh. ' + 
                  'Chinese apricots are often used in jams and preserves, capturing their essence for later use. ' + 
                  'Their adaptability and flavor make them a unique addition to any apricot collection.',
+                 
+    rating: 4.5,   // Rating out of 5
   },
   { 
     id: 15,
@@ -265,6 +277,8 @@ const almondData = [
                  'Their early ripening makes them a favorite for those eager to enjoy apricots before other varieties. ' + 
                  'Tomcot apricots offer a well-rounded flavor, making them suitable for both fresh eating and cooking. ' + 
                  'Their versatility allows them to shine in a variety of culinary applications, from desserts to savory dishes.',
+                 
+    rating: 4.5,   // Rating out of 5
   },
   { 
     id: 16,
@@ -277,6 +291,8 @@ const almondData = [
                  'Their sweetness is exceptional, providing a delicious contrast in salads and fruit platters. ' + 
                  'Katy apricots are also great for baking, where their flavor can enhance various desserts. ' + 
                  'Their delightful taste and size make them a popular choice for those seeking a satisfying snack.',
+                 
+    rating: 4.5,   // Rating out of 5
   },
   { 
     id: 17,
@@ -289,6 +305,8 @@ const almondData = [
                  'Their intense flavor makes them ideal for preserving, allowing their essence to be enjoyed year-round. ' + 
                  'Royal apricots are often chosen for canning, as their taste remains robust even after processing. ' + 
                  'They are a staple for those who love to create homemade preserves and jams.',
+                 
+    rating: 4.5,   // Rating out of 5
   },
   { 
     id: 18,
@@ -301,6 +319,8 @@ const almondData = [
                  'Their sweetness is enhanced by the growing conditions, resulting in a delightful flavor. ' + 
                  'Puget Gold apricots are often enjoyed fresh or used in cooking to add a touch of sweetness. ' + 
                  'Their ability to thrive in cooler climates makes them a unique option for apricot lovers.',
+                 
+    rating: 4.5,   // Rating out of 5
   },
   { 
     id: 19,
@@ -313,6 +333,8 @@ const almondData = [
                  'Their juicy texture and sweetness make them perfect for fresh eating and baking. ' + 
                  'Autumn Glo apricots can enhance various desserts, adding a seasonal touch to dishes. ' + 
                  'Their late ripening makes them a cherished variety for prolonging the apricot season.',
+                 
+    rating: 4.5,   // Rating out of 5
   },
   { 
     id: 20,
@@ -325,6 +347,8 @@ const almondData = [
                  'Their sweet flavor also makes them ideal for creating homemade jams and preserves. ' + 
                  'Harcot apricots hold their flavor well during cooking, enhancing various recipes. ' + 
                  'Their exceptional taste and versatility make them a popular choice among apricot enthusiasts.',
+                 
+    rating: 4.5,   // Rating out of 5
   },
 
 //Cashews Data
@@ -335,6 +359,8 @@ const almondData = [
   name: 'W-180 (King of Cashews)',
   image: w180,
   description: 'W-180, known as the "King of Cashews," is the largest and highest quality cashew nut available.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 22,
@@ -343,6 +369,8 @@ const almondData = [
   name: 'W-210 (Jumbo Cashews)',
   image: jambo,
   description: 'W-210 cashews are large, high-quality nuts, perfect for gourmet snacks and recipes.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 23,
@@ -351,6 +379,8 @@ const almondData = [
   name: 'W-240',
   image: w240,
   description: 'W-240 is a popular size that offers a balance between size and affordability.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 24,
@@ -359,6 +389,8 @@ const almondData = [
   name: 'W-320',
   image: w230,
   description: 'W-320 is one of the most common cashew grades, used widely in snacks and cooking.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 25,
@@ -367,6 +399,8 @@ const almondData = [
   name: 'W-450',
   image: w450,
   description: 'W-450 cashews are smaller and more affordable, often used in bulk or recipes.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 26,
@@ -375,6 +409,8 @@ const almondData = [
   name: 'Splits',
   image: splites,
   description: 'Splits are naturally split cashews, often used in cooking and baking.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 27,
@@ -383,6 +419,8 @@ const almondData = [
   name: 'Butts',
   image: butts,
   description: 'Cashew butts are the bottom parts of the nut, used in cooking and for cashew products.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 28,
@@ -391,6 +429,8 @@ const almondData = [
   name: 'Pieces',
   image: pieces,
   description: 'Pieces are smaller fragments used in various recipes, including sweets and snacks.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 29,
@@ -399,6 +439,8 @@ const almondData = [
   name: 'Baby Bits',
   image: babybits,
   description: 'Baby Bits are tiny fragments of cashews, often used in industrial applications or for making cashew flour.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 30,
@@ -407,6 +449,8 @@ const almondData = [
   name: 'Roasted Cashews',
   image: roasted,
   description: 'Roasted cashews have a rich flavor, enhanced by roasting. Available salted or unsalted.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 31,
@@ -415,6 +459,8 @@ const almondData = [
   name: 'Salted Cashews',
   image: flavor,
   description: 'Salted cashews are roasted and salted for flavor, making them a popular snack.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 32,
@@ -423,6 +469,8 @@ const almondData = [
   name: 'Flavored Cashews',
   image: fla,
   description: 'Flavored cashews are coated or mixed with various spices or sweeteners like honey, chili, or garlic.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 
 //Dates Data
@@ -433,6 +481,8 @@ const almondData = [
   name: 'Medjool',
   image: medjol, // Replace with actual image URLs
   description: 'Large, soft, and rich in flavor, Medjool dates are known as the "king of dates".',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 34,
@@ -441,6 +491,8 @@ const almondData = [
   name: 'Deglet Noor',
   image: noor,
   description: 'Deglet Noor dates are known for their semi-dry texture and mild sweetness, making them one of the most popular date varieties in the world. Their firmness and delicate flavor allow them to be versatile in both sweet and savory dishes. They are often used in cooking, baking, and as a snack. Because they aren t overly sticky or too sweet, they are great for stuffing, chopping into salads, blending into smoothies, or incorporating into recipes like date bars and energy bites.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 35,
@@ -449,6 +501,8 @@ const almondData = [
   name: 'Barhi',
   image: barhi,
   description: 'Soft, chewy, and very sweet, Barhi dates are often enjoyed fresh or at the yellow stage.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 36,
@@ -457,6 +511,8 @@ const almondData = [
   name: 'Ajwa',
   image: ajwa,
   description: 'Rich in flavor and soft in texture, Ajwa dates are famous for their cultural and religious significance.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 37,
@@ -465,6 +521,8 @@ const almondData = [
   name: 'Zahidi',
   image: zahidi,
   description: 'Zahidi dates are semi-dry, mildly sweet, and commonly used for making date sugar or pastes.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 38,
@@ -473,6 +531,8 @@ const almondData = [
   name: 'Khudri',
   image: khudri,
   description: 'Dark brown and medium-sweet, Khudri dates are often eaten as a snack or used in dishes.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 39,
@@ -481,6 +541,8 @@ const almondData = [
   name: 'Halawi',
   image: halwi,
   description: 'Sweet and soft with a caramel-like taste, Halawi dates are a perfect treat.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 40,
@@ -489,6 +551,8 @@ const almondData = [
   name: 'Sukkari',
   image: sukkari,
   description: 'Known for their buttery texture and extreme sweetness, Sukkari dates are popular in the Middle East.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 
 //pischio data
@@ -499,6 +563,8 @@ const almondData = [
   name: 'Kerman Pistachio',
   image: kerman,
   description: 'Kerman pistachios are known for their large size, creamy texture, and rich flavor, making them a popular variety.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 54,
@@ -507,6 +573,8 @@ const almondData = [
   name: 'Turkish Antep Pistachio',
   image: antep,
   description: 'Turkish Antep pistachios are smaller with a strong flavor and are often used in Turkish desserts like baklava.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 55,
@@ -515,6 +583,8 @@ const almondData = [
   name: 'Iranian Fandoghi Pistachio',
   image: fando,
   description: 'Iranian Fandoghi pistachios are round and smaller, with a distinctive flavor that is popular in the Middle East.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 56,
@@ -523,6 +593,8 @@ const almondData = [
   name: 'Bronte Pistachio',
   image: bronte,
   description: 'Bronte pistachios are grown in Sicily and are prized for their unique, vibrant green color and intense flavor.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 57,
@@ -531,6 +603,8 @@ const almondData = [
   name: 'Kalehghouchi Pistachio',
   image: kale,
   description: 'Kalehghouchi pistachios are large and round, known for their open shells and rich taste.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 58,
@@ -539,6 +613,8 @@ const almondData = [
   name: 'Badami Pistachio',
   image: badami,
   description: 'Badami pistachios are long and thin, often used in Indian and Middle Eastern cuisines for their distinct flavor.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 59,
@@ -547,6 +623,8 @@ const almondData = [
   name: 'Akbari Pistachio',
   image: Akbari,
   description: 'Akbari pistachios are long and large, with a smooth texture and mild, buttery flavor.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 60,
@@ -555,6 +633,8 @@ const almondData = [
   name: 'Red Pistachio',
   image: red,
   description: 'Red pistachios are dyed with a bright red color and have a crunchy texture, making them popular as a snack.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 
 //raisins data
@@ -565,6 +645,8 @@ const almondData = [
   name: 'Sultana Raisin',
   image: sultana,
   description: 'Sultana raisins are light yellow and known for their juicy and sweet flavor.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 54,
@@ -573,6 +655,8 @@ const almondData = [
   name: 'Golden Raisin',
   image: golden,
   description: 'Golden raisins are plumper and have a milder flavor compared to regular raisins.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 55,
@@ -581,6 +665,8 @@ const almondData = [
   name: 'Black Raisin',
   image: blacks,
   description: 'Black raisins are dark and have a sweet, tangy flavor, made from red or black seedless grapes.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 56,
@@ -589,6 +675,8 @@ const almondData = [
   name: 'Currant',
   image: current,
   description: 'Currants are small, dark raisins with a tart and intense flavor, often used in baking.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 57,
@@ -597,6 +685,8 @@ const almondData = [
   name: 'Flame Raisin',
   image: flame,
   description: 'Flame raisins are large, dark, and have a sweet, fruity flavor, often enjoyed as snacks.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 58,
@@ -605,13 +695,18 @@ const almondData = [
   name: 'Monukka Raisin',
   image: manoka,
   description: 'Monukka raisins are larger with a rich, sweet flavor and chewy texture.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 59,
   price:30,
+  Category:'Raisin',
   name: 'Green Raisin',
   image: green,
   description: 'Green raisins are slightly tart and made from green grapes, retaining a greenish hue.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 60,
@@ -620,6 +715,8 @@ const almondData = [
   name: 'Red Raisin',
   image: rede,
   description: 'Red raisins are made from red grapes and have a sweet flavor with a lighter red color.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 //walnutdata
 {
@@ -628,7 +725,9 @@ const almondData = [
   price:23,
   name: 'English Walnuts (Persian Walnuts)',
   image: eng, // Replace with a valid image URL
-  description: 'English walnuts are known for their mild flavor and thin, easy-to-crack shells.'
+  description: 'English walnuts are known for their mild flavor and thin, easy-to-crack shells.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 66,
@@ -636,7 +735,9 @@ const almondData = [
   price:23,
   name: 'Black Walnuts',
   image: black, // Replace with a valid image URL
-  description: 'Black walnuts have a bold, earthy flavor with harder shells than English walnuts.'
+  description: 'Black walnuts have a bold, earthy flavor with harder shells than English walnuts.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 67,
@@ -644,7 +745,9 @@ const almondData = [
   price:23,
   name: 'White Walnuts (Butternuts)',
   image: white, // Replace with a valid image URL
-  description: 'White walnuts are sweeter and oilier compared to other varieties, but harder to find.'
+  description: 'White walnuts are sweeter and oilier compared to other varieties, but harder to find.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 68,
@@ -652,7 +755,9 @@ const almondData = [
   price:23,
   name: 'Northern California Walnuts',
   image: cali, // Replace with a valid image URL
-  description: 'These walnuts are grown in California, known for their rich flavor and high quality.'
+  description: 'These walnuts are grown in California, known for their rich flavor and high quality.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 69,
@@ -660,7 +765,9 @@ const almondData = [
   price:23,
   name: 'Chandler Walnuts',
   image: chand, // Replace with a valid image URL
-  description: 'Chandler walnuts are a variant of English walnuts, valued for their light-colored kernel.'
+  description: 'Chandler walnuts are a variant of English walnuts, valued for their light-colored kernel.',
+  
+    rating: 4.5,   // Rating out of 5
 },
 {
   id: 70,
@@ -668,7 +775,9 @@ const almondData = [
   price:23,
   name: 'Manchurian Walnuts',
   image: man, // Replace with a valid image URL
-  description: 'Manchurian walnuts are smaller with thicker shells, able to grow in colder climates.'
+  description: 'Manchurian walnuts are smaller with thicker shells, able to grow in colder climates.',
+  
+    rating: 4.5,   // Rating out of 5
 }
 ];
 
@@ -691,10 +800,10 @@ const AlmondCards = () => {
 
   return (
     <Grid container spacing={2} sx={{ mt: 12 }}>
-      {almondData.map((almond) => (
-        <Grid item xs={12} sm={6} md={3} key={almond.id}>
+      {ProductData.map((product) => (
+        <Grid item xs={12} sm={6} md={3} key={product.Category}>
           <Card
-            onClick={() => handleCardClick(almond)} // Pass the entire almond object
+            onClick={() => handleCardClick(product)} // Pass the entire almond object
             sx={{
               height: 400,
               cursor: 'pointer', // Show pointer cursor on hover
@@ -707,27 +816,27 @@ const AlmondCards = () => {
             <CardMedia
               component="img"
               height="200"
-              image={almond.image}
-              alt={almond.name}
+              image={product.image}
+              alt={product.name}
             />
             <CardContent>
               <Typography gutterBottom variant="h5" component="div">
-                {almond.name}
+                {product.name}
               </Typography>
               <Typography variant="h6" color="text.primary" sx={{ mb: 1 }}>
-                ${almond.price.toFixed(2)}
+                ${product.price.toFixed(2)}
               </Typography>
               <Box display="flex" alignItems="center" justifyContent="space-between">
                 <Rating
-                  name={`rating-${almond.id}`}
-                  value={almond.rating}
+                  name={`rating-${product.id}`}
+                  value={product.rating}
                   precision={0.1}
                   readOnly
                   size="small"
                 />
                 <IconButton
                   color="primary"
-                  onClick={(e) => handleAddToCart(e, almond)}
+                  onClick={(e) => handleAddToCart(e, product)}
                   aria-label="add to cart"
                 >
                   <ShoppingCartIcon />

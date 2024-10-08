@@ -1,13 +1,7 @@
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Container,  } from '@mui/material';
 import { useState, useEffect } from 'react';
 import SliderComponent from '../components/Slider'; // Adjust the path as necessary
-import AlmondData from './ProductData.jsx';
-import CashewData from '../components/CashewData.jsx';
-import DatesData from '../components/DatesData.jsx';
-import WalnutData from '../components/WalnutData.jsx';
-import ApprocoteData from '../components/AppricoteData.jsx';
-import PistachioData from '../components/PistachioData.jsx';
-import RaisinData from '../components/RaisinData.jsx';
+import ProductData from '../components/ProductData.jsx';
 import Footer from './Footer.jsx';
 import bg from '../Image/bg1.png';
 import bg1 from '../Image/bg1.png';
@@ -82,76 +76,10 @@ const Home = () => {
       </Box>
 
       <Box sx={{ marginTop: '200px', paddingX: { xs: 2, sm: 4, md: 8 } }}>
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
+        
         <SliderComponent />
-          Almonds and its Varieties
-        </Typography>
-        <AlmondData />
-
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
-          Cashews and its Varieties
-        </Typography>
-        <CashewData />
-
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
-          Dates and its Varieties
-        </Typography>
-        <DatesData />
-
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
-          Walnuts and its Varieties
-        </Typography>
-        <WalnutData />
-
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
-          Appricotes and its Varieties
-        </Typography>
-        <ApprocoteData />
-
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
-          Raisins and its Varieties
-        </Typography>
-        <RaisinData />
-
-        <Typography
-          fontSize={{ xs: 24, sm: 30 }}
-          fontWeight={800}
-          fontFamily={'cambria'}
-          textAlign="center"
-        >
-          Pistachios and its Varieties
-        </Typography>
-        <PistachioData />
+        <ProductData />
+        
       </Box>
 
       <Footer />
