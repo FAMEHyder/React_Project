@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Container, Grid, Typography, Card, CardMedia, CardContent, Box, Button, IconButton } from '@mui/material';
+import { Container, Grid, Typography, Card, CardMedia, CardContent,IconButton } from '@mui/material';
 import { Add, Remove, ShoppingCart, Payment, Favorite } from '@mui/icons-material';
 import { useCart } from '../context/Cart';
 
