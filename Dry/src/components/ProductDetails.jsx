@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Container, Grid, Typography, Card, CardMedia, CardContent,IconButton } from '@mui/material';
+import { Container, Grid, Typography, Card, CardMedia, CardContent, IconButton } from '@mui/material';
 import { Add, Remove, ShoppingCart, Payment, Favorite } from '@mui/icons-material';
 import { useCart } from '../context/Cart';
 
@@ -41,8 +41,8 @@ const ProductDetails = () => {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ mt: 15, color:'none' }}>
-            <Card sx={{ boxShadow: 5, padding: 3, width: '100%' }}>
+        <Container maxWidth="xl" sx={{ mt: 15 }}>
+            <Card sx={{ width: '100%' }}>
                 <Grid container spacing={4}>
                     {/* Product Image */}
                     <Grid item xs={12} sm={6}>
@@ -83,16 +83,37 @@ const ProductDetails = () => {
                                 </IconButton>
                             </div>
 
-                            {/* Add to Cart and Buy Now Buttons */}
-                            
-                                <Grid item xs={6}>
-
-
-                                    {<ShoppingCart onClick={handlecartclick} sx={{mr:'20px'}}/>}{<Payment onClick={() => handleclick('/OrderForm')} sx={{mr:'20px'}} />}<Favorite />
-
+                            {/* Icons for Add to Cart, Buy Now, and Like */}
+                            <Grid container spacing={2} sx={{ mt: 2, mb: 2 }}>
+                                {/* Add to Cart Icon */}
+                                <Grid item xs={4}>
+                                    <IconButton
+                                        color="success"
+                                        sx={{ fontSize: '2rem' }}
+                                        onClick={handlecartclick}
+                                    >
+                                        <ShoppingCart />
+                                    </IconButton>
                                 </Grid>
 
+                                {/* Buy Now Icon */}
+                                <Grid item xs={4}>
+                                    <IconButton
+                                        color="secondary"
+                                        sx={{ fontSize: '2rem' }}
+                                        onClick={() => handleclick('/OrderForm')}
+                                    >
+                                        <Payment />
+                                    </IconButton>
+                                </Grid>
 
+                                {/* Like (Heart) Icon */}
+                                <Grid item xs={4}>
+                                    <IconButton color="error" sx={{ fontSize: '2rem' }}>
+                                        <Favorite />
+                                    </IconButton>
+                                </Grid>
+                            </Grid>
                         </CardContent>
                     </Grid>
                 </Grid>
@@ -107,7 +128,7 @@ const ProductDetails = () => {
                             Shipping: 01 day shipping. <span style={{ color: 'red' }}>Free pickup today</span>
                         </Typography>
                         <Typography variant="body1" color="textPrimary">
-                            ${product.price.toFixed(2)}/Weight: 200 kg
+                        ${product.price.toFixed(2)}/Weight: 200 kg
                         </Typography>
                     </Grid>
                     <Grid item xs={12} sm={6} sx={{ textAlign: 'right' }}>
