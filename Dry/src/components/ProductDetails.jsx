@@ -1,17 +1,17 @@
 import { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { Container, Grid, Typography, Card, CardMedia, CardContent, Button, IconButton } from '@mui/material';
-import { Add, Remove } from '@mui/icons-material';
+import { Container, Grid, Typography, Card, CardMedia, CardContent, Box, Button, IconButton } from '@mui/material';
+import { Add, Remove, ShoppingCart, Payment, Favorite } from '@mui/icons-material';
 import { useCart } from '../context/Cart';
 
 const ProductDetails = () => {
     const navigate = useNavigate();
-    const { /*cart,*/ addItem } = useCart();
+    const { addItem } = useCart();
     const location = useLocation();
     const { product } = location.state || {}; // Access product data from location state
 
-    // State to handle the quantity of product in kg
-    const [quantity, setQuantity] = useState(100); // Default quantity is 1kg
+    // State to handle the quantity of product in g
+    const [quantity, setQuantity] = useState(100); // Default quantity is 100g
 
     if (!product) {
         return <Typography variant="h6" align="center">No product details available</Typography>;
@@ -31,7 +31,7 @@ const ProductDetails = () => {
 
     // Function to handle adding product to cart
     const handlecartclick = () => {
-        alert(`Added ${quantity} kg to cart successfully`);
+        alert(`Added ${quantity} g to cart successfully`);
         addItem({ ...product, quantity });
     };
 
@@ -41,9 +41,9 @@ const ProductDetails = () => {
     };
 
     return (
-        <Container maxWidth="md" sx={{ mt: 20, boxShadow: 5 }}>
-            <Card>
-                <Grid container spacing={2}>
+        <Container maxWidth="xl" sx={{ mt: 15, color:'none' }}>
+            <Card sx={{ boxShadow: 5, padding: 3, width: '100%' }}>
+                <Grid container spacing={4}>
                     {/* Product Image */}
                     <Grid item xs={12} sm={6}>
                         <CardMedia
@@ -51,23 +51,23 @@ const ProductDetails = () => {
                             height="400"
                             image={product.image}
                             alt={product.name}
-                            sx={{ objectFit: 'contain' }}
+                            sx={{ objectFit: 'contain', margin: '0 auto' }}
                         />
                     </Grid>
 
                     {/* Product Details */}
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={6} sx={{ display: 'flex', flexDirection: 'column' }}>
                         <CardContent>
-                            <Typography variant="h4" gutterBottom>
+                            <Typography variant="h5" fontWeight="bold" gutterBottom>
                                 {product.name}
                             </Typography>
 
-                            <Typography variant="body1" paragraph>
-                                {product.description}
+                            <Typography variant="h4" color="red" gutterBottom>
+                                ${product.price.toFixed(2)} /200g
                             </Typography>
 
-                            <Typography variant="h6" color="primary" gutterBottom>
-                                Price: ${product.price} /200g
+                            <Typography variant="body2" color="textSecondary" paragraph>
+                                {product.description}
                             </Typography>
 
                             {/* Quantity Counter */}
@@ -83,19 +83,52 @@ const ProductDetails = () => {
                                 </IconButton>
                             </div>
 
-                            {/* Buttons for actions */}
-                            <Button variant="contained" color="primary" sx={{ mr: 2 }} onClick={handlecartclick}>
-                                Add to Cart
-                            </Button>
-                            <Button variant="contained" color="secondary" onClick={() => handleclick('/OrderForm')}>
-                                Buy Now
-                            </Button>
+                            {/* Add to Cart and Buy Now Buttons */}
+                            
+                                <Grid item xs={6}>
+
+
+                                    {<ShoppingCart onClick={handlecartclick} sx={{mr:'20px'}}/>}{<Payment onClick={() => handleclick('/OrderForm')} sx={{mr:'20px'}} />}<Favorite />
+
+                                </Grid>
+
+
                         </CardContent>
                     </Grid>
                 </Grid>
-            </Card>
 
-            {/* You can add related products or other details below */}
+                {/* Additional details like availability, shipping, and share buttons */}
+                <Grid container sx={{ mt: 4 }}>
+                    <Grid item xs={12} sm={6}>
+                        <Typography variant="body1" color="textPrimary">
+                            Availability: In Stock
+                        </Typography>
+                        <Typography variant="body1" color="textPrimary">
+                            Shipping: 01 day shipping. <span style={{ color: 'red' }}>Free pickup today</span>
+                        </Typography>
+                        <Typography variant="body1" color="textPrimary">
+                            ${product.price.toFixed(2)}/Weight: 200 kg
+                        </Typography>
+                    </Grid>
+                    <Grid item xs={12} sm={6} sx={{ textAlign: 'right' }}>
+                        <Typography variant="body1" color="textPrimary">
+                            Share on:
+                        </Typography>
+                        {/* Placeholder for social media icons */}
+                        <div>
+                            <IconButton color="primary">
+                                {/* Social media icons here */}
+                            </IconButton>
+                            <IconButton color="primary">
+                                {/* Social media icons here */}
+                            </IconButton>
+                            <IconButton color="primary">
+                                {/* Social media icons here */}
+                            </IconButton>
+                        </div>
+                    </Grid>
+                </Grid>
+            </Card>
         </Container>
     );
 };
