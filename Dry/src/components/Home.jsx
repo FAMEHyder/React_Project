@@ -1,7 +1,7 @@
 import { Box, Container, Typography } from '@mui/material';
 import { useState, useEffect } from 'react';
 import SliderComponent from '../components/Slider'; // Adjust the path as necessary
-import AlmondData from '../components/AlmondData.jsx';
+import AlmondData from './ProductData.jsx';
 import CashewData from '../components/CashewData.jsx';
 import DatesData from '../components/DatesData.jsx';
 import WalnutData from '../components/WalnutData.jsx';
@@ -16,6 +16,7 @@ import bg3 from '../Image/bg6.png';
 import bg4 from '../Image/bg4.png';
 import bg5 from '../Image/bg5.png';
 import bg6 from '../Image/bg6.png';
+
 
 const Home = () => {
   const backgrounds = [bg, bg1, bg2, bg3, bg4, bg5, bg6]; // Array of background images

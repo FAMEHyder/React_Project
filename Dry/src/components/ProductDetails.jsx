@@ -41,14 +41,14 @@ const ProductDetails = () => {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ mt: 15 }}>
+        <Container maxWidth="xl" sx={{ mt: 15, bgcolor:'none'}}>
             <Card sx={{ width: '100%' }}>
                 <Grid container spacing={4}>
                     {/* Product Image */}
                     <Grid item xs={12} sm={6}>
                         <CardMedia
                             component="img"
-                            height="400"
+                            height="500"
                             image={product.image}
                             alt={product.name}
                             sx={{ objectFit: 'contain', margin: '0 auto' }}
@@ -71,7 +71,7 @@ const ProductDetails = () => {
                             </Typography>
 
                             {/* Quantity Counter */}
-                            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px' }}>
+                            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px',width:'170px', backgroundColor:'lightgray' ,borderRadius:5}}>
                                 <IconButton onClick={decreaseQuantity} color="secondary">
                                     <Remove />
                                 </IconButton>
@@ -84,9 +84,9 @@ const ProductDetails = () => {
                             </div>
 
                             {/* Icons for Add to Cart, Buy Now, and Like */}
-                            <Grid container spacing={2} sx={{ mt: 2, mb: 2 }}>
+                            <Grid container spacing={1} sx={{ mt: 2, mb: 2, ml:.1, bgcolor:'lightgray', width:'200px', borderRadius:2}}>
                                 {/* Add to Cart Icon */}
-                                <Grid item xs={4}>
+                                <Grid item xs={4} >
                                     <IconButton
                                         color="success"
                                         sx={{ fontSize: '2rem' }}
@@ -114,41 +114,24 @@ const ProductDetails = () => {
                                     </IconButton>
                                 </Grid>
                             </Grid>
-                        </CardContent>
-                    </Grid>
-                </Grid>
-
                 {/* Additional details like availability, shipping, and share buttons */}
                 <Grid container sx={{ mt: 4 }}>
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={6} >
                         <Typography variant="body1" color="textPrimary">
                             Availability: In Stock
                         </Typography>
                         <Typography variant="body1" color="textPrimary">
-                            Shipping: 01 day shipping. <span style={{ color: 'red' }}>Free pickup today</span>
+                            Shipping: 01 day shipping. <span style={{ color: 'red' }}> Free today </span>
                         </Typography>
                         <Typography variant="body1" color="textPrimary">
                         ${product.price.toFixed(2)}/Weight: 200 kg
                         </Typography>
                     </Grid>
-                    <Grid item xs={12} sm={6} sx={{ textAlign: 'right' }}>
-                        <Typography variant="body1" color="textPrimary">
-                            Share on:
-                        </Typography>
-                        {/* Placeholder for social media icons */}
-                        <div>
-                            <IconButton color="primary">
-                                {/* Social media icons here */}
-                            </IconButton>
-                            <IconButton color="primary">
-                                {/* Social media icons here */}
-                            </IconButton>
-                            <IconButton color="primary">
-                                {/* Social media icons here */}
-                            </IconButton>
-                        </div>
+                </Grid>
+                        </CardContent>
                     </Grid>
                 </Grid>
+
             </Card>
         </Container>
     );
