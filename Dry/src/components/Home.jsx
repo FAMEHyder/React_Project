@@ -1,7 +1,6 @@
 import { Box, Container,  } from '@mui/material';
 import { useState, useEffect } from 'react';
 import SliderComponent from '../components/Slider'; // Adjust the path as necessary
-import ProductData from '../components/ProductData.jsx';
 import Footer from './Footer.jsx';
 import bg from '../Image/bg1.png';
 import bg1 from '../Image/bg1.png';
@@ -78,7 +77,6 @@ const Home = () => {
       <Box sx={{ marginTop: '200px', paddingX: { xs: 2, sm: 4, md: 8 } }}>
         
         <SliderComponent />
-        <ProductData />
         
       </Box>
 
