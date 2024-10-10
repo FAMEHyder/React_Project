@@ -9,8 +9,13 @@ import OrderForm from './components/OrderForm.jsx';
 import OrderPlaced from './components/OrderPlaced.jsx';
 import AboutUs from './components/AboutUs.jsx';
 import ContactUs from './components/ContactUs.jsx';
-
-
+import AlmondCards from './components/AlmondData.jsx';
+import CashewCards from './components/CashewData.jsx';
+import WalnutCards from './components/WalnutData.jsx';
+import PistachioCards from './components/PistachioData.jsx';
+import RaisinCards from './components/RaisinData.jsx';
+import AppricotCards from './components/AppricoteData.jsx';
+import DateCards from './components/DatesData.jsx';
 function App() {
   
 
@@ -21,6 +26,13 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="/productDetails" element={<ProductDetails />} />
         <Route path="/Signup" element={<SignUp />} />
+        <Route path="/1" element={<AlmondCards />} />
+        <Route path="/2" element={<CashewCards />} />
+        <Route path="/3" element={<WalnutCards />} />
+        <Route path="/4" element={<PistachioCards />} />
+        <Route path="/5" element={<RaisinCards />} />
+        <Route path="/6" element={<AppricotCards />} />
+        <Route path="/7" element={<DateCards />} />
         <Route path="/Signin" element={<LoginForm />} />
         <Route path="/OrderForm" element={<OrderForm />} />
         <Route path="/ProductTable" element={<OrderPlaced />} />
