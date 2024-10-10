@@ -1,7 +1,3 @@
-
-import { Grid, Card, CardContent, CardMedia, Typography, IconButton, Box, Rating } from '@mui/material';
-import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { useNavigate } from 'react-router-dom';
 import nonpareil from '../Image/nonpareil.png';
 import carmel from '../Image/carmel.png';
 import sonora from '../Image/sonora.png';
@@ -184,7 +180,7 @@ const ProductData = [
   // Appricote Data
   { 
     id: 9,
-    Category:'Apricot',
+    Category:'Dried Apricots',
     price: 20,
     name: 'Moorpark Apricot',
     image: chuli1, // Image representing the Moorpark apricot variety
@@ -198,7 +194,7 @@ const ProductData = [
   },
   { 
     id: 10,
-    Category:'Apricot',
+    Category:'Dried Apricots',
     price: 20,
     name: 'Tilton Apricot',
     image: chuli2, // Image representing the Tilton apricot variety
@@ -212,7 +208,7 @@ const ProductData = [
   },
   { 
     id: 11,
-    Category:'Apricot',
+    Category:'Dried Apricots',
     price: 20,
     name: 'Perfection Apricot',
     image: chuli3, // Image representing the Perfection apricot variety
@@ -226,7 +222,7 @@ const ProductData = [
   },
   { 
     id: 12,
-    Category:'Apricot',
+    Category:'Dried Apricots',
     price: 20,
     name: 'Blenheim Apricot',
     image: chuli4, // Image representing the Blenheim apricot variety
@@ -240,7 +236,7 @@ const ProductData = [
   },
   { 
     id: 13,
-    Category:'Apricot',
+    Category:'Dried Apricots',
     price: 20,
     name: 'Gold Kist Apricot',
     image: chuli5, // Image representing the Gold Kist apricot variety
@@ -254,7 +250,7 @@ const ProductData = [
   },
   { 
     id: 14,
-    Category:'Apricot',
+    Category:'Dried Apricots',
     price: 20,
     name: 'Chinese/Mormon Apricot',
     image: chuli6, // Image representing the Chinese/Mormon apricot variety
@@ -268,7 +264,7 @@ const ProductData = [
   },
   { 
     id: 15,
-    Category:'Apricot',
+    Category:'Dried Apricots',
     price: 20,
     name: 'Tomcot Apricot',
     image: chuli7, // Image representing the Tomcot apricot variety
@@ -282,7 +278,7 @@ const ProductData = [
   },
   { 
     id: 16,
-    Category:'Apricot',
+    Category:'Dried Apricots',
     price: 20,
     name: 'Katy Apricot',
     image: chuli8, // Image representing the Katy apricot variety
@@ -296,7 +292,7 @@ const ProductData = [
   },
   { 
     id: 17,
-    Category:'Apricot',
+    Category:'Dried Apricots',
     price: 20,
     name: 'Royal Apricot',
     image: chuli9, // Image representing the Royal apricot variety
@@ -310,7 +306,7 @@ const ProductData = [
   },
   { 
     id: 18,
-    Category:'Apricot',
+    Category:'Dried Apricots',
     price: 20,
     name: 'Puget Gold Apricot',
     image: chuli10, // Image representing the Puget Gold apricot variety
@@ -324,7 +320,7 @@ const ProductData = [
   },
   { 
     id: 19,
-    Category:'Apricot',
+    Category:'Dried Apricots',
     price: 20,
     name: 'Autumn Glo Apricot',
     image: chuli11, // Image representing the Autumn Glo apricot variety
@@ -338,7 +334,7 @@ const ProductData = [
   },
   { 
     id: 20,
-    Category:'Apricot',
+    Category:'Dried Apricots',
     price: 20,
     name: 'Harcot Apricot',
     image: chuli12, // Image representing the Harcot apricot variety
@@ -354,7 +350,7 @@ const ProductData = [
 //Cashews Data
 {
   id: 21,
-  Category:'cashew',
+  Category:'Cashews',
   price:120,
   name: 'W-180 (King of Cashews)',
   image: w180,
@@ -364,7 +360,7 @@ const ProductData = [
 },
 {
   id: 22,
-  Category:'cashew',
+  Category:'Cashews',
   price:120,
   name: 'W-210 (Jumbo Cashews)',
   image: jambo,
@@ -374,7 +370,7 @@ const ProductData = [
 },
 {
   id: 23,
-  Category:'cashew',
+  Category:'Cashews',
   price:120,
   name: 'W-240',
   image: w240,
@@ -384,7 +380,7 @@ const ProductData = [
 },
 {
   id: 24,
-  Category:'cashew',
+  Category:'Cashews',
   price:120,
   name: 'W-320',
   image: w230,
@@ -394,7 +390,7 @@ const ProductData = [
 },
 {
   id: 25,
-  Category:'cashew',
+  Category:'Cashews',
   price:120,
   name: 'W-450',
   image: w450,
@@ -404,7 +400,7 @@ const ProductData = [
 },
 {
   id: 26,
-  Category:'cashew',
+  Category:'Cashews',
   price:120,
   name: 'Splits',
   image: splites,
@@ -414,7 +410,7 @@ const ProductData = [
 },
 {
   id: 27,
-  Category:'cashew',
+  Category:'Cashews',
   price:120,
   name: 'Butts',
   image: butts,
@@ -424,7 +420,7 @@ const ProductData = [
 },
 {
   id: 28,
-  Category:'cashew',
+  Category:'Cashews',
   price:120,
   name: 'Pieces',
   image: pieces,
@@ -434,7 +430,7 @@ const ProductData = [
 },
 {
   id: 29,
-  Category:'cashew',
+  Category:'Cashews',
   price:120,
   name: 'Baby Bits',
   image: babybits,
@@ -444,7 +440,7 @@ const ProductData = [
 },
 {
   id: 30,
-  Category:'cashew',
+  Category:'Cashews',
   price:120,
   name: 'Roasted Cashews',
   image: roasted,
@@ -454,7 +450,7 @@ const ProductData = [
 },
 {
   id: 31,
-  Category:'cashew',
+  Category:'Cashews',
   price:120,
   name: 'Salted Cashews',
   image: flavor,
@@ -464,7 +460,7 @@ const ProductData = [
 },
 {
   id: 32,
-  Category:'cashew',
+  Category:'Cashews',
   price:120,
   name: 'Flavored Cashews',
   image: fla,
@@ -476,7 +472,7 @@ const ProductData = [
 //Dates Data
 {
   id: 33,
-  Category:'dates',
+  Category:'Dates',
   price:50,
   name: 'Medjool',
   image: medjol, // Replace with actual image URLs
@@ -486,7 +482,7 @@ const ProductData = [
 },
 {
   id: 34,
-  Category:'dates',
+  Category:'Dates',
   price:50,
   name: 'Deglet Noor',
   image: noor,
@@ -496,7 +492,7 @@ const ProductData = [
 },
 {
   id: 35,
-  Category:'dates',
+  Category:'Dates',
   price:50,
   name: 'Barhi',
   image: barhi,
@@ -506,7 +502,7 @@ const ProductData = [
 },
 {
   id: 36,
-  Category:'dates',
+  Category:'Dates',
   price:50,
   name: 'Ajwa',
   image: ajwa,
@@ -516,7 +512,7 @@ const ProductData = [
 },
 {
   id: 37,
-  Category:'dates',
+  Category:'Dates',
   price:50,
   name: 'Zahidi',
   image: zahidi,
@@ -526,7 +522,7 @@ const ProductData = [
 },
 {
   id: 38,
-  Category:'dates',
+  Category:'Dates',
   price:50,
   name: 'Khudri',
   image: khudri,
@@ -536,7 +532,7 @@ const ProductData = [
 },
 {
   id: 39,
-  Category:'dates',
+  Category:'Dates',
   price:50,
   name: 'Halawi',
   image: halwi,
@@ -546,7 +542,7 @@ const ProductData = [
 },
 {
   id: 40,
-  Category:'dates',
+  Category:'Dates',
   price:50,
   name: 'Sukkari',
   image: sukkari,
@@ -558,7 +554,7 @@ const ProductData = [
 //pischio data
 {
   id: 53,
-  Category:'pistachio',
+  Category:'Pistachios',
   price:40,
   name: 'Kerman Pistachio',
   image: kerman,
@@ -568,7 +564,7 @@ const ProductData = [
 },
 {
   id: 54,
-  Category:'pistachio',
+  Category:'Pistachios',
   price:40,
   name: 'Turkish Antep Pistachio',
   image: antep,
@@ -578,7 +574,7 @@ const ProductData = [
 },
 {
   id: 55,
-  Category:'pistachio',
+  Category:'Pistachios',
   price:40,
   name: 'Iranian Fandoghi Pistachio',
   image: fando,
@@ -588,7 +584,7 @@ const ProductData = [
 },
 {
   id: 56,
-  Category:'pistachio',
+  Category:'Pistachios',
   price:40,
   name: 'Bronte Pistachio',
   image: bronte,
@@ -598,7 +594,7 @@ const ProductData = [
 },
 {
   id: 57,
-  Category:'pistachio',
+  Category:'Pistachios',
   price:40,
   name: 'Kalehghouchi Pistachio',
   image: kale,
@@ -608,7 +604,7 @@ const ProductData = [
 },
 {
   id: 58,
-  Category:'pistachio',
+  Category:'Pistachios',
   price:40,
   name: 'Badami Pistachio',
   image: badami,
@@ -618,7 +614,7 @@ const ProductData = [
 },
 {
   id: 59,
-  Category:'pistachio',
+  Category:'Pistachios',
   price:40,
   name: 'Akbari Pistachio',
   image: Akbari,
@@ -628,7 +624,7 @@ const ProductData = [
 },
 {
   id: 60,
-  Category:'pistachio',
+  Category:'Pistachios',
   price:40,
   name: 'Red Pistachio',
   image: red,
@@ -721,7 +717,7 @@ const ProductData = [
 //walnutdata
 {
   id: 65,
-  Category:'walnut',
+  Category:'Walnuts',
   price:23,
   name: 'English Walnuts (Persian Walnuts)',
   image: eng, // Replace with a valid image URL
@@ -731,7 +727,7 @@ const ProductData = [
 },
 {
   id: 66,
-  Category:'walnut',
+  Category:'Walnuts',
   price:23,
   name: 'Black Walnuts',
   image: black, // Replace with a valid image URL
@@ -741,7 +737,7 @@ const ProductData = [
 },
 {
   id: 67,
-  Category:'walnut',
+  Category:'Walnuts',
   price:23,
   name: 'White Walnuts (Butternuts)',
   image: white, // Replace with a valid image URL
@@ -751,7 +747,7 @@ const ProductData = [
 },
 {
   id: 68,
-  Category:'walnut',
+  Category:'Walnuts',
   price:23,
   name: 'Northern California Walnuts',
   image: cali, // Replace with a valid image URL
@@ -761,7 +757,7 @@ const ProductData = [
 },
 {
   id: 69,
-  Category:'walnut',
+  Category:'Walnuts',
   price:23,
   name: 'Chandler Walnuts',
   image: chand, // Replace with a valid image URL
@@ -771,7 +767,7 @@ const ProductData = [
 },
 {
   id: 70,
-  Category:'walnut',
+  Category:'Walnuts',
   price:23,
   name: 'Manchurian Walnuts',
   image: man, // Replace with a valid image URL
@@ -781,73 +777,4 @@ const ProductData = [
 }
 ];
 
-// AlmondCards Component
-const AlmondCards = () => {
-
-  const navigate = useNavigate(); // Hook for programmatic navigation
-
-  // Function to handle card clicks and navigate to product details
-  const handleCardClick = (product) => {
-    navigate(`/productDetails`, { state: { product } });
-  };
-
-  // Function to handle adding items to the cart
-  const handleAddToCart = (e, product) => {
-    e.stopPropagation(); // Prevent triggering the card click event
-    // Implement your add to cart logic here
-    console.log(`Added ${product.name} to cart.`);
-  };
-
-  return (
-    <Grid container spacing={2} sx={{ mt: 12 }}>
-      {ProductData.map((product) => (
-        <Grid item xs={12} sm={6} md={3} key={product.Category}>
-          <Card
-            onClick={() => handleCardClick(product)} // Pass the entire almond object
-            sx={{
-              height: 400,
-              cursor: 'pointer', // Show pointer cursor on hover
-              boxShadow: 5,
-              display: 'flex',
-              flexDirection: 'column',
-              justifyContent: 'space-between',
-            }}
-          >
-            <CardMedia
-              component="img"
-              height="200"
-              image={product.image}
-              alt={product.name}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {product.name}
-              </Typography>
-              <Typography variant="h6" color="text.primary" sx={{ mb: 1 }}>
-                ${product.price.toFixed(2)}
-              </Typography>
-              <Box display="flex" alignItems="center" justifyContent="space-between">
-                <Rating
-                  name={`rating-${product.id}`}
-                  value={product.rating}
-                  precision={0.1}
-                  readOnly
-                  size="small"
-                />
-                <IconButton
-                  color="primary"
-                  onClick={(e) => handleAddToCart(e, product)}
-                  aria-label="add to cart"
-                >
-                  <ShoppingCartIcon />
-                </IconButton>
-              </Box>
-            </CardContent>
-          </Card>
-        </Grid>
-      ))}
-    </Grid>
-  );
-};
-
-export default AlmondCards ;
+export default ProductData;

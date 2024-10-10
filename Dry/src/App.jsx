@@ -1,8 +1,6 @@
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import Ap from 'Dry/src/App.css';
 import Home from './components/Home'
-import ProductData from './components/ProductData.jsx';
-
 import ProductDetails from './components/ProductDetails';
 import Navbar from './components/Navbar';
 import LoginForm from './components/LoginForm';
@@ -21,9 +19,6 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/1" element={<ProductData />} />
-        <Route path="/almonds" element={<ProductData category="almonds" />} />
-        <Route path="/cashews" element={<ProductData category="cashews" />} />
         <Route path="/productDetails" element={<ProductDetails />} />
         <Route path="/Signup" element={<SignUp />} />
         <Route path="/Signin" element={<LoginForm />} />
@@ -32,8 +27,10 @@ function App() {
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
 
-        {/* <Route path="/:id" element={<AlmondData/>} />
-        <Route path="/:id" element={<CashewData/>} /> */}
+        {/* <Route path="/category/:categoryName" element={<ProductCards />} /> */}
+      
+        {/* Fallback Route for Undefined Paths */}
+        {/* <Route path="*" element={<h2 style={{ padding: '20px', textAlign: 'center' }}>404: Page Not Found</h2>} /> */}
 
       </Routes>
       
