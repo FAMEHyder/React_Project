@@ -16,6 +16,8 @@ import PistachioCards from './components/PistachioData.jsx';
 import RaisinCards from './components/RaisinData.jsx';
 import AppricotCards from './components/AppricoteData.jsx';
 import DateCards from './components/DatesData.jsx';
+import Footer from './components/Footer.jsx';
+
 function App() {
   
 
@@ -41,11 +43,10 @@ function App() {
 
         {/* <Route path="/category/:categoryName" element={<ProductCards />} /> */}
       
-        {/* Fallback Route for Undefined Paths */}
-        {/* <Route path="*" element={<h2 style={{ padding: '20px', textAlign: 'center' }}>404: Page Not Found</h2>} /> */}
-
+       
       </Routes>
-      
+      <Footer />
+
 
     </Router>
   )

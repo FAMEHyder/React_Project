@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Typography, Grid} from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Grid,} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import nonpareil from '../Image/nonpareil.png';
 import carmel from '../Image/carmel.png';

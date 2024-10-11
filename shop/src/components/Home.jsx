@@ -1,7 +1,6 @@
 import { Box, Container,  } from '@mui/material';
 import { useState, useEffect } from 'react';
 import SliderComponent from './Slider.jsx'; // Adjust the path as necessary
-import Footer from './Footer.jsx';
 import bg from '../Image/bg1.png';
 import bg1 from '../Image/bg1.png';
 import bg2 from '../Image/bg2.png';
@@ -80,7 +79,6 @@ const Home = () => {
         
       </Box>
 
-      <Footer />
     </Container>
   );
 };

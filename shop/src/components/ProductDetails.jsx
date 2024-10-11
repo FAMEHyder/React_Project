@@ -35,13 +35,13 @@ const ProductDetails = () => {
         addItem({ ...product, quantity });
     };
 
-    // Function to handle navigation to order form
+    // Function to handle navigation to order form and pass product data
     const handleclick = (path) => {
-        navigate(path);
+        navigate(path, { state: { product: { ...product, quantity } } }); // Pass product and quantity
     };
 
     return (
-        <Container maxWidth="xl" sx={{ mt: 15, bgcolor:'none'}}>
+        <Container maxWidth="xl" sx={{ mt: 15, bgcolor:'none' }}>
             <Card sx={{ width: '100%' }}>
                 <Grid container spacing={4}>
                     {/* Product Image */}
@@ -71,7 +71,7 @@ const ProductDetails = () => {
                             </Typography>
 
                             {/* Quantity Counter */}
-                            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px',width:'170px', backgroundColor:'lightgray' ,borderRadius:5}}>
+                            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px', width:'170px', backgroundColor:'lightgray' ,borderRadius:5 }}>
                                 <IconButton onClick={decreaseQuantity} color="secondary">
                                     <Remove />
                                 </IconButton>
@@ -84,7 +84,7 @@ const ProductDetails = () => {
                             </div>
 
                             {/* Icons for Add to Cart, Buy Now, and Like */}
-                            <Grid container spacing={1} sx={{ mt: 2, mb: 2, ml:.1, bgcolor:'lightgray', width:'200px', borderRadius:2}}>
+                            <Grid container spacing={1} sx={{ mt: 2, mb: 2, ml:.1, bgcolor:'lightgray', width:'200px', borderRadius:2 }}>
                                 {/* Add to Cart Icon */}
                                 <Grid item xs={4} >
                                     <IconButton
@@ -101,7 +101,7 @@ const ProductDetails = () => {
                                     <IconButton
                                         color="secondary"
                                         sx={{ fontSize: '2rem' }}
-                                        onClick={() => handleclick('/OrderForm')}
+                                        onClick={() => handleclick('/OrderForm')} // Pass product to OrderForm
                                     >
                                         <Payment />
                                     </IconButton>
@@ -114,20 +114,20 @@ const ProductDetails = () => {
                                     </IconButton>
                                 </Grid>
                             </Grid>
-                {/* Additional details like availability, shipping, and share buttons */}
-                <Grid container sx={{ mt: 4 }}>
-                    <Grid item xs={12} sm={6} >
-                        <Typography variant="body1" color="textPrimary">
-                            Availability: In Stock
-                        </Typography>
-                        <Typography variant="body1" color="textPrimary">
-                            Shipping: 01 day shipping. <span style={{ color: 'red' }}> Free today </span>
-                        </Typography>
-                        <Typography variant="body1" color="textPrimary">
-                        ${product.price.toFixed(2)}/Weight: 200 kg
-                        </Typography>
-                    </Grid>
-                </Grid>
+                            {/* Additional details like availability, shipping, and share buttons */}
+                            <Grid container sx={{ mt: 4 }}>
+                                <Grid item xs={12} sm={6} >
+                                    <Typography variant="body1" color="textPrimary">
+                                        Availability: In Stock
+                                    </Typography>
+                                    <Typography variant="body1" color="textPrimary">
+                                        Shipping: 01 day shipping. <span style={{ color: 'red' }}> Free today </span>
+                                    </Typography>
+                                    <Typography variant="body1" color="textPrimary">
+                                        ${product.price.toFixed(2)}/Weight: 200 kg
+                                    </Typography>
+                                </Grid>
+                            </Grid>
                         </CardContent>
                     </Grid>
                 </Grid>
