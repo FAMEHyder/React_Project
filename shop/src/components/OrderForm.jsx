@@ -138,7 +138,7 @@ const OrderForm = () => {
           {product ? (
             <Paper elevation={3} sx={{ p: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
               <Typography variant="h6" fontWeight="bold">
-                Product Details:
+                Order Review:
               </Typography>
 
               {/* Display Product Image */}

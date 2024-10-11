@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Container, Grid, Typography, Card, CardMedia, CardContent, IconButton } from '@mui/material';
 import { Add, Remove, ShoppingCart, Payment, Favorite } from '@mui/icons-material';
 import { useCart } from '../context/Cart';
+import { Rating } from '@mui/material'; // Import Rating component from MUI
 
 const ProductDetails = () => {
     const navigate = useNavigate();
@@ -41,7 +42,7 @@ const ProductDetails = () => {
     };
 
     return (
-        <Container maxWidth="xl" sx={{ mt: 15, bgcolor:'none' }}>
+        <Container maxWidth="xl" sx={{ mt: 15, bgcolor: 'none' }}>
             <Card sx={{ width: '100%' }}>
                 <Grid container spacing={4}>
                     {/* Product Image */}
@@ -70,8 +71,17 @@ const ProductDetails = () => {
                                 {product.description}
                             </Typography>
 
+                            {/* Product Rating */}
+                            <Rating
+                                name={`rating-${product.id}`}
+                                value={product.rating} // Use product's rating
+                                readOnly
+                                precision={0.1}
+                                sx={{ color: 'gold', mb: 2 }} // Adjust the color and margin
+                            />
+
                             {/* Quantity Counter */}
-                            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px', width:'170px', backgroundColor:'lightgray' ,borderRadius:5 }}>
+                            <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px', width: '170px', backgroundColor: 'lightgray', borderRadius: 5 }}>
                                 <IconButton onClick={decreaseQuantity} color="secondary">
                                     <Remove />
                                 </IconButton>
@@ -84,9 +94,9 @@ const ProductDetails = () => {
                             </div>
 
                             {/* Icons for Add to Cart, Buy Now, and Like */}
-                            <Grid container spacing={1} sx={{ mt: 2, mb: 2, ml:.1, bgcolor:'lightgray', width:'200px', borderRadius:2 }}>
+                            <Grid container spacing={1} sx={{ mt: 2, mb: 2, ml: .1, bgcolor: 'lightgray', width: '200px', borderRadius: 2 }}>
                                 {/* Add to Cart Icon */}
-                                <Grid item xs={4} >
+                                <Grid item xs={4}>
                                     <IconButton
                                         color="success"
                                         sx={{ fontSize: '2rem' }}
@@ -131,7 +141,6 @@ const ProductDetails = () => {
                         </CardContent>
                     </Grid>
                 </Grid>
-
             </Card>
         </Container>
     );

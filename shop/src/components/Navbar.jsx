@@ -76,7 +76,7 @@ const Navbar = () => {
           <Button color="inherit" onClick={handleOpenDialog}>
             <ShoppingCartIcon />
           </Button>
-          <Button color="inherit" onClick={handleOpenDialog}>
+          <Button color="inherit" onClick={() => handleClick('/cartcomp')}>
             <CheckCircleIcon />
           </Button>
         </Box>

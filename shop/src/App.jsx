@@ -17,6 +17,7 @@ import RaisinCards from './components/RaisinData.jsx';
 import AppricotCards from './components/AppricoteData.jsx';
 import DateCards from './components/DatesData.jsx';
 import Footer from './components/Footer.jsx';
+import CartComp from './components/CartComp.jsx';
 
 function App() {
   
@@ -40,6 +41,7 @@ function App() {
         <Route path="/ProductTable" element={<OrderPlaced />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
+        <Route path="/cartcomp" element={<CartComp />} />
 
         {/* <Route path="/category/:categoryName" element={<ProductCards />} /> */}
       
