@@ -4,43 +4,21 @@ import { useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
 import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
-import { useCart } from '../context/Cart'; // Import the CartContext hook
-import {
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  List,
-  ListItem,
-  Typography,
-} from '@mui/material';
+
 import { useState } from 'react';
 import Cl from '../Image/CompanyLogo.png';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const { cart, deleteItem } = useCart();
-  const [open, setOpen] = useState(false); // State to manage the dialog
   const [anchorEl, setAnchorEl] = useState(null); // State to manage dropdown
 
   const handleClick = (path) => {
     navigate(path);
   };
 
-  // Deleting the item from the cart
-  const handleDeleteItem = (id) => {
-    deleteItem(id);
-  };
 
-  // Function to open dialog
-  const handleOpenDialog = () => {
-    setOpen(true);
-  };
-
-  // Function to close dialog
-  const handleCloseDialog = () => {
-    setOpen(false);
-  };
+ 
+  
 
   // Open dropdown menu
   const handleOpenMenu = (event) => {
@@ -73,7 +51,7 @@ const Navbar = () => {
           <Button color="inherit" onClick={() => handleClick('/signup')}>
             Sign Up
           </Button>
-          <Button color="inherit" onClick={handleOpenDialog}>
+          <Button color="inherit" onClick={() => handleClick('/cartcomp')}>
             <ShoppingCartIcon />
           </Button>
           <Button color="inherit" onClick={() => handleClick('/cartcomp')}>
@@ -246,46 +224,6 @@ const Navbar = () => {
           </Box>
         </Toolbar>
       </AppBar>
-
-      {/* MUI Dialog for Cart */}
-      <Dialog open={open} onClose={handleCloseDialog} maxWidth="sm" fullWidth>
-        <DialogTitle>Cart Items</DialogTitle>
-        <DialogContent>
-          {/* List of Cart Items */}
-          <List>
-            {cart.map((item) => (
-              <ListItem
-                key={item.id}
-                sx={{ display: 'flex', alignItems: 'center' }}
-              >
-                {/* Display item image */}
-                <img
-                  src={item.image}
-                  alt={item.name}
-                  style={{ width: 50, height: 50, marginRight: '16px' }} // Adjust size and spacing
-                />
-                {/* Display item details */}
-                <Typography variant="body1">
-                  {item.name} - ${item.price}
-                </Typography>
-
-                {/* Delete button */}
-                <Button
-                  variant="contained"
-                  color="secondary"
-                  onClick={() => handleDeleteItem(item.id)}
-                  sx={{ marginLeft: 'auto' }}
-                >
-                  Delete
-                </Button>
-              </ListItem>
-            ))}
-          </List>
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={handleCloseDialog}>Close</Button>
-        </DialogActions>
-      </Dialog>
     </>
   );
 };

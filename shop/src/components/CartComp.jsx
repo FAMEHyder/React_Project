@@ -8,14 +8,20 @@ import {
   Box,
   Container,
 } from '@mui/material';
-import { Link } from 'react-router-dom'; // Import Link for navigation
+import { useNavigate,Link } from 'react-router-dom'; // Import useNavigate for navigation
 
 const CartComp = () => {
   const { cart, deleteItem } = useCart();
+  const navigate = useNavigate();
 
   // Deleting the item from the cart
   const handleDeleteItem = (id) => {
     deleteItem(id);
+  };
+
+  // Proceed to Checkout with cart data
+  const handleClick = () => {
+    navigate('/OrderForm', { state: { cart } }); // Pass cart data as state
   };
 
   return (
@@ -64,9 +70,9 @@ const CartComp = () => {
           ))}
         </List>
       )}
-      {/* Additional space for future features (e.g., checkout button) */}
+      {/* Proceed to Checkout Button */}
       <Box sx={{ mt: 2 }}>
-        <Button variant="contained" color="primary">
+        <Button variant="contained" color="primary" onClick={handleClick}>
           Proceed to Checkout
         </Button>
       </Box>

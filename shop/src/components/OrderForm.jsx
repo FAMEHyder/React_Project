@@ -7,7 +7,7 @@ import { useLocation } from "react-router-dom"; // To receive product details fr
 const OrderForm = () => {
   const [submitted, setSubmitted] = useState(false);
 
-  // Get product details passed from ProductDetails component
+  // Get product details passed from the Cart component
   const location = useLocation();
   const { product } = location.state || {}; // Access product details from location
 
