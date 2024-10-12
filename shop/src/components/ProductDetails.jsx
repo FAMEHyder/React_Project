@@ -3,7 +3,6 @@ import { useLocation, useNavigate } from 'react-router-dom';
 import { Container, Grid, Typography, Card, CardMedia, CardContent, IconButton } from '@mui/material';
 import { Add, Remove, ShoppingCart, Payment, Favorite } from '@mui/icons-material';
 import { useCart } from '../context/Cart';
-import { Rating } from '@mui/material'; // Import Rating component from MUI
 
 const ProductDetails = () => {
     const navigate = useNavigate();
@@ -33,14 +32,15 @@ const ProductDetails = () => {
     // Function to handle adding product to cart
     const handlecartclick = () => {
         alert(`Added ${quantity} g to cart successfully`);
-        addItem({ ...product, quantity });
+        addItem({ ...product, quantity: quantity });
     };
 
-    // Function to handle navigation to order form and pass product data
-    const handleclick = (path) => {
-        navigate(path, { state: { product: { ...product, quantity } } }); // Pass product and quantity
+    // Function to handle navigation to order form
+    const handleclick = () => {
+        const item = { ...product, quantity: quantity }
+        navigate('/OrderForm', { state: { item } });
     };
-
+    // { state: { product } }
     return (
         <Container maxWidth="xl" sx={{ mt: 15, bgcolor: 'none' }}>
             <Card sx={{ width: '100%' }}>
@@ -71,15 +71,6 @@ const ProductDetails = () => {
                                 {product.description}
                             </Typography>
 
-                            {/* Product Rating */}
-                            <Rating
-                                name={`rating-${product.id}`}
-                                value={product.rating} // Use product's rating
-                                readOnly
-                                precision={0.1}
-                                sx={{ color: 'gold', mb: 2 }} // Adjust the color and margin
-                            />
-
                             {/* Quantity Counter */}
                             <div style={{ display: 'flex', alignItems: 'center', marginBottom: '16px', width: '170px', backgroundColor: 'lightgray', borderRadius: 5 }}>
                                 <IconButton onClick={decreaseQuantity} color="secondary">
@@ -96,7 +87,7 @@ const ProductDetails = () => {
                             {/* Icons for Add to Cart, Buy Now, and Like */}
                             <Grid container spacing={1} sx={{ mt: 2, mb: 2, ml: .1, bgcolor: 'lightgray', width: '200px', borderRadius: 2 }}>
                                 {/* Add to Cart Icon */}
-                                <Grid item xs={4}>
+                                <Grid item xs={4} >
                                     <IconButton
                                         color="success"
                                         sx={{ fontSize: '2rem' }}
@@ -111,7 +102,7 @@ const ProductDetails = () => {
                                     <IconButton
                                         color="secondary"
                                         sx={{ fontSize: '2rem' }}
-                                        onClick={() => handleclick('/OrderForm')} // Pass product to OrderForm
+                                        onClick={handleclick}
                                     >
                                         <Payment />
                                     </IconButton>
@@ -141,6 +132,7 @@ const ProductDetails = () => {
                         </CardContent>
                     </Grid>
                 </Grid>
+
             </Card>
         </Container>
     );

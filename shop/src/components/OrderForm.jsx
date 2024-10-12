@@ -3,13 +3,16 @@ import { Container, TextField, Button, Box, Typography, Grid, Paper, CardMedia }
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useLocation } from "react-router-dom"; // To receive product details from location state
+import { useCart } from "../context/Cart";
 
 const OrderForm = () => {
   const [submitted, setSubmitted] = useState(false);
 
   // Get product details passed from the Cart component
   const location = useLocation();
-  const { product } = location.state || {}; // Access product details from location
+  const { item } = location.state || {}; // Access product details from location
+  // console.log("item", item)
+  const { cart } = useCart()
 
   const formik = useFormik({
     initialValues: {
@@ -135,30 +138,58 @@ const OrderForm = () => {
 
         {/* Right Side - Product Details */}
         <Grid item xs={12} md={6}>
-          {product ? (
+          {cart || item ? (
             <Paper elevation={3} sx={{ p: 2, display: 'flex', flexDirection: 'column', gap: 2 }}>
               <Typography variant="h6" fontWeight="bold">
                 Order Review:
               </Typography>
+              {cart &&
 
-              {/* Display Product Image */}
-              <CardMedia
-                component="img"
-                height="200"
-                image={product.image}
-                alt={product.name}
-                sx={{ objectFit: 'contain', margin: '0 auto' }}
-              />
-              
-              <Typography variant="body1">
-                <strong>Name:</strong> {product.name}
-              </Typography>
-              <Typography variant="body1">
-                <strong>Price:</strong> ${product.price.toFixed(2)}
-              </Typography>
-              <Typography variant="body1">
-                <strong>Quantity:</strong> {product.quantity}g
-              </Typography>
+                cart.map((product) => (
+                  <>
+                    {/* Display Product Image */}
+                    <CardMedia
+                      component="img"
+                      height="200"
+                      image={product.image}
+                      alt={product.name}
+                      sx={{ objectFit: 'contain', margin: '0 auto' }}
+                    />
+
+                    <Typography variant="body1">
+                      <strong>Name:</strong> {product.name}
+                    </Typography>
+                    <Typography variant="body1">
+                      <strong>Price:</strong> ${product.price.toFixed(2)}
+                    </Typography>
+                    <Typography variant="body1">
+                      <strong>Quantity:</strong> {product.quantity}g
+                    </Typography>
+                  </>
+                ))}
+
+              {item && (
+                <>
+                  {/* Display Product Image */}
+                  <CardMedia
+                    component="img"
+                    height="200"
+                    image={item.image}
+                    alt={item.name}
+                    sx={{ objectFit: 'contain', margin: '0 auto' }}
+                  />
+
+                  <Typography variant="body1">
+                    <strong>Name:</strong> {item.name}
+                  </Typography>
+                  <Typography variant="body1">
+                    <strong>Price:</strong> ${item.price.toFixed(2)}
+                  </Typography>
+                  <Typography variant="body1">
+                    <strong>Quantity:</strong> {item.quantity}g
+                  </Typography>
+                </>
+              )}
             </Paper>
           ) : (
             <Typography variant="h6" color="error">

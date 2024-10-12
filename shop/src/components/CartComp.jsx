@@ -12,6 +12,7 @@ import { useNavigate,Link } from 'react-router-dom'; // Import useNavigate for n
 
 const CartComp = () => {
   const { cart, deleteItem } = useCart();
+//   console.log("cart", cart)
   const navigate = useNavigate();
 
   // Deleting the item from the cart
@@ -21,7 +22,7 @@ const CartComp = () => {
 
   // Proceed to Checkout with cart data
   const handleClick = () => {
-    navigate('/OrderForm', { state: { cart } }); // Pass cart data as state
+    navigate('/OrderForm'); // Pass cart data as state
   };
 
   return (
@@ -48,6 +49,12 @@ const CartComp = () => {
               {/* Display item details */}
               <Typography variant="body1" sx={{ flexGrow: 1 }}>
                 {item.name} - ${item.price}
+              </Typography>
+              <Typography variant="body1" sx={{ flexGrow: 1 }}>
+                {item.quantity} g
+              </Typography>
+              <Typography variant="body1" sx={{ flexGrow: 1 }}>
+                Total:{(item.price*item.quantity)/100}
               </Typography>
 
               {/* Delete button */}
