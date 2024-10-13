@@ -35,7 +35,7 @@ const AlmondTypes = [
                  'This variety has a distinct, wrinkled appearance that gives it a unique texture. ' +
                  'Carmel almonds are frequently found in snack mixes and baked goods, enhancing their taste. ' +
                  'They are a favorite among consumers looking for flavorful roasted almonds.',
-    price: 9.99, // Price of the Carmel almond
+    price: 9.99, 
     rating: 4.0,
   },
   {
