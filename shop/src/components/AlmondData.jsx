@@ -55,7 +55,7 @@ const AlmondTypes = [
     id: 4,
     Category:'Almonds',
     name: 'Butte',
-    image: butte, // Image representing the Butte almond variety
+    image: butte, 
     description: 'Thicker-skinned, good for roasting and used in confectionery. ' +
                  'The Butte almond is characterized by its robust, thicker skin that adds a delightful crunch. ' +
                  'It is particularly well-suited for roasting, which enhances its rich flavor. ' +
