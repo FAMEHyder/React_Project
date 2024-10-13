@@ -81,7 +81,7 @@ const AlmondTypes = [
     id: 6,
     Category:'Almonds',
     name: 'California',
-    image: california, // Image representing the California almond variety
+    image: california, 
     description: 'A category that includes several almond varieties, typically used for processed almond products. ' +
                  'California almonds are well-known for their high quality and diverse range. ' +
                  'This category encompasses multiple types, allowing for a variety of flavors and textures. ' +
