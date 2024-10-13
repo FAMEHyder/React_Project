@@ -8,7 +8,7 @@ const AboutUs = () => {
         About Us
       </Typography>
       <Typography variant="body1" paragraph sx={{mt:15}}>
-        {/* Replace the below text with your actual 5000-word content */}
+        {}
         Lorem ipsum, dolor sit amet consectetur adipisicing elit. Quasi id eveniet a, ipsum officiis
         quas, molestias consequuntur ipsam asperiores inventore architecto autem maxime vero, dolores
         aliquid sequi necessitatibus? Libero cupiditate facere provident velit quidem sed odio ea
