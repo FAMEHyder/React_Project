@@ -113,7 +113,7 @@ const AlmondTypes = [
                  'They are often included in snack mixes and used as a topping for salads and desserts. ' +
                  'This variety’s mild taste makes it versatile for both sweet and savory dishes. ' +
                  'Peerless almonds are a popular choice for those seeking a healthy snack option.',
-    price: 9.49, // Price of the Peerless almond
+    price: 9.49, 
     rating: 4.1,
   },
 ];
