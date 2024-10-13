@@ -16,7 +16,7 @@ const AlmondTypes = [
     id: 1,
     Category:'Almonds',
     name: 'Nonpareil',
-    image: nonpareil, // Image representing the Nonpareil almond variety
+    image: nonpareil, 
     description: 'Thin-skinned, easy to blanch, and used in many almond products. ' +
                  'The Nonpareil almond features a smooth and delicate skin that allows for easy blanching, ' +
                  'making it a popular choice for creating almond flour and almond milk. ' +
