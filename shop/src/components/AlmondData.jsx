@@ -74,7 +74,7 @@ const AlmondTypes = [
                  'Their slightly bittersweet taste complements various baked goods and desserts. ' +
                  'Bakers often prefer Mission almonds for cookies, cakes, and brownies, as they add depth to flavors. ' +
                  'This variety’s versatility makes it a staple in both home and professional kitchens.',
-    price: 11.99, // Price of the Mission almond
+    price: 11.99, 
     rating: 4.3,
   },
   {
