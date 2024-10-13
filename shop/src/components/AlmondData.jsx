@@ -94,7 +94,7 @@ const AlmondTypes = [
     id: 7,
     Category:'Almonds',
     name: 'Fritz',
-    image: fritz, // Image representing the Fritz almond variety
+    image: fritz, 
     description: 'Small and hard, often used in almond paste and marzipan. ' +
                  'Fritz almonds are distinctive due to their small size and firm texture. ' +
                  'They are frequently utilized in making almond paste, which is a key ingredient in pastries. ' +
