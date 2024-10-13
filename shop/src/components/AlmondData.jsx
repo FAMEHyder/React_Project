@@ -68,7 +68,7 @@ const AlmondTypes = [
     id: 5,
     Category:'Almonds',
     name: 'Mission',
-    image: mission, // Image representing the Mission almond variety
+    image: mission, 
     description: 'Darker skin, known for its slightly bittersweet flavor, often used in baking. ' +
                  'Mission almonds have a deep, dark skin that gives them a unique flavor profile. ' +
                  'Their slightly bittersweet taste complements various baked goods and desserts. ' +
