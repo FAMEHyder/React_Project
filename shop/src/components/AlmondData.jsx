@@ -23,7 +23,7 @@ const AlmondTypes = [
                  'Its consistent shape and size also make it ideal for use in snacks and confections. ' +
                  'Overall, it is one of the most sought-after varieties in the market due to its versatility.',
     price: 10.99,  
-    rating: 4.5,   // Rating out of 5
+    rating: 4.5,  
   },
   {
     id: 2,
