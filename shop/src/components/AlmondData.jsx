@@ -29,7 +29,7 @@ const AlmondTypes = [
     id: 2,
     Category:'Almonds',
     name: 'Carmel',
-    image: carmel, // Image representing the Carmel almond variety
+    image: carmel, 
     description: 'Similar to Nonpareil but with a slightly wrinkled surface, often used for roasting. ' +
                  'The Carmel almond is appreciated for its robust flavor, making it ideal for roasting. ' +
                  'This variety has a distinct, wrinkled appearance that gives it a unique texture. ' +
