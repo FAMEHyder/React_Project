@@ -42,7 +42,7 @@ const AlmondTypes = [
     id: 3,
     Category:'Almonds',
     name: 'Sonora',
-    image: sonora, // Image representing the Sonora almond variety
+    image: sonora,
     description: 'Long, narrow almonds with a light color, commonly used in desserts. ' +
                  'Sonora almonds stand out due to their elongated shape and light, creamy color. ' +
                  'Their mild flavor makes them a great addition to various dessert recipes. ' +
