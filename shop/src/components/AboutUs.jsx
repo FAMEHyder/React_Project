@@ -33,7 +33,7 @@ const AboutUs = () => {
         eos quis illo provident, eius laudantium aspernatur dolore explicabo. Incidunt in
         molestias eaque quam. Accusamus, tempora cumque magni nulla nesciunt sint nostrum eius molestias ducimus
 
-        {/* Continue adding content to reach 5000 words */}
+        {}
       </Typography>
     </Container>
   );
