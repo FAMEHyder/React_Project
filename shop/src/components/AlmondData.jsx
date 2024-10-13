@@ -9,7 +9,7 @@ import mission from '../Image/mission.png';
 import california from '../Image/california.png';
 import fritz from '../Image/fritz.png';
 import peerless from '../Image/peerless.png';
-import { Rating } from '@mui/material'; // Import Rating component from MUI
+import { Rating } from '@mui/material'; 
 
 const AlmondTypes = [
   {
