@@ -100,14 +100,14 @@ const AlmondTypes = [
                  'They are frequently utilized in making almond paste, which is a key ingredient in pastries. ' +
                  'Marzipan made from Fritz almonds is known for its rich flavor and smooth consistency. ' +
                  'This variety is a preferred choice among bakers for decorative and gourmet applications.',
-    price: 14.99, // Price of the Fritz almond
+    price: 14.99, 
     rating: 4.6,
   },
   {
     id: 8,
     Category:'Almonds',
     name: 'Peerless',
-    image: peerless, // Image representing the Peerless almond variety
+    image: peerless, 
     description: 'Commonly used in snacks, known for its mild flavor. ' +
                  'Peerless almonds are celebrated for their subtle, buttery flavor that appeals to many consumers. ' +
                  'They are often included in snack mixes and used as a topping for salads and desserts. ' +
