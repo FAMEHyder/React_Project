@@ -87,7 +87,7 @@ const AlmondTypes = [
                  'This category encompasses multiple types, allowing for a variety of flavors and textures. ' +
                  'They are commonly used in creating almond butter, oils, and other processed products. ' +
                  'California almonds are often considered the benchmark for almond quality globally.',
-    price: 13.99, // Price of the California almond
+    price: 13.99, 
     rating: 4.7,
   },
   {
