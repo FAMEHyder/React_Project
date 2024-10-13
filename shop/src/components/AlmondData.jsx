@@ -48,7 +48,7 @@ const AlmondTypes = [
                  'Their mild flavor makes them a great addition to various dessert recipes. ' +
                  'Bakers often choose Sonora almonds for garnishing and flavoring, especially in pastries. ' +
                  'These almonds also add a pleasing visual appeal to sweets, making them a popular choice.',
-    price: 12.99, // Price of the Sonora almond
+    price: 12.99, 
     rating: 4.2,
   },
   {
