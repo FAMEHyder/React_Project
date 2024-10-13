@@ -61,7 +61,7 @@ const AlmondTypes = [
                  'It is particularly well-suited for roasting, which enhances its rich flavor. ' +
                  'This variety is often used in confectionery products, including chocolate-covered almonds. ' +
                  'Its texture and taste make it a favorite for gourmet snacks and treats.',
-    price: 8.99, // Price of the Butte almond
+    price: 8.99, 
     rating: 3.8,
   },
   {
