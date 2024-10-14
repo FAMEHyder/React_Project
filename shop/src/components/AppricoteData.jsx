@@ -29,7 +29,7 @@ const AppricotTypes = [
     id: 10,
     price: 20,
     name: 'Tilton Apricot',
-    image: chuli2, // Image representing the Tilton apricot variety
+    image: chuli2, 
     description: 'Tilton apricots have a tangy, sweet flavor and are commonly used for drying and cooking. ' + 
                  'These apricots strike a perfect balance between sweet and tangy, making them a versatile option. ' + 
                  'They are often dried to enhance their flavor, resulting in a chewy texture thats perfect for snacking. ' + 
