@@ -18,7 +18,7 @@ const AppricotTypes = [
     id: 9,
     price: 20,
     name: 'Moorpark Apricot',
-    image: chuli1, // Image representing the Moorpark apricot variety
+    image: chuli1, 
     description: 'Moorpark apricots are large, juicy, and known for their sweet, rich flavor. ' + 
                  'These apricots are particularly prized for their exceptional sweetness, making them ideal for fresh consumption. ' + 
                  'Their juicy flesh is perfect for preserves and canning, capturing their flavor for year-round enjoyment. ' + 
@@ -162,8 +162,7 @@ const AppricotCards = () => {
         {AppricotTypes.map((appricot) => (
           <Grid item xs={12} sm={6} md={3} key={appricot.id}>
             <Card 
-              onClick={() => handleCardClick(appricot)} // Make the card clickable
-
+              onClick={() => handleCardClick(appricot)} 
             sx={{
               height: 400,
               cursor: 'pointer',
