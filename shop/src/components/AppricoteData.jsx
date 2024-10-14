@@ -139,7 +139,7 @@ const AppricotTypes = [
     id: 20,
     price: 20,
     name: 'Harcot Apricot',
-    image: chuli12, // Image representing the Harcot apricot variety
+    image: chuli12, 
     description: 'Harcot apricots are known for their excellent flavor and are perfect for fresh eating or making jams. ' + 
                  'These apricots are highly regarded for their rich taste, making them a favorite for fresh snacks. ' + 
                  'Their sweet flavor also makes them ideal for creating homemade jams and preserves. ' + 
