@@ -151,7 +151,7 @@ const AppricotTypes = [
 
 const AppricotCards = () => {
 
-  const navigate = useNavigate(); // Hook for programmatic navigation
+  const navigate = useNavigate();
 
   // Function to handle card clicks and navigate to product details
   const handleCardClick = (product) => {
