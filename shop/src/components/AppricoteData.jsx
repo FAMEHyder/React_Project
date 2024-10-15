@@ -95,7 +95,7 @@ const AppricotTypes = [
     id: 16,
     price: 20,
     name: 'Katy Apricot',
-    image: chuli8, // Image representing the Katy apricot variety
+    image: chuli8, 
     description: 'Katy apricots are large, sweet, and flavorful, commonly enjoyed fresh or in salads. ' + 
                  'These apricots are celebrated for their size, which makes them a substantial addition to any dish. ' + 
                  'Their sweetness is exceptional, providing a delicious contrast in salads and fruit platters. ' + 
