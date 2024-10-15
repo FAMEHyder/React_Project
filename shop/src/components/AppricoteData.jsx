@@ -128,7 +128,7 @@ const AppricotTypes = [
     id: 19,
     price: 20,
     name: 'Autumn Glo Apricot',
-    image: chuli11, // Image representing the Autumn Glo apricot variety
+    image: chuli11,
     description: 'Autumn Glo apricots ripen later in the season, with a juicy texture and rich, sweet flavor. ' + 
                  'These apricots are a delightful treat for those who enjoy late-season fruits. ' + 
                  'Their juicy texture and sweetness make them perfect for fresh eating and baking. ' + 
