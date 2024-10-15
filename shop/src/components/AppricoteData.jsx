@@ -51,7 +51,7 @@ const AppricotTypes = [
     id: 12,
     price: 20,
     name: 'Blenheim Apricot',
-    image: chuli4, // Image representing the Blenheim apricot variety
+    image: chuli4, 
     description: 'Blenheim apricots are sweet and juicy, ideal for both fresh consumption and drying. ' + 
                  'Known for their rich flavor, Blenheim apricots are a favorite for fresh eating due to their sweetness. ' + 
                  'They are also excellent for drying, which concentrates their flavor and sweetness even further. ' + 
