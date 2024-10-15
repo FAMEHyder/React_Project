@@ -40,7 +40,7 @@ const AppricotTypes = [
     id: 11,
     price: 20,
     name: 'Perfection Apricot',
-    image: chuli3, // Image representing the Perfection apricot variety
+    image: chuli3,
     description: 'Perfection apricots are large with a firm texture and bright orange color, often used in fresh dishes. ' + 
                  'These apricots are visually striking, featuring a vibrant orange hue that enhances any dish. ' + 
                  'Their firm texture makes them ideal for slicing, ensuring they hold up well in salads and platters. ' + 
