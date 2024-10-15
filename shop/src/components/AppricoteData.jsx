@@ -84,7 +84,7 @@ const AppricotTypes = [
     id: 15,
     price: 20,
     name: 'Tomcot Apricot',
-    image: chuli7, // Image representing the Tomcot apricot variety
+    image: chuli7, 
     description: 'Tomcot apricots ripen early and are known for their vibrant color and balanced sweet-tart flavor. ' + 
                  'These apricots stand out with their striking color, attracting attention in orchards and markets. ' + 
                  'Their early ripening makes them a favorite for those eager to enjoy apricots before other varieties. ' + 
