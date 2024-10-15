@@ -73,7 +73,7 @@ const AppricotTypes = [
     id: 14,
     price: 20,
     name: 'Chinese/Mormon Apricot',
-    image: chuli6, // Image representing the Chinese/Mormon apricot variety
+    image: chuli6,
     description: 'Chinese or Mormon apricots are small, hardy, and have a sweet, mild flavor, often grown in cooler climates. ' + 
                  'These apricots are particularly resilient, thriving in less than ideal conditions. ' + 
                  'Their small size does not compromise their flavor, which is mild yet sweet, making them enjoyable fresh. ' + 
