@@ -62,7 +62,7 @@ const AppricotTypes = [
     id: 13,
     price: 20,
     name: 'Gold Kist Apricot',
-    image: chuli5, // Image representing the Gold Kist apricot variety
+    image: chuli5, 
     description: 'Gold Kist apricots are early ripening with a sweet and slightly tart flavor, often enjoyed fresh. ' + 
                  'These apricots are known for their vibrant yellow color and delightful taste. ' + 
                  'Their early ripening makes them a popular choice for those looking to enjoy fresh fruit earlier in the season. ' + 
