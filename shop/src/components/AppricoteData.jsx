@@ -106,7 +106,7 @@ const AppricotTypes = [
     id: 17,
     price: 20,
     name: 'Royal Apricot',
-    image: chuli9, // Image representing the Royal apricot variety
+    image: chuli9, 
     description: 'Royal apricots have an intense flavor and are often used for canning and drying. ' + 
                  'These apricots are known for their rich, sweet taste that captivates the palate. ' + 
                  'Their intense flavor makes them ideal for preserving, allowing their essence to be enjoyed year-round. ' + 
