@@ -117,7 +117,7 @@ const AppricotTypes = [
     id: 18,
     price: 20,
     name: 'Puget Gold Apricot',
-    image: chuli10, // Image representing the Puget Gold apricot variety
+    image: chuli10, 
     description: 'Puget Gold apricots thrive in cooler climates and are known for their sweet, delicious taste. ' + 
                  'These apricots are specially adapted to thrive in regions with cooler temperatures. ' + 
                  'Their sweetness is enhanced by the growing conditions, resulting in a delightful flavor. ' + 
