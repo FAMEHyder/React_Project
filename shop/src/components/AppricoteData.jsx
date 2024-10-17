@@ -116,6 +116,7 @@ const AppricotTypes = [
     price: 20,
     name: 'Royal Apricot',
     image: chuli9, 
+    rating: 4.1,
     description: 'Royal apricots have an intense flavor and are often used for canning and drying. ' + 
                  'These apricots are known for their rich, sweet taste that captivates the palate. ' + 
                  'Their intense flavor makes them ideal for preserving, allowing their essence to be enjoyed year-round. ' + 
@@ -127,6 +128,7 @@ const AppricotTypes = [
     price: 20,
     name: 'Puget Gold Apricot',
     image: chuli10, 
+    rating: 3.1,
     description: 'Puget Gold apricots thrive in cooler climates and are known for their sweet, delicious taste. ' + 
                  'These apricots are specially adapted to thrive in regions with cooler temperatures. ' + 
                  'Their sweetness is enhanced by the growing conditions, resulting in a delightful flavor. ' + 
@@ -138,6 +140,7 @@ const AppricotTypes = [
     price: 20,
     name: 'Autumn Glo Apricot',
     image: chuli11,
+    rating: 2.1,
     description: 'Autumn Glo apricots ripen later in the season, with a juicy texture and rich, sweet flavor. ' + 
                  'These apricots are a delightful treat for those who enjoy late-season fruits. ' + 
                  'Their juicy texture and sweetness make them perfect for fresh eating and baking. ' + 
@@ -149,6 +152,7 @@ const AppricotTypes = [
     price: 20,
     name: 'Harcot Apricot',
     image: chuli12, 
+    rating: 4.1,
     description: 'Harcot apricots are known for their excellent flavor and are perfect for fresh eating or making jams. ' + 
                  'These apricots are highly regarded for their rich taste, making them a favorite for fresh snacks. ' + 
                  'Their sweet flavor also makes them ideal for creating homemade jams and preserves. ' + 
