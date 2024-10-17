@@ -1,6 +1,5 @@
-import { Card, CardContent, CardMedia, Typography, Grid, IconButton, Box } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import { Favorite, ShoppingCart } from '@mui/icons-material';
 import nonpareil from '../Image/nonpareil.png';
 import carmel from '../Image/carmel.png';
 import sonora from '../Image/sonora.png';
@@ -139,7 +138,7 @@ const AlmondCards = () => {
           >
             <CardMedia
               component="img"
-              height="200"
+              height="290"
               width={100}
               image={almond.image}
               alt={almond.name}
@@ -156,16 +155,7 @@ const AlmondCards = () => {
                 value={almond.rating}
                 readOnly
                 precision={0.1}
-                sx={{ color: 'yellow' }}  
-              />
-              <Box display="flex" justifyContent="space-between" mt={2}>
-                <IconButton sx={{ color: 'green' }}>
-                  <ShoppingCart /> {/* Cart icon in green */}
-                </IconButton>
-                <IconButton sx={{ color: 'red' }}>
-                  <Favorite /> {/* Favorite icon in red */}
-                </IconButton>
-              </Box>
+              />                
             </CardContent>
           </Card>
         </Grid>

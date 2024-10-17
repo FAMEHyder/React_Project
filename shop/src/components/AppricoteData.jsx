@@ -12,6 +12,7 @@ import chuli9 from '../Image/chuli9.png';
 import chuli10 from '../Image/chuli10.png';
 import chuli11 from '../Image/chuli11.png';
 import chuli12 from '../Image/chuli12.png';
+import { Rating } from '@mui/material'; 
 
 const AppricotTypes = [
   { 
@@ -162,29 +163,35 @@ const AppricotCards = () => {
         {AppricotTypes.map((appricot) => (
           <Grid item xs={12} sm={6} md={3} key={appricot.id}>
             <Card 
-              onClick={() => handleCardClick(appricot)} 
+            onClick={() => handleCardClick(appricot)} 
             sx={{
               height: 400,
               cursor: 'pointer',
-              boxShadow:5,
-
-              }}>
-              <CardMedia
-                component="img"
-                height="200"
-                width={100}
-                image={appricot.image}
-                alt={appricot.name}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {appricot.name}
-                </Typography>
-                <Typography variant="body2" color="text.secondary">
-                  {appricot.description}
-                </Typography>
-              </CardContent>
-            </Card>
+              boxShadow: 5,
+            }}
+          >
+            <CardMedia
+              component="img"
+              height="290"
+              width={100}
+              image={appricot.image}
+              alt={appricot.name}
+            />
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                {appricot.name}
+              </Typography>
+              <Typography variant="body1" color="blue">
+                Price: ${appricot.price.toFixed(2)}
+              </Typography>
+              <Rating
+                name={`rating-${appricot.id}`}
+                value={appricot.rating}
+                readOnly
+                precision={0.1}
+              />                
+            </CardContent>
+          </Card>
           </Grid>
         ))}
       </Grid>
