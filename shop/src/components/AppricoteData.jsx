@@ -92,6 +92,7 @@ const AppricotTypes = [
     price: 20,
     name: 'Tomcot Apricot',
     image: chuli7, 
+    rating: 3.1,
     description: 'Tomcot apricots ripen early and are known for their vibrant color and balanced sweet-tart flavor. ' + 
                  'These apricots stand out with their striking color, attracting attention in orchards and markets. ' + 
                  'Their early ripening makes them a favorite for those eager to enjoy apricots before other varieties. ' + 
@@ -103,6 +104,7 @@ const AppricotTypes = [
     price: 20,
     name: 'Katy Apricot',
     image: chuli8, 
+    rating: 2.1,
     description: 'Katy apricots are large, sweet, and flavorful, commonly enjoyed fresh or in salads. ' + 
                  'These apricots are celebrated for their size, which makes them a substantial addition to any dish. ' + 
                  'Their sweetness is exceptional, providing a delicious contrast in salads and fruit platters. ' + 
