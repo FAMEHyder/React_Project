@@ -20,6 +20,7 @@ const AppricotTypes = [
     price: 20,
     name: 'Moorpark Apricot',
     image: chuli1, 
+    rating: 4.1,
     description: 'Moorpark apricots are large, juicy, and known for their sweet, rich flavor. ' + 
                  'These apricots are particularly prized for their exceptional sweetness, making them ideal for fresh consumption. ' + 
                  'Their juicy flesh is perfect for preserves and canning, capturing their flavor for year-round enjoyment. ' + 
@@ -31,6 +32,7 @@ const AppricotTypes = [
     price: 20,
     name: 'Tilton Apricot',
     image: chuli2, 
+    rating: 4.5,
     description: 'Tilton apricots have a tangy, sweet flavor and are commonly used for drying and cooking. ' + 
                  'These apricots strike a perfect balance between sweet and tangy, making them a versatile option. ' + 
                  'They are often dried to enhance their flavor, resulting in a chewy texture thats perfect for snacking. ' + 
@@ -42,6 +44,7 @@ const AppricotTypes = [
     price: 20,
     name: 'Perfection Apricot',
     image: chuli3,
+    rating: 4.,
     description: 'Perfection apricots are large with a firm texture and bright orange color, often used in fresh dishes. ' + 
                  'These apricots are visually striking, featuring a vibrant orange hue that enhances any dish. ' + 
                  'Their firm texture makes them ideal for slicing, ensuring they hold up well in salads and platters. ' + 
@@ -53,6 +56,7 @@ const AppricotTypes = [
     price: 20,
     name: 'Blenheim Apricot',
     image: chuli4, 
+    rating: 4.8,
     description: 'Blenheim apricots are sweet and juicy, ideal for both fresh consumption and drying. ' + 
                  'Known for their rich flavor, Blenheim apricots are a favorite for fresh eating due to their sweetness. ' + 
                  'They are also excellent for drying, which concentrates their flavor and sweetness even further. ' + 
@@ -64,6 +68,7 @@ const AppricotTypes = [
     price: 20,
     name: 'Gold Kist Apricot',
     image: chuli5, 
+    rating: 4.4,
     description: 'Gold Kist apricots are early ripening with a sweet and slightly tart flavor, often enjoyed fresh. ' + 
                  'These apricots are known for their vibrant yellow color and delightful taste. ' + 
                  'Their early ripening makes them a popular choice for those looking to enjoy fresh fruit earlier in the season. ' + 
@@ -75,6 +80,7 @@ const AppricotTypes = [
     price: 20,
     name: 'Chinese/Mormon Apricot',
     image: chuli6,
+    rating: 4.1,
     description: 'Chinese or Mormon apricots are small, hardy, and have a sweet, mild flavor, often grown in cooler climates. ' + 
                  'These apricots are particularly resilient, thriving in less than ideal conditions. ' + 
                  'Their small size does not compromise their flavor, which is mild yet sweet, making them enjoyable fresh. ' + 
