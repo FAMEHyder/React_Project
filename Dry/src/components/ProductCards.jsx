@@ -1,103 +1,63 @@
-// src/components/ProductCards.js
-import {
-  Grid,
-  Card,
-  CardContent,
-  CardMedia,
-  Typography,
-  IconButton,
-  Box,
-  Rating,
-} from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Grid, IconButton, Rating ,Button } from '@mui/material';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import { useNavigate, useParams } from 'react-router-dom';
-import ProductData from '../data/ProductData'; // Ensure the correct path
+// import FavoriteIcon from '@mui/icons-material/Favorite';
+import ProductData from '../components/ProductData'; // Make sure the correct path to ProductData is provided
 
-const ProductCards = () => {
-  const navigate = useNavigate();
-  const { categoryName } = useParams(); // Get the category from the URL
-
-  // Function to handle card clicks and navigate to product details
-  const handleCardClick = (product) => {
-    navigate(`/productDetails`, { state: { product } });
-  };
-
-  // Function to handle adding items to the cart
-  const handleAddToCart = (e, product) => {
-    e.stopPropagation(); // Prevent triggering the card click event
-    // Implement your add to cart logic here
-    console.log(`Added ${product.name} to cart.`);
-    // For example, you might use a context or Redux to manage cart state
-  };
-
-  // Filter products based on the selected category
-  const filteredProducts = categoryName
-    ? ProductData.filter(
-        (product) =>
-          product.Category.toLowerCase() === categoryName.toLowerCase()
-      )
-    : ProductData; // If no category is selected, show all products
+const ProductCard = () => {
+  // Group products by category
+  const groupedProducts = ProductData.reduce((acc, product) => {
+    if (!acc[product.Category]) {
+      acc[product.Category] = [];
+    }
+    acc[product.Category].push(product);
+    return acc;
+  }, {});
 
   return (
-    <Grid container spacing={2} sx={{ mt: 4, padding: 2 }}>
-      {filteredProducts.length > 0 ? (
-        filteredProducts.map((product) => (
-          <Grid item xs={12} sm={6} md={3} key={product.id}>
-            <Card
-              onClick={() => handleCardClick(product)}
-              sx={{
-                height: 400,
-                cursor: 'pointer',
-                boxShadow: 5,
-                display: 'flex',
-                flexDirection: 'column',
-                justifyContent: 'space-between',
-              }}
-            >
-              <CardMedia
-                component="img"
-                height="200"
-                image={product.image}
-                alt={product.name}
-              />
-              <CardContent>
-                <Typography gutterBottom variant="h5" component="div">
-                  {product.name}
-                </Typography>
-                <Typography variant="h6" color="text.primary" sx={{ mb: 1 }}>
-                  ${product.price.toFixed(2)}
-                </Typography>
-                <Box
-                  display="flex"
-                  alignItems="center"
-                  justifyContent="space-between"
-                >
-                  <Rating
-                    name={`rating-${product.id}`}
-                    value={product.rating}
-                    precision={0.1}
-                    readOnly
-                    size="small"
+    <div>
+      {Object.keys(groupedProducts).map((category) => (
+        <div key={category}>
+          <Typography variant="h4" gutterBottom>
+            {category}
+          </Typography>
+          <Grid container spacing={4}>
+            {groupedProducts[category].map((product) => (
+              <Grid item xs={12} sm={6} md={4} lg={3} key={product.id}>
+                <Button>
+                <Card>
+                  <CardMedia
+                    component="img"
+                    height="200"
+                    image={product.image}
+                    alt={product.name}
                   />
-                  <IconButton
-                    color="primary"
-                    onClick={(e) => handleAddToCart(e, product)}
-                    aria-label="add to cart"
-                  >
-                    <ShoppingCartIcon />
-                  </IconButton>
-                </Box>
-              </CardContent>
-            </Card>
+                  <CardContent>
+                    <Typography variant="h6" component="div">
+                      {product.name}
+                    </Typography>
+                    <Typography variant="body2" color="text.secondary">
+                      {product.description}
+                    </Typography>
+                    <Rating value={product.rating} readOnly precision={0.5} />
+                    <Typography variant="h6" component="div" sx={{ marginTop: 1 }}>
+                      ${product.price}
+                    </Typography>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', marginTop: '10px' }}>
+                      <IconButton color="primary">
+                        <ShoppingCartIcon />
+                      </IconButton>
+                      
+                    </div>
+                  </CardContent>
+                </Card>
+                </Button>
+              </Grid>
+            ))}
           </Grid>
-        ))
-      ) : (
-        <Typography variant="h6" sx={{ m: 2 }}>
-          No products found in this category.
-        </Typography>
-      )}
-    </Grid>
+        </div>
+      ))}
+    </div>
   );
 };
 
-export default ProductCards;
+export default ProductCard;

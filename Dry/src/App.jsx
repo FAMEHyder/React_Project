@@ -9,6 +9,7 @@ import OrderForm from './components/OrderForm.jsx';
 import OrderPlaced from './components/OrderPlaced.jsx';
 import AboutUs from './components/AboutUs';
 import ContactUs from './components/ContactUs';
+import ProductCards from './components/ProductCards.jsx';
 
 
 function App() {
@@ -19,6 +20,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/productcard" element={<ProductCards />} />
         <Route path="/productDetails" element={<ProductDetails />} />
         <Route path="/Signup" element={<SignUp />} />
         <Route path="/Signin" element={<LoginForm />} />

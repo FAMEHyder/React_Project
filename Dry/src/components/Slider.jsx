@@ -37,8 +37,8 @@ const sliderSettings = {
 const SliderComponent = () => {
   const navigate = useNavigate();
 
-  const handleClick = (Id) => {
-    navigate(Id);
+  const handleClick = (path) => {
+    navigate(path);
   };
 
   return (
@@ -62,7 +62,7 @@ const SliderComponent = () => {
             }}
           >
             <Button
-              onClick={() => handleClick(image.Id)}
+              onClick={() => handleClick('/productcard')}
               sx={{
                 width: '100%',
                 height: '100%',
