@@ -8,7 +8,7 @@ import bg3 from '../Image/bg6.png';
 import bg4 from '../Image/bg4.png';
 import bg5 from '../Image/bg5.png';
 import bg6 from '../Image/bg6.png';
-
+import FruitSliders from '../components/FruitSlider.jsx';
 
 const Home = () => {
   const backgrounds = [bg, bg1, bg2, bg3, bg4, bg5, bg6]; // Array of background images
@@ -76,6 +76,12 @@ const Home = () => {
       <Box sx={{ marginTop: '200px', paddingX: { xs: 2, sm: 4, md: 8 } }}>
         
         <SliderComponent />
+        
+      </Box>
+
+      <Box sx={{ marginTop: '20px', paddingX: { xs: 2, sm: 4, md: 8 } }}>
+        
+        <FruitSliders />
         
       </Box>
 

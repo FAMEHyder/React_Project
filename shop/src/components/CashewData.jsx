@@ -12,6 +12,7 @@ import babybits from '../Image/babybits.png';
 import roasted from '../Image/roasted.png';
 import flavor from '../Image/flavor.png';
 import fla from '../Image/flavor.png';
+import { Rating } from '@mui/material'; 
 
 const cashewTypes = [
   {
@@ -19,6 +20,7 @@ const cashewTypes = [
     price:120,
     name: 'W-180 (King of Cashews)',
     image: w180,
+    rating: 4.4,
     description: 'W-180, known as the "King of Cashews," is the largest and highest quality cashew nut available.',
   },
   {
@@ -26,6 +28,7 @@ const cashewTypes = [
     price:120,
     name: 'W-210 (Jumbo Cashews)',
     image: jambo,
+    rating: 3.9,
     description: 'W-210 cashews are large, high-quality nuts, perfect for gourmet snacks and recipes.',
   },
   {
@@ -33,6 +36,7 @@ const cashewTypes = [
     price:120,
     name: 'W-240',
     image: w240,
+    rating: 4.3,
     description: 'W-240 is a popular size that offers a balance between size and affordability.',
   },
   {
@@ -40,6 +44,7 @@ const cashewTypes = [
     price:120,
     name: 'W-320',
     image: w230,
+    rating: 3.1,
     description: 'W-320 is one of the most common cashew grades, used widely in snacks and cooking.',
   },
   {
@@ -47,6 +52,7 @@ const cashewTypes = [
     price:120,
     name: 'W-450',
     image: w450,
+    rating: 2.1,
     description: 'W-450 cashews are smaller and more affordable, often used in bulk or recipes.',
   },
   {
@@ -54,6 +60,7 @@ const cashewTypes = [
     price:120,
     name: 'Splits',
     image: splites,
+    rating: 4.1,
     description: 'Splits are naturally split cashews, often used in cooking and baking.',
   },
   {
@@ -61,6 +68,7 @@ const cashewTypes = [
     price:120,
     name: 'Butts',
     image: butts,
+    rating: 3.1,
     description: 'Cashew butts are the bottom parts of the nut, used in cooking and for cashew products.',
   },
   {
@@ -68,6 +76,7 @@ const cashewTypes = [
     price:120,
     name: 'Pieces',
     image: pieces,
+    rating: 4.1,
     description: 'Pieces are smaller fragments used in various recipes, including sweets and snacks.',
   },
   {
@@ -75,6 +84,7 @@ const cashewTypes = [
     price:120,
     name: 'Baby Bits',
     image: babybits,
+    rating: 4.1,
     description: 'Baby Bits are tiny fragments of cashews, often used in industrial applications or for making cashew flour.',
   },
   {
@@ -82,6 +92,7 @@ const cashewTypes = [
     price:120,
     name: 'Roasted Cashews',
     image: roasted,
+    rating: 4.7,
     description: 'Roasted cashews have a rich flavor, enhanced by roasting. Available salted or unsalted.',
   },
   {
@@ -89,6 +100,7 @@ const cashewTypes = [
     price:120,
     name: 'Salted Cashews',
     image: flavor,
+    rating: 3.1,
     description: 'Salted cashews are roasted and salted for flavor, making them a popular snack.',
   },
   {
@@ -96,6 +108,7 @@ const cashewTypes = [
     price:120,
     name: 'Flavored Cashews',
     image: fla,
+    rating: 3.5,
     description: 'Flavored cashews are coated or mixed with various spices or sweeteners like honey, chili, or garlic.',
   },
 ];
@@ -113,18 +126,17 @@ const CashewCards = () => {
     <Grid container spacing={2} sx={{mt:12}}>
       {cashewTypes.map((cashew) => (
         <Grid item xs={12} sm={6} md={3} key={cashew.id}>
-          <Card
-            onClick={() => handleCardClick(cashew)} // Make the card clickable
-
+          <Card 
+            onClick={() => handleCardClick(cashew)} 
             sx={{
               height: 400,
               cursor: 'pointer',
-              // boxShadow:'2px 2px 2px 2px gray',
-              boxShadow:5,
-            }}>
+              boxShadow: 5,
+            }}
+          >
             <CardMedia
               component="img"
-              height="200"
+              height="290"
               width={100}
               image={cashew.image}
               alt={cashew.name}
@@ -133,9 +145,15 @@ const CashewCards = () => {
               <Typography gutterBottom variant="h5" component="div">
                 {cashew.name}
               </Typography>
-              <Typography variant="body2" color="text.secondary">
-                {cashew.description}
+              <Typography variant="body1" color="blue">
+                Price: ${cashew.price.toFixed(2)}
               </Typography>
+              <Rating
+                name={`rating-${cashew.id}`}
+                value={cashew.rating}
+                readOnly
+                precision={0.1}
+              />                
             </CardContent>
           </Card>
         </Grid>

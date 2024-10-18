@@ -41,11 +41,8 @@ function App() {
         <Route path="/ProductTable" element={<OrderPlaced />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
-        <Route path="/cartcomp" element={<CartComp />} />
-
-        {/* <Route path="/category/:categoryName" element={<ProductCards />} /> */}
-      
-       
+        <Route path="/cartcomp" element={<CartComp />} />      
+        <Route path="/productDetails/:id" element={<ProductDetails />} />
       </Routes>
       <Footer />
 
