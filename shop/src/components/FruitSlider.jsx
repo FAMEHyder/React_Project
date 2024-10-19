@@ -50,7 +50,7 @@ const CategorySlider = ({ category, data }) => {
                 alt={product.name}
                 style={{
                   width: '800px', 
-                  height: '200px', // Fixed height
+                  height: '200px',
                   objectFit: 'cover', // Makes sure the image covers the area
                   marginBottom: '10px',
                   
