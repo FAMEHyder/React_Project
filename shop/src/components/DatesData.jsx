@@ -70,8 +70,7 @@ const dateVarieties = [
 
 const DateCards = () => {
 
-  const navigate = useNavigate(); // Hook for programmatic navigation
-
+  const navigate = useNavigate();
   const handleCardClick = (product) => {
     navigate(`/productDetails`, { state: { product } });
   };
