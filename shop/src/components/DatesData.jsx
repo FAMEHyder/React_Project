@@ -86,7 +86,6 @@ const DateCards = () => {
             sx={{
               height: 400,
               cursor: 'pointer',
-              // boxShadow:'2px 2px 2px 2px gray',
               boxShadow:5,
 
             }}
