@@ -14,7 +14,7 @@ const dateVarieties = [
     id: 33,
     price:50,
     name: 'Medjool',
-    image: medjol, // Replace with actual image URLs
+    image: medjol, 
     description: 'Large, soft, and rich in flavor, Medjool dates are known as the "king of dates".',
   },
   {
