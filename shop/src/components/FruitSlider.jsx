@@ -51,7 +51,7 @@ const CategorySlider = ({ category, data }) => {
                 style={{
                   width: '800px', 
                   height: '200px',
-                  objectFit: 'cover', // Makes sure the image covers the area
+                  objectFit: 'cover', 
                   marginBottom: '10px',
                   
                 }}
