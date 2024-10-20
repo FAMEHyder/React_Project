@@ -54,9 +54,6 @@ const Navbar = () => {
           <Button color="inherit" onClick={() => handleClick('/cartcomp')}>
             <ShoppingCartIcon />
           </Button>
-          <Button color="inherit" onClick={() => handleClick('/cartcomp')}>
-            <CheckCircleIcon />
-          </Button>
         </Box>
 
         {/* Main Toolbar with Logo and Navigation Links */}

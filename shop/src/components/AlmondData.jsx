@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Typography, Grid } from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Grid ,Box} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import nonpareil from '../Image/nonpareil.png';
 import carmel from '../Image/carmel.png';
@@ -9,7 +9,9 @@ import california from '../Image/california.png';
 import fritz from '../Image/fritz.png';
 import peerless from '../Image/peerless.png';
 import { Rating } from '@mui/material'; 
-
+import 'slick-carousel/slick/slick.css';
+import 'slick-carousel/slick/slick-theme.css';
+import Slider from 'react-slick';
 const AlmondTypes = [
   {
     id: 1,
@@ -124,43 +126,101 @@ const AlmondCards = () => {
     navigate(`/productDetails`, { state: { product } });
   };
 
+  // Slider settings for slick-carousel
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,  // Show one item at a time
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: false,
+  };
+
   return (
-    <Grid container spacing={2} sx={{ mt: 12 }}>
-      {AlmondTypes.map((almond) => (
-        <Grid item xs={12} sm={6} md={3} key={almond.id}>
-          <Card 
-            onClick={() => handleCardClick(almond)} 
-            sx={{
-              height: 400,
-              cursor: 'pointer',
-              boxShadow: 5,
-            }}
-          >
-            <CardMedia
-              component="img"
-              height="290"
-              width={100}
-              image={almond.image}
-              alt={almond.name}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {almond.name}
-              </Typography>
-              <Typography variant="body1" color="blue">
-                Price: ${almond.price.toFixed(2)}
-              </Typography>
-              <Rating
-                name={`rating-${almond.id}`}
-                value={almond.rating}
-                readOnly
-                precision={0.1}
-              />                
-            </CardContent>
-          </Card>
-        </Grid>
-      ))}
-    </Grid>
+    <Box sx={{ mt: 12 }}>
+      {/* Slider */}
+      <Slider {...sliderSettings}>
+        {AlmondTypes.map((almond) => (
+          <Box key={almond.id} sx={{ padding: 1, }}>
+            <Card
+              sx={{
+                height: 450,  // Adjust the height for both image and details
+                display: 'flex',  // Display image and details side by side
+                cursor: 'pointer',
+                boxShadow: 5,
+              }}
+              onClick={() => handleCardClick(almond)}
+            >
+              {/* Left side: Image */}
+              <CardMedia
+                component="img"
+                sx={{ width: 600 ,height:400, ml:30,borderRadius:'10px',mt:'30px' }}  // Fixed width for the image
+                image={almond.image}
+                alt={almond.name}
+              />
+ 
+              {/* Right side: Product details */}
+              <CardContent sx={{ flex: 1,mt:'60px'  }}>
+                <Typography variant="h5" gutterBottom>
+                  {almond.name}
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 2 }}>
+                  {almond.description}
+                </Typography>
+                <Typography variant="body2" color="blue">
+                  Price: ${almond.price.toFixed(2)}
+                </Typography>
+                <Rating
+                  name={`rating-${almond.id}`}
+                  value={almond.rating}
+                  readOnly
+                  precision={0.1}
+                />
+              </CardContent>
+            </Card>
+          </Box>
+        ))}
+      </Slider>
+
+      {/* Card Grid (Optional, kept as is) */}
+      <Grid container spacing={2} sx={{ mt: 4 }}>
+        {AlmondTypes.map((almond) => (
+          <Grid item xs={12} sm={6} md={3} key={almond.id}>
+            <Card
+              onClick={() => handleCardClick(almond)}
+              sx={{
+                height: 400,
+                cursor: 'pointer',
+                boxShadow: 5,
+              }}
+            >
+              <CardMedia
+                component="img"
+                height="290"
+                image={almond.image}
+                alt={almond.name}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {almond.name}
+                </Typography>
+                <Typography variant="body1" color="blue">
+                  Price: ${almond.price.toFixed(2)}
+                </Typography>
+                <Rating
+                  name={`rating-${almond.id}`}
+                  value={almond.rating}
+                  readOnly
+                  precision={0.1}
+                />
+              </CardContent>
+            </Card>
+          </Grid>
+        ))}
+      </Grid>
+    </Box>
   );
 };
 

@@ -6,7 +6,6 @@ import Navbar from './components/Navbar.jsx';
 import LoginForm from './components/LoginForm.jsx';
 import SignUp from './components/SignUp.jsx';
 import OrderForm from './components/OrderForm.jsx';
-import OrderPlaced from './components/OrderPlaced.jsx';
 import AboutUs from './components/AboutUs.jsx';
 import ContactUs from './components/ContactUs.jsx';
 import AlmondCards from './components/AlmondData.jsx';
@@ -38,7 +37,6 @@ function App() {
         <Route path="/7" element={<DateCards />} />
         <Route path="/Signin" element={<LoginForm />} />
         <Route path="/OrderForm" element={<OrderForm />} />
-        <Route path="/ProductTable" element={<OrderPlaced />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/cartcomp" element={<CartComp />} />      

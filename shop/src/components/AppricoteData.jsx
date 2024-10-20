@@ -1,4 +1,4 @@
-import { Card, CardContent, CardMedia, Typography, Grid} from '@mui/material';
+import { Card, CardContent, CardMedia, Typography, Grid,Box} from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import chuli1 from '../Image/chuli1.png'
 import chuli2 from '../Image/chuli2.png';
@@ -13,6 +13,9 @@ import chuli10 from '../Image/chuli10.png';
 import chuli11 from '../Image/chuli11.png';
 import chuli12 from '../Image/chuli12.png';
 import { Rating } from '@mui/material'; 
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
+import Slider from 'react-slick';
 
 const AppricotTypes = [
   { 
@@ -162,52 +165,107 @@ const AppricotTypes = [
 ];
 
 
-const AppricotCards = () => {
-
+const AppricotData = () => {
   const navigate = useNavigate();
 
-  const handleCardClick = (product) => {
-    navigate(`/productDetails`, { state: { product } });
+  const handleCardClick = (apricot) => {
+    navigate(`/productDetails`, { state: { product: apricot } });
   };
+  const sliderSettings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,  // Show one item at a time
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 2000,
+    pauseOnHover: false,
+  };
+
+  return (
+    <Box sx={{ mt: 12 }}>
+      {/* Slider */}
+      <Slider {...sliderSettings}>
+        {AppricotTypes.map((apricot) => (
+          <Box key={apricot.id} sx={{ padding: 1, }}>
+            <Card
+              sx={{
+                height: 450,  // Adjust the height for both image and details
+                display: 'flex',  // Display image and details side by side
+                cursor: 'pointer',
+                boxShadow: 5,
+              }}
+              onClick={() => handleCardClick(apricot)}
+            >
+              {/* Left side: Image */}
+              <CardMedia
+                component="img"
+                sx={{ width: 600 ,height:400, ml:30,borderRadius:'10px',mt:'30px' }}  // Fixed width for the image
+                image={apricot.image}
+                alt={apricot.name}
+              />
  
-    return (
-      <Grid container spacing={2} sx={{mt:12}}>
-        {AppricotTypes.map((appricot) => (
-          <Grid item xs={12} sm={6} md={3} key={appricot.id}>
-            <Card 
-            onClick={() => handleCardClick(appricot)} 
-            sx={{
-              height: 400,
-              cursor: 'pointer',
-              boxShadow: 5,
-            }}
-          >
-            <CardMedia
-              component="img"
-              height="290"
-              width={100}
-              image={appricot.image}
-              alt={appricot.name}
-            />
-            <CardContent>
-              <Typography gutterBottom variant="h5" component="div">
-                {appricot.name}
-              </Typography>
-              <Typography variant="body1" color="blue">
-                Price: ${appricot.price.toFixed(2)}
-              </Typography>
-              <Rating
-                name={`rating-${appricot.id}`}
-                value={appricot.rating}
-                readOnly
-                precision={0.1}
-              />                
-            </CardContent>
-          </Card>
+              {/* Right side: Product details */}
+              <CardContent sx={{ flex: 1,mt:'60px'  }}>
+                <Typography variant="h5" gutterBottom>
+                  {apricot.name}
+                </Typography>
+                <Typography variant="body1" sx={{ mb: 2 }}>
+                  {apricot.description}
+                </Typography>
+                <Typography variant="body2" color="blue">
+                  Price: ${apricot.price.toFixed(2)}
+                </Typography>
+                <Rating
+                  name={`rating-${apricot.id}`}
+                  value={apricot.rating}
+                  readOnly
+                  precision={0.1}
+                />
+              </CardContent>
+            </Card>
+          </Box>
+        ))}
+      </Slider>
+
+      {/* Card Grid (Optional, kept as is) */}
+      <Grid container spacing={2} sx={{ mt: 4 }}>
+        {AppricotTypes.map((apricot) => (
+          <Grid item xs={12} sm={6} md={3} key={apricot.id}>
+            <Card
+              onClick={() => handleCardClick(apricot)}
+              sx={{
+                height: 400,
+                cursor: 'pointer',
+                boxShadow: 5,
+              }}
+            >
+              <CardMedia
+                component="img"
+                height="290"
+                image={apricot.image}
+                alt={apricot.name}
+              />
+              <CardContent>
+                <Typography gutterBottom variant="h5" component="div">
+                  {apricot.name}
+                </Typography>
+                <Typography variant="body1" color="blue">
+                  Price: ${apricot.price.toFixed(2)}
+                </Typography>
+                <Rating
+                  name={`rating-${apricot.id}`}
+                  value={apricot.rating}
+                  readOnly
+                  precision={0.1}
+                />
+              </CardContent>
+            </Card>
           </Grid>
         ))}
       </Grid>
-    );
+    </Box>
+  );
 };
 
-export default AppricotCards;
+export default AppricotData;

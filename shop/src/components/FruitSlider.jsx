@@ -29,6 +29,8 @@ const CategorySlider = ({ category, data }) => {
     arrows: true,
     centerMode: true,
     centerPadding: '0',
+    pauseOnHover: false,
+
   };
 
   return (
