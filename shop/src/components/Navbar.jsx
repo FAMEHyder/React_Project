@@ -2,7 +2,6 @@
 import { AppBar, Toolbar, Box, Button, Menu, MenuItem } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ShoppingCartIcon from '@mui/icons-material/ShoppingCart';
-import CheckCircleIcon from '@mui/icons-material/CheckCircle';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 
 import { useState } from 'react';
