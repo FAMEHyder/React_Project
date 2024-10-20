@@ -43,7 +43,7 @@ const CategorySlider = ({ category, data }) => {
             <Box
               key={product.id}
               sx={{ padding: '10px', cursor: 'pointer',borderRadius:'10px' }}
-              onClick={() => handleProductClick(product)} // Pass entire product object
+              onClick={() => handleProductClick(product)}
             >
               <img
                 src={product.image}
