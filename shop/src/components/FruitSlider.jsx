@@ -32,7 +32,7 @@ const CategorySlider = ({ category, data }) => {
   };
 
   return (
-    <div style={{ padding: '10px', textAlign: 'center', borderRadius:5 ,background:'lightgray'}}>
+    <div style={{ padding: '10px', textAlign: 'center', borderRadius:5 ,}}>
       
       <Typography variant="h6" component="div" style={{ fontWeight: 'bold', marginBottom: '10px' }}>
         All {category} products
