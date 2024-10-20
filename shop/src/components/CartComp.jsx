@@ -8,7 +8,7 @@ import {
   Box,
   Container,
 } from '@mui/material';
-import { useNavigate,Link } from 'react-router-dom'; // Import useNavigate for navigation
+import { useNavigate,} from 'react-router-dom'; // Import useNavigate for navigation
 
 const CartComp = () => {
   const { cart, deleteItem } = useCart();
@@ -68,11 +68,7 @@ const CartComp = () => {
               </Button>
 
               {/* Buy Now button using Link */}
-              <Link to={`/product/${item.id}`}>
-                <Button variant="contained" color="primary">
-                  Buy Now
-                </Button>
-              </Link>
+             
             </ListItem>
           ))}
         </List>
