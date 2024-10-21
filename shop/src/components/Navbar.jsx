@@ -41,7 +41,7 @@ const Navbar = () => {
             marginLeft: 'auto',
             backgroundColor: 'darkgreen',
             justifyContent: 'end',
-            padding: '0 16px', // Added padding for better spacing
+            padding: '0 16px',
           }}
         >
           <Button color="inherit" onClick={() => handleClick('/signin')}>
