@@ -9,8 +9,7 @@ import Cl from '../Image/CompanyLogo.png';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [anchorEl, setAnchorEl] = useState(null); // State to manage dropdown
-
+  const [anchorEl, setAnchorEl] = useState(null);
   const handleClick = (path) => {
     navigate(path);
   };
