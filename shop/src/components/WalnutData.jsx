@@ -24,7 +24,7 @@ const WalnutTypes = [
     price:23,
     rating: 4.6,
     name: 'Black Walnuts',
-    image: black, // Replace with a valid image URL
+    image: black,
     description: 'Black walnuts have a bold, earthy flavor with harder shells than English walnuts.'
   },
   {
