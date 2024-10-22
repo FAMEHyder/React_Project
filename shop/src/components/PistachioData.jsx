@@ -119,7 +119,7 @@ const PistachioCards = () => {
           <Box key={Pistachio.id} sx={{ padding: 1, }}>
             <Card
               sx={{
-                height: 450,  // Adjust the height for both image and details
+                height: 450,  
                 display: 'flex',  
                 cursor: 'pointer',
                 boxShadow: 5,
