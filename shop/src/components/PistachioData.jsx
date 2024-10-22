@@ -120,7 +120,7 @@ const PistachioCards = () => {
             <Card
               sx={{
                 height: 450,  // Adjust the height for both image and details
-                display: 'flex',  // Display image and details side by side
+                display: 'flex',  
                 cursor: 'pointer',
                 boxShadow: 5,
               }}
