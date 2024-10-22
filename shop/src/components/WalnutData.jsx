@@ -16,7 +16,7 @@ const WalnutTypes = [
     price:23,
     rating: 4.6,
     name: 'English Walnuts ',
-    image: eng, // Replace with a valid image URL
+    image: eng, 
     description: 'English walnuts are known for their mild flavor and thin, easy-to-crack shells.'
   },
   {
