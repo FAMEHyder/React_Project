@@ -77,15 +77,15 @@ const productPurchaseSchema=new mongoose.Schema({
         },
         cardNumber:{
             type:Number,
-            max:16,
+            // max:16,
             unique:true,
             // requried:true
         },
        
         CvvCode:{
             type:Number,
-            min:3,
-            max:4,
+            // min:3,
+            // max:4,
             unique:true,
             // required:true
         },

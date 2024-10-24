@@ -14,7 +14,7 @@ export const addProduct = async (req, res, next) => {
     price,
     sku
   } = req.body;
-
+console.log (addProduct)
   try {
     // Handle image upload if present
     let images = [];

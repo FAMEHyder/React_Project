@@ -17,7 +17,7 @@ import AppricotCards from './components/AppricoteData.jsx';
 import DateCards from './components/DatesData.jsx';
 import Footer from './components/Footer.jsx';
 import CartComp from './components/CartComp.jsx';
-
+import Profile from './components/Profile.jsx';
 function App() {
   
 
@@ -26,6 +26,7 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="/" element={<Profile />} />
         <Route path="/productDetails" element={<ProductDetails />} />
         <Route path="/Signup" element={<SignUp />} />
         <Route path="/1" element={<AlmondCards />} />

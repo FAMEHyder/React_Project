@@ -171,6 +171,7 @@ const AppricotData = () => {
   const handleCardClick = (apricot) => {
     navigate(`/productDetails`, { state: { product: apricot } });
   };
+  
   const sliderSettings = {
     dots: true,
     infinite: true,
