@@ -1,47 +1,63 @@
 import mongoose from "mongoose";
+const userSchema=new mongoose.Schema({
+    userName:{
+        type:String,
+        required:true,
+        uniqe:true,
+        trim:true
+    },
+    email:{
+        type:String,
+        required:true,
+        uniqe:true,
+        trim:true
+    },
+    password:{
+        type:String,
+        required:true,
+        uniqe:true,
+        trim:true
+    },
+    firstName:{
+        type:String,
+        required:true,
+        uniqe:true,
+        trim:true
+    },
+    lastName:{
+        type:String,
+        required:true,
+        uniqe:true,
+        trim:true
+    },
+    age:{
+        type:Number,
+        required:true,
+        
+    },
+    DOB:{
+        type:String,
+        required:true,
+       
+    },
+    address:{
+        type:String,
+        required:true,
+        uniqe:true,
+        
+    },
+    role:{
+        type:[String],
+        default:"user"
+    },
+    wishList:[
+        {
+        type:mongoose.Schema.Types.ObjectId,
+        ref:'Product',
+        default:null
 
-const userSchema = new mongoose.Schema(
-    {
-  
-      username: {
-          type: String,
-          required: true,
-          unique: true,
-          trim: true
-      },
-      email: {
-          type: String,
-          required: true,
-          unique: true,
-          trim: true,
-          lowercase: true
-      },
-      password: {
-          type: String,
-          required: true
-      },
-      firstName: {
-          type: String,
-          required: true,
-          trim: true
-      },
-      lastName: {
-          type: String,
-          required: true,
-          trim: true
-      },
-      address: String,
-      phone: Number,
-    //   roles: {
-    //       type: [String],
-    //       default: ['user']
-    //   },
-      dateOfBirth: {
-          type: String
-      },
+        }
+    ]
 
-    }
-);
-
-
-export default mongoose.model('User', userSchema);
+})
+export default mongoose.model('User',userSchema)
