@@ -35,10 +35,11 @@ export const addWishlist=async(req,res,next)=>{
       
     }
   }
-  export const removeWishlist=async(res,req,next)=>{
-  const {userId,productId}=req.body;
+  export const removeWishlist=async(req,res,next)=>{
+  const {userId,productId}=req.params;
+  console.log(req.params)
   try {
-    const deleteWishList=new User.findByIdAndUpdate(
+    const deleteWishList=await User.findByIdAndUpdate(
       userId,
       {
         $pull:{wishList:productId}// Removes prodId from the array
