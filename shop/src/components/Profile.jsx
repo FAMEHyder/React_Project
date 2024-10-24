@@ -19,8 +19,8 @@ const UserProfile = () => {
   }, []);
 
   return (
-    <Box sx={{ p: 3 }}>
-      <Grid container spacing={3} alignItems="center">
+    <Box sx={{ p: 3 ,mt:12,}}>
+      <Grid container spacing={3} alignItems="center" display={'flex'} flexDirection={'column'} >
         {/* Profile Picture */}
         <Grid item xs={12} sm={4} md={3}>
           <Avatar
@@ -31,6 +31,7 @@ const UserProfile = () => {
         </Grid>
 
         {/* User Information */}
+        
         <Grid item xs={12} sm={8} md={9}>
           <Typography variant="h5">{userData.name}</Typography>
           <Typography variant="subtitle1">@{userData.username}</Typography>
