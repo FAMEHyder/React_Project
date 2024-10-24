@@ -36,3 +36,26 @@ const register=async(req,res)=>{
 }
 export default register
 
+export const viewUserbyId = async (req, res, next) => {
+    const { id } = req.params;
+    try {
+      const user = await User.findById(id).populate('wishList');
+      if (!user) {
+        return res.status(404).json({
+          status: 404,
+          message: "User not Found",
+        });
+      }
+      return res.status(200).json({
+        status: 200,
+        message: 'User with this Id is: ${id}',
+        userDetail: user,
+      });
+    } catch (error) {
+      return res.status(500).json({
+        // status: 500,
+        message: error.message,
+        err: error,
+  });
+  }
+  };

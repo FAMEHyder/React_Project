@@ -4,6 +4,7 @@ import router from './routes/user.routes.js';
 import prodrouter from "./routes/product.routes.js";
 import DataBaseConnection from './database/database.js';
 import purchase from './routes/Purchase.routes.js';
+import wish from './routes/wishlist.routes.js';
 
 
 
@@ -14,8 +15,8 @@ app.use(express.json());
 
 app.use('/user', router );
 app.use('/product',prodrouter)
-app.use('/product',prodrouter)
 app.use('/purchase',purchase)
+app.use('/wish',wish)
 
 const port = process.env.PORT || 8009
 app.listen(port, ()=>{

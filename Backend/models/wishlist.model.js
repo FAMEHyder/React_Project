@@ -50,7 +50,6 @@ const userSchema=new mongoose.Schema({
         type:[String],
         default:"user"
     },
-    
     wishList:[
         {
         type:mongoose.Schema.Types.ObjectId,
