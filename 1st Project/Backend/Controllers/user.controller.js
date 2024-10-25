@@ -1,61 +1,65 @@
 import User from "../models/user.model.js";
 import bcrypt from 'bcryptjs';
 
-const register=async(req,res)=>{
+const register = async (req, res,next) => {
+  // console.log(req.body)
+  const { firstName, lastName, dob, age, address, UserName, email, password } = req.body
 
-    const {userName,email,firstName,lastName,password,...rest}=req.body
-    const salt=await bcrypt.genSalt(5)
-    const hashedPassword=await bcrypt.hash(password,salt)
+  const salt = await bcrypt.genSalt(5)
+  const hashedPassword = await bcrypt.hash(password, salt)
 
-    try {
-        const user=new User({
-            userName,
-            email,
-            firstName,
-            lastName,
-            password: hashedPassword,
-            ...rest
-        })
+  try {
+    const user = new User({
+      firstName,
+      lastName,
+      DOB: dob,
+      age,
+      address,
+      userName: UserName,
+      email,
+      password: hashedPassword,
 
-        await user.save();
-        res.status(201).json({
-            status: true,
-          message: 'User created successfully',
-          data:user
-        })
-        
-    } catch (error) {
-        console.log(error)
-        res.status(500).json({
-            message:   'Error creating  user',
-            err:error
-        })
-    }
+    })
+
+    await user.save();
+    res.status(201).json({
+      status: true,
+      message: 'User created successfully',
+      data: user
+    })
+
+  } catch (error) {
+    console.log(error)
+    res.status(500).json({
+      message: 'Error creating  user',
+      err: error
+    })
+  }
 
 
 }
 export default register
 
 export const viewUserbyId = async (req, res, next) => {
-    const { id } = req.params;
-    try {
-      const user = await User.findById(id).populate('wishList');
-      if (!user) {
-        return res.status(404).json({
-          status: 404,
-          message: "User not Found",
-        });
-      }
-      return res.status(200).json({
-        status: 200,
-        message: 'User with this Id is: ${id}',
-        userDetail: user,
+  const { id } = req.params;
+  try {
+    const user = await User.findById(id).populate('wishList');
+    if (!user) {
+      return res.status(404).json({
+        status: 404,
+        message: "User not Found",
       });
-    } catch (error) {
-      return res.status(500).json({
-        // status: 500,
-        message: error.message,
-        err: error,
-  });
+    }
+    return res.status(200).json({
+      status: 200,
+      message: 'User with this Id is: ${id}',
+      userDetail: user,
+    });
+  } catch (error) {
+    return res.status(500).json({
+      // status: 500,
+      message: error.message,
+      err: error,
+    });
   }
-  };
+};

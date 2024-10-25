@@ -5,14 +5,17 @@ import prodrouter from "./routes/product.routes.js";
 import DataBaseConnection from './database/database.js';
 import purchase from './routes/Purchase.routes.js';
 import wish from './routes/wishlist.routes.js';
-
+import cors from 'cors';
 
 
 dotenv.config();
 const app = express()
 
 app.use(express.json());
-
+app.use(cors({
+    origin:"http://localhost:5173",
+    credentials:true
+}))
 app.use('/user', router );
 app.use('/product',prodrouter)
 app.use('/purchase',purchase)

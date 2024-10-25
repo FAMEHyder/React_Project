@@ -1,9 +1,37 @@
 import mongoose from "mongoose";
 const userSchema=new mongoose.Schema({
-    userName:{
+    firstName:{
         type:String,
         required:true,
         uniqe:true,
+        trim:true
+    },
+    lastName:{
+        type:String,
+        required:true,
+        // uniqe:true,
+        trim:true
+    },
+    DOB:{
+        type:String,
+        // required:true,
+        
+    },
+    age:{
+        type:Number,
+        required:true,
+        
+    },
+    address:{
+        type:String,
+        required:true,
+        // uniqe:true,
+        
+    },
+    userName:{
+        type:String,
+        // required:true,
+        // uniqe:true,
         trim:true
     },
     email:{
@@ -15,41 +43,13 @@ const userSchema=new mongoose.Schema({
     password:{
         type:String,
         required:true,
-        uniqe:true,
+        // uniqe:true,
         trim:true
     },
-    firstName:{
-        type:String,
-        required:true,
-        uniqe:true,
-        trim:true
-    },
-    lastName:{
-        type:String,
-        required:true,
-        uniqe:true,
-        trim:true
-    },
-    age:{
-        type:Number,
-        required:true,
-        
-    },
-    DOB:{
-        type:String,
-        required:true,
-       
-    },
-    address:{
-        type:String,
-        required:true,
-        uniqe:true,
-        
-    },
-    role:{
-        type:[String],
-        default:"user"
-    },
+    // role:{
+    //     type:[String],
+    //     default:"user"
+    // },
     
     wishList:[
         {
