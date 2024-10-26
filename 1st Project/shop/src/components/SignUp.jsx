@@ -10,7 +10,7 @@ function RegisterForm() {
     dob: '',
     age: '',
     address: '',
-    UserName:'',
+    username:'',
     email: '',
     password: '',
     confirmPassword: ''
@@ -24,9 +24,9 @@ function RegisterForm() {
 
   const handleRegister = async (event) => {
     event.preventDefault();
-    const { firstName, lastName, dob, age, address, email, password, confirmPassword } = formData;
+    const { firstName, lastName, dob, age, address,username, email, password, confirmPassword } = formData;
     console.log('Form Data:', formData);
-    if (firstName && lastName && dob && age && address && email && password && password === confirmPassword) {
+    if (firstName && lastName && dob && age && address&& username && email && password && password === confirmPassword) {
       try {
         // Make the POST request to register the user
         const response = await axios.post('http://localhost:8000/user/register', formData);
@@ -48,7 +48,7 @@ function RegisterForm() {
     { label: 'Date of Birth', name: 'dob', type: 'date' },
     { label: 'Age', name: 'age', type: 'number' },
     { label: 'Address', name: 'address', type: 'text' },
-    { label: 'UserName', name: 'UserName', type: 'text' },
+    { label: 'UserName', name: 'username', type: 'text' },
     { label: 'Email', name: 'email', type: 'email' },
     { label: 'Password', name: 'password', type: 'password' },
     { label: 'Confirm Password', name: 'confirmPassword', type: 'password' },

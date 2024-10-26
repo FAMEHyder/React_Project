@@ -3,7 +3,7 @@ const userSchema=new mongoose.Schema({
     firstName:{
         type:String,
         required:true,
-        uniqe:true,
+        // uniqe:true,
         trim:true
     },
     lastName:{
@@ -28,10 +28,10 @@ const userSchema=new mongoose.Schema({
         // uniqe:true,
         
     },
-    userName:{
+    username:{
         type:String,
-        // required:true,
-        // uniqe:true,
+        required:true,
+        uniqe:true,
         trim:true
     },
     email:{

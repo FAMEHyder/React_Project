@@ -23,7 +23,7 @@ export const Login = async (req, res, next) => {
     console.log("your email is :",email)
     console.log("your password is :",password)
     // res.cookie('access_token', token, { httpOnly: true }); 
-    res.status(200).json({ message: 'Login successful', Detail : user.email, });
+    res.status(200).json({ message: 'You are in : Login successful', Detail : user.email, });
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: 'Error logging in',  Error: err });

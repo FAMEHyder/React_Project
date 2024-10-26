@@ -3,24 +3,25 @@ import bcrypt from 'bcryptjs';
 
 const register = async (req, res,next) => {
   // console.log(req.body)
-  const { firstName, lastName, dob, age, address, UserName, email, password } = req.body
+  const { firstName, lastName, DOB, age, address, username, email, password } = req.body
 
   const salt = await bcrypt.genSalt(5)
   const hashedPassword = await bcrypt.hash(password, salt)
+  console.log("Your User name is : ",username)
 
   try {
     const user = new User({
       firstName,
       lastName,
-      DOB: dob,
+      DOB,
       age,
       address,
-      userName: UserName,
+      username,
       email,
       password: hashedPassword,
 
     })
-
+console.log(user)
     await user.save();
     res.status(201).json({
       status: true,
