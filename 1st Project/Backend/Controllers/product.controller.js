@@ -8,8 +8,7 @@ export const addProduct = async (req, res, next) => {
     category,
     review,
     brand,
-    color,
-    size,
+    weight,
     stock,
     price,
     sku
@@ -24,8 +23,7 @@ console.log (addProduct)
 
     const subCategory = new SubCategory({
       brand,
-      color,
-      size,
+      weight,
       stock,
       price,
       sku
@@ -42,6 +40,7 @@ console.log (addProduct)
       subCategory: savedSubCategory._id , 
       review
     });
+    console.log(product);
     await product.save();
 
     res.status(201).json({

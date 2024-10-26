@@ -17,7 +17,7 @@ const productSchema = new mongoose.Schema(
     category: {
       type: String,
       trim: true,
-      enum: ['men', 'women', 'kids']
+      // enum: ['pistachio', 'dates', 'almonds']
     },
     subCategory: {
       type: mongoose.Schema.Types.ObjectId,
@@ -43,11 +43,8 @@ const subCategorySchema = new mongoose.Schema(
       type: String,
       trim: true
     },
-    color: {
-      type: String,
-      trim: true
-    },
-    size: {
+    
+    weight: {
       type: String,
       trim: true
     },

@@ -43,7 +43,7 @@ const UserProfile = () => {
     };
 
     return (
-        <Box sx={{ p: 3, mt: 8 }}>
+        <Box sx={{ p: 3, mt: 12 }}>
             <Grid container spacing={3} justifyContent="center">
                 {/* Profile Picture and Basic Info */}
                 <Grid item xs={12} md={4}>

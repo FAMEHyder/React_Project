@@ -64,7 +64,7 @@ const ProductDetails = () => {
                             </Typography>
 
                             <Typography variant="h4" color="red" gutterBottom>
-                                ${product.price.toFixed(2)} /200g
+                                ${product.price} /200g
                             </Typography>
 
                             <Typography variant="body2" color="textSecondary" paragraph>
@@ -125,7 +125,7 @@ const ProductDetails = () => {
                                         Shipping: 01 day shipping. <span style={{ color: 'red' }}> Free today </span>
                                     </Typography>
                                     <Typography variant="body1" color="textPrimary">
-                                        ${product.price.toFixed(2)}/Weight: 200 kg
+                                        ${product.price(2)}/Weight: 200 kg
                                     </Typography>
                                 </Grid>
                             </Grid>
