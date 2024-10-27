@@ -19,7 +19,7 @@ const Home = () => {
       setCurrentBg((prevBg) => (prevBg + 1) % backgrounds.length); // Loop through images
     }, 3000); // Change image every 3 seconds
 
-    return () => clearInterval(intervalId); // Cleanup interval on component unmount
+    return () => clearInterval(intervalId); 
   },);
 
   return (
