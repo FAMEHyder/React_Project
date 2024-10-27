@@ -5,7 +5,6 @@ import { Grid, Typography, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import ProductData from './ProductData'; 
 
-// Reusable component for each category slider
 const CategorySlider = ({ category, data }) => {
   const navigate = useNavigate();
 
