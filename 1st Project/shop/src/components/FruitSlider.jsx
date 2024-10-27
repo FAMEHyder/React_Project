@@ -3,7 +3,7 @@ import 'slick-carousel/slick/slick-theme.css';
 import Slider from 'react-slick';
 import { Grid, Typography, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
-import ProductData from './ProductData'; // Assume this contains the data for the products
+import ProductData from './ProductData'; 
 
 // Reusable component for each category slider
 const CategorySlider = ({ category, data }) => {
