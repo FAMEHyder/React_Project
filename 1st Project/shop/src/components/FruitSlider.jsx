@@ -10,7 +10,6 @@ const CategorySlider = ({ category, data }) => {
   const navigate = useNavigate();
 
   const handleProductClick = (product) => {
-    // Navigate to ProductDetails page and pass the product object
     navigate(`/productDetails`, { state: { product } });
   };
 
