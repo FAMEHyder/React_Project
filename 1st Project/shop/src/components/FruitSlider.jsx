@@ -17,7 +17,6 @@ const CategorySlider = ({ category, data }) => {
     product.Category.toLowerCase() === category.toLowerCase()
   );
 
-  // Slick carousel settings
   const sliderSettings = {
     infinite: true,
     speed: 500,
