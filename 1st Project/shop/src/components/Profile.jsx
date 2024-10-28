@@ -7,7 +7,7 @@ const UserProfile = () => {
     const [selectedSection, setSelectedSection] = useState("orders"); // Default to "orders"
     const [productData, setProductData] = useState([]); // Initialize as an empty array
 
-    // Fetch user data when component 
+    // Fetch user data when  
     useEffect(() => {
         const fetchedUserData = {
             profilePicture: 'https://via.placeholder.com/150',
