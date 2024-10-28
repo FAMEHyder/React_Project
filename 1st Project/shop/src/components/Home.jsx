@@ -17,7 +17,7 @@ const Home = () => {
   useEffect(() => {
     const intervalId = setInterval(() => {
       setCurrentBg((prevBg) => (prevBg + 1) % backgrounds.length); // Loop through images
-    }, 3000); // Change image every 3 seconds
+    }, 3000);
 
     return () => clearInterval(intervalId); 
   },);
