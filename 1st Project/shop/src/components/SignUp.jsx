@@ -28,7 +28,6 @@ function RegisterForm() {
     console.log('Form Data:', formData);
     if (firstName && lastName && dob && age && address&& username && email && password && password === confirmPassword) {
       try {
-        // Make the POST request to register the user
         const response = await axios.post('http://localhost:8000/user/register', formData);
         console.log(response.data)
         alert('Registered successfully!'); // Display success message
