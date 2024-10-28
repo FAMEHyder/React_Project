@@ -57,7 +57,7 @@ const SliderComponent = () => {
               transition: 'transform 0.5s, z-index 0.5s',
               '&.slick-center': {
                 transform: 'scale(1)', // Scale up the center slide
-                zIndex: 2, // Bring the center slide to the front
+                zIndex: 2, 
               },
             }}
           >
