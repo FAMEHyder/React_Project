@@ -13,7 +13,7 @@ const AlmondCards = () => {
         const response = await axios.get('http://localhost:8000/product/');
         console.log('Your Response Data:', response.data); // Check the structure here
         let products =(response.data);
-        // console.log( "your product at 0 is ",products[0]);
+        console.log( "your product at 0 is ",products[0]);
         // Check if the data is an array directly or nested
         console.log( "your product result is ",products.result);
         const nam = products.result;
@@ -36,6 +36,7 @@ const AlmondCards = () => {
   }, []);
   
   const handleCardClick = (product) => {
+    console.log("your taking the details of the :",product)
     navigate(`/productDetails`, { state: { product } });
   };
 
@@ -51,7 +52,7 @@ const AlmondCards = () => {
   };
 
   return (
-    <Box sx={{ mt: 12 }}>
+    <Box sx={{ mt: 12 ,}}>
       {/* Slider */}
       <Slider {...sliderSettings}>
         {almondProducts.map((almond) => (
@@ -81,10 +82,10 @@ const AlmondCards = () => {
                   {almond.description}
                 </Typography>
                 <Typography variant="body2" color="blue">
-                  Price: ${almond.price}
+                  Price: ${almond.subCategory.price}
                 </Typography>
                 <Typography variant="body2" color="textSecondary">
-                  Stock: {almond.stock} | Brand: {almond.brand} | Weight: {almond.weight}g
+                  Stock: {almond.subCategory.stock} kg | Brand: {almond.subCategory.brand} | Weight: {almond.subCategory.weight}g
                 </Typography>
                 <Rating
                   name={`rating-${almond.sku}`}
@@ -121,7 +122,7 @@ const AlmondCards = () => {
                   {almond.name}
                 </Typography>
                 <Typography variant="body1" color="blue">
-                  Price: ${almond.price}
+                  Price: ${almond.subCategory.price}
                 </Typography>
                 <Rating
                   name={`rating-${almond.sku}`}

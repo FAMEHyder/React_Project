@@ -64,7 +64,8 @@ const ProductDetails = () => {
                             </Typography>
 
                             <Typography variant="h4" color="red" gutterBottom>
-                                ${product.price} /200g
+                            {console.log ("qeemat :", product.price)}
+                                Price : ${product.subCategory.price}
                             </Typography>
 
                             <Typography variant="body2" color="textSecondary" paragraph>
@@ -77,7 +78,7 @@ const ProductDetails = () => {
                                     <Remove />
                                 </IconButton>
                                 <Typography variant="h6" sx={{ mx: 2 }}>
-                                    {quantity} g
+                                    {product.subCategory.weight=quantity} g
                                 </Typography>
                                 <IconButton onClick={increaseQuantity} color="primary">
                                     <Add />
@@ -119,13 +120,16 @@ const ProductDetails = () => {
                             <Grid container sx={{ mt: 4 }}>
                                 <Grid item xs={12} sm={6} >
                                     <Typography variant="body1" color="textPrimary">
+                                        Stock : {product.subCategory.stock} Kg
+                                    </Typography>
+                                    <Typography variant="body1" color="textPrimary">
                                         Availability: In Stock
                                     </Typography>
                                     <Typography variant="body1" color="textPrimary">
                                         Shipping: 01 day shipping. <span style={{ color: 'red' }}> Free today </span>
                                     </Typography>
                                     <Typography variant="body1" color="textPrimary">
-                                        ${product.price(2)}/Weight: 200 kg
+                                       Price : ${product.subCategory.price} 
                                     </Typography>
                                 </Grid>
                             </Grid>

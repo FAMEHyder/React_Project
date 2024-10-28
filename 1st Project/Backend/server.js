@@ -6,7 +6,7 @@ import DataBaseConnection from './database/database.js';
 import purchase from './routes/Purchase.routes.js';
 import wish from './routes/wishlist.routes.js';
 import cors from 'cors';
-
+import Cart from './routes/cart.route.js';
 
 dotenv.config();
 const app = express()
@@ -20,6 +20,7 @@ app.use('/user', router );
 app.use('/product',prodrouter)
 app.use('/purchase',purchase)
 app.use('/wish',wish)
+app.use('/Cart',Cart)
 
 const port = process.env.PORT || 8009
 app.listen(port, ()=>{
