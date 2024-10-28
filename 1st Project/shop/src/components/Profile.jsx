@@ -21,7 +21,6 @@ const UserProfile = () => {
         setUserData(fetchedUserData);
     }, []);
 
-    // Fetch product data based on the selected section
     useEffect(() => {
         const fetchProductData = async () => {
             try {
