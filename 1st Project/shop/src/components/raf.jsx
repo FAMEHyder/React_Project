@@ -11,7 +11,7 @@ import w180 from '../Image/w180.png'
 //dates pics
 import medjol from '../Image/medjol.png';
 
-//pistachio 
+ 
 import kerman from '../Image/kerman.png'
 
 import sultana from '../Image/sultana.png';
