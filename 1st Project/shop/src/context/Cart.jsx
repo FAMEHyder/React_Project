@@ -14,7 +14,7 @@ export const CartProvider = ({ children }) => {
 
   // Edit an item in the cart by ID
   const editItem = (updatedItem) => {
-    setCart((prevCart) =>
+    setCart((prevCart) =>z
       prevCart.map((item) => (item.id === updatedItem.id ? updatedItem : item))
     );
   };
