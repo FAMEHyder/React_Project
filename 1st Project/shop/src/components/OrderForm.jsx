@@ -4,14 +4,18 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useLocation } from "react-router-dom"; // To receive product details from location state
 import { useCart } from "../context/Cart";
-
+import { useNavigate } from "react-router-dom";
 const OrderForm = () => {
   const [submitted, setSubmitted] = useState(false);
+  const navigate = useNavigate();
 
+  const handleClick = (path) => {
+    navigate(path);
+  }
   // Get product details passed from the Cart component
   const location = useLocation();
   const { item } = location.state || {}; // Access product details from location
-  // console.log("item", item)
+  console.log("item", item)
   const { cart } = useCart()
 
   const formik = useFormik({
@@ -124,7 +128,7 @@ const OrderForm = () => {
               helperText={formik.touched.permanentAddress && formik.errors.permanentAddress}
             />
 
-            <Button type="submit" variant="contained" color="primary" fullWidth>
+            <Button type="submit" variant="contained" color="primary" fullWidth onClick={() => handleClick('/payment')}>
               Submit Order
             </Button>
 
@@ -160,10 +164,10 @@ const OrderForm = () => {
                       <strong>Name:</strong> {product.name}
                     </Typography>
                     <Typography variant="body1">
-                      <strong>Price:</strong> ${product.price.toFixed(2)}
+                      <strong>Price:</strong> ${product.Category.price}
                     </Typography>
                     <Typography variant="body1">
-                      <strong>Quantity:</strong> {product.quantity}g
+                      <strong>Quantity:</strong> {product.Category.weight}g
                     </Typography>
                   </>
                 ))}
@@ -183,7 +187,7 @@ const OrderForm = () => {
                     <strong>Name:</strong> {item.name}
                   </Typography>
                   <Typography variant="body1">
-                    <strong>Price:</strong> ${item.price.toFixed(2)}
+                    <strong>Price:</strong> ${item.price}
                   </Typography>
                   <Typography variant="body1">
                     <strong>Quantity:</strong> {item.quantity}g

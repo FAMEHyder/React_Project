@@ -25,7 +25,7 @@ const productPurchaseSchema=new mongoose.Schema({
             category:{
                 type:String,
                 trim:true,
-                enum:['men','women','kids']
+                
             },
         
        

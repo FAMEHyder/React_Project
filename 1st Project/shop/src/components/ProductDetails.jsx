@@ -32,7 +32,7 @@ const ProductDetails = () => {
     // Function to handle adding product to cart
     const handlecartclick = () => {
         alert(`Added ${quantity} g to cart successfully`);
-        addItem({ ...product });
+        addItem({ ...product, quantity: quantity });
     };
 
     // Function to handle navigation to order form

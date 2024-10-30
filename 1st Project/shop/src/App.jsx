@@ -18,6 +18,7 @@ import DateCards from './components/DatesData.jsx';
 import Footer from './components/Footer.jsx';
 import CartComp from './components/CartComp.jsx';
 import Profile from './components/Profile.jsx';
+import Payment from './components/Payment.jsx';
 function App() {
   
 
@@ -38,6 +39,7 @@ function App() {
         <Route path="/7" element={<DateCards />} />
         <Route path="/Signin" element={<LoginForm />} />
         <Route path="/OrderForm" element={<OrderForm />} />
+        <Route path="/payment" element={<Payment />} />
         <Route path="/about" element={<AboutUs />} />
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/cartcomp" element={<CartComp />} />      
