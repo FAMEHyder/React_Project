@@ -17,7 +17,6 @@ import kerman from '../Image/kerman.png'
 import sultana from '../Image/sultana.png';
 
 
-// walnut
 import eng from "../Image/engwalnut.png";
 
 const ProductData = [
