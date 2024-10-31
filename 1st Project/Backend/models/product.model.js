@@ -17,7 +17,6 @@ const productSchema = new mongoose.Schema(
     category: {
       type: String,
       trim: true,
-      // enum: ['pistachio', 'dates', 'almonds']
     },
     subCategory: {
       type: mongoose.Schema.Types.ObjectId,

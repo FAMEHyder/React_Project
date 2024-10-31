@@ -2,10 +2,11 @@ import ProductPurchase from '../models/Purchase.model.js';
 
 export const purchaseProduct = async (req, res) => {
     // Destructure the required details from the request body
-    const { productDetail, shippingDetail, paymentDetail, others } = req.body;
+    const { userId, productId, name, description, price, wieght, category, images, RecipientName, address, city, postalCode, phone, shippingMethod, shippingCost, estimatedDeliveryDate, paymentMethod, cardNumber, CvvCode, cardHolderName, expiryDate } = req.body;
 
     // Basic validation to ensure that productDetail is provided
-    if (!productDetail || !shippingDetail || !paymentDetail) {
+    if (userId, productId, name, description, price, wieght, category, images, RecipientName, address, city, postalCode, phone, shippingMethod, shippingCost, estimatedDeliveryDate, paymentMethod, cardNumber, CvvCode, cardHolderName, expiryDate) {
+        console.log("The details are provided",userId, productId, name, description, price, wieght, category, images, RecipientName, address, city, postalCode, phone, shippingMethod, shippingCost, estimatedDeliveryDate, paymentMethod, cardNumber, CvvCode, cardHolderName, expiryDate)
         return res.status(400).json({
             status: 400,
             message: "Product, shipping, and payment details are required."
@@ -15,11 +16,31 @@ export const purchaseProduct = async (req, res) => {
     try {
         // Create a new ProductPurchase instance with the provided details
         const newProductPurchase = new ProductPurchase({
-            productDetail, // Includes productname, productDescription, images, category
-            shippingDetail, // Includes RecipientName, address, city, postalCode, etc.
-            paymentDetail,  // Includes paymentMethod, cardNumber, CvvCode, etc.
-            others          // Includes deliveryStatus, paymentDate, orderDate, etc.
+            userId,
+            productId,
+            name,
+            description,
+            price,
+            wieght,
+            category,
+            images,
+            RecipientName,
+            address,
+            city,
+            postalCode,
+            phone,
+            shippingMethod,
+            shippingCost,
+            estimatedDeliveryDate,
+            paymentMethod,
+            cardNumber,
+            CvvCode,
+            cardHolderName,
+            expiryDate
+                 
         });
+
+
 
         // Save the new purchase record to the database
         const savedPurchase = await newProductPurchase.save();
@@ -43,37 +64,37 @@ export const purchaseProduct = async (req, res) => {
 };
 
 
-export const viewPurchaseProductbyId=async(req,res,next)=>{
-    const {id}=req.params
+export const viewPurchaseProductbyId = async (req, res, next) => {
+    const { id } = req.params
     try {
-        const parchasedProductDetail=await ProductPurchase.findById(id);
-        if(!parchasedProductDetail){
+        const parchasedProductDetail = await ProductPurchase.findById(id);
+        if (!parchasedProductDetail) {
             return res.status(400).json({
-                status:400,
-                message:'There are not any Parchased Product match with this id: ${id}'
+                status: 400,
+                message: 'There are not any Parchased Product match with this id: ${id}'
             })
         }
         res.status(200).json({
-            status:200,
+            status: 200,
             message: 'The Product detail with id: ${id}',
-            detail:parchasedProductDetail
+            detail: parchasedProductDetail
 
         })
-        
+
     } catch (error) {
-        console.log("Error in add purchased Product is :",error)
+        console.log("Error in add purchased Product is :", error)
         return res.status(500).json({
-            message:"Server side basit Error",
-            err:error
+            message: "Server side basit Error",
+            err: error
         })
-        
+
     }
 }
 export const AllPurchaseProduct = async (req, res, next) => {
     try {
         // Fetch all purchased products
         const allPurchasedProducts = await ProductPurchase.find();
-console.log("zeeshan;",AllPurchaseProduct);
+        console.log("zeeshan;", AllPurchaseProduct);
         // Check if there are no products in the array
         if (!allPurchasedProducts || allPurchasedProducts.length === 0) {
             return res.status(404).json({
@@ -88,7 +109,7 @@ console.log("zeeshan;",AllPurchaseProduct);
             message: "Purchased products are:",
             detail: allPurchasedProducts,
         });
-        
+
     } catch (error) {
         console.log("Error in fetching purchased products:", error);
         return res.status(500).json({
@@ -97,30 +118,30 @@ console.log("zeeshan;",AllPurchaseProduct);
         });
     }
 };
-  
-export const deletePurchaseProduct=async(req,res,next)=>{
-    const {id}=req.params;
+
+export const deletePurchaseProduct = async (req, res, next) => {
+    const { id } = req.params;
     try {
-        const deletePurchaseProduct=await ProductPurchase.findByIdAndDelete(id);
+        const deletePurchaseProduct = await ProductPurchase.findByIdAndDelete(id);
         res.status(200).json({
-            status:200,
-            message:'Successfully deleted the Purchased Product which id is: ${id}',
-            detail:deletePurchaseProduct
+            status: 200,
+            message: 'Successfully deleted the Purchased Product which id is: ${id}',
+            detail: deletePurchaseProduct
         })
-        
+
     } catch (error) {
-        console.log("Error in add purchased Product is :",error)
+        console.log("Error in add purchased Product is :", error)
         return res.status(500).json({
-            message:"Server side Error",
-            err:error
+            message: "Server side Error",
+            err: error
         })
-        
+
     }
 }
-export const UpdatePurchaseProduct=async(req,res,next)=>{
+export const UpdatePurchaseProduct = async (req, res, next) => {
     try {
-        
+
     } catch (error) {
-        
+
     }
 }

@@ -10,12 +10,12 @@ const productPurchaseSchema=new mongoose.Schema({
             type:mongoose.Schema.Types.ObjectId,
             ref:"Product"
             },
-            productname:{
+            name:{
                 type:String,
                 trim:true,
                 
             },
-            productDescription:{
+            description:{
                 type:String,
                 trim:true,        
             },
@@ -62,7 +62,6 @@ const productPurchaseSchema=new mongoose.Schema({
         },
         shippingCost:{
             type:Number,
-            default:0
         },
         estimatedDeliveryDate:{
             type:Date
@@ -78,7 +77,7 @@ const productPurchaseSchema=new mongoose.Schema({
         cardNumber:{
             type:Number,
             // max:16,
-            unique:true,
+            // unique:true,
             // requried:true
         },
        
@@ -86,7 +85,7 @@ const productPurchaseSchema=new mongoose.Schema({
             type:Number,
             // min:3,
             // max:4,
-            unique:true,
+            // unique:true,
             // required:true
         },
         cardHolderName:{
@@ -100,26 +99,26 @@ const productPurchaseSchema=new mongoose.Schema({
         },
 
     },
-    others:{
-        // currency:{
-        //     type:Number,
-        //     default:'PKR'
-        // },
-        deliveryStatus:{
-            type:String,
-            enum:['Pending','Completed','Failed','Refused   '],
-            default:'Pending'
-        },
-        paymentDate:{
-            type:Date,
-            default:Date.now()
-        },
-        orderDate:{
-            type:Date,
-            default:Date.now()
-        }
+    // others:{
+    //     currency:{
+    //         type:Number,
+    //         default:'PKR'
+    //     },
+    //     deliveryStatus:{
+    //         type:String,
+    //         enum:['Pending','Completed','Failed','Refused   '],
+    //         default:'Pending'
+    //     },
+    //     paymentDate:{
+    //         type:Date,
+    //         default:Date.now()
+    //     },
+    //     orderDate:{
+    //         type:Date,
+    //         default:Date.now()
+    //     }
         
-    }
+    // }
     
 
 },
