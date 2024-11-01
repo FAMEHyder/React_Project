@@ -41,6 +41,32 @@ console.log(user)
 }
 export default register
 
+
+export const getUserById = async (req, res, next) => {
+  const { id } = req.params;
+  console.log(req.params)
+  try {
+    const user = await User.findById(id);
+    if (!user) {
+      return res.status(404).json({
+        status: 404,
+        message: "User not found",
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      message: `User with ID ${id} retrieved successfully`,
+      data: user,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: 'Error retrieving user details',
+      err: error,
+    });
+  }
+};
+
 export const viewUserbyId = async (req, res, next) => {
   const { id } = req.params;
   try {

@@ -1,71 +1,7 @@
 import ProductPurchase from '../models/Purchase.model.js';
 
-export const purchaseProduct = async (req, res) => {
-    // Destructure the required details from the request body
-    const { userId, productId, name, description, price, wieght, category, images, RecipientName, address, city, postalCode, phone, shippingMethod, shippingCost, estimatedDeliveryDate, paymentMethod, cardNumber, CvvCode, cardHolderName, expiryDate } = req.body;
-
-    // Basic validation to ensure that productDetail is provided
-    if (userId, productId, name, description, price, wieght, category, images, RecipientName, address, city, postalCode, phone, shippingMethod, shippingCost, estimatedDeliveryDate, paymentMethod, cardNumber, CvvCode, cardHolderName, expiryDate) {
-        console.log("The details are provided",userId, productId, name, description, price, wieght, category, images, RecipientName, address, city, postalCode, phone, shippingMethod, shippingCost, estimatedDeliveryDate, paymentMethod, cardNumber, CvvCode, cardHolderName, expiryDate)
-        return res.status(400).json({
-            status: 400,
-            message: "Product, shipping, and payment details are required."
-        });
-    }
-
-    try {
-        // Create a new ProductPurchase instance with the provided details
-        const newProductPurchase = new ProductPurchase({
-            userId,
-            productId,
-            name,
-            description,
-            price,
-            wieght,
-            category,
-            images,
-            RecipientName,
-            address,
-            city,
-            postalCode,
-            phone,
-            shippingMethod,
-            shippingCost,
-            estimatedDeliveryDate,
-            paymentMethod,
-            cardNumber,
-            CvvCode,
-            cardHolderName,
-            expiryDate
-                 
-        });
-
-
-
-        // Save the new purchase record to the database
-        const savedPurchase = await newProductPurchase.save();
-
-        // Respond with success and the saved purchase details
-        res.status(201).json({
-            status: 201,
-            message: "Product purchase added successfully.",
-            data: savedPurchase
-        });
-
-    } catch (error) {
-        // Catch and handle any errors during the process
-        console.error("Error adding product purchase:", error);
-        return res.status(500).json({
-            status: 500,
-            message: "Server error while adding the product purchase.",
-            error: error.message
-        });
-    }
-};
-
-
 export const viewPurchaseProductbyId = async (req, res, next) => {
-    const { id } = req.params
+    const { id } = req.user._Id
     try {
         const parchasedProductDetail = await ProductPurchase.findById(id);
         if (!parchasedProductDetail) {
@@ -93,7 +29,8 @@ export const viewPurchaseProductbyId = async (req, res, next) => {
 export const AllPurchaseProduct = async (req, res, next) => {
     try {
         // Fetch all purchased products
-        const allPurchasedProducts = await ProductPurchase.find();
+
+        const allPurchasedProducts = await ProductPurchase.find({userId: req.user._id});
         console.log("zeeshan;", AllPurchaseProduct);
         // Check if there are no products in the array
         if (!allPurchasedProducts || allPurchasedProducts.length === 0) {
@@ -145,3 +82,46 @@ export const UpdatePurchaseProduct = async (req, res, next) => {
 
     }
 }
+
+
+
+// import ProductPurchase from '../models/Purchase.model.js';
+
+export const purchaseProduct = async (req, res) => {
+    const {
+        userId,
+        product: { _id: productId, name, description, price, weight, category, images },
+        orderDetails: {
+            RecipientName, address, city, postalCode, country, phone, shippingMethod, shippingCost, estimatedDeliveryDate
+        },
+        paymentDetails: { paymentMethod, cardNumber, cvvCode, cardHolderName, expiryDate }
+    } = req.body;
+
+    try {
+        // Create a new ProductPurchase instance with the provided details
+        const newProductPurchase = new ProductPurchase({
+            userId,
+            productDetail: { productId, name, description, price, weight, category, images },
+            shippingDetail: {
+                RecipientName, address, city, postalCode, country, phone, shippingMethod, shippingCost, estimatedDeliveryDate
+            },
+            paymentDetail: { paymentMethod, cardNumber, CvvCode: cvvCode, cardHolderName, expiryDate }
+        });
+
+        // Save the new purchase record to the database
+        const savedPurchase = await newProductPurchase.save();
+        res.status(201).json({
+            status: 201,
+            message: "Product purchased successfully.",
+            data: savedPurchase
+        });
+
+    } catch (error) {
+        console.error("Error adding product purchase:", error);
+        return res.status(500).json({
+            status: 500,
+            message: "Server error while adding the product purchase.",
+            error: error.message
+        });
+    }
+};

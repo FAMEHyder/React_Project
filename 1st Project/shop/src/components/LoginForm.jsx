@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { TextField, Button, Container, Typography } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import {useAuthStore} from '../authContext/auth';
 function LoginForm() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
-
+  const {login } = useAuthStore();
   const handleLogin = async (event) => {
     event.preventDefault();
 
@@ -20,6 +20,8 @@ function LoginForm() {
 
         if (response.status === 200) {
           alert('Logged in successfully!');
+          console.log("User Data from backend",response.data,response.data.userData)
+          login(response.data)
           navigate('/');
         } else {
           alert('Login failed. Please check your credentials.');

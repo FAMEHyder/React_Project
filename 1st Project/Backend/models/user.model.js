@@ -46,10 +46,10 @@ const userSchema=new mongoose.Schema({
         // uniqe:true,
         trim:true
     },
-    // role:{
-    //     type:[String],
-    //     default:"user"
-    // },
+    role:{
+        type:[String],
+        default:"user"
+    },
     
     wishList:[
         {

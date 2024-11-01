@@ -4,13 +4,16 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { TextField, Button, Box, Typography, Grid, Skeleton, Select, MenuItem, InputLabel, FormControl } from '@mui/material';
 import { useLocation } from 'react-router-dom';
-
+import { useAuthStore } from '../authContext/auth';
 const PaymentForm = () => {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null); // Error state for handling API errors
   const location = useLocation();
   const { orderDetails, product } = location.state;
+  const {userId} = useAuthStore(); 
 
+  console.log("Your user Id is Now : ",userId)
+ 
   useEffect(() => {
     const timer = setTimeout(() => setLoading(false), 1500);
     return () => clearTimeout(timer);
@@ -44,10 +47,10 @@ const PaymentForm = () => {
     onSubmit: async (values) => {
       try {
         const response = await axios.post('http://localhost:8000/purchase/', {
-          userId: '671ca3e5af7e4d17167431a2', // Example user ID
           paymentDetails: values,
           orderDetails,
           product,
+          userId
         });
         console.log('Order placed successfully:', response.data);
         // Redirect to success page or show success message here

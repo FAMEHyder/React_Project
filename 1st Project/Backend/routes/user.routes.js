@@ -1,7 +1,9 @@
 import  express  from "express" 
 
 import  Register  from '../Controllers/user.controller.js';
-import {Login} from '../Controllers/login.controller.js';
+import {login} from '../Controllers/login.controller.js';
+import {getUserById} from '../Controllers/user.controller.js';
+import { verifyUser } from "../utils/VerifyToken.js";
 
 const router = express.Router();
 
@@ -9,7 +11,8 @@ const router = express.Router();
 
 
 router.post('/register',Register );
-router.post('/login',Login );
+router.post('/login',login );
+router.get('/getuser/:id',getUserById );
 
 
 
