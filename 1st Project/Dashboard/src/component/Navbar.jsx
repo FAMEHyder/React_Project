@@ -1,79 +1,154 @@
-import { AppBar, Toolbar, IconButton, InputBase, Badge, Avatar, Box } from '@mui/material';
-import { Menu as MenuIcon, Search as SearchIcon, Notifications as NotificationsIcon } from '@mui/icons-material';
-import { styled } from '@mui/material/styles';
-
-// Styled components
-const Search = styled('div')(({ theme }) => ({
-  position: 'relative',
-  borderRadius: theme.shape.borderRadius,
-  backgroundColor: '#f0f3f7',
-  marginRight: theme.spacing(2),
-  width: '100%',
-  [theme.breakpoints.up('sm')]: {
-    marginLeft: theme.spacing(3),
-    width: 'auto',
-  },
-  display: 'flex',
-  alignItems: 'center',
-  padding: theme.spacing(0, 1),
-}));
-
-const SearchIconWrapper = styled('div')(({ theme }) => ({
-  padding: theme.spacing(0, 1),
-  height: '100%',
-  display: 'flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-}));
-
-const StyledInputBase = styled(InputBase)(({ theme }) => ({
-  color: 'inherit',
-  marginLeft: theme.spacing(1),
-  flex: 1,
-}));
+import { useState } from 'react';
+import { Box, AppBar, Toolbar, Button, ListItem, ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
+import { AccountCircle, Storefront, ShoppingCart, Settings } from '@mui/icons-material'; // Import necessary icons
+import { useNavigate } from 'react-router-dom';
+import Cl from '../image/CompanyLogo.png';
 
 const Navbar = () => {
+  const navigate = useNavigate();
+  const [anchorEl, setAnchorEl] = useState(null);
+  const [selectedItem, setSelectedItem] = useState('');
+  const [openDropdown, setOpenDropdown] = useState(''); // Manage the open state of each dropdown
+
+  const handleClick = (path) => {
+    navigate(path);
+  };
+
+  const handleMenuClick = (event, item) => {
+    // Toggle dropdown for the selected item
+    if (openDropdown === item) {
+      setOpenDropdown(''); // Close dropdown if the same item is clicked
+    } else {
+      setOpenDropdown(item); // Open dropdown for the selected item
+    }
+    setAnchorEl(event.currentTarget);
+    setSelectedItem(item);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
+    setSelectedItem('');
+    setOpenDropdown('');
+  };
+
   return (
-    <AppBar position="static" color="transparent" elevation={0} sx={{ padding: '8px' ,bgcolor: 'green',height: '70px'}}>
-      <Toolbar sx={{ display: 'flex', justifyContent: 'space-between'  }}>
-        {/* Left side */}
-        <Box sx={{ display: 'flex', alignItems: 'center' }}>
-          {/* Logo */}
-          <IconButton edge="start" color="inherit" aria-label="logo">
-            <Avatar src="/path/to/logo.png" alt="logo" sx={{ bgcolor: '#625DF5' }} />
-          </IconButton>
+    <>
+      {/* Navbar */}
+      <AppBar position="static" color="transparent" elevation={0} sx={{ padding: '8px', bgcolor: 'green', height: '70px' }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+          {/* Left side */}
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
+            <Box
+              onClick={() => handleClick('/')}
+              sx={{
+                paddingX: { xs: 2, sm: 4, md: 8 },
+                cursor: 'pointer',
+                backgroundImage: `url(${Cl})`,
+                backgroundSize: 'contain',
+                backgroundRepeat: 'no-repeat',
+                height: 70,
+                width: '100px',
+              }}
+            />
+          </Box>
 
-          {/* Menu Icon */}
-          <IconButton color="inherit" aria-label="menu">
-            <MenuIcon />
-          </IconButton>
+          {/* Right side */}
+          <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
+            {/* Profile Button */}
+            <Button sx={{ color: 'white', mr: 5 }} onClick={() => handleClick('/profile')}>
+              <AccountCircle fontSize="large" />
+            </Button>
+          </Box>
+        </Toolbar>
+      </AppBar>
 
-          {/* Search Bar */}
-          <Search>
-            <StyledInputBase placeholder="Search…" inputProps={{ 'aria-label': 'search' }} />
-            <SearchIconWrapper>
-              <SearchIcon />
-            </SearchIconWrapper>
-          </Search>
+      {/* Static Sidebar */}
+      <Box
+        sx={{
+          display: 'flex',
+          position: 'fixed',
+          top: '70px',  // Offset below the navbar
+          left: 0,
+          width: '250px',
+          height: '100vh',  // Full height of the screen
+          bgcolor: '#f4f4f4',  // Light background for the sidebar
+          boxShadow: 2,  // Add shadow to the sidebar
+        }}
+      >
+        <Box
+          sx={{
+            width: '250px',
+            display: 'flex',
+            flexDirection: 'column',
+            padding: 2,
+            gap: 2,
+          }}
+        >
+          {/* Sidebar Menu Items */}
+          <ListItem button onClick={(e) => handleMenuClick(e, 'user')}>
+            <ListItemIcon>
+              <AccountCircle />
+            </ListItemIcon>
+            <ListItemText primary="User" />
+          </ListItem>
+
+          {openDropdown === 'user' && (
+            <>
+              <ListItem button onClick={() => handleClick('/user/view')} sx={{ paddingLeft: 4 }}>
+                <ListItemText primary="View" />
+              </ListItem>
+              <ListItem button onClick={() => handleClick('/user/add')} sx={{ paddingLeft: 4 }}>
+                <ListItemText primary="Add" />
+              </ListItem>
+            </>
+          )}
+
+          <ListItem button onClick={(e) => handleMenuClick(e, 'products')}>
+            <ListItemIcon>
+              <Storefront />
+            </ListItemIcon>
+            <ListItemText primary="Products" />
+          </ListItem>
+
+          {openDropdown === 'products' && (
+            <>
+              <ListItem button onClick={() => handleClick('/products/view')} sx={{ paddingLeft: 4 }}>
+                <ListItemText primary="View" />
+              </ListItem>
+              <ListItem button onClick={() => handleClick('/products/add')} sx={{ paddingLeft: 4 }}>
+                <ListItemText primary="Add" />
+              </ListItem>
+            </>
+          )}
+
+          <ListItem button onClick={(e) => handleMenuClick(e, 'purchases')}>
+            <ListItemIcon>
+              <ShoppingCart />
+            </ListItemIcon>
+            <ListItemText primary="Purchases" />
+          </ListItem>
+
+          {openDropdown === 'purchases' && (
+            <>
+              <ListItem button onClick={() => handleClick('/purchases/view')} sx={{ paddingLeft: 4 }}>
+                <ListItemText primary="View" />
+              </ListItem>
+              <ListItem button onClick={() => handleClick('/purchases/add')} sx={{ paddingLeft: 4 }}>
+                <ListItemText primary="Add" />
+              </ListItem>
+            </>
+          )}
+
+          {/* Settings: No dropdown menu */}
+          <ListItem button onClick={() => handleClick('/settings')}>
+            <ListItemIcon>
+              <Settings />
+            </ListItemIcon>
+            <ListItemText primary="Settings" />
+          </ListItem>
         </Box>
-
-        {/* Right side */}
-        <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-          {/* Language Icon */}
-          <Avatar sx={{ width: 30, height: 30 }} src="/path/to/uk-flag-icon.png" alt="language" />
-
-          {/* Notification Icon */}
-          <IconButton color="inherit">
-            <Badge badgeContent={4} color="secondary">
-              <NotificationsIcon />
-            </Badge>
-          </IconButton>
-
-          {/* Profile Picture */}
-          <Avatar src="/path/to/profile-picture.jpg" alt="profile" />
-        </Box>
-      </Toolbar>
-    </AppBar>
+      </Box>
+    </>
   );
 };
 
