@@ -32,7 +32,7 @@ const WalnutTypes = [
     price:23,
     rating: 4.6,
     name: 'White Walnuts (Butternuts)',
-    image: white, // Replace with a valid image URL
+    image: white, 
     description: 'White walnuts are sweeter and oilier compared to other varieties, but harder to find.'
   },
   {
