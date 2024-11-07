@@ -48,7 +48,7 @@ const WalnutTypes = [
     price:23,
     rating: 4.6,
     name: 'Chandler Walnuts',
-    image: chand, // Replace with a valid image URL
+    image: chand, 
     description: 'Chandler walnuts are a variant of English walnuts, valued for their light-colored kernel.'
   },
   {
