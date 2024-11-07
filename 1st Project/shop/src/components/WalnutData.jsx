@@ -56,7 +56,7 @@ const WalnutTypes = [
     price:23,
     rating: 4.6,
     name: 'Manchurian Walnuts',
-    image: man, // Replace with a valid image URL
+    image: man, 
     description: 'Manchurian walnuts are smaller with thicker shells, able to grow in colder climates.'
   }
 ];
