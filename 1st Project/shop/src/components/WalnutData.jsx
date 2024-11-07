@@ -40,7 +40,7 @@ const WalnutTypes = [
     price:23,
     rating: 4.6,
     name: 'California Walnuts',
-    image: cali, // Replace with a valid image URL
+    image: cali,
     description: 'These walnuts are grown in California, known for their rich flavor and high quality.'
   },
   {
