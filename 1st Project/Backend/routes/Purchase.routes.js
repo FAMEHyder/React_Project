@@ -4,7 +4,7 @@ import {verifyUser} from '../utils/VerifyToken.js';
 const purchaseRouter=express.Router()
 
 purchaseRouter.post('/',purchaseProduct)
-// purchaseRouter.get('/purchase/:id',viewPurchaseProductbyId)
+purchaseRouter.get('/purchase/:id',viewPurchaseProductbyId)
 purchaseRouter.get('/get',verifyUser,AllPurchaseProduct)
 purchaseRouter.delete('/purchase/del',deletePurchaseProduct)
 

@@ -1,18 +1,21 @@
 import ProductPurchase from '../models/Purchase.model.js';
 
 export const viewPurchaseProductbyId = async (req, res, next) => {
-    const { id } = req.user._Id
+    const { id } = req.params;
+    console.log(req.params);
+    
+    // console.log("Data from requast is : " ,req);
     try {
-        const parchasedProductDetail = await ProductPurchase.findById(id);
+        const parchasedProductDetail = await ProductPurchase.find({userId :id});
         if (!parchasedProductDetail) {
             return res.status(400).json({
                 status: 400,
-                message: 'There are not any Parchased Product match with this id: ${id}'
+                message: `There are not any Parchased Product match with this id: ${userId}`
             })
         }
         res.status(200).json({
             status: 200,
-            message: 'The Product detail with id: ${id}',
+            message: `The Product detail with id: ${id}`,
             detail: parchasedProductDetail
 
         })
@@ -20,12 +23,13 @@ export const viewPurchaseProductbyId = async (req, res, next) => {
     } catch (error) {
         console.log("Error in add purchased Product is :", error)
         return res.status(500).json({
-            message: "Server side basit Error",
+            message: "Server side Error",
             err: error
         })
 
     }
 }
+
 export const AllPurchaseProduct = async (req, res, next) => {
     try {
         // Fetch all purchased products
@@ -55,7 +59,6 @@ export const AllPurchaseProduct = async (req, res, next) => {
         });
     }
 };
-
 export const deletePurchaseProduct = async (req, res, next) => {
     const { id } = req.params;
     try {
@@ -82,11 +85,6 @@ export const UpdatePurchaseProduct = async (req, res, next) => {
 
     }
 }
-
-
-
-// import ProductPurchase from '../models/Purchase.model.js';
-
 export const purchaseProduct = async (req, res) => {
     const {
         userId,

@@ -2,52 +2,50 @@ import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { useAuthStore } from '../authContext/auth';
 import {
-        Box, 
-        Typography,
-        Avatar, 
-        Grid, 
-        Paper,
-        ToggleButton, 
-        ToggleButtonGroup, 
-        Table, 
-        TableBody,
-        TableCell, 
-        TableContainer, 
-        TableHead, 
-        TableRow, 
-        Skeleton } from '@mui/material';
+    Box,
+    Typography,
+    Avatar,
+    Grid,
+    Paper,
+    ToggleButton,
+    ToggleButtonGroup,
+    Table,
+    TableBody,
+    TableCell,
+    TableContainer,
+    TableHead,
+    TableRow,
+    Skeleton,
+} from '@mui/material';
+
 const UserProfile = () => {
     const [userData, setUserData] = useState({});
     const [selectedSection, setSelectedSection] = useState("orders");
     const [productData, setProductData] = useState([]);
     const [loading, setLoading] = useState(true);
-    const {user} = useAuthStore();
-    console.log("your profile details : ",user)
-
+    const { user, userId } = useAuthStore();
 
     useEffect(() => {
-
         const fetchedUserData = {
             profilePicture: 'https://via.placeholder.com/150',
-            name: user.firstName ,
+            name: user.firstName,
             age: user.age,
             username: user.username,
             email: user.email,
             dob: user.DOB,
             gender: 'Male',
-            address: user.address
+            address: user.address,
+            user: user.id,
         };
         setUserData(fetchedUserData);
     }, []);
-    
+
     useEffect(() => {
         const fetchProductData = async () => {
             setLoading(true);
             try {
-                const response = await axios.get(`http://localhost:8000/purchase/get${user.id}`);
-                console.log("Response data:", response.data);    
-                setProductData(Array.isArray(response.data) ? response.data : []);
-                // console.log("data in productData is : ", productData);
+                const response = await axios.get(`http://localhost:8000/purchase/purchase/${userId}`);
+                setProductData(Array.isArray(response.data.detail) ? response.data.detail : []);
             } catch (error) {
                 console.error("Error fetching data:", error);
                 setProductData([]);
@@ -55,21 +53,19 @@ const UserProfile = () => {
                 setLoading(false);
             }
         };
-        
+
         if (selectedSection === "orders") fetchProductData();
-    }, [selectedSection]);
+    }, [selectedSection, userId]);
 
     const handleSectionChange = (event, newSection) => {
         if (newSection !== null) setSelectedSection(newSection);
     };
 
-
-
     return (
-        <Box sx={{ p: 3, mt: 12 }}>
+        <Box sx={{ p: 3, mt: 10 }}>
             <Grid container spacing={3} justifyContent="center">
                 <Grid item xs={12} md={4}>
-                    <Paper sx={{ p: 2, textAlign: 'center' }} elevation={3}>
+                    <Paper sx={{ p: 3, textAlign: 'center' }} elevation={3}>
                         <Avatar
                             alt="Profile Picture"
                             src={userData.profilePicture}
@@ -81,7 +77,7 @@ const UserProfile = () => {
                 </Grid>
 
                 <Grid item xs={12} md={8}>
-                    <Paper sx={{ p: 2 }} elevation={3}>
+                    <Paper sx={{ p: 3 }} elevation={3}>
                         {[
                             { label: 'Name', value: userData.name },
                             { label: 'Age', value: userData.age },
@@ -104,28 +100,41 @@ const UserProfile = () => {
                     value={selectedSection}
                     exclusive
                     onChange={handleSectionChange}
-                    sx={{
-                        backgroundColor: 'white',
-                        border: '1px solid #E7F2EE',
-                        '& .Mui-selected': {
-                            backgroundColor: 'green',
-                            color: '#fff',
-                        },
-                        '& .MuiToggleButton-root': {
+                >
+                    <ToggleButton
+                        value="orders"
+                        sx={{
                             textTransform: 'none',
-                            bgcolor: 'purple',
+                            bgcolor: 'blue', // Color for "My Orders"
                             color: '#fff',
+                            '&.Mui-selected': {
+                                bgcolor: 'darkblue', // Selected color for "My Orders"
+                                color: '#fff',
+                            },
+                            '&:hover': {
+                                bgcolor: 'blue',
+                                opacity: 0.9,
+                            },
+                        }}
+                    >
+                        My Orders
+                    </ToggleButton>
+                    <ToggleButton
+                        value="favorites"
+                        sx={{
+                            textTransform: 'none',
+                            bgcolor: 'purple', // Color for "My Favorite Products"
+                            color: '#fff',
+                            '&.Mui-selected': {
+                                bgcolor: 'darkpurple', // Selected color for "My Favorite Products"
+                                color: '#fff',
+                            },
                             '&:hover': {
                                 bgcolor: 'purple',
                                 opacity: 0.9,
                             },
-                        },
-                    }}
-                >
-                    <ToggleButton value="orders">
-                        My Orders
-                    </ToggleButton>
-                    <ToggleButton value="favorites">
+                        }}
+                    >
                         My Favorite Products
                     </ToggleButton>
                 </ToggleButtonGroup>
@@ -133,7 +142,7 @@ const UserProfile = () => {
 
             <Box sx={{ mt: 3 }}>
                 <Paper sx={{ p: 2 }}>
-                    <Typography variant="h6">
+                    <Typography variant="h6" ml= {70} fontWeight={800}>
                         {selectedSection === 'orders' ? 'My Orders' : 'My Favorite Products'}
                     </Typography>
 
@@ -145,27 +154,30 @@ const UserProfile = () => {
                         </Box>
                     ) : (
                         <TableContainer component={Paper}>
-                            <Table>
+                            <Table sx={{ minWidth: 650, border: '1px solid rgba(224, 224, 224, 1)' }}>
                                 <TableHead>
                                     <TableRow>
-                                        <TableCell><strong>Product Image</strong></TableCell>
-                                        <TableCell><strong>Product Name</strong></TableCell>
-                                        <TableCell><strong>Quantity</strong></TableCell>
+                                        <TableCell align="center"><strong>Product Image</strong></TableCell>
+                                        <TableCell align="center"><strong>Product Name</strong></TableCell>
+                                        <TableCell align="center"><strong>Category</strong></TableCell>
+                                        <TableCell align="center"><strong>Product ID</strong></TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    {console.log(" your productData is : ", productData)}
                                     {productData.length > 0 ? (
                                         productData.map((product, index) => (
-                                            <TableRow key={index}>
-                                                <TableCell>{product.image}</TableCell>
-                                                <TableCell>${product.name}</TableCell>
-                                                <TableCell>{product.quantity}</TableCell>
+                                            <TableRow key={index} sx={{ '&:last-child td, &:last-child th': { border: 0 } }}>
+                                                <TableCell align="center">
+                                                    <Avatar src={product.productDetail.images} alt="Product Image" />
+                                                </TableCell>
+                                                <TableCell align="center">{product.productDetail.name}</TableCell>
+                                                <TableCell align="center">{product.productDetail.category}</TableCell>
+                                                <TableCell align="center">{product.productDetail.productId}</TableCell>
                                             </TableRow>
                                         ))
                                     ) : (
                                         <TableRow>
-                                            <TableCell colSpan={3}>
+                                            <TableCell colSpan={4}>
                                                 <Typography variant="body2" sx={{ mt: 2, textAlign: 'center' }}>
                                                     No products found in {selectedSection}.
                                                 </Typography>

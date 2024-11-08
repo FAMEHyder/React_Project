@@ -11,7 +11,7 @@ export const useAuthStore = create((set, get) => ({
     // Fetch user data
     fetchUserData: async () => {
         const { token, userId } = get();
-        console.log("userId : ",userId)
+        console.log("Now userId is : ",userId)
         if (!token || !userId) return;
         try {
             const response = await axios.get(`http://localhost:8000/user/getuser/${userId}`, {
