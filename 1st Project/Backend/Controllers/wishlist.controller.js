@@ -3,13 +3,17 @@ import User from '../models/user.model.js';
 // Add to Wishlist
 export const addWishlist = async (req, res, next) => {
     const { userId, productId } = req.params;
+    console.log("Your user and product id are: ", userId, productId);
+    console.log("Your request body is: ", req.params);    
 
     try {
         const updateUser = await User.findByIdAndUpdate(
             userId,
             { $addToSet: { wishList: productId } }, // Adds productId only if it's not already in the array
             { new: true }
+
         );
+        console.log("Updated user is: ", updateUser);   
         
         if (!updateUser) {
             return res.status(404).json({
@@ -28,7 +32,7 @@ export const addWishlist = async (req, res, next) => {
         console.error(error.message);
         res.status(500).json({
             status: 500,
-            message: "Server side error",
+            message: " This is aServer side error",
             err: error.message,
         });
     }

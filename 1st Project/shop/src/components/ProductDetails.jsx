@@ -64,7 +64,6 @@ const ProductDetails = () => {
                             </Typography>
 
                             <Typography variant="h4" color="red" gutterBottom>
-                            {console.log ("qeemat :", product.price)}
                                 Price : ${product.subCategory.price}
                             </Typography>
 

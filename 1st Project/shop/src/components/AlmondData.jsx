@@ -1,35 +1,80 @@
 import { useState, useEffect } from 'react';
-import { Box, Card, CardContent, CardMedia, Typography, Grid, Rating, Skeleton } from '@mui/material';
+import { Box, Card, CardContent, CardMedia, Typography, Grid, Rating, Skeleton, IconButton } from '@mui/material';
+import { Favorite, FavoriteBorder } from '@mui/icons-material';
 import Slider from 'react-slick';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { useAuthStore } from '../authContext/auth';
+import { useProductStore } from '../productcontext.jsx/Procontext';
 
 const AlmondCards = () => {
   const [almondProducts, setAlmondProducts] = useState([]);
-  const [loading, setLoading] = useState(true); // New state to track loading
+  const [loading, setLoading] = useState(true);
+  const [favorites, setFavorites] = useState({});
   const navigate = useNavigate();
+  const { userId, user } = useAuthStore();
+  const { fetchData, products } = useProductStore();
+  
+  // Fetch product data on mount
+  useEffect(() => {
+    fetchData(); // Fetch all product data
+  }, [fetchData]);
 
   useEffect(() => {
     const fetchAlmondProducts = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/product/');
-        let products = response.data;
+        // Filter almonds based on category
         const filteredAlmonds = Array.isArray(products.result)
           ? products.result.filter(product => product.category === 'Almonds')
           : [];
         setAlmondProducts(filteredAlmonds);
+
+        // Initialize favorite status for each product
+        const initialFavorites = filteredAlmonds.reduce((acc, product) => {
+          acc[product._id] = false; // Default to not favorited
+          return acc;
+        }, {});
+        setFavorites(initialFavorites);
       } catch (error) {
         console.error('Error fetching almond products:', error);
       } finally {
-        setLoading(false); // Set loading to false after fetching
+        setLoading(false);
       }
     };
-  
+
     fetchAlmondProducts();
-  }, []);
+  }, [products]);
+
+  // Toggle favorite status and sync with backend
+  const handleFavoriteToggle = async (productId) => {
+    const isFavorited = favorites[productId];
+    if (!user) {
+      alert('Login required!');
+      navigate('/Signin');
+      return;
+    }
+
+    try {
+      if (isFavorited) {
+        // Remove from favorites
+        await axios.delete(`http://localhost:8000/wish/delWish/${userId}/${productId}`);
+      } else {
+        // Add to favorites
+        await axios.post(`http://localhost:8000/wish/addWish/${userId}/${productId}`);
+      }
+
+      // Toggle favorite status in the local state
+      setFavorites((prevFavorites) => ({
+        ...prevFavorites,
+        [productId]: !isFavorited,
+      }));
+    } catch (error) {
+      console.error(`Error ${isFavorited ? 'removing' : 'adding'} favorite:`, error);
+    }
+  };
 
   const handleCardClick = (product) => {
-    navigate(`/productDetails`, { state: { product } });
+    navigate('/productDetails', { state: { product } });
   };
 
   const sliderSettings = {
@@ -48,7 +93,7 @@ const AlmondCards = () => {
       {/* Slider */}
       <Slider {...sliderSettings}>
         {(loading ? Array.from(new Array(3)) : almondProducts).map((almond, index) => (
-          <Box key={almond?.Id || index} sx={{ padding: 1 }}>
+          <Box key={almond?._id || index} sx={{ padding: 1 }}>
             <Card
               sx={{
                 height: 450,
@@ -62,12 +107,22 @@ const AlmondCards = () => {
               {loading ? (
                 <Skeleton variant="rectangular" sx={{ width: 600, height: 400, ml: 30, borderRadius: '10px', mt: '30px' }} />
               ) : (
-                <CardMedia
-                  component="img"
-                  sx={{ width: 600, height: 400, ml: 30, borderRadius: '10px', mt: '30px' }}
-                  image={almond.image}
-                  alt={almond.name}
-                />
+                <Box sx={{ position: 'relative' }}>
+                  <CardMedia
+                    component="img"
+                    sx={{ width: 600, height: 400, ml: 30, borderRadius: '10px', mt: '30px' }}
+                    image={almond.images[0]} // Assuming 'images' is an array
+                    alt={almond.name}
+                  />
+                  <Box sx={{ position: 'absolute', top: 8, right: 8 }}>
+                    <IconButton onClick={(e) => {
+                      e.stopPropagation();
+                      handleFavoriteToggle(almond._id);
+                    }}>
+                      {favorites[almond._id] ? <Favorite color="error" /> : <FavoriteBorder />}
+                    </IconButton>
+                  </Box>
+                </Box>
               )}
               
               {/* Right side: Product details */}
@@ -94,8 +149,8 @@ const AlmondCards = () => {
                       Stock: {almond.subCategory.stock} kg | Brand: {almond.subCategory.brand} | Weight: {almond.subCategory.weight}g
                     </Typography>
                     <Rating
-                      name={`rating-${almond.sku}`}
-                      value={almond.rating || 0}
+                      name={`rating-${almond._id}`}
+                      value={almond.subCategory.rating || 0}
                       readOnly
                       precision={0.1}
                     />
@@ -110,24 +165,35 @@ const AlmondCards = () => {
       {/* Card Grid */}
       <Grid container spacing={2} sx={{ mt: 4 }}>
         {(loading ? Array.from(new Array(8)) : almondProducts).map((almond, index) => (
-          <Grid item xs={12} sm={6} md={3} key={almond?.sku || index}>
+          <Grid item xs={12} sm={6} md={3} key={almond?._id || index}>
             <Card
               onClick={() => !loading && handleCardClick(almond)}
               sx={{
                 height: 400,
                 cursor: 'pointer',
                 boxShadow: 5,
+                position: 'relative',
               }}
             >
               {loading ? (
                 <Skeleton variant="rectangular" height={290} />
               ) : (
-                <CardMedia
-                  component="img"
-                  height="290"
-                  image={almond.image}
-                  alt={almond.name}
-                />
+                <Box sx={{ position: 'relative' }}>
+                  <CardMedia
+                    component="img"
+                    height="290"
+                    image={almond.images[0]} // Assuming 'images' is an array
+                    alt={almond.name}
+                  />
+                  <Box sx={{ position: 'absolute', top: 8, right: 8 }}>
+                    <IconButton onClick={(e) => {
+                      e.stopPropagation();
+                      handleFavoriteToggle(almond._id);
+                    }}>
+                      {favorites[almond._id] ? <Favorite color="error" /> : <FavoriteBorder />}
+                    </IconButton>
+                  </Box>
+                </Box>
               )}
               <CardContent>
                 {loading ? (
@@ -144,8 +210,8 @@ const AlmondCards = () => {
                       Price: ${almond.subCategory.price}
                     </Typography>
                     <Rating
-                      name={`rating-${almond.sku}`}
-                      value={almond.rating || 0}
+                      name={`rating-${almond._id}`}
+                      value={almond.subCategory.rating || 0}
                       readOnly
                       precision={0.1}
                     />
