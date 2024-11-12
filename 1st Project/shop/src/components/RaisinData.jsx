@@ -117,7 +117,7 @@ const RaisinCards = () => {
           <Box key={Raisin.id} sx={{ padding: 1, }}>
             <Card
               sx={{
-                height: 450,  // Adjust the height for bge and details
+                height: 450,  // Adjust the height for both image and details
                 display: 'flex',  // Display image and details side by side
                 cursor: 'pointer',
                 boxShadow: 5,
