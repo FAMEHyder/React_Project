@@ -118,7 +118,7 @@ const RaisinCards = () => {
             <Card
               sx={{
                 height: 450,  // Adjust the height for both image and details
-                display: 'flex',  // Display image and details side by side
+                display: 'flex',  // Dge and details side by side
                 cursor: 'pointer',
                 boxShadow: 5,
               }}
