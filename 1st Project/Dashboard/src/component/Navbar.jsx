@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { Box, AppBar, Toolbar, Button, ListItem, ListItemIcon, ListItemText, Menu, MenuItem } from '@mui/material';
-import { AccountCircle, Storefront, ShoppingCart, Settings } from '@mui/icons-material'; // Import necessary icons
+import { Box, AppBar, Toolbar, Button, ListItem, ListItemIcon, ListItemText } from '@mui/material';
+import { AccountCircle, Storefront, ShoppingCart, Settings } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import Cl from '../image/CompanyLogo.png';
 
@@ -8,18 +8,17 @@ const Navbar = () => {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = useState(null);
   const [selectedItem, setSelectedItem] = useState('');
-  const [openDropdown, setOpenDropdown] = useState(''); // Manage the open state of each dropdown
+  const [openDropdown, setOpenDropdown] = useState('');
 
   const handleClick = (path) => {
     navigate(path);
   };
 
   const handleMenuClick = (event, item) => {
-    // Toggle dropdown for the selected item
     if (openDropdown === item) {
-      setOpenDropdown(''); // Close dropdown if the same item is clicked
+      setOpenDropdown('');
     } else {
-      setOpenDropdown(item); // Open dropdown for the selected item
+      setOpenDropdown(item);
     }
     setAnchorEl(event.currentTarget);
     setSelectedItem(item);
@@ -34,7 +33,7 @@ const Navbar = () => {
   return (
     <>
       {/* Navbar */}
-      <AppBar position="static" color="transparent" elevation={0} sx={{ padding: '8px', bgcolor: 'green', height: '70px' }}>
+      <AppBar position="fixed" color="transparent" elevation={0} sx={{ padding: '8px', bgcolor: 'green', height: '70px' }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           {/* Left side */}
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
@@ -54,7 +53,12 @@ const Navbar = () => {
 
           {/* Right side */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            {/* Profile Button */}
+            <Button sx={{ color: 'white', mr: 5 }} onClick={() => handleClick('/signup')}>
+              Sign Up
+            </Button>
+            <Button sx={{ color: 'white', mr: 5 }} onClick={() => handleClick('/signin')}>
+              Sign In
+            </Button>
             <Button sx={{ color: 'white', mr: 5 }} onClick={() => handleClick('/profile')}>
               <AccountCircle fontSize="large" />
             </Button>
@@ -70,9 +74,10 @@ const Navbar = () => {
           top: '70px',  // Offset below the navbar
           left: 0,
           width: '250px',
-          height: '100vh',  // Full height of the screen
-          bgcolor: 'lightgray',  // Light background for the sidebar
-          boxShadow: 2,  // Add shadow to the sidebar
+          height: 'calc(100vh - 70px)',  // Full height minus navbar height
+          bgcolor: 'lightgray',
+          boxShadow: 2,
+          overflowY: 'auto',  // Enables scrolling for the sidebar
         }}
       >
         <Box
@@ -148,6 +153,9 @@ const Navbar = () => {
           </ListItem>
         </Box>
       </Box>
+      
+      {/* Offset for content below the fixed navbar */}
+      <Box sx={{ marginTop: '70px' }}></Box>
     </>
   );
 };
