@@ -71,7 +71,7 @@ const Navbar = () => {
           left: 0,
           width: '250px',
           height: '100vh',  // Full height of the screen
-          bgcolor: '#f4f4f4',  // Light background for the sidebar
+          bgcolor: 'lightgray',  // Light background for the sidebar
           boxShadow: 2,  // Add shadow to the sidebar
         }}
       >
