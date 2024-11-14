@@ -19,11 +19,11 @@ const Home = () => {
         amountReceived: 2000, // Total amount received
         numberOfUsers: 500, // Number of users
         monthlySales: [200, 300, 250, 400], // Monthly sales
-        dailySales: [100, 80, 120, 90], 
-        weeklySales: [700, 800, 950, 1000], 
+        dailySales: [100, 80, 120, 90], // Daily sales
+        weeklySales: [700, 800, 950, 1000], // Weekly sales
       });
       setLoading(false);
-    }, 3000); 
+    }, 3000); // Simulate a 3 second loading time
   }, []);
 
   // Chart data for each graph
