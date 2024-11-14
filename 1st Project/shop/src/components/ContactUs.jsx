@@ -1,12 +1,12 @@
-// ContactUs.jsx
 import { Typography, Container, Box, TextField, Button, Grid } from '@mui/material';
 import EmailIcon from '@mui/icons-material/Email';
 import PhoneIcon from '@mui/icons-material/Phone';
 import LocationOnIcon from '@mui/icons-material/LocationOn';
-import ScheduleIcon from '@mui/icons-material/Schedule'; // Icon for opening hours
+import ScheduleIcon from '@mui/icons-material/Schedule';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import backgroundImageUrl from '../Image/1.png';
+import emailjs from 'emailjs-com';
 
 const ContactUs = () => {
   const formik = useFormik({
@@ -20,9 +20,28 @@ const ContactUs = () => {
       email: Yup.string().email('Invalid email address').required('Email is required'),
       message: Yup.string().required('Message is required'),
     }),
-    onSubmit: (values) => {
-      console.log(values);
-      // Handle form submission, e.g., send to API
+    onSubmit: (values, { resetForm }) => {
+      // EmailJS integration
+      emailjs.send(
+        'service_ji3pg89',           // Service ID
+        'template_kuu4qem',          // Template ID
+        {
+          to_name: 'SaT_Tara',  // Replace with actual recipient name if needed
+          from_name: values.name,     // From name (user's name)
+          from_email: values.email,   // User's email
+          message: values.message,    // Message content
+        },
+        'Gpm47Cw5Xb3Vf2MI3'          // User ID (your EmailJS user ID)
+      )
+      .then((result) => {
+        console.log('Email successfully sent:', result.text);
+        alert('Message sent successfully!');
+        resetForm();  // Reset the form on successful submission
+      })
+      .catch((error) => {
+        console.error('Error sending email:', error.text);
+        alert('Failed to send the message, please try again.');
+      });
     },
   });
 
@@ -31,17 +50,15 @@ const ContactUs = () => {
       {/* Background Image Box */}
       <Box
         sx={{
-          height: '200px', // Adjust height as needed
+          height: '200px',
           backgroundImage: `url(${backgroundImageUrl})`,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           borderRadius: 2,
           mb: 4,
         }}
-      >
+      />
       
-      </Box>
-
       <Grid container spacing={4} sx={{ mb: 4 }}>
         <Grid item xs={12} sm={3}>
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
@@ -54,8 +71,7 @@ const ContactUs = () => {
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <PhoneIcon />
             <Typography variant="body1" align="center">Phone</Typography>
-            <Typography variant="body2" align="center">+923554526991 +923417405991
-            </Typography>
+            <Typography variant="body2" align="center">+923554526991 +923417405991</Typography>
           </Box>
         </Grid>
         <Grid item xs={12} sm={3}>

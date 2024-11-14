@@ -1,4 +1,4 @@
-import { Box, Grid, Typography, TextField, Button, Link } from '@mui/material';
+import { Box, Grid, Typography,  Link } from '@mui/material';
 import FacebookIcon from '@mui/icons-material/Facebook';
 import TwitterIcon from '@mui/icons-material/Twitter';
 import InstagramIcon from '@mui/icons-material/Instagram';
@@ -29,17 +29,7 @@ const Footer = () => {
             <PhoneIcon sx={{ mr: 1 }} />
             +92 123 4567890
           </Typography>
-          <Box component="form" sx={{ mt: 2 }}>
-            <TextField
-              label="Your Email"
-              variant="filled"
-              fullWidth
-              sx={{ mb: 2, backgroundColor: 'white', borderRadius: '4px' }}
-            />
-            <Button variant="contained" color="primary" fullWidth>
-              Submit
-            </Button>
-          </Box>
+          
         </Grid>
 
         {/* About Us Section */}

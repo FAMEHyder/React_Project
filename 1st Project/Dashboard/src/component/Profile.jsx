@@ -31,7 +31,7 @@ const UserProfile = () => {
     }, []);
 
     return (
-        <Box sx={{ p: 3, mt: 12 }}>
+        <Box sx={{ p: 3, mt: 12, ml: { xs: 0, sm: 0, md: '250px' } }}> {/* Added ml for sidebar offset */}
             <Grid container spacing={3} justifyContent="center">
                 <Grid item xs={12} md={4}>
                     <Paper sx={{ p: 2, textAlign: 'center' }} elevation={3}>
