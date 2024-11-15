@@ -115,7 +115,7 @@ const Home = () => {
             </Box>
           </Grid>
 
-          {}
+          {/* Purchases Pie Chart */}
           <Grid item xs={12}>
             <Box sx={{ padding: 2, backgroundColor: 'white', borderRadius: 2, boxShadow: 3, height: 500 }}>
               <Typography variant="h6">Purchase & Received</Typography>
