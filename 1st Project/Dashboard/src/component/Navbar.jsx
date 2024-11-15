@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Box, AppBar, Toolbar, Button, ListItem, ListItemIcon, ListItemText, Skeleton } from '@mui/material';
 import { AccountCircle, Storefront, ShoppingCart, Settings } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
@@ -7,13 +7,19 @@ import Cl from '../image/CompanyLogo.png';
 const Navbar = () => {
   const navigate = useNavigate();
   const [openDropdown, setOpenDropdown] = useState('');
-  const [loading, setLoading] = useState(false); // For skeleton loading
+  const [loading, setLoading] = useState(true); // For skeleton loading
 
   const handleClick = (path) => navigate(path);
 
   const handleMenuClick = (item) => {
     setOpenDropdown((prev) => (prev === item ? '' : item));
   };
+
+  useEffect(() => {
+    // Simulate a loading period for skeletons
+    const timer = setTimeout(() => setLoading(false), 2000); // 2-second delay
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <>
@@ -22,28 +28,50 @@ const Navbar = () => {
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', paddingX: { xs: 1, sm: 2, md: 4 } }}>
           {/* Left Logo */}
           <Box
-            onClick={() => handleClick('/')}
             sx={{
               cursor: 'pointer',
-              backgroundImage: `url(${Cl})`,
-              backgroundSize: 'contain',
-              backgroundRepeat: 'no-repeat',
               height: 60,
               width: 120,
+              backgroundColor: loading ? 'transparent' : undefined,
             }}
-          />
+          >
+            {loading ? (
+              <Skeleton variant="rectangular" height={60} width={120} />
+            ) : (
+              <Box
+                onClick={() => handleClick('/')}
+                sx={{
+                  backgroundImage: `url(${Cl})`,
+                  backgroundSize: 'contain',
+                  backgroundRepeat: 'no-repeat',
+                  height: '100%',
+                  width: '100%',
+                }}
+              />
+            )}
+          </Box>
 
           {/* Right Buttons */}
           <Box sx={{ display: 'flex', alignItems: 'center', gap: 2 }}>
-            <Button sx={{ color: 'white' }} onClick={() => handleClick('/signup')}>
-              Sign Up
-            </Button>
-            <Button sx={{ color: 'white' }} onClick={() => handleClick('/signin')}>
-              Sign In
-            </Button>
-            <Button sx={{ color: 'white' }} onClick={() => handleClick('/profile')}>
-              <AccountCircle fontSize="large" />
-            </Button>
+            {loading ? (
+              <>
+                <Skeleton variant="text" width={80} height={30} />
+                <Skeleton variant="text" width={80} height={30} />
+                <Skeleton variant="circular" width={40} height={40} />
+              </>
+            ) : (
+              <>
+                <Button sx={{ color: 'white' }} onClick={() => handleClick('/signup')}>
+                  Sign Up
+                </Button>
+                <Button sx={{ color: 'white' }} onClick={() => handleClick('/signin')}>
+                  Sign In
+                </Button>
+                <Button sx={{ color: 'white' }} onClick={() => handleClick('/profile')}>
+                  <AccountCircle fontSize="large" />
+                </Button>
+              </>
+            )}
           </Box>
         </Toolbar>
       </AppBar>
@@ -65,9 +93,9 @@ const Navbar = () => {
         <Box sx={{ width: '100%', display: 'flex', flexDirection: 'column', padding: 2 }}>
           {loading ? (
             <>
-              <Skeleton variant="rectangular" height={40} />
-              <Skeleton variant="rectangular" height={40} sx={{ marginY: 1 }} />
-              <Skeleton variant="rectangular" height={40} />
+              <Skeleton variant="rectangular" height={40} sx={{ marginBottom: 2 }} />
+              <Skeleton variant="rectangular" height={40} sx={{ marginBottom: 2 }} />
+              <Skeleton variant="rectangular" height={40} sx={{ marginBottom: 2 }} />
             </>
           ) : (
             <>
