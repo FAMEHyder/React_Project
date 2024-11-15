@@ -15,7 +15,7 @@ const UserProfile = () => {
     useEffect(() => {
         // Simulate fetching user data
         const fetchedUserData = {
-            name: "Zeshan",
+            name: "FAME Hyder",
             age: 23,
             username: "FAME",
             email: "abc@xyz.com",
@@ -32,8 +32,9 @@ const UserProfile = () => {
 
     return (
         <Box sx={{ p: 3, mt: 12, ml: { xs: 0, sm: 0, md: '250px' } }}> {/* Added ml for sidebar offset */}
-            <Grid container spacing={3} justifyContent="center">
-                <Grid item xs={12} md={4}>
+            <Grid container direction={'column'} spacing={3} justifyContent="center">
+                {/* Profile Picture Section */}
+                <Grid item xs={12} md={4} order={{ xs: 1, md: 1 }}>
                     <Paper sx={{ p: 2, textAlign: 'center' }} elevation={3}>
                         {/* Profile Picture with Skeleton Loader */}
                         {loading ? (
@@ -60,7 +61,8 @@ const UserProfile = () => {
                     </Paper>
                 </Grid>
 
-                <Grid item xs={12} md={8}>
+                {/* User Info Section */}
+                <Grid item xs={12} md={8} order={{ xs: 2, md: 2 }}>
                     <Paper sx={{ p: 2 }} elevation={3}>
                         {/* User Info Fields with Skeleton Loader */}
                         {loading ? (
