@@ -1,13 +1,13 @@
 import User from "../models/user.model.js";
 import bcrypt from 'bcryptjs';
 
-const register = async (req, res,next) => {
-  // console.log(req.body)
-  const { firstName, lastName, DOB, age, address, username, email, password } = req.body
+// Register a new user
+const register = async (req, res, next) => {
+  const { firstName, lastName, DOB, age, address, username, email, password } = req.body;
 
-  const salt = await bcrypt.genSalt(5)
-  const hashedPassword = await bcrypt.hash(password, salt)
-  console.log("Your User name is : ",username)
+  const salt = await bcrypt.genSalt(5);
+  const hashedPassword = await bcrypt.hash(password, salt);
+  console.log("Your User name is : ", username);
 
   try {
     const user = new User({
@@ -19,32 +19,29 @@ const register = async (req, res,next) => {
       username,
       email,
       password: hashedPassword,
-
-    })
-console.log(user)
+    });
+    console.log(user);
     await user.save();
     res.status(201).json({
       status: true,
       message: 'User created successfully',
-      data: user
-    })
-
+      data: user,
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.status(500).json({
-      message: 'Error creating  user',
-      err: error
-    })
+      message: 'Error creating user',
+      err: error,
+    });
   }
+};
 
+export default register;
 
-}
-export default register
-
-
+// Get user by ID
 export const getUserById = async (req, res, next) => {
   const { id } = req.params;
-  console.log(req.params)
+  console.log(req.params);
   try {
     const user = await User.findById(id);
     if (!user) {
@@ -67,6 +64,7 @@ export const getUserById = async (req, res, next) => {
   }
 };
 
+// View user by ID and populate wishlist
 export const viewUserbyId = async (req, res, next) => {
   const { id } = req.params;
   try {
@@ -79,13 +77,39 @@ export const viewUserbyId = async (req, res, next) => {
     }
     return res.status(200).json({
       status: 200,
-      message: 'User with this Id is: ${id}',
+      message: `User with ID ${id} retrieved successfully`,
       userDetail: user,
     });
   } catch (error) {
     return res.status(500).json({
-      // status: 500,
       message: error.message,
+      err: error,
+    });
+  }
+};
+
+// Get all users
+export const getAllUsers = async (req, res, next) => {
+  console.log("You are in getAllUsers");
+  try {
+    const users = await User.find(); // Fetch all users from the database
+    if (!users || users.length === 0) {
+      return res.status(404).json({
+        status: 404,
+        message: "No users found",
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      message: "Users retrieved successfully",
+      data: users,
+    });
+
+
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: 'Error retrieving users',
       err: error,
     });
   }

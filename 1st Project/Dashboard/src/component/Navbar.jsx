@@ -111,9 +111,6 @@ const Navbar = () => {
                   <ListItem button onClick={() => handleClick('/user/view')} sx={{ paddingLeft: 4 }}>
                     <ListItemText primary="View" />
                   </ListItem>
-                  <ListItem button onClick={() => handleClick('/user/add')} sx={{ paddingLeft: 4 }}>
-                    <ListItemText primary="Add" />
-                  </ListItem>
                 </>
               )}
 

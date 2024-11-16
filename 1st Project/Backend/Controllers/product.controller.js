@@ -2,6 +2,8 @@ import { Product , SubCategory} from "../models/product.model.js";
 
 // Add new product with image upload
 export const addProduct = async (req, res, next) => {
+  console.log('req.body',req.body);
+  console.log('req.files',req.files);
   const {
     name,
     description,
@@ -13,7 +15,8 @@ export const addProduct = async (req, res, next) => {
     price,
     sku
   } = req.body;
-console.log (addProduct)
+  
+console.log ("your req is now :",req.body)
   try {
     // Handle image upload if present
     let images = [];

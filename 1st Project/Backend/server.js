@@ -10,10 +10,15 @@ import Cart from './routes/cart.route.js';
 
 dotenv.config();
 const app = express()
+const corsOptions = [
+    "http://localhost:5173",
+    "http://localhost:5174"
+
+]
 
 app.use(express.json());
 app.use(cors({
-    origin:"http://localhost:5173",
+    origin:corsOptions,
     credentials:true
 }))
 app.use('/user', router );
@@ -27,4 +32,3 @@ app.listen(port, ()=>{
     DataBaseConnection();
     console.log("Server is Running")
 })
-
