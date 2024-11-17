@@ -31,10 +31,10 @@ function RegisterForm() {
         const response = await axios.post('http://localhost:8000/user/register', formData);
         console.log(response.data)
         alert('Registered successfully!'); // Display success message
-        navigate('/'); // Redirect to the home page
+        navigate('/'); 
       } catch (error) {
         console.error('Registration error:', error);
-        alert('Registration failed. Please try again.'); // Dierror message
+        alert('Registration failed. Please try again.'); // Display error message
       }
     } else {
       alert('Please ensure all fields are filled and passwords match');
