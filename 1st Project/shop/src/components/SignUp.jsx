@@ -31,7 +31,7 @@ function RegisterForm() {
         const response = await axios.post('http://localhost:8000/user/register', formData);
         console.log(response.data)
         alert('Registered successfully!'); // Display success message
-        navigate('/'); 
+        navigate('/'); // Redirect to the home page
       } catch (error) {
         console.error('Registration error:', error);
         alert('Registration failed. Please try again.'); // Display error message
