@@ -34,7 +34,7 @@ function RegisterForm() {
         navigate('/'); // Redirect to the home page
       } catch (error) {
         console.error('Registration error:', error);
-        alert('Registration failed. Please try again.'); // ror message
+        alert('Registration failed. Please try again.'); // Displerror message
       }
     } else {
       alert('Please ensure all fields are filled and passwords match');
