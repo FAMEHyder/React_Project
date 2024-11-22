@@ -19,8 +19,4 @@ import eng from "../Image/engwalnut.png";
 const ProductData = [
   {
     id: 1,
-    Category:'Almonds',
-    name: 'Nonpareil',
-    image: nonpareil, // Image representing the Nonpareil almond variety
-    description: 'Thin-skinned, easy to blanch, and used in many almond products. ' +
-        
+    Cate
