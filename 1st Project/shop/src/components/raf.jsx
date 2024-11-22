@@ -40,8 +40,4 @@ const ProductData = [
                  'Due to their size and sweetness, they are a favorite among apricot lovers.',
                  
     rating: 4.5,   // Rating out of 5
-  },
-
-//Cashews Data
-{
-  
+  }
