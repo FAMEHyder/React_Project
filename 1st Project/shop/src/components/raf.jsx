@@ -79,7 +79,4 @@ const ProductData = [
 },
 //walnutdata
 {
-  id: 65,
-  Category:'Walnuts',
-  price:23,
-  name
+ 
