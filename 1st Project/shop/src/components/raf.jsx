@@ -32,8 +32,4 @@ const ProductData = [
   // Appricote Data
   { 
     id: 9,
-    Category:'Dried Apricots',
-    price: 20,
-    name: 'Moorpark Apricot',
-    image: chuli1, // Image representing the Moorpark apricot variety
-    description: 'Moorpa
+    Categ
