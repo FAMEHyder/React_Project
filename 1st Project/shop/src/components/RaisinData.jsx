@@ -94,8 +94,11 @@ const RaisinCards = () => {
 
   // Function to handle card clicks and navigate to product details
   const handleCardClick = (product) => {
-    navigate(`/productDetails`, { state: { product } });
+    navigate(`/replace`, { state: { product } });
   };
+  // const handleCardClick = (product) => {
+  //   navigate(`/productDetails`, { state: { product } });
+  // };
 
 
   const sliderSettings = {

@@ -83,8 +83,11 @@ const DateCards = () => {
 
   const navigate = useNavigate();
   const handleCardClick = (product) => {
-    navigate(`/productDetails`, { state: { product } });
+    navigate(`/replace`, { state: { product } });
   };
+  // const handleCardClick = (product) => {
+  //   navigate(`/productDetails`, { state: { product } });
+  // };
 
   const sliderSettings = {
     dots: true,

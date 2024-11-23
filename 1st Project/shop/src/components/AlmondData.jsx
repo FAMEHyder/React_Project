@@ -111,8 +111,7 @@ const AlmondCards = () => {
                   <CardMedia
                     component="img"
                     sx={{ width: 600, height: 400, ml: 30, borderRadius: '10px', mt: '30px' }}
-                    image={almond.images[0]} // Assuming 'images' is an array
-                    alt={almond.name}
+                    image={`http://localhost:8000/${almond.images[0]?.replace(/\\/g, '/')}`}
                   />
                   <Box sx={{ position: 'absolute', top: 8, right: 8 }}>
                     <IconButton onClick={(e) => {

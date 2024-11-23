@@ -17,4 +17,6 @@ export const useProductStore = create((set) => ({
 
   // Other actions if needed
   setProducts: (newProducts) => set({ products: newProducts }),
+
+  
 }));

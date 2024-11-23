@@ -9,6 +9,7 @@ import cors from 'cors';
 import Cart from './routes/cart.route.js';
 
 dotenv.config();
+
 const app = express()
 const corsOptions = [
     "http://localhost:5173",

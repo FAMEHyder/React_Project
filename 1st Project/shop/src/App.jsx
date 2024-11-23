@@ -19,6 +19,9 @@ import Footer from './components/Footer.jsx';
 import CartComp from './components/CartComp.jsx';
 import Profile from './components/Profile.jsx';
 import Payment from './components/Payment.jsx';
+import ReplaceBE from './components/ReplaceBE.jsx';
+
+
 function App() {
   
 
@@ -44,6 +47,7 @@ function App() {
         <Route path="/contact" element={<ContactUs />} />
         <Route path="/cartcomp" element={<CartComp />} />      
         <Route path="/productDetails/:id" element={<ProductDetails />} />
+        <Route path="/Replace" element={<ReplaceBE />} />
       </Routes>
       <Footer />
 
