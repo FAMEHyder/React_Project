@@ -31,18 +31,6 @@ const AboutUs = () => {
         Mentioning specific offerings: "Specializing in almonds, walnuts, dates, and more."
         Highlighting unique selling propositions: "Locally sourced, organic options available."
         I hope these descriptions provide a good starting point for your dry fruit shop!
-
-
-
-
-
-
-
-
-
-
-
-        Ge
         { }
       </Typography>
     </Container>
