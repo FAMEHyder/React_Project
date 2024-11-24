@@ -117,7 +117,7 @@ const cashewTypes = [
 
 const CashewCards = () => {
 
-  const navigate = useNavigate(); 
+  const navigate = useNavigate(); // Hook for programmatic navigation
 
   // Function to handle card clicks and navigate to product details
   const handleCardClick = (product) => {
