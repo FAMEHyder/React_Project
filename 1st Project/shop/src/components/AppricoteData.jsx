@@ -171,7 +171,9 @@ const AppricotData = () => {
   const handleCardClick = (apricot) => {
     navigate(`/replace`, { state: { product: apricot } });
   };
- 
+  // const handleCardClick = (apricot) => {
+  //   navigate(`/productDetails`, { state: { product: apricot } });
+  // };
   
   const sliderSettings = {
     dots: true,
