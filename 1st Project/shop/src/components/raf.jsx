@@ -74,13 +74,6 @@ const ProductData = [
   image: kerman,
   description: 'Kerman pistachios are known for their large size, creamy texture, and rich flavor, making them a popular variety.',
   
-    rating: 4.5,   // Rating out of 5
-},
-
-//raisins data
-    rating: 4.5,   // Rating out of 5
-
-},
 //walnutdata
 {
   id: 65,
