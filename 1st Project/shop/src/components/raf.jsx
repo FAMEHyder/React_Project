@@ -72,15 +72,7 @@ const ProductData = [
   price:40,
   name: 'Kerman Pistachio',
   image: kerman,
-  description: 'Kerman pistachios are known for their large size, creamy texture, and rich flavor, making them a popular variety.',
-  
-    rating: 4.5,   // Rating out of 5
-},
-
-//raisins data
-{
-  id: 53,
-  Category:'Raisins',
+  description: 'Ke
   price:30,
   name: 'Sultana Raisin',
   image: sultana,
