@@ -13,15 +13,6 @@ import kerman from '../Image/kerman.png'
 import sultana from '../Image/sultana.png';
 
 
-
-import eng from "../Image/engwalnut.png";
-
-const ProductData = [
-  {
-  },
-
-
-  // Appricote Data
   { 
     id: 9,
     Category:'Dried Apricots',
