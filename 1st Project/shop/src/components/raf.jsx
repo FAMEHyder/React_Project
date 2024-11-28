@@ -36,10 +36,4 @@ const ProductData = [
     price: 20,
     name: 'Moorpark Apricot',
     image: chuli1, // Image representing the Moorpark apricot variety
-    des
-    rating: 4.5,   // Rating out of 5
-},
-
-//raisins data
-{
-  id: 53,
+ 
