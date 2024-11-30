@@ -71,24 +71,4 @@ const ProductData = [
   Category:'Pistachios',
   price:40,
   name: 'Kerman Pistachio',
-  image: kerman,
-  description: 'Kerman pistachios are known for their large size, creamy texture, and rich flavor, making them a popular variety.',
-  
-    rating: 4.5,   // Rating out of 5
-},
-  description: 'Sultana raisins are light yellow and known for their juicy and sweet flavor.',
-  
-    rating: 4.5,   // Rating out of 5
-
-},
-//walnutdata
-{
-  id: 65,
-  Category:'Walnu
-];
-
-
-
-export default ProductData;
-
-
+  image: 
