@@ -45,11 +45,4 @@ const ProductData = [
 //Cashews Data
 {
   id: 21,
-  Category:'Cashews',
-  price:120,
-  name: 'W-180 (King of Cashews)',
-
-  image: medjol, // Replace with actual image URLs
-  description: 'Large, soft, and rich in flavor, Medjool dates are known as the "king of dates".',
-  
-    rating: 4
+  Category:'C
