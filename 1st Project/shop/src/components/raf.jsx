@@ -66,10 +66,6 @@ const ProductData = [
     rating: 4.5,   // Rating out of 5
 
 },
-//walnutdata
-{
-  id: 65,
-  Category:'Walnuts',
   price:23,
   name: 'English Walnuts (Persian Walnuts)',
   image: eng, // Replace with a valid image URL
