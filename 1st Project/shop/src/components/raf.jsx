@@ -67,10 +67,7 @@ const ProductData = [
 
 },
   price:23,
-  name: 'English Walnuts (Persian Walnuts)',
-  image: eng, // Replace with a valid image URL
-  description: 'English walnuts are known for their mild flavor and thin, easy-to-crack shells.',
-  
+  name: 'English Walnuts
     rating: 4.5,   // Rating out of 5
 },
 ];
