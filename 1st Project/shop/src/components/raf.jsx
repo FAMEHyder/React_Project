@@ -11,11 +11,6 @@ import medjol from '../Image/medjol.png';
 import kerman from '../Image/kerman.png'
 
   {
-    id: 1,
-    Category:'Almonds',
-    name: 'Nonpa
-    id: 9,
-    Category:'Dried Apricots',
     price: 20,
   id: 21,
   Category:'Cashews',
