@@ -65,12 +65,6 @@ const ProductData = [
   
     rating: 4.5,   // Rating out of 5
 
-},
-  price:23,
-  name: 'English Walnuts
-    rating: 4.5,   // Rating out of 5
-},
-];
 
 
 
