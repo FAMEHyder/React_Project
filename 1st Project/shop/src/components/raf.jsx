@@ -10,13 +10,6 @@ import medjol from '../Image/medjol.png';
 
 import kerman from '../Image/kerman.png'
 
-import sultana from '../Image/sultana.png';
-
-
-
-import eng from "../Image/engwalnut.png";
-
-const ProductData = [
   {
     id: 1,
     Category:'Almonds',
