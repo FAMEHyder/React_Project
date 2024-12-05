@@ -13,4 +13,4 @@ import kerman from '../Image/kerman.png'
   {
     price: 20,
   id: 21,
-  Category:
+  Category
