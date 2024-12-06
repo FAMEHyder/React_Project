@@ -66,14 +66,6 @@ const ProductData = [
 },
 
 //pischio data
-{w and known for their juicy and sweet flavor.',
-  
-    rating: 4.5,   // Rating out of 5
-
-},
-//walnutdata
-{
-  id: 65,
   Category:'Walnuts',
   price:23,
   name: 'English Walnuts (Persian Walnuts)',
