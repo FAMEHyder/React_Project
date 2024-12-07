@@ -51,10 +51,3 @@ const ProductData = [
   image: w180,
   description: 'W-180, known as the "King of Cashews," is the largest and highest quality cashew nut available.',
   
-    rating: 4.5,   // Rating out of 5
-},
-//Dates Data
-{
-  id: 33,
-  Category:'Dates',
-  price:5
