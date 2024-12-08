@@ -16,12 +16,7 @@ import sultana from '../Image/sultana.png';
 
 import eng from "../Image/engwalnut.png";
 
-const ProductData = [
-  {
-    id: 1,
-    Category:'Almonds',
-    Category:'Dried Apricots',
-    price: 20,
+const ProductData =
     name: 'Moorpark Apricot',
     image: chuli1, // Image representing the Moorpark apricot variety
     description: 'Moorpark apricots are large, juicy, and known for their sweet, rich flavor. ' + 
