@@ -10,18 +10,7 @@ import medjol from '../Image/medjol.png';
 
 import kerman from '../Image/kerman.png'
 
-import sultana from '../Image/sultana.png';
-ze and sweetness, they are a favorite among apricot lovers.',
-                 
-    rating: 4.5,   // Rating out of 5
-  },
-  image: w180,
-  description: 'W-180, known as the "King of Cashews," is the largest and highest quality cashew nut available.',
-  
-    rating: 4.5,   // Rating out of 5
-},
-//Dates Data
-{
+import sultana from '../Imag
   id: 33,
   Category:'Dates',
   price:50,
