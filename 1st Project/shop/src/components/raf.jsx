@@ -13,12 +13,6 @@ const ProductData = [
     name: 'Moorpark Ap
 {
   id: 21,
-  Category:'Cashews',ashews," is the largest and highest quality cashew nut available.',
-  
-    rating: 4.5,   // Rating out of 5
-},
-//Dates Data
-{
   id: 33,
   Category:'Dates',
   price:50,
