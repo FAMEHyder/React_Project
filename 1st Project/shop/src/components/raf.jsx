@@ -11,13 +11,7 @@ const ProductData = [
     Category:'Dried Apricots',
     price: 20,
     name: 'Moorpark Ap
-{
-  id: 21,
-  id: 33,
-  Category:'Dates',
-  price:50,
-  name: 'Medjool',
-  image: medjol, // Replace with actual image URLs
+{e URLs
   description: 'Large, soft, and rich in flavor, Medjool dates are known as the "king of dates".',
   
     rating: 4.5,   // Rating out of 5
