@@ -12,13 +12,3 @@ const ProductData = [
     price: 20,
     name: 'Moorpark Ap
 {e URLs\
-  id: 65,
-  Category:'Walnuts',
-  price:23,
-  name: 'English Waln
-
-
-
-export default ProductData;
-
-
