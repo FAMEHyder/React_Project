@@ -13,11 +13,7 @@ const ProductData = [
     name: 'Moorpark Ap
 {
   id: 21,
-  Category:'Cashews',
-  price:120,
-  name: 'W-180 (King of Cashews)',
-  image: w180,
-  description: 'W-180, known as the "King of Cashews," is the largest and highest quality cashew nut available.',
+  Category:'Cashews',ashews," is the largest and highest quality cashew nut available.',
   
     rating: 4.5,   // Rating out of 5
 },
