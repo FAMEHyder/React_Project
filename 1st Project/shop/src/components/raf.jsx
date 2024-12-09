@@ -11,15 +11,7 @@ const ProductData = [
     Category:'Dried Apricots',
     price: 20,
     name: 'Moorpark Ap
-{e URLs
-  description: 'Large,
-  description: 'Sultana raisins are light yellow and known for their juicy and sweet flavor.',
-  
-    rating: 4.5,   // Rating out of 5
-
-},
-//walnutdata
-{
+{e URLs\
   id: 65,
   Category:'Walnuts',
   price:23,
