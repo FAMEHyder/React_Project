@@ -14,13 +14,6 @@ const ProductData = [
 {e URLs
   description: 'Large, soft, and rich in flavor, Medjool dates are known as the "king of dates".',
   
-    rating: 4.5,   // Rating out of 5
-},
-  price:40,
-  name: 'Kerman Pistachio',
-  image: kerman,
-},
-
 //raisins data
 {
   id: 53,
