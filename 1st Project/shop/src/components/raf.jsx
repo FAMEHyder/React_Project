@@ -12,15 +12,7 @@ const ProductData = [
     price: 20,
     name: 'Moorpark Ap
 {e URLs
-  description: 'Large, soft, and rich in flavor, Medjool dates are known as the "king of dates".',
-  
-//raisins data
-{
-  id: 53,
-  Category:'Raisins',
-  price:30,
-  name: 'Sultana Raisin',
-  image: sultana,
+  description: 'Large,
   description: 'Sultana raisins are light yellow and known for their juicy and sweet flavor.',
   
     rating: 4.5,   // Rating out of 5
