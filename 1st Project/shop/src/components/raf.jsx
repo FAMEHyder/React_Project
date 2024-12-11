@@ -16,10 +16,7 @@ import kerman f
   id: 53,
   Category:'Pistachios',
   price:40,
-  name: 'Kerman Pistachio',
-  image: kerman,
-  description: 'Kerman pistachios are known for their large size, creamy texture, and rich flavor, making them a popular variety.',
-  
+  name: 'Kerman 
     rating: 4.5,   // Rating out of 5
 },
 
