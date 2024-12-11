@@ -10,18 +10,7 @@ import medjol from '../Image/medjol.png';
 
 import kerman from '../Image/kerman.png'
 
-import sultana from '../Image/sultana.png';
-enting the Nonpareil almond variety
-    description: 'Thin-skinned, easy to blanch, and used in many almond products. ' +
-                 'Ove
-  { 
-    id: 9,
-    Category:'Dried Apricots',
-    price: 20,
-  },
-
-//Cashews Data
-{
+import sultana from '
   id: 21,
   Category:'Cashews',
   price:120,
