@@ -11,15 +11,6 @@ import medjol from '../Image/medjol.png';
 import kerman f
 },
 
-//pischio data
-{
-  id: 53,
-  Category:'Pistachios',
-  price:40,
-  name: 'Kerman 
-    rating: 4.5,   // Rating out of 5
-},
-
 //raisins data
 {
   id: 53,
