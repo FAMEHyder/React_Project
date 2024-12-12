@@ -5,21 +5,6 @@ import chuli1 from '../Image/chuli1.png'
 
 import w180 from '../Image/w180.png'
 
-
-import medjol from '../Image/medjol.png';
-
-import kerman f
-},
-
-//raisins data
-{
-  id: 53,
-  Category:'Raisins',
-  price:30,
-  name: 'Sultana Raisin',
-  image: sultana,
-  description: 'Sultana raisins are light yellow and known for their juicy and sweet flavor.',
-  
     rating: 4.5,   // Rating out of 5
 
 },
