@@ -10,14 +10,6 @@ import w180 from '../Image/w180.png'
     Category:'Almondghest 
 },
 
-//pischio data
-  description: 'Kerman pistachios are known for their large size, creamy texture, and rich flavor, making them a popular variety.',
-  
-    rating: 4.5,   // Rating out of 5
-},
-
-//raisins data
-{
   id: 53,
   Category:'Raisins',
   price:30,
