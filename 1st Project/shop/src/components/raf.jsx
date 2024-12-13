@@ -20,12 +20,7 @@ const ProductData = [
   {
     id: 1,
     Category:'Almonds',
-    name: 'Nonpareil',
-    image: nonpareil, // Image represent varieties in the market due to its versatility.',
-    price: 10.99,  // Price of the Nonpareil almond
-    rating: 4.5,   // Rating out of 5
-  },
-
+    name: 'Nonpa
 
   // Appricote Data
   { 
