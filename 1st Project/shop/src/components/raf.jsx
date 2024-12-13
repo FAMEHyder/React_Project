@@ -12,13 +12,6 @@ import kerman from '../Image/kerman.png'
 
 import sultana from '../Image/sultana.png';
 
-    id: 9,
-  },
-
-//Cashews Data
-{
-  id: 21,
-  Category:'Cashews',
 //Dates Data
 {
   id: 33,
