@@ -16,13 +16,7 @@ import sultana from '../Image/sultana.png';
 
 import eng from "../Image/engwalnut.png";
 
-const ProductData = [
-  {
-    id: 1,
-    Category:'Almonds',
-    name: 'Nonpa
-
-  // Appricote Data
+const Prod
   { 
     id: 9,
     Category:'Dried Apricots',
