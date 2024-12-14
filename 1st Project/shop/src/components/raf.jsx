@@ -12,14 +12,7 @@
   Category:'Dates',
   price:50,
   name: 'Medjool',
-//pischio data
-{
-  id: 53,
-  Category:'Pistachios',
-  price:40,
-  name: 'Kerman Pistachio',
-  image: kerman,
-  description: 'Kerman pistachios are known for their large size, creamy texture, and rich flavor, making them a popular variety.',
+//pischio datheir large size, creamy texture, and rich flavor, making them a popular variety.',
   
     rating: 4.5,   // Rating out of 5
 },
