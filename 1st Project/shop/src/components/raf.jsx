@@ -5,15 +5,7 @@
 
   id: 21,
   Category:'Cashews',
-  price:120,
-  name: 'W-180 (King of Cashews)',
-  image: w180,
-  d
-  Category:'Dates',
-  price:50,
-  name: 'Medjool',
-//pischio datheir large size, creamy texture, and rich flavor, making them a popular variety.',
-  
+
     rating: 4.5,   // Rating out of 5
 },
 
