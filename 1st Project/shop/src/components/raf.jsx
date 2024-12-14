@@ -8,7 +8,3 @@
 
     rating: 4.5,   // Rating out of 5
 },
-ts (Persian Walnuts)',
-  image: eng
-
-
