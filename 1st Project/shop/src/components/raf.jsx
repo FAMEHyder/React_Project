@@ -1,11 +1,7 @@
 
 
 
-import medjol from '../Image/medjol.png';
 
-import kerman from '../Image/kerman.png'
-
-import su
     id: 1,
     Category:'Almonds',
     name: 'Nonpareil',
