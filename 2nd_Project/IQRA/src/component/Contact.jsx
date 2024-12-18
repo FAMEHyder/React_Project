@@ -84,11 +84,11 @@ const ContactUs = () => {
           </Box>
         </Grid>
         <Grid item xs={12} sm={3}>
-          {/* <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <ScheduleIcon />
             <Typography variant="body1" align="center">Opening Hours</Typography>
             <Typography variant="body2" align="center">Mon-Fri: 9 AM - 6 PM</Typography>
-          </Box> */}
+          </Box>
         </Grid>
       </Grid>
 
