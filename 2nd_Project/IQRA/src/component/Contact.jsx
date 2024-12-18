@@ -46,23 +46,23 @@ const ContactUs = () => {
   });
 
   return (
-    <Container sx={{ padding: '.1rem', mt: 12 }}>
+    <Container sx={{ padding: '.1rem'}}>
       {/* Background Image Box */}
       <Box
         sx={{
-          height: '400px',
+          height: '300px',
           width: '100%',
           backgroundImage: `url(${backgroundImageUrl})`,
-          backgroundSize: '50%',
+          backgroundSize: '40%',
           backgroundPosition: 'center 30%',
           borderRadius: 2,
-          mb: 4,
-          border:'2px solid red',
+          mb:2,
           backgroundRepeat: 'no-repeat',
+          
         }}
       />
       
-      <Grid container spacing={4} sx={{ mb: 4 }}>
+      <Grid container spacing={4} sx={{xs:1,sm:2, md:3,lg:4,xl:5 }}>
         <Grid item xs={12} sm={3}>
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <EmailIcon />

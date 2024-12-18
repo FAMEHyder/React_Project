@@ -1,52 +1,74 @@
-import { Container ,Typography,TextField, Button} from '@mui/material'
+import { Container, Typography, TextField, Button } from '@mui/material';
 
 const SignIn = () => {
   return (
-   <Container maxWidth="lg"
-   sx={{
-    padding : {xs:1,sm:2,md:3,lg:4,xl:5},
-    bgcolor:'white',
-    mt: 4,
-    height: '60vh',
-    width: '40%',
-    boxShadow: '0 5px 8px 5px rgba(255, 105, 135,.3)',
-    borderRadius:'9px'
+    <Container
+      maxWidth="lg"
+      sx={{
+        padding: { xs: 2, sm: 3, md: 4, lg: 5 },
+        bgcolor: 'white',
+        mt: { xs: 2, sm: 3, md: 4 },
+        height: 'auto', // Adjust height to fit content
+        width: { xs: '90%', sm: '70%', md: '50%', lg: '40%' },
+        boxShadow: '0 5px 8px 5px rgba(255, 105, 135,.3)',
+        borderRadius: '9px',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+      }}
+    >
+      <Typography
+        variant="h4"
+        fontSize={{ xs: '2rem', sm: '2.5rem', md: '3rem' }}
+        fontFamily={'Cambria, Cochin, Georgia, Times, "Times New Roman", serif'}
+        color="blue"
+        sx={{ mt: { xs: 1, sm: 2 }, textAlign: 'center' }}
+      >
+        Sign In
+      </Typography>
 
-   }}
-   >
-      <Typography variant="h4" fontSize="3rem" fontFamily={'Cambria, Cochin, Georgia, Times, "Times New Roman", serif'} ml={22} color='blue'> Sign In </Typography>
-
-  <form>
-  <TextField
+      <form style={{ width: '100%' }}>
+        <TextField
           label="Email"
           type="email"
           placeholder="abc@gmail.com"
           variant="outlined"
           fullWidth
           margin="normal"
-          // value={email}
-          // onChange={(e) => setEmail(e.target.value)}
-        /> 
-  <TextField
+        />
+        <TextField
           label="Password"
           type="password"
           placeholder="********"
           variant="outlined"
           fullWidth
           margin="normal"
-          // value={email}
-          // onChange={(e) => setEmail(e.target.value)}
-        /> 
-    <Button variant='contained' sx={{ml:50}}> Login </Button>
-   
+        />
+        <Button
+          variant="contained"
+          fullWidth
+          sx={{
+            mt: 2,
+            padding: { xs: 1, sm: 1.5 },
+            fontSize: { xs: '0.8rem', sm: '1rem' },
+          }}
+        >
+          Login
+        </Button>
+      </form>
 
-  </form>
-  <Button >Dont have an account. Click to Sign up Now </Button>
+      <Button
+        sx={{
+          mt: 2,
+          fontSize: { xs: '0.8rem', sm: '1rem' },
+          color: 'blue',
+          textTransform: 'none',
+        }}
+      >
+        Don't have an account? Sign up now
+      </Button>
+    </Container>
+  );
+};
 
-
-
-   </Container>
-  )
-}
-
-export default SignIn
+export default SignIn;
