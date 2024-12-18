@@ -21,97 +21,95 @@ const ContactUs = () => {
       message: Yup.string().required('Message is required'),
     }),
     onSubmit: (values, { resetForm }) => {
-      // EmailJS integration
-      emailjs.send(
-        'service_ji3pg89',           // Service ID
-        'template_kuu4qem',          // Template ID
-        {
-          to_name: 'IYEF',  // Replace with actual recipient name if needed
-          from_name: values.name,     // From name (user's name)
-          from_email: values.email,   // User's email
-          message: values.message,    // Message content
-        },
-        'Gpm47Cw5Xb3Vf2MI3'          // User ID (your EmailJS user ID)
-      )
-      .then((result) => {
-        console.log('Email successfully sent:', result.text);
-        alert('Message sent successfully!');
-        resetForm();  // Reset the form on successful submission
-      })
-      .catch((error) => {
-        console.error('Error sending email:', error.text);
-        alert('Failed to send the message, please try again.');
-      });
+      emailjs
+        .send(
+          'service_ji3pg89',
+          'template_kuu4qem',
+          {
+            to_name: 'IYEF',
+            from_name: values.name,
+            from_email: values.email,
+            message: values.message,
+          },
+          'Gpm47Cw5Xb3Vf2MI3'
+        )
+        .then((result) => {
+          console.log('Email successfully sent:', result.text);
+          alert('Message sent successfully!');
+          resetForm();
+        })
+        .catch((error) => {
+          console.error('Error sending email:', error.text);
+          alert('Failed to send the message, please try again.');
+        });
     },
   });
 
   return (
-    <Container sx={{ padding: '.1rem'}}>
-      {/* Background Image Box */}
+    <Container sx={{ p: { xs: 2, md: 4 }, maxWidth: 'lg' }}>
+      {/* Background Image Section */}
       <Box
         sx={{
-          height: '300px',
+          height: { xs: '200px', sm: '300px' },
           width: '100%',
           backgroundImage: `url(${backgroundImageUrl})`,
           backgroundSize: '40%',
-          backgroundPosition: 'center 30%',
+          backgroundPosition: 'center',
           borderRadius: 2,
-          mb:2,
           backgroundRepeat: 'no-repeat',
-          
+          mb: 4,
         }}
       />
-      
-      <Grid container spacing={4} sx={{xs:1,sm:2, md:3,lg:4,xl:5 }}>
-        <Grid item xs={12} sm={3}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <EmailIcon />
-            <Typography variant="body1" align="center">Email</Typography>
-            <Typography variant="body2" align="center">famehyder9999@gmail.com</Typography>
+
+      {/* Contact Info Section */}
+      <Grid container spacing={3} sx={{ mb: 4 }}>
+        <Grid item xs={12} sm={6} md={3}>
+          <Box sx={{ textAlign: 'center' }}>
+            <EmailIcon fontSize="large" color="primary" />
+            <Typography variant="h6">Email</Typography>
+            <Typography variant="body2">famehyder9999@gmail.com</Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={3}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <PhoneIcon />
-            <Typography variant="body1" align="center">Phone</Typography>
-            <Typography variant="body2" align="center">+923554526991 +923417405991</Typography>
+        <Grid item xs={12} sm={6} md={3}>
+          <Box sx={{ textAlign: 'center' }}>
+            <PhoneIcon fontSize="large" color="primary" />
+            <Typography variant="h6">Phone</Typography>
+            <Typography variant="body2">+923554526991</Typography>
+            <Typography variant="body2">+923417405991</Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={3}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <LocationOnIcon />
-            <Typography variant="body1" align="center">Address</Typography>
-            <Typography variant="body2" align="center">
-              IQRA YOUTH EDUCATIONAL FOUNDATION
-            </Typography>
+        <Grid item xs={12} sm={6} md={3}>
+          <Box sx={{ textAlign: 'center' }}>
+            <LocationOnIcon fontSize="large" color="primary" />
+            <Typography variant="h6">Address</Typography>
+            <Typography variant="body2">IQRA YOUTH EDUCATIONAL FOUNDATION</Typography>
           </Box>
         </Grid>
-        <Grid item xs={12} sm={3}>
-          <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
-            <ScheduleIcon />
-            <Typography variant="body1" align="center">Services</Typography>
-            <Typography variant="body2" align="center">24/7</Typography>
+        <Grid item xs={12} sm={6} md={3}>
+          <Box sx={{ textAlign: 'center' }}>
+            <ScheduleIcon fontSize="large" color="primary" />
+            <Typography variant="h6">Services</Typography>
+            <Typography variant="body2">24/7</Typography>
           </Box>
         </Grid>
       </Grid>
 
-      {/* Contact Form */}
+      {/* Contact Form Section */}
       <Box
         component="form"
         onSubmit={formik.handleSubmit}
         sx={{
-          mt: 4,
-          p: 3,
+          p: { xs: 2, sm: 3 },
           borderRadius: 2,
           boxShadow: 3,
           backgroundColor: 'white',
         }}
       >
-        <Typography variant="h5" gutterBottom>
+        <Typography variant="h5" gutterBottom textAlign="center">
           Send us a Message
         </Typography>
         <Grid container spacing={2}>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
               id="name"
@@ -124,7 +122,7 @@ const ContactUs = () => {
               helperText={formik.touched.name && formik.errors.name}
             />
           </Grid>
-          <Grid item xs={12} md={6}>
+          <Grid item xs={12} sm={6}>
             <TextField
               fullWidth
               id="email"
@@ -153,7 +151,17 @@ const ContactUs = () => {
           helperText={formik.touched.message && formik.errors.message}
           sx={{ mt: 2 }}
         />
-        <Button type="submit" variant="contained" color="primary" sx={{ mt: 2 }}>
+        <Button
+          type="submit"
+          variant="contained"
+          fullWidth
+          color="primary"
+          sx={{
+            mt: 2,
+            py: 1.5,
+            fontSize: '1rem',
+          }}
+        >
           Send Message
         </Button>
       </Box>

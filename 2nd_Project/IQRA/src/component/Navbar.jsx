@@ -69,6 +69,9 @@ const Navbar = () => {
             <Button sx={{ color: 'white' }} onClick={() => handleClick('/contact')}>
               Contact Us
             </Button>
+            <Button sx={{ color: 'white' }} onClick={() => handleClick('/about')}>
+              About Us
+            </Button>
             <Button sx={{ color: 'white' }} onClick={() => handleClick('/profile')}>
               <AccountCircle />
             </Button>
@@ -99,6 +102,7 @@ const Navbar = () => {
             <MenuItem onClick={() => handleClick('/signup')}>Sign Up</MenuItem>
             <MenuItem onClick={() => handleClick('/contact')}>Contact Us</MenuItem>
             <MenuItem onClick={() => handleClick('/profile')}>Profile</MenuItem>
+            <MenuItem onClick={() => handleClick('/about')}>About Us</MenuItem>
           </Menu>
         </Box>
       </AppBar>

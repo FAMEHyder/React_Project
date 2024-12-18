@@ -22,6 +22,7 @@ const SignIn = () => {
         fontSize={{ xs: '2rem', sm: '2.5rem', md: '3rem' }}
         fontFamily={'Cambria, Cochin, Georgia, Times, "Times New Roman", serif'}
         color="blue"
+        fontWeight={600}
         sx={{ mt: { xs: 1, sm: 2 }, textAlign: 'center' }}
       >
         Sign In

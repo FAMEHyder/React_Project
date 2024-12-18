@@ -17,11 +17,11 @@ const SignUp = () => {
         alignItems: 'center',
       }}
     >
-      <Typography
+      <Typography fontSize={{ xs: '2rem', sm: '2.5rem', md: '3rem' }}
+
         sx={{
           mt: { xs: 2, sm: 3 },
           fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
-          fontSize: { xs: '1.8rem', sm: '2.2rem', md: '2.5rem' },
           fontWeight: 600,
           textAlign: 'center',
           color: 'blue',
