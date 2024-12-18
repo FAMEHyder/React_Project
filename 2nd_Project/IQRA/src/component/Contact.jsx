@@ -5,7 +5,7 @@ import LocationOnIcon from '@mui/icons-material/LocationOn';
 import ScheduleIcon from '@mui/icons-material/Schedule';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import backgroundImageUrl from '../image/navbarLogo.png';
+import backgroundImageUrl from '../image/pics.png';
 import emailjs from 'emailjs-com';
 
 const ContactUs = () => {
@@ -26,7 +26,7 @@ const ContactUs = () => {
         'service_ji3pg89',           // Service ID
         'template_kuu4qem',          // Template ID
         {
-          to_name: 'SaT_Tara',  // Replace with actual recipient name if needed
+          to_name: 'IYEF',  // Replace with actual recipient name if needed
           from_name: values.name,     // From name (user's name)
           from_email: values.email,   // User's email
           message: values.message,    // Message content
@@ -46,16 +46,19 @@ const ContactUs = () => {
   });
 
   return (
-    <Container sx={{ padding: '2rem', mt: 12 }}>
+    <Container sx={{ padding: '.1rem', mt: 12 }}>
       {/* Background Image Box */}
       <Box
         sx={{
-          height: '200px',
+          height: '400px',
+          width: '100%',
           backgroundImage: `url(${backgroundImageUrl})`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
+          backgroundSize: '50%',
+          backgroundPosition: 'center 30%',
           borderRadius: 2,
           mb: 4,
+          border:'2px solid red',
+          backgroundRepeat: 'no-repeat',
         }}
       />
       
@@ -86,8 +89,8 @@ const ContactUs = () => {
         <Grid item xs={12} sm={3}>
           <Box sx={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
             <ScheduleIcon />
-            <Typography variant="body1" align="center">Opening Hours</Typography>
-            <Typography variant="body2" align="center">Mon-Fri: 9 AM - 6 PM</Typography>
+            <Typography variant="body1" align="center">Services</Typography>
+            <Typography variant="body2" align="center">24/7</Typography>
           </Box>
         </Grid>
       </Grid>
