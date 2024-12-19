@@ -1,5 +1,5 @@
-import { Button, Container, TextField, Typography } from '@mui/material';
-
+import { Button, Container, Box, TextField, Typography } from '@mui/material';
+import logo from '../image/AboutLogo.png';
 const SignUp = () => {
   return (
     <Container
@@ -11,12 +11,27 @@ const SignUp = () => {
         bgcolor: 'white',
         boxShadow: '0 5px 8px 5px rgba(255, 105, 135, 0.3)',
         mt: { xs: 2, sm: 3, md: 4 },
+        mb: { xs: 2, sm: 3, md: 4 },
         borderRadius: '8px',
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
       }}
     >
+      <Box
+        sx={{
+          height: '35vh',
+          width: '400px',
+          backgroundImage: `url(${logo})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '50%',
+          backgroundPosition: 'center',
+          alignItems: "center",
+          justifyContent: "center",
+
+
+        }}>
+        </Box>
       <Typography fontSize={{ xs: '2rem', sm: '2.5rem', md: '3rem' }}
 
         sx={{
