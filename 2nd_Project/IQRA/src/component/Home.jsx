@@ -2,7 +2,7 @@ import { Grid, Box, Typography } from "@mui/material";
 import logo from "../image/navbarLogo.png";
 import bg from "../image/photo.png";
 
-const AboutUs = () => {
+const Home = () => {
   return (
     <>
       <Grid
