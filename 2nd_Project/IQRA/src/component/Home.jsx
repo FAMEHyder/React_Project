@@ -305,4 +305,4 @@ const Home = () => {
   );
 };
 
-export default AboutUs;
+export default Home;
