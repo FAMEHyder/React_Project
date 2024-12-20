@@ -1,7 +1,19 @@
 import { Button, Container, Box, TextField, Typography } from '@mui/material';
 import logo from '../image/AboutLogo.png';
+import { useNavigate } from 'react-router-dom';
+
+
 const SignUp = () => {
-  return (
+
+  const navigate = useNavigate();
+
+  const handleClick = (path) => {
+
+navigate(path);
+
+}  
+
+return (
     <Container
       maxWidth="lg"
       sx={{
@@ -134,7 +146,7 @@ const SignUp = () => {
         </Button>
       </form>
 
-      <Button
+      <Button onClick={() => handleClick('/signin')}
         sx={{
           mt: 2,
           fontSize: { xs: '0.8rem', sm: '1rem' },
