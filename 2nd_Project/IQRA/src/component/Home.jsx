@@ -187,7 +187,8 @@ const Home = () => {
         </Box>
 
       </Grid>
-      {/* organizational structure */}<Grid container spacing={2} mt={4} px={2}>
+      {/* organizational structure */}
+      <Grid container spacing={2} mt={4} px={2}>
   <Grid item xs={12} sm={6} md={4} lg={3}>
     <Box sx={{ height: '100%' }}>
       <Typography fontWeight={600} fontFamily="Cambria" sx={{ mb: 2, color: "black" }}>
