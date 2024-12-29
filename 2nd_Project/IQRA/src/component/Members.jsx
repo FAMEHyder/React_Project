@@ -6,8 +6,9 @@ import Mubashir from '../Member/Mub.jpg';
 import Mazahir from '../Member/Mazahir.jpg';
 import Sharafat from '../Member/Sharafat.jpg';
 import Fida from '../Member/Fida.jpg';
-import Liaqat from '../Member/liaqat.jpg';
+import Liaqat from '../Member/liaqat.png';
 import Shakeel from '../Member/Shakeel.jpg';
+import Mubarak from '../Member/Mubarak.jpg';
 import Carousel from 'react-slick'; // Importing the Carousel component
 
 // Add the slick-carousel CSS for styling
@@ -17,20 +18,21 @@ import "slick-carousel/slick/slick-theme.css";
 const Members = () => {
     const [selectedMember, setSelectedMember] = useState({
         name: "Zeeshan Haider",
-        title: "BS Computer Science",
-        description: "Student at University of Baltistan",
+        Qaulification: "BS Computer Science",
+        Institution: "Student at University of Baltistan",
         image: Zeeshan
     });
 
     const members = [
-        { id: 1, name: "Zeeshan Haider", title: "BS Computer Science", description: "Student at University of Baltistan", image: Zeeshan },
-        { id: 2, name: "Nawaz Ali", title: "BS Public Administration & Governance", description: "Numl University Islamabad", image: Nawaz },
-        { id: 3, name: "Mubashir Hussain", title: "MS Zology", description: "Quaid-I-Azam University Islamabad", image: Mubashir },
-        { id: 4, name: "Mazahir Hussain", title: "BS computer science+ B.Ed", description: "Quaid-I-Azam University Islamabad", image: Mazahir },
-        { id: 5, name: "Fida Hussain", title: "MSc Zology", description: "Hazara University Islamabad", image: Fida },
-        { id: 6, name: "Liaqat Ali", title: "BS computer science+ B.Ed", description: "Quaid-I-Azam University Islamabad", image: Liaqat },
-        { id: 7, name: "sharafat Hussain", title: "BS computer science+ B.Ed", description: "Quaid-I-Azam University Islamabad", image: Sharafat },
-        { id: 8, name: "Shakeel Ahmad", title: "BS computer science+ B.Ed", description: "Quaid-I-Azam University Islamabad", image: Shakeel },
+        { id: 1, name: "Zeeshan Haider", Qaulification: "BS Computer Science", Institution: "Student at University of Baltistan", image: Zeeshan },
+        { id: 2, name: "Nawaz Ali", Qaulification: "BS Public Administration & Governance", Institution: "Numl University Islamabad", image: Nawaz },
+        { id: 3, name: "Mubashir Hussain", Qaulification: "MS Zology", Institution: "Quaid-I-Azam University Islamabad", image: Mubashir },
+        { id: 4, name: "Mazahir Hussain", Qaulification: "BS computer science+ B.Ed", Institution: "Quaid-I-Azam University Islamabad", image: Mazahir },
+        { id: 5, name: "Fida Hussain", Qaulification: "MSc+Bed AIOU Zology", Institution: "Hazara University Islamabad", image: Fida },
+        { id: 6, name: "Liaqat Ali", Qaulification: "MA Islamic Management", Institution: "Al Mustafa International University", image: Liaqat },
+        { id: 7, name: "Sharafat Hussain", Qaulification: "BS BBA", Institution: "Iqra University Islamabad", image: Sharafat },
+        { id: 8, name: "Shakeel Ahmad", Qaulification: "BS English Linguistics", Institution: "University of Education Lahore", image: Shakeel },
+        { id: 9, name: "Mubarak Ali", Qaulification: "BS Urdu ", Institution: "Leads University lahore", image: Mubarak },
     ];
 
     const handleMemberClick = (member) => {
@@ -49,14 +51,13 @@ const Members = () => {
     };
 
     return (
-        <Grid container spacing={2} mt={2} mb={2}>
+        <Grid container spacing={2} >
             {/* Left Box */}
             <Grid item xs={12} md={4}>
                 <Box
                     sx={{
                         height: '600px',
                         width: '90%',
-                        borderRadius: '10px',
                         background: "linear-gradient(to bottom, #0066cc, #33cc99)",
                         display: "flex",
                         flexDirection: "column",
@@ -82,10 +83,10 @@ const Members = () => {
                         <b>{selectedMember.name}</b>
                     </Typography>
                     <Typography fontFamily={'cambria'} fontSize={'20px'} color="white">
-                        {selectedMember.title}
+                        {selectedMember.Qaulification}
                     </Typography>
                     <Typography fontFamily={'cambria'} fontSize={'20px'} color="white" textAlign="center">
-                        {selectedMember.description}
+                        {selectedMember.Institution}
                     </Typography>
                 </Box>
             </Grid>
@@ -93,7 +94,7 @@ const Members = () => {
             <Grid item xs={12} md={8}>
                 <Grid container spacing={4}>
                     {/* Upper Slider */}
-                    <Typography variant="h6" color="primary" align="center" fontWeight={800} fontSize={30} sx={{ml:{xs:10,sm:10,md:100,lg:45},}}>Meet Our Team</Typography>
+                    <Typography variant="h6" color="primary" align="center" fontWeight={800} fontSize={30} sx={{ml:{xs:10,sm:10,md:50,lg:45},mt:{xs:4}}}>Meet Our Team</Typography>
                     <Grid item xs={12} >
                         <Carousel {...sliderSettings}>
                             {members.slice(0, 4).map((member) => (
@@ -117,7 +118,7 @@ const Members = () => {
                                     <Typography  fontFamily={'cambria'} fontWeight={800} color="white" ml={10} mt={22}  bgcolor={'rgba(0, 0, 0, 0.5)'}  width={'300px'}
                                     sx={{
                                         fontSize:{xs:5,sm:2,md:100,lg:17},
-                                        ml:{lg:10,xl:35}
+                                        ml:{sm:5.5,lg:10,xl:35}
                                     }}
                                     >
                                         {member.name}
@@ -125,10 +126,11 @@ const Members = () => {
                                     <Typography  fontFamily={'cambria'}  color="white" ml={10}  bgcolor={'rgba(0, 0, 0, 0.5)'}  width={'300px'}
                                     sx={{
                                         fontSize:{xs:5,sm:5,md:100,lg:17},
-                                        ml:{lg:10,xl:35}
+                                        ml:{sm:5.5,lg:10,xl:35},
+                                        bottom:0
                                     }}
                                     >
-                                        {member.title}
+                                        {member.Qaulification}
                                     </Typography>
                                 </Box>
                             ))}
@@ -138,7 +140,7 @@ const Members = () => {
                     {/* Lower Slider */}
                     <Grid item xs={12} >
                         <Carousel {...sliderSettings}>
-                            {members.slice(5, 9).map((member) => (
+                            {members.slice(4, 9).map((member) => (
                                 <Box
                                     key={member.id}
                                     onClick={() => handleMemberClick(member)}
@@ -154,12 +156,14 @@ const Members = () => {
                                         display: "flex",
                                         flexDirection: "column",
                                         alignItems: "center",
+                                        
                                     }}
                                 >
                                     <Typography fontFamily={'cambria'} fontWeight={800} fontSize={'20px'} color="white" ml={10} mt={22}  bgcolor={'rgba(0, 0, 0, 0.5)'}  width={'300px'}
                                      sx={{
                                         fontSize:{xs:5,sm:2,md:100,lg:17},
-                                        ml:{lg:10,xl:35}
+                                        ml:{sm:5.5,lg:10,xl:35},
+                                        bottom:0
                                     }}
                                     >
                                         {member.name}
@@ -167,10 +171,10 @@ const Members = () => {
                                     <Typography fontFamily={'cambria'} fontSize={'16px'} color="white" ml={10} bgcolor={'rgba(0, 0, 0, 0.5)'}  width={'300px'} 
                                      sx={{
                                         fontSize:{xs:5,sm:2,md:100,lg:17},
-                                        ml:{lg:10,xl:35}
+                                        ml:{sm:5.5,lg:10,xl:35}
                                     }}
                                     >
-                                        {member.title}
+                                        {member.Qaulification}
                                     </Typography>
                                 </Box>
                             ))}
