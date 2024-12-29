@@ -24,15 +24,15 @@ const Members = () => {
     });
 
     const members = [
-        { id: 1, name: "Zeeshan Haider", Qaulification: "BS Computer Science", Institution: "Student at University of Baltistan", image: Zeeshan },
-        { id: 2, name: "Nawaz Ali", Qaulification: "BS Public Administration & Governance", Institution: "Numl University Islamabad", image: Nawaz },
-        { id: 3, name: "Mubashir Hussain", Qaulification: "MS Zology", Institution: "Quaid-I-Azam University Islamabad", image: Mubashir },
-        { id: 4, name: "Mazahir Hussain", Qaulification: "BS computer science+ B.Ed", Institution: "Quaid-I-Azam University Islamabad", image: Mazahir },
-        { id: 5, name: "Fida Hussain", Qaulification: "MSc+Bed AIOU Zology", Institution: "Hazara University Islamabad", image: Fida },
-        { id: 6, name: "Liaqat Ali", Qaulification: "MA Islamic Management", Institution: "Al Mustafa International University", image: Liaqat },
-        { id: 7, name: "Sharafat Hussain", Qaulification: "BS BBA", Institution: "Iqra University Islamabad", image: Sharafat },
-        { id: 8, name: "Shakeel Ahmad", Qaulification: "BS English Linguistics", Institution: "University of Education Lahore", image: Shakeel },
-        { id: 9, name: "Mubarak Ali", Qaulification: "BS Urdu ", Institution: "Leads University lahore", image: Mubarak },
+        { id: 1, name: "Zeeshan Haider", Qaulification: "BS Computer Science", Institution: "Student at University of Baltistan", image: Zeeshan ,Role :'Member of Core Commitee',Address:"Post office of Dambudas skardu ,Baltistan"},
+        { id: 2, name: "Nawaz Ali", Qaulification: "BS Public Administration & Governance", Institution: "Numl University Islamabad", image: Nawaz ,Role :'Member of Core Commitee',Address:"Post office of Dambudas skardu ,Baltistan"},
+        { id: 3, name: "Mubashir Hussain", Qaulification: "MS Zology", Institution: "Quaid-I-Azam University Islamabad", image: Mubashir ,Role :'Member of Core Commitee',Address:"Post office of Dambudas skardu ,Baltistan"},
+        { id: 4, name: "Mazahir Hussain", Qaulification: "BS computer science+ B.Ed", Institution: "Quaid-I-Azam University Islamabad", image: Mazahir ,Role :'Member of Core Commitee',Address:"Post office of Dambudas skardu ,Baltistan"},
+        { id: 5, name: "Fida Hussain", Qaulification: "MSc+Bed AIOU Zology", Institution: "Hazara University Islamabad", image: Fida ,Role :'Member of Core Commitee',Address:"Post office of Dambudas skardu ,Baltistan"},
+        { id: 6, name: "Liaqat Ali", Qaulification: "MA Islamic Management", Institution: "Al Mustafa International University", image: Liaqat ,Role :'Member of Core Commitee',Address:"Post office of Dambudas skardu ,Baltistan"},
+        { id: 7, name: "Sharafat Hussain", Qaulification: "BS BBA", Institution: "Iqra University Islamabad", image: Sharafat ,Role :'Member of Core Commitee',Address:"Post office of Dambudas skardu ,Baltistan"},
+        { id: 8, name: "Shakeel Ahmad", Qaulification: "BS English Linguistics", Institution: "University of Education Lahore", image: Shakeel ,Role :'Member of Core Commitee',Address:"Post office of Dambudas skardu ,Baltistan"},
+        { id: 9, name: "Mubarak Ali", Qaulification: "BS Urdu ", Institution: "Leads University lahore", image: Mubarak ,Role :'Member of Core Commitee',Address:"Post office of Dambudas skardu ,Baltistan"},
     ];
 
     const handleMemberClick = (member) => {
@@ -87,6 +87,9 @@ const Members = () => {
                     </Typography>
                     <Typography fontFamily={'cambria'} fontSize={'20px'} color="white" textAlign="center">
                         {selectedMember.Institution}
+                    </Typography>
+                    <Typography fontFamily={'cambria'} fontSize={'20px'} color="white" textAlign="center">
+                        _______________________________________________________
                     </Typography>
                 </Box>
             </Grid>
