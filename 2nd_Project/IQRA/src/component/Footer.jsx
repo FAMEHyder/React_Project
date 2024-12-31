@@ -29,7 +29,7 @@ const Footer = () => {
             <Link href="/events" color="inherit" underline="hover">Events</Link>
           </Typography>
           <Typography variant="body2">
-            <Link href="/pre-board" color="inherit" underline="hover">Pre-Board Exams</Link>
+            <Link href="/pre-board" color="inherit" underline="hover"> Register for Pre-Board Exams</Link>
           </Typography>
           <Typography variant="body2">
             <Link href="/members" color="inherit" underline="hover">Meet our Members</Link>
