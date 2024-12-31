@@ -9,6 +9,7 @@ import Fida from '../Member/Fida.jpg';
 import Liaqat from '../Member/liaqat.png';
 import Shakeel from '../Member/Shakeel.jpg';
 import Mubarak from '../Member/Mubarak.jpg';
+import Zahid from '../Member/Zahid.jpg';
 import Carousel from 'react-slick'; // Importing the Carousel component
 
 // Add the slick-carousel CSS for styling
@@ -28,14 +29,15 @@ const Members = () => {
 
     const members = [
         { id: 1, name: "Zeeshan Haider", Qaulification: "BS Computer Science", Institution: "Student at University of Baltistan", image: Zeeshan ,Role :'Auther of web Application',Proffission:'Student at University of Baltistan ',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03554526991',},
-        { id: 2, name: "Nawaz Ali", Qaulification: "BS Public Administration & Governance", Institution: "Numl University Islamabad", image: Nawaz ,Role :'President of the IYEF',Proffission:'Student at NMUL university Islamabad',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03445254658',},
+        { id: 2, name: "Nawaz Ali", Qaulification: "BS Public Administration & Governance", Institution: "NUMl University Islamabad", image: Nawaz ,Role :'President of the IYEF',Proffission:'Student at NMUL university Islamabad',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03445254658',},
         { id: 3, name: "Mubashir Hussain", Qaulification: "MS Zology", Institution: "Quaid-I-Azam University Islamabad", image: Mubashir ,Role :'Educational Secretary of IYEF',Proffission:'Student at Quide-I-Azam University',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03464640837',},
         { id: 4, name: "Mazahir Hussain", Qaulification: "BS computer science+ B.Ed", Institution: "Quaid-I-Azam University Islamabad", image: Mazahir ,Role :'Member of Core Commitee',Proffission:'Student at Quide-I-Azam University',Address:"Post office of Dambudas skardu ,Baltistan",Phone :' Phone Number Not Provided',},
         { id: 5, name: "Fida Hussain", Qaulification: "MSc+Bed AIOU Zology", Institution: "Hazara University Islamabad", image: Fida ,Role :'Member of Core Commitee',Proffission:'Teaching Biology at Green Hills public school ',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03425450063',},
         { id: 6, name: "Liaqat Ali", Qaulification: "MA Islamic Management", Institution: "Al Mustafa International University", image: Liaqat ,Role :'Member of Core Commitee',Proffission:'Student at Al Mustafa International University',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'+989373898372',},
         { id: 7, name: "Sharafat Hussain", Qaulification: "BS BBA", Institution: "Iqra University Islamabad", image: Sharafat ,Role :'Information secreter of IYEF',Proffission:'Proffission Not Provided',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03450881428',},
         { id: 8, name: "Shakeel Ahmad", Qaulification: "BS English Linguistics", Institution: "University of Education Lahore", image: Shakeel ,Role :'Member of Core Commitee',Proffission:'Teaching English at future generation school and college islamabad ',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03475180423',},
-        { id: 9, name: "Mubarak Ali", Qaulification: "BS Urdu ", Institution: "Leads University lahore", image: Mubarak ,Role :'Member of Core Commitee',Proffission:'Not Provided',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03470414547',},
+        { id: 9, name: "Mubarak Ali", Qaulification: "BS Urdu ", Institution: "Leads University lahore", image: Mubarak ,Role :'Member of Core Commitee',Proffission:'Proffission Not Provided',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03470414547',},
+        { id: 10, name: "Zahid Ali", Qaulification: "BS International Relations ", Institution: "NUML University Islamabad", image: Zahid ,Role :'Finance Secretary of IYEF',Proffission:'Student at NMUL university Islamabad',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03196031700',},
     ];
 
     const handleMemberClick = (member) => {
@@ -115,7 +117,7 @@ const Members = () => {
                     <Typography variant="h6" color="primary" align="center" fontWeight={800} fontSize={30} sx={{ml:{xs:10,sm:10,md:50,lg:45},mt:{xs:4}}}>Meet Our Team</Typography>
                     <Grid item xs={12} >
                         <Carousel {...sliderSettings}>
-                            {members.slice(0, 4).map((member) => (
+                            {members.slice(0, 5).map((member) => (
                                 <Box
                                     key={member.id}
                                     onClick={() => handleMemberClick(member)}
@@ -158,7 +160,7 @@ const Members = () => {
                     {/* Lower Slider */}
                     <Grid item xs={12} >
                         <Carousel {...sliderSettings}>
-                            {members.slice(4, 9).map((member) => (
+                            {members.slice(5, 10).map((member) => (
                                 <Box
                                     key={member.id}
                                     onClick={() => handleMemberClick(member)}
