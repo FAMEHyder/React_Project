@@ -26,7 +26,7 @@ const Footer = () => {
             <Link href="/contact" color="inherit" underline="hover">Contact Us</Link>
           </Typography>
           <Typography variant="body2">
-            <Link href="/events" color="inherit" underline="hover">Events</Link>
+            <Link href="/Section" color="inherit" underline="hover">Events</Link>
           </Typography>
           <Typography variant="body2">
             <Link href="/pre-board" color="inherit" underline="hover"> Register for Pre-Board Exams</Link>
