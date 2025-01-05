@@ -17,7 +17,7 @@ const RollNoForm = () => {
 
     setError("");
     console.log("Submitted Roll No:", rollNo);
-    // You ca
+    // You can perform further actions, like sending the data to an API
   };
 
   return (
