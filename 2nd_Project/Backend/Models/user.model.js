@@ -1,13 +1,13 @@
 import mongoose from "mongoose";
 const userSchema = new mongoose.Schema({
 
-    FullName: {
+    fullName: {
         type: String,
         required: true,
         trim: true
     },
 
-    DateOfBirth: {
+    dob: {
         type: String,
         required: true,
         trim: true
@@ -19,36 +19,36 @@ const userSchema = new mongoose.Schema({
         trim: true
     },
 
-    Address: {
+    address: {
         type: String,
         required: true,
         trim: true
     },
 
-    UserName: {
+    userName: {
         type: String,
         required: true,
         trim: true
     },
 
-    Email: {
+    email: {
         type: String,
         required: true,
         trim: true
     },
 
-    Password: {
+    password: {
         type: String,
         required: true,
         trim: true
     },
 
-    role: {
+    Registration: {
         type: [String],
         default: "user"
     },
 
-    wishList: [
+    Marksheet: [
         {
             type: mongoose.Schema.Types.ObjectId,
             ref: 'Product',

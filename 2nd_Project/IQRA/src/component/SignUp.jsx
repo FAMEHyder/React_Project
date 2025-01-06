@@ -1,101 +1,233 @@
 import { useState } from 'react';
-import { TextField, Button, Container, Typography } from '@mui/material';
+import { Button, Container, Box, TextField, Typography } from '@mui/material';
+import logo from '../image/AboutLogo.png';
 import { useNavigate } from 'react-router-dom';
-import axios from 'axios'; // Import Axios
+import axios from 'axios';
 
-function SignUp() {
+const SignUp = () => {
+  const navigate = useNavigate();
+
+  // State to capture form data
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
+    fullName: '',
     dob: '',
     age: '',
     address: '',
-    username:'',
+    userName: '',
     email: '',
     password: '',
-    confirmPassword: ''
+    confirmPassword: '',
   });
-  const navigate = useNavigate();
 
+  // State for error messages
+  const [error, setError] = useState('');
+
+  // Handle form field changes
   const handleChange = (e) => {
     const { name, value } = e.target;
-    setFormData((prevData) => ({ ...prevData, [name]: value }));
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
-  const handleRegister = async (event) => {
-    event.preventDefault();
-    const { firstName, lastName, dob, age, address,username, email, password, confirmPassword } = formData;
-    console.log('Form Data:', formData);
-    if (firstName && lastName && dob && age && address&& username && email && password && password === confirmPassword) {
-      try {
-        const response = await axios.post('http://localhost:8000/user/register', formData);
-        console.log(response.data)
-        alert('Registered successfully!'); // Display success message
-        navigate('/'); // Redirect to the home page
-      } catch (error) {
-        console.error('Registration error:', error);
-        alert('Registration failed. Please try again.'); // Display error message
+  // Handle form submission
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    if (formData.password !== formData.confirmPassword) {
+      setError('Passwords do not match');
+      return;
+    }
+
+    try {
+      const response = await axios.post('http://localhost:8000/user/register', formData);
+      if (response.status === 201) {
+        alert('Registration successful!');
+        navigate('/signin'); // Navigate to Sign In page
       }
-    } else {
-      alert('Please ensure all fields are filled and passwords match');
+    } catch (err) {
+      console.error(err);
+      setError(err.response?.data?.message || 'Something went wrong. Please try again.');
     }
   };
 
-  const fields = [
-    { label: 'First Name', name: 'firstName', type: 'text' },
-    { label: 'Last Name', name: 'lastName', type: 'text' },
-    { label: 'Date of Birth', name: 'dob', type: 'date' },
-    { label: 'Age', name: 'age', type: 'number' },
-    { label: 'Address', name: 'address', type: 'text' },
-    { label: 'UserName', name: 'username', type: 'text' },
-    { label: 'Email', name: 'email', type: 'email' },
-    { label: 'Password', name: 'password', type: 'password' },
-    { label: 'Confirm Password', name: 'confirmPassword', type: 'password' },
-  ];
-
   return (
     <Container
-      maxWidth="xs"
+      maxWidth="lg"
       sx={{
-        marginTop: '150px',
-        backgroundColor: 'white',
-        padding: '16px',
+        padding: { xs: 2, sm: 3, md: 4 },
+        height: 'auto',
+        width: { xs: '90%', sm: '70%', md: '50%', lg: '40%' },
+        bgcolor: 'white',
+        boxShadow: '0 5px 8px 5px rgba(255, 105, 135, 0.3)',
+        mt: { xs: 2, sm: 3, md: 4 },
+        mb: { xs: 2, sm: 3, md: 4 },
         borderRadius: '8px',
-        boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
       }}
     >
-      <Typography variant="h4" gutterBottom>
-        Register
+      <Box
+        sx={{
+          height: '35vh',
+          width: '400px',
+          backgroundImage: `url(${logo})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '50%',
+          backgroundPosition: 'center',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      ></Box>
+      <Typography
+        fontSize={{ xs: '2rem', sm: '2.5rem', md: '3rem' }}
+        sx={{
+          mt: { xs: 2, sm: 3 },
+          fontFamily: 'Cambria, Cochin, Georgia, Times, "Times New Roman", serif',
+          fontWeight: 600,
+          textAlign: 'center',
+          color: 'blue',
+        }}
+      >
+        Sign Up
       </Typography>
-      <form onSubmit={handleRegister}>
-        {fields.map((field) => (
-          <TextField
-            key={field.name}
-            label={field.label}
-            name={field.name}
-            type={field.type}
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            value={formData[field.name]}
-            onChange={handleChange}
-            InputLabelProps={field.type === 'date' ? { shrink: true } : {}}
-          />
-        ))}
-        <Button type="submit" variant="contained" color="primary" fullWidth>
-          Register
-        </Button>
+
+      {error && (
+        <Typography
+          sx={{ color: 'red', mt: 2, fontSize: '0.9rem', textAlign: 'center' }}
+        >
+          {error}
+        </Typography>
+      )}
+
+      <form style={{ width: '100%' }} onSubmit={handleSubmit}>
+        <TextField
+          name="fullName"
+          label="Full Name"
+          placeholder="Enter Your Name"
+          type="text"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          required
+          value={formData.fullName}
+          onChange={handleChange}
+        />
+        <TextField
+          name="dob"
+          label="Date of Birth"
+          type="date"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          required
+          value={formData.dob}
+          onChange={handleChange}
+          InputLabelProps={{ shrink: true }}
+        />
+        <TextField
+          name="age"
+          label="Age"
+          type="number"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          required
+          value={formData.age}
+          onChange={handleChange}
+          onInput={(e) => {
+            e.target.value = e.target.value < 0 ? 0 : e.target.value;
+          }}
+        />
+        <TextField
+          name="address"
+          label="Address"
+          type="text"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          required
+          value={formData.address}
+          onChange={handleChange}
+        />
+        <TextField
+          name="userName"
+          label="User Name"
+          type="text"
+          placeholder="Enter User Name"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          required
+          value={formData.userName}
+          onChange={handleChange}
+        />
+        <TextField
+          name="email"
+          label="Email"
+          type="email"
+          placeholder="Enter Your Email"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          required
+          value={formData.email}
+          onChange={handleChange}
+        />
+        <TextField
+          name="password"
+          label="Password"
+          type="password"
+          placeholder="Enter Your Password"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          required
+          value={formData.password}
+          onChange={handleChange}
+        />
+        <TextField
+          name="confirmPassword"
+          label="Confirm Password"
+          type="password"
+          placeholder="Enter Password Again"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          required
+          value={formData.confirmPassword}
+          onChange={handleChange}
+        />
 
         <Button
-          variant="text"
+          variant="contained"
           fullWidth
-          onClick={() => navigate('/Signin')}
+          type="submit"
+          sx={{
+            mt: 2,
+            padding: { xs: 1, sm: 1.5 },
+            fontSize: { xs: '0.9rem', sm: '1rem' },
+          }}
         >
-          Already have an account? Login here
+          Register Now
         </Button>
       </form>
+
+      <Button
+        onClick={() => navigate('/signin')}
+        sx={{
+          mt: 2,
+          fontSize: { xs: '0.8rem', sm: '1rem' },
+          color: 'blue',
+          textTransform: 'none',
+        }}
+      >
+        Already have an account? Click to Sign In
+      </Button>
     </Container>
   );
-}
+};
 
 export default SignUp;
