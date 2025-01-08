@@ -1,6 +1,7 @@
 import express from "express";
 import dotenv from 'dotenv';
 import router from './Routes/user.routes.js';
+import Form from './Routes/form.routes.js';
 
 import DataBaseConnection from './Database/Database.js';
 
@@ -23,6 +24,7 @@ app.use(cors(
 }
 ))
 app.use('/user', router );
+app.use('/form', Form );
 
 
 const port = process.env.PORT || 8009

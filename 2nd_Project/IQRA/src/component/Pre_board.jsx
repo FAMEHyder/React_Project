@@ -13,8 +13,9 @@ import {
   Typography,
   Grid,
 } from '@mui/material';
-import { Formik, Form, Field } from 'formik';
+import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
+import axios from 'axios';
 
 const steps = [
   'Personal Information',
@@ -23,7 +24,8 @@ const steps = [
   'Payment Information',
 ];
 
-const stepSchemas = [
+// Validation Schemas for each step
+const validationSchemas = [
   Yup.object().shape({
     fullName: Yup.string().required('Full Name is required'),
     fatherName: Yup.string().required('Father Name is required'),
@@ -31,13 +33,13 @@ const stepSchemas = [
       .matches(/^[0-9]{10,15}$/, 'Invalid phone number')
       .required('Phone number is required'),
     cnic: Yup.string()
-      .matches(/^[0-9]{13}$/, 'Invalid CNIC/B-Form')
+      .matches(/^[0-9]{13}$/, 'Invalid CNIC/B-Form (must be 13 digits)')
       .required('CNIC/B-Form is required'),
     gender: Yup.string().required('Gender is required'),
     address: Yup.string().required('Address is required'),
   }),
   Yup.object().shape({
-    class: Yup.string().required('Class is required'),
+    Class: Yup.string().required('Class is required'),
     institution: Yup.string().required('Institution is required'),
     field: Yup.string().required('Field is required'),
   }),
@@ -49,10 +51,18 @@ const stepSchemas = [
       .required('Phone number is required'),
   }),
   Yup.object().shape({
-    paymentScreenshot: Yup.mixed().required('Screenshot is required'),
+    images: Yup.mixed()
+      .required('Screenshot is required')
+      .test('fileSize', 'File size too large (max: 2MB)', (value) => {
+        return value && value.size <= 2 * 1024 * 1024;
+      })
+      .test('fileType', 'Unsupported file type (JPEG/PNG only)', (value) => {
+        return value && ['image/jpeg', 'image/png'].includes(value.type);
+      }),
   }),
 ];
 
+// Initial values for all steps
 const initialValues = [
   {
     fullName: '',
@@ -63,7 +73,7 @@ const initialValues = [
     address: '',
   },
   {
-    class: '',
+    Class: '',
     institution: '',
     field: '',
   },
@@ -73,91 +83,121 @@ const initialValues = [
     guardianPhoneNumber: '',
   },
   {
-    paymentScreenshot: null,
+    images: null,
   },
 ];
 
 const Pre_board = () => {
   const [activeStep, setActiveStep] = useState(0);
+  const [formData, setFormData] = useState(initialValues);
 
-  const handleNext = () => {
-    setActiveStep((prevStep) => prevStep + 1);
+  const handleNext = (values) => {
+    setFormData((prev) => {
+      const updated = [...prev];
+      updated[activeStep] = values;
+      return updated;
+    });
+    setActiveStep((prev) => prev + 1);
   };
 
   const handleBack = () => {
-    setActiveStep((prevStep) => prevStep - 1);
+    setActiveStep((prev) => prev - 1);
   };
 
-  const handleSubmit = (values) => {
-    console.log('Final Form Values:', values);
-    alert('Form Submitted!');
+  const handleSubmit = async () => {
+    const finalData = formData.reduce((acc, stepData) => ({ ...acc, ...stepData }), {});
+    const formDataToSubmit = new FormData();
+
+    Object.entries(finalData).forEach(([key, value]) => {
+      if (key === 'images') {
+        formDataToSubmit.append(key, value); // Append the file directly
+      } else {
+        formDataToSubmit.append(key, value);
+      }
+    });
+
+    try {
+      const response = await axios.post('http://localhost:8000/form/createform', formDataToSubmit, {
+        headers: { 'Content-Type': 'multipart/form-data' },
+      });
+      alert('Form submitted successfully!');
+      console.log('Response:', response.data);
+    } catch (error) {
+      console.error('Error submitting form:', error.response?.data || error.message);
+      alert('An error occurred while submitting the form.');
+    }
   };
 
   const renderStepContent = (step) => {
-    const formFields = [
+    const fields = [
       [
-        { name: 'fullName', label: 'Full Name', type: 'text' },
-        { name: 'fatherName', label: 'Father Name', type: 'text' },
-        { name: 'phoneNumber', label: 'Phone Number', type: 'text' },
-        { name: 'cnic', label: 'CNIC/B-Form', type: 'text' },
+        { name: 'fullName', label: 'Full Name' },
+        { name: 'fatherName', label: 'Father Name' },
+        { name: 'phoneNumber', label: 'Phone Number' },
+        { name: 'cnic', label: 'CNIC/B-Form' },
         { name: 'gender', label: 'Gender', type: 'radio', options: ['Male', 'Female'] },
-        { name: 'address', label: 'Address', type: 'text' },
+        { name: 'address', label: 'Address' },
       ],
       [
-        { name: 'class', label: 'Class', type: 'text' },
-        { name: 'institution', label: 'Institution', type: 'text' },
-        { name: 'field', label: 'Field', type: 'radio', options: ['Science', 'Art'] },
+        { name: 'Class', label: 'Class' },
+        { name: 'institution', label: 'Institution' },
+        { name: 'field', label: 'Field', type: 'radio', options: ['Science', 'Arts'] },
       ],
       [
-        { name: 'guardianName', label: 'Name of Guardian', type: 'text' },
-        { name: 'relationship', label: 'Relationship with Candidate', type: 'text' },
-        { name: 'guardianPhoneNumber', label: 'Phone Number', type: 'text' },
+        { name: 'guardianName', label: 'Guardian Name' },
+        { name: 'relationship', label: 'Relationship with Candidate' },
+        { name: 'guardianPhoneNumber', label: 'Guardian Phone Number' },
       ],
       [
-        { name: 'paymentScreenshot', label: 'Upload Payment Screenshot', type: 'file' },
+        { name: 'images', label: 'Upload Student Photo', type: 'file' },
       ],
     ];
 
     return (
       <Formik
-        initialValues={initialValues[step]}
-        validationSchema={stepSchemas[step]}
-        onSubmit={step === steps.length - 1 ? handleSubmit : handleNext}
+        initialValues={formData[step]}
+        validationSchema={validationSchemas[step]}
+        onSubmit={(values) => {
+          if (step === steps.length - 1) {
+            handleSubmit();
+          } else {
+            handleNext(values);
+          }
+        }}
       >
         {({ errors, touched, setFieldValue }) => (
           <Form>
             <Grid container spacing={2}>
-              {formFields[step].map((field) => (
+              {fields[step].map((field) => (
                 <Grid item xs={12} sm={field.type === 'radio' ? 12 : 6} key={field.name}>
                   {field.type === 'radio' ? (
-                    <FormControl component="fieldset">
-                      <Typography variant="body1">{field.label}</Typography>
+                    <FormControl>
+                      <Typography>{field.label}</Typography>
                       <RadioGroup row name={field.name}>
                         {field.options.map((option) => (
                           <FormControlLabel
                             key={option}
-                            value={option.toLowerCase()}
-                            control={<Field as={Radio} />}
+                            value={option}
+                            control={<Field as={Radio} name={field.name} />}
                             label={option}
                           />
                         ))}
                       </RadioGroup>
+                      <ErrorMessage name={field.name}>
+                        {(msg) => <Typography color="error">{msg}</Typography>}
+                      </ErrorMessage>
                     </FormControl>
                   ) : field.type === 'file' ? (
-                    <div>
+                    <>
+                      <Typography>{field.label}</Typography>
                       <input
-                        id={field.name}
-                        name={field.name}
                         type="file"
-                        accept="image/*"
-                        onChange={(event) => setFieldValue(field.name, event.currentTarget.files[0])}
+                        onChange={(e) => setFieldValue(field.name, e.currentTarget.files[0])}
                       />
-                      {touched[field.name] && errors[field.name] && (
-                        <Typography color="error" variant="body2">
-                          {errors[field.name]}
-                        </Typography>
+                      {errors[field.name] && touched[field.name] && (
+                        <Typography color="error">{errors[field.name]}</Typography>
                       )}
-                    </div>
+                    </>
                   ) : (
                     <Field
                       as={TextField}
@@ -171,7 +211,6 @@ const Pre_board = () => {
                 </Grid>
               ))}
             </Grid>
-
             <Box mt={2} display="flex" justifyContent="space-between">
               {step > 0 && (
                 <Button variant="contained" onClick={handleBack}>
@@ -189,8 +228,8 @@ const Pre_board = () => {
   };
 
   return (
-    <Box p={2}>
-      <Typography variant="h4" textAlign="center" gutterBottom>
+    <Box p={4}>
+      <Typography variant="h4" align="center" gutterBottom>
         Pre-board Registration Form
       </Typography>
       <Stepper activeStep={activeStep} alternativeLabel>

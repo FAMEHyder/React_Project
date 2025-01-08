@@ -1,11 +1,37 @@
-import { Container, Box,Typography, TextField, Button } from '@mui/material';
+import { Container, Box, Typography, TextField, Button } from '@mui/material';
+import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import logo from '../image/AboutLogo.png'
+import axios from 'axios';
+import logo from '../image/AboutLogo.png';
+
 const SignIn = () => {
   const navigate = useNavigate();
-  const handleClick = (path) => {
-    navigate(path);
-  }
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError('');
+
+    try {
+      const response = await axios.post('http://localhost:8000/user/login', {
+        email,
+        password,
+      });
+
+      if (response.status === 200) {
+        // Save token or user data to localStorage/sessionStorage if needed
+        // localStorage.setItem('token', response.data.token);
+
+        // Navigate to the desired route after successful login
+        navigate('/dashboard'); // Replace '/dashboard' with your target route
+      }
+    } catch (err) {
+      setError(err.response?.data?.message || 'Login failed. Please try again.');
+    }
+  };
+
   return (
     <Container
       maxWidth="lg"
@@ -14,7 +40,7 @@ const SignIn = () => {
         bgcolor: 'white',
         mt: { xs: 2, sm: 3, md: 4 },
         mb: { xs: 2, sm: 3, md: 4 },
-        height: 'auto', // Adjust height to fit content
+        height: 'auto',
         width: { xs: '90%', sm: '70%', md: '50%', lg: '40%' },
         boxShadow: '0 5px 8px 5px rgba(255, 105, 135,.3)',
         borderRadius: '9px',
@@ -23,7 +49,7 @@ const SignIn = () => {
         alignItems: 'center',
       }}
     >
-            <Box
+      <Box
         sx={{
           height: '35vh',
           width: '400px',
@@ -31,12 +57,10 @@ const SignIn = () => {
           backgroundRepeat: 'no-repeat',
           backgroundSize: '50%',
           backgroundPosition: 'center',
-          alignItems: "center",
-          justifyContent: "center",
-
-
-        }}>
-        </Box>
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      ></Box>
       <Typography
         variant="h4"
         fontSize={{ xs: '2rem', sm: '2.5rem', md: '3rem' }}
@@ -48,7 +72,16 @@ const SignIn = () => {
         Sign In
       </Typography>
 
-      <form style={{ width: '100%' }}>
+      <form style={{ width: '100%' }} onSubmit={handleLogin}>
+        {error && (
+          <Typography
+            variant="body2"
+            color="red"
+            sx={{ mt: 1, mb: 1, textAlign: 'center' }}
+          >
+            {error}
+          </Typography>
+        )}
         <TextField
           label="Email"
           type="email"
@@ -56,6 +89,8 @@ const SignIn = () => {
           variant="outlined"
           fullWidth
           margin="normal"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
         />
         <TextField
           label="Password"
@@ -64,8 +99,11 @@ const SignIn = () => {
           variant="outlined"
           fullWidth
           margin="normal"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
         />
         <Button
+          type="submit"
           variant="contained"
           fullWidth
           sx={{
@@ -79,7 +117,7 @@ const SignIn = () => {
       </form>
 
       <Button
-      onClick={()=>{handleClick('/signup')}}
+        onClick={() => navigate('/signup')}
         sx={{
           mt: 2,
           fontSize: { xs: '0.8rem', sm: '1rem' },
