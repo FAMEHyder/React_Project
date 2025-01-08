@@ -1,7 +1,5 @@
 import Form from '../Models/form.model.js';
 const Createform = async (req, res, next) => {
-    console.log("apka req : ", req.body)
-    console.log("apka req : ", req.file)
     const { fullName, fatherName, phoneNumber, cnic, gender, address, Class, institution, field, guardianName, relationship, guardianPhoneNumber } = req.body;
 
     try {
