@@ -25,10 +25,8 @@ const UserTable = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get('http://localhost:8000/user/getAllUsers');
-        console.log('Your ids are:', response.data.data[0]); // Debugging the API response structure
         setUsers(response.data.data || []);
       } catch (err) {
-        console.error('Error fetching users:', err);
         setError('Failed to fetch user data. Please try again later.');
       } finally {
         setLoading(false);
@@ -38,16 +36,11 @@ const UserTable = () => {
     fetchUsers();
   }, []);
 
-  // Handle deleting a user
   const handleDelete = async (id) => {
     try {
-      // Send DELETE request to the API
       await axios.delete(`http://localhost:8000/user/${id}`);
-      
-      // Remove the deleted user from the state
       setUsers((prevUsers) => prevUsers.filter((user) => user._id !== id));
     } catch (err) {
-      console.error('Error deleting user:', err);
       setError('Failed to delete user. Please try again later.');
     }
   };
@@ -62,7 +55,7 @@ const UserTable = () => {
 
   if (error) {
     return (
-      <Box textAlign="center" marginTop="20px" color="red">
+      <Box textAlign="center" mt={3} color="error.main">
         <Typography variant="h6">{error}</Typography>
       </Box>
     );
@@ -70,7 +63,7 @@ const UserTable = () => {
 
   if (users.length === 0) {
     return (
-      <Box textAlign="center" marginTop="20px">
+      <Box textAlign="center" mt={3}>
         <Typography variant="h6">No Users Found</Typography>
       </Box>
     );
@@ -79,85 +72,65 @@ const UserTable = () => {
   return (
     <Box
       sx={{
-        marginLeft: '250px', // Adjust according to your sidebar width
-        padding: '20px',
-        width: 'calc(100% - 250px)', // Ensure responsive layout
+        padding: { xs: 2, sm: 3, md: 4 },
+        width: '100%',
         boxSizing: 'border-box',
+        overflowX: 'auto', // Enable horizontal scrolling
       }}
     >
+      <Typography
+        variant="h5"
+        textAlign="center"
+        sx={{ mb: 2, fontSize: { xs: '1.2rem', sm: '1.5rem', md: '2rem' } }}
+      >
+        User Table
+      </Typography>
       <TableContainer
         component={Paper}
         sx={{
-          margin: '20px auto',
+          margin: '0 auto',
           maxWidth: '100%',
+          overflowX: 'auto', // Enable scrolling for smaller screens
           boxShadow: 3,
         }}
       >
         <Table
           sx={{
-            tableLayout: 'auto', // Dynamic column sizing
+            minWidth: 650,
             '& td, & th': {
-              whiteSpace: 'normal', // Prevent text from being cut off
-              wordWrap: 'break-word', // Allow wrapping within cells
+              fontSize: { xs: '0.8rem', sm: '0.9rem', md: '1rem' },
+              padding: { xs: 1, sm: 2 },
             },
           }}
         >
           <TableHead>
             <TableRow>
-              <TableCell align="center"><strong>First Name</strong></TableCell>
-              <TableCell align="center"><strong>Last Name</strong></TableCell>
+              <TableCell align="center"><strong>Full Name</strong></TableCell>
               <TableCell align="center"><strong>Username</strong></TableCell>
               <TableCell align="center"><strong>Email</strong></TableCell>
               <TableCell align="center"><strong>Age</strong></TableCell>
               <TableCell align="center"><strong>Address</strong></TableCell>
-              <TableCell align="center"><strong>Actions</strong></TableCell> {/* For delete icon */}
+              <TableCell align="center"><strong>Actions</strong></TableCell>
             </TableRow>
           </TableHead>
           <TableBody>
-            {loading
-              ? [1, 2, 3, 4, 5].map((_, index) => (
-                  <TableRow key={index}>
-                    <TableCell align="center">
-                      <Skeleton variant="text" width="100px" />
-                    </TableCell>
-                    <TableCell align="center">
-                      <Skeleton variant="text" width="100px" />
-                    </TableCell>
-                    <TableCell align="center">
-                      <Skeleton variant="text" width="100px" />
-                    </TableCell>
-                    <TableCell align="center">
-                      <Skeleton variant="text" width="150px" />
-                    </TableCell>
-                    <TableCell align="center">
-                      <Skeleton variant="text" width="50px" />
-                    </TableCell>
-                    <TableCell align="center">
-                      <Skeleton variant="text" width="150px" />
-                    </TableCell>
-                    <TableCell align="center">
-                      <Skeleton variant="circle" width={24} height={24} />
-                    </TableCell>
-                  </TableRow>
-                ))
-              : users.map((user) => (
-                  <TableRow key={user._id}>
-                    <TableCell align="center">{user.firstName}</TableCell>
-                    <TableCell align="center">{user.lastName}</TableCell>
-                    <TableCell align="center">{user.username}</TableCell>
-                    <TableCell align="center">{user.email}</TableCell>
-                    <TableCell align="center">{user.age}</TableCell>
-                    <TableCell align="center">{user.address}</TableCell>
-                    <TableCell align="center">
-                      <IconButton
-                        color="error"
-                        onClick={() => handleDelete(user._id)} // Call handleDelete on icon click
-                      >
-                        <Delete />
-                      </IconButton>
-                    </TableCell>
-                  </TableRow>
-                ))}
+            {users.map((user) => (
+              <TableRow key={user._id}>
+                <TableCell align="center">{user.fullName}</TableCell>
+                <TableCell align="center">{user.userName}</TableCell>
+                <TableCell align="center">{user.email}</TableCell>
+                <TableCell align="center">{user.age}</TableCell>
+                <TableCell align="center">{user.address}</TableCell>
+                <TableCell align="center">
+                  <IconButton
+                    color="error"
+                    onClick={() => handleDelete(user._id)}
+                  >
+                    <Delete />
+                  </IconButton>
+                </TableCell>
+              </TableRow>
+            ))}
           </TableBody>
         </Table>
       </TableContainer>

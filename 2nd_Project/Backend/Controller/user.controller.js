@@ -87,3 +87,28 @@ export const login = async (req, res) => {
 
   }
 }
+
+export const getAllUsers = async (req, res, next) => {
+  try {
+    const users = await User.find(); // Fetch all users from the database
+    if (!users || users.length === 0) {
+      return res.status(404).json({
+        status: 404,
+        message: "No users found",
+      });
+    }
+    return res.status(200).json({
+      status: 200,
+      message: "Users retrieved successfully",
+      data: users,
+    });
+
+
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: 'Error retrieving users',
+      err: error,
+    });
+  }
+};
