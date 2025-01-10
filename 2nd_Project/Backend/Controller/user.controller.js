@@ -4,8 +4,7 @@ import jwt from "jsonwebtoken";
 
 
 const Register = async (req, res, next) => {
-    console.log("Your request body is:",req.body);
-    const { fullName, dob, age, address, userName, email, password } = req.body;
+    const { fullName, dob, Class, address, userName, email, password } = req.body;
     const salt = await bcrypt.genSalt(5);
     const hashedPassword = await bcrypt.hash(password, salt);
 
@@ -14,12 +13,12 @@ const Register = async (req, res, next) => {
 
             fullName,
             dob,
-            age,
+            Class,
             address,
             userName,
             email,
             password: hashedPassword,
-            // password
+            
 
 
         })
@@ -45,11 +44,9 @@ export default Register;
 
 
 export const login = async (req, res) => {
-    console.log("apka req body ye hay: ",req.body)
   const { email } = req.body
   try {
     const user = await User.findOne({ email })
-    console.log("apka user : ",user)
     if (!user) {
       return res.status(401).json({
         status: true,

@@ -5,7 +5,8 @@ import SignUp from "./component/SignUp.jsx";
 import LoginForm from "./component/SignIn.jsx";
 import  Home  from "./component/Home.jsx";
 import UserTable from "./component/UserTable.jsx";
-import MarksheetForm from "./component/MarksheetForm.jsx";
+import ScienceResult from "./component/ScienceResult.jsx";
+import ArtsResult from "./component/ArtsResult.jsx";
 
 function App() {
  
@@ -18,7 +19,8 @@ function App() {
       <Route path="/signup" element={<SignUp />} />
       <Route path="/signin" element={<LoginForm />} />
       <Route path="/users" element={<UserTable />} />
-      <Route path="/marksheet" element={<MarksheetForm />} />
+      <Route path="/marksheet" element={<ScienceResult />} />
+      <Route path="/marksheetarts" element={<ArtsResult />} />
     </Routes>
     {/* <Footer /> */}
 

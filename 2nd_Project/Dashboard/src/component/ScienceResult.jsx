@@ -1,6 +1,8 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
+import { useLocation } from 'react-router-dom';
+
 import { Box, TextField, Button, Typography, Grid, Container } from "@mui/material";
 
 // Validation schema
@@ -16,7 +18,10 @@ const validationSchema = Yup.object({
   urdu: Yup.number().required("Urdu is required").min(0, "Minimum 0").max(100, "Maximum 100"),
 });
 
-const MarksheetForm = () => {
+const ScienceResult = () => {
+    const location = useLocation();
+    const { userId } = location.state || {}; 
+    console.log(" your userId in marksheet form is :", userId);
   const formik = useFormik({
     initialValues: {
       mathScience: "",
@@ -24,10 +29,6 @@ const MarksheetForm = () => {
       physics: "",
       chemistry: "",
       english: "",
-      mathArts: "",
-      generalScience: "",
-      pakStd: "",
-      urdu: "",
     },
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
@@ -44,10 +45,10 @@ const MarksheetForm = () => {
   });
 
   return (
-    <Container maxWidth="md">
-      <Box sx={{ padding: 4, backgroundColor: "white", borderRadius: 2, boxShadow: 3 }}>
+    <Container maxWidth="md" >
+      <Box sx={{ padding: 4, backgroundColor: "white", borderRadius: 2, boxShadow: 3 ,mt:2 }}>
         <Typography variant="h5" sx={{ marginBottom: 2 }}>
-          Marksheet Form
+         Add Numbers to Marksheet
         </Typography>
         <form onSubmit={formik.handleSubmit}>
           <Grid container spacing={3}>
@@ -79,4 +80,4 @@ const MarksheetForm = () => {
   );
 };
 
-export default MarksheetForm;
+export default ScienceResult;

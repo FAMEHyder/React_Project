@@ -1,30 +1,26 @@
-import { useState} from 'react';
-import { Box, AppBar, Button,Menu, IconButton,MenuItem,  } from '@mui/material';
-import { AccountCircle} from '@mui/icons-material';
+import { useState } from 'react';
+import { Box, AppBar, Button, Menu, IconButton, MenuItem } from '@mui/material';
+import { AccountCircle } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import NL from '../image/navbarLogo.png';
 import MenuIcon from '@mui/icons-material/Menu';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  
+  const [anchorEl, setAnchorEl] = useState(null); // State for the menu anchor (user dropdown)
+  const [anchorElUser, setAnchorElUser] = useState(null); // State for the user dropdown
 
-  
-
-
-  const [anchorEl, setAnchorEl] = useState(null); // State for dropdown
-
-  const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget); // Set the anchor element
+  const handleUserMenuOpen = (event) => {
+    setAnchorElUser(event.currentTarget); // Open user menu on click
   };
 
-  const handleMenuClose = () => {
-    setAnchorEl(null); // Close the menu
+  const handleUserMenuClose = () => {
+    setAnchorElUser(null); // Close the user menu
   };
 
   const handleClick = (path) => {
     navigate(path); // Navigate to the specified path
-    handleMenuClose(); // Close the menu
+    handleUserMenuClose(); // Close the menu after navigation
   };
 
   return (
@@ -72,13 +68,12 @@ const Navbar = () => {
             <Button sx={{ color: 'white' }} onClick={() => handleClick('/signup')}>
               Sign Up
             </Button>
-            <Button sx={{ color: 'white' }} onClick={() => handleClick('/users')}>
+            <Button sx={{ color: 'white' }} onClick={handleUserMenuOpen}>
               User
             </Button>
             <Button sx={{ color: 'white' }} onClick={() => handleClick('/marksheet')}>
               Add Result
             </Button>
-            
             <Button sx={{ color: 'white' }} onClick={() => handleClick('/profile')}>
               <AccountCircle />
             </Button>
@@ -92,24 +87,24 @@ const Navbar = () => {
               position: 'absolute', // Keep position fixed
               right: '10px', // Align on the right side
             }}
-            onClick={handleMenuOpen}
+            onClick={handleUserMenuOpen} // Opens the user-specific dropdown
           >
             <MenuIcon />
           </IconButton>
 
           <Menu
-            anchorEl={anchorEl}
-            open={Boolean(anchorEl)}
-            onClose={handleMenuClose}
+            anchorEl={anchorElUser}
+            open={Boolean(anchorElUser)}
+            onClose={handleUserMenuClose}
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
             sx={{ mt: 1, mr: '10px' }} // Adjust positioning below the MenuIcon
           >
-            <MenuItem onClick={() => handleClick('/signin')}>Sign In</MenuItem>
-            <MenuItem onClick={() => handleClick('/signup')}>Sign Up</MenuItem>
-            <MenuItem onClick={() => handleClick('/userTable')}>User</MenuItem>
-            <MenuItem onClick={() => handleClick('/marksheet')}>Add Result</MenuItem>
-            <MenuItem onClick={() => handleClick('/profile')}><AccountCircle /></MenuItem>
+            {/* Only the class-related buttons for "User" */}
+            <MenuItem onClick={() => handleClick('/marksheetarts')}>9th Arts</MenuItem>
+            <MenuItem onClick={() => handleClick('/marksheetarts')}>10th Arts</MenuItem>
+            <MenuItem onClick={() => handleClick('/marksheet')}>9th Science</MenuItem>
+            <MenuItem onClick={() => handleClick('/marksheet')}>10th Science</MenuItem>
           </Menu>
         </Box>
       </AppBar>

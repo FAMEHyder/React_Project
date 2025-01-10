@@ -10,16 +10,18 @@ import {
   CircularProgress,
   Box,
   Typography,
-  Skeleton,
   IconButton,
+  Button,
 } from '@mui/material';
 import { Delete } from '@mui/icons-material';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 
 const UserTable = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUsers = async () => {
@@ -43,6 +45,13 @@ const UserTable = () => {
     } catch (err) {
       setError('Failed to delete user. Please try again later.');
     }
+  };
+
+  const handleAddResult = (id) => {
+    // Add result handling logic here, such as showing a form or updating the user result
+    console.log(`Add result for user with ID: ${id}`);
+    navigate('/marksheet', { state: { userId: id } });
+    // Example: Sending a request to add a result for the user (you can expand this logic)
   };
 
   if (loading) {
@@ -108,8 +117,9 @@ const UserTable = () => {
               <TableCell align="center"><strong>Full Name</strong></TableCell>
               <TableCell align="center"><strong>Username</strong></TableCell>
               <TableCell align="center"><strong>Email</strong></TableCell>
-              <TableCell align="center"><strong>Age</strong></TableCell>
+              <TableCell align="center"><strong>Class</strong></TableCell>
               <TableCell align="center"><strong>Address</strong></TableCell>
+              <TableCell align="center"><strong>Add Result</strong></TableCell>
               <TableCell align="center"><strong>Actions</strong></TableCell>
             </TableRow>
           </TableHead>
@@ -119,9 +129,23 @@ const UserTable = () => {
                 <TableCell align="center">{user.fullName}</TableCell>
                 <TableCell align="center">{user.userName}</TableCell>
                 <TableCell align="center">{user.email}</TableCell>
-                <TableCell align="center">{user.age}</TableCell>
+                <TableCell align="center">{user.Class}</TableCell>
                 <TableCell align="center">{user.address}</TableCell>
                 <TableCell align="center">
+                  {/* Add Result Button */}
+                  <Button
+                    variant="contained"
+                    color="primary"
+                    onClick={() => handleAddResult(user._id)}
+                    sx={{ marginRight: 1 }}
+                  >
+                    Add Result
+                  </Button>
+                  
+                </TableCell>
+                <TableCell align="center">
+                  
+                  {/* Delete Button */}
                   <IconButton
                     color="error"
                     onClick={() => handleDelete(user._id)}

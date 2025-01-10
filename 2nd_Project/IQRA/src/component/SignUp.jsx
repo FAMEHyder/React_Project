@@ -11,7 +11,7 @@ const SignUp = () => {
   const [formData, setFormData] = useState({
     fullName: '',
     dob: '',
-    age: '',
+    Class: '',
     address: '',
     userName: '',
     email: '',
@@ -128,9 +128,9 @@ const SignUp = () => {
           InputLabelProps={{ shrink: true }}
         />
         <TextField
-          name="age"
-          label="Age"
-          type="number"
+          name="Class"
+          label="9th Arts/10th Arts/ 9th Science / 10th Science"
+          type="text"
           variant="outlined"
           fullWidth
           margin="normal"
