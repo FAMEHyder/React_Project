@@ -101,10 +101,10 @@ const Navbar = () => {
             sx={{ mt: 1, mr: '10px' }} // Adjust positioning below the MenuIcon
           >
             {/* Only the class-related buttons for "User" */}
-            <MenuItem onClick={() => handleClick('/marksheetarts')}>9th Arts</MenuItem>
-            <MenuItem onClick={() => handleClick('/marksheetarts')}>10th Arts</MenuItem>
-            <MenuItem onClick={() => handleClick('/marksheet')}>9th Science</MenuItem>
-            <MenuItem onClick={() => handleClick('/marksheet')}>10th Science</MenuItem>
+            <MenuItem onClick={() => handleClick('/user9arts')}>9th Arts</MenuItem>
+            <MenuItem onClick={() => handleClick('/user10arts')}>10th Arts</MenuItem>
+            <MenuItem onClick={() => handleClick('/user9science')}>9th Science</MenuItem>
+            <MenuItem onClick={() => handleClick('/user10science')}>10th Science</MenuItem>
           </Menu>
         </Box>
       </AppBar>

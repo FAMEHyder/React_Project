@@ -3,12 +3,16 @@ import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import logo from '../image/AboutLogo.png';
+import {useAuthStore} from '../authContext/auth';
+
 
 const SignIn = () => {
   const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
+    const {login } = useAuthStore();
+  
 
   const handleLogin = async (e) => {
     e.preventDefault();
@@ -23,9 +27,9 @@ const SignIn = () => {
       if (response.status === 200) {
         // Save token or user data to localStorage/sessionStorage if needed
         // localStorage.setItem('token', response.data.token);
-
-        // Navigate to the desired route after successful login
-        navigate('/dashboard'); // Replace '/dashboard' with your target route
+        
+        login(response.data)
+        navigate('/');
       }
     } catch (err) {
       setError(err.response?.data?.message || 'Login failed. Please try again.');

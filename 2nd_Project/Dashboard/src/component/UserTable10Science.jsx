@@ -17,7 +17,7 @@ import { Delete } from '@mui/icons-material';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 
-const UserTable = () => {
+const UserTable10Science = () => {
   const [users, setUsers] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -27,16 +27,19 @@ const UserTable = () => {
     const fetchUsers = async () => {
       try {
         const response = await axios.get('http://localhost:8000/user/getAllUsers');
-        setUsers(response.data.data || []);
+        const allUsers = response.data.data || [];
+        const filteredUsers = allUsers.filter((user) => user.Class === '10th science' || user.Class ==='10 science' || user.Class === '10th Science' || user.Class === '10 Science'); // Filter users where Class is '9th arts'
+        setUsers(filteredUsers);
       } catch (err) {
         setError('Failed to fetch user data. Please try again later.');
       } finally {
         setLoading(false);
       }
     };
-
+  
     fetchUsers();
   }, []);
+  
 
   const handleDelete = async (id) => {
     try {
@@ -50,7 +53,7 @@ const UserTable = () => {
   const handleAddResult = (id) => {
     // Add result handling logic here, such as showing a form or updating the user result
     console.log(`Add result for user with ID: ${id}`);
-    navigate('/marksheet', { state: { userId: id } });
+    navigate('/scienceresult', { state: { userId: id } });
     // Example: Sending a request to add a result for the user (you can expand this logic)
   };
 
@@ -162,4 +165,4 @@ const UserTable = () => {
   );
 };
 
-export default UserTable;
+export default UserTable10Science;
