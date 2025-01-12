@@ -8,6 +8,7 @@ import Footer from "./component/Footer.jsx";
 import Members from './component/Members.jsx'
 import Pre_board from "./component/Pre_board.jsx";
 import Section from "./component/Section.jsx";
+import UserProfile from "./component/UserProfile.jsx";
 
 function App() {
  
@@ -22,6 +23,7 @@ function App() {
         <Route path = "/members"  element ={<Members/>}/>
         <Route path = "/pre-board" element = {<Pre_board/>} />
         <Route path = "/Section" element = {<Section/>} />
+        <Route path = "/ُprofile" element = {<UserProfile/>} />
       </Routes>
       < Footer/>
     </Router>

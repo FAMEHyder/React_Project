@@ -70,7 +70,7 @@ const Navbar = () => {
               Contact Us
             </Button>
             
-            <Button sx={{ color: 'white' }} onClick={() => handleClick('/profile')}>
+            <Button sx={{ color: 'white' }} onClick={() => handleClick('/ُprofile')}>
               <AccountCircle />
             </Button>
           </Box>
@@ -99,7 +99,7 @@ const Navbar = () => {
             <MenuItem onClick={() => handleClick('/signin')}>Sign In</MenuItem>
             <MenuItem onClick={() => handleClick('/signup')}>Sign Up</MenuItem>
             <MenuItem onClick={() => handleClick('/contact')}>Contact Us</MenuItem>
-            <MenuItem onClick={() => handleClick('/profile')}><AccountCircle /></MenuItem>
+            <MenuItem onClick={() => handleClick('/ُprofile')}><AccountCircle /></MenuItem>
           </Menu>
         </Box>
       </AppBar>
