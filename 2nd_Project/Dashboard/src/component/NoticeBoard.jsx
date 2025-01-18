@@ -29,7 +29,7 @@ const NoticeBoard = () => {
     setError('');
     try {
       // API Call
-      await axios.post('http://localhost:8000/notice/board', values);
+      await axios.post('http://localhost:8000/notice/AddToBoard', values);
       setSuccess(true);
       resetForm();
     } catch (err) {

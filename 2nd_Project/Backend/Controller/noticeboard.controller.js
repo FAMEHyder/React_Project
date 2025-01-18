@@ -11,9 +11,16 @@ export const addNotice = async (req, res) => {
     try {
       const newNotice = new Notice({ title, description, date });
       const savedNotice = await newNotice.save();
-      res.status(201).json(savedNotice);
+      res.status(201).json({
+        status:true,
+        message: "added to notice board successfully",
+
+      });
     } catch (error) {
-      res.status(500).json({ message: 'Error adding notice', error });
+      res.status(500).json({ 
+        message: 'Error adding notice', 
+        err:error 
+    });
     }
   };
 
