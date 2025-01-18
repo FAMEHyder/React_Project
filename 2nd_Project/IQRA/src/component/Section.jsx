@@ -29,7 +29,7 @@ export default function Section() {
                 // border: "5px solid red",
             }}
         >
-            <Paper onClick = {()=>handleClick('/team')}
+            <Paper onClick = {() => handleClick('/team')}
                 sx={{
 
                     bgcolor: 'primary.main',
@@ -44,7 +44,7 @@ export default function Section() {
 
 
             </Paper>
-            <Paper
+            <Paper onClick = {() => handleClick('/noticeboard')}
                 sx={{
                     bgcolor: 'secondary.main',
                     height: '60%',
@@ -57,7 +57,7 @@ export default function Section() {
 
 
             </Paper>
-            <Paper
+            <Paper onClick = {() => handleClick('/exams')}
                 sx={{
                     bgcolor: 'error.main',
                     height: '60%',
@@ -70,7 +70,7 @@ export default function Section() {
 
 
             </Paper>
-            <Paper
+            <Paper onClick = {() => handleClick('/results')}
                 sx={{
                     bgcolor: 'success.main',
                     height: '60%',
