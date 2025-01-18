@@ -90,6 +90,9 @@ const initialValues = [
 ];
 
 const Pre_board = () => {
+  const { userId } = useAuthStore();
+  console.log("your user id is : " ,userId)
+
   const [activeStep, setActiveStep] = useState(0);
   const [formData, setFormData] = useState(initialValues);
 

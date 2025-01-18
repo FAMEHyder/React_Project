@@ -110,7 +110,7 @@ const Navbar = () => {
             <MenuItem onClick={() => handleClick('/signin')}>Sign In</MenuItem>
             <MenuItem onClick={() => handleClick('/signup')}>Sign Up</MenuItem>
             <MenuItem onClick={() => handleClick('/contact')}>Contact Us</MenuItem>
-            <MenuItem onClick={() => handleprofileClick('profile')}><AccountCircle /></MenuItem>
+            <MenuItem onClick={() => handleprofileClick('/profile')}><AccountCircle /></MenuItem>
           </Menu>
         </Box>
       </AppBar>

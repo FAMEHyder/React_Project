@@ -5,14 +5,24 @@ import Team from '../Section/Team.png';
 import Exams from '../Section/Exams.png';
 import Results from '../Section/Results.png';
 import {useNavigate} from 'react-router-dom';
+import { useAuthStore } from '../authContext/auth';
 
 export default function Section() {
     const navigate = useNavigate()
-
+    const {user} = useAuthStore()
     const handleClick = (path)=>{
 
         navigate(path)
     }
+
+    const handlepermissionClick = (path) => {
+        if (!user) {
+          alert('Sign in required! Click Ok to Sign in');
+          navigate('/Signin');
+          return;
+        }
+        navigate(path); // Navigate to the specified path
+      };
     return (
         <Box
             display="flex" // Apply flex
@@ -57,7 +67,7 @@ export default function Section() {
 
 
             </Paper>
-            <Paper onClick = {() => handleClick('/pre_board')}
+            <Paper onClick = {() => handlepermissionClick('/pre_board')}
                 sx={{
                     bgcolor: 'error.main',
                     height: '60%',
@@ -70,7 +80,7 @@ export default function Section() {
 
 
             </Paper>
-            <Paper onClick = {() => handleClick('/results')}
+            <Paper onClick = {() => handlepermissionClick('/results')}
                 sx={{
                     bgcolor: 'success.main',
                     height: '60%',
