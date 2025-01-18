@@ -1,97 +1,96 @@
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
+import Typography from '@mui/material/Typography';
 import NoticBoard from '../Section/NoticBoard.png';
 import Team from '../Section/Team.png';
 import Exams from '../Section/Exams.png';
 import Results from '../Section/Results.png';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../authContext/auth';
 
 export default function Section() {
-    const navigate = useNavigate()
-    const {user} = useAuthStore()
-    const handleClick = (path)=>{
+    const navigate = useNavigate();
+    const { user } = useAuthStore();
 
-        navigate(path)
-    }
+    const handleClick = (path) => {
+        navigate(path);
+    };
 
-    const handlepermissionClick = (path) => {
+    const handlePermissionClick = (path) => {
         if (!user) {
-          alert('Sign in required! Click Ok to Sign In');
-          navigate('/Signin');
-          return;
+            alert('Sign in required! Click Ok to Sign In');
+            navigate('/Signin');
+            return;
         }
-        navigate(path); // Navigate to the specified path
-      };
+        navigate(path);
+    };
+
     return (
         <Box
-            display="flex" // Apply flex
-            flexDirection="row" // Layout direction
-             
+            display="flex"
+            flexDirection="row"
+            flexWrap="wrap"
             alignItems="center"
-            justifyContent={'center'} // Alignment of items
-            gap = {5}
+            justifyContent="center"
+            gap={5}
             sx={{
-                width: "99.23%",
-                height: "300px",
-
-
-                // border: "5px solid red",
+                width: '100%',
             }}
         >
-            <Paper onClick = {() => handleClick('/members')}
-                sx={{
-
-                    bgcolor: 'primary.main',
-                    height: '60%',
-                    boxShadow: '5px 5px 5px 5px',
-                    width: '250px',
-                    backgroundImage: `url(${Team})`,
-                    backgroundSize: '100% 100%',
-                    backgroundRepeat: 'no-repeat',
-
-                }}>
-
-
-            </Paper>
-            <Paper onClick = {() => handleClick('/noticeboard')}
-                sx={{
-                    bgcolor: 'secondary.main',
-                    height: '60%',
-                    boxShadow: '5px 5px 5px 5px',
-                    width: '250px',
-                    backgroundImage: `url(${NoticBoard})`,
-                    backgroundSize: '100% 100%',
-                    backgroundRepeat: 'no-repeat'
-                }}>
-
-
-            </Paper>
-            <Paper onClick = {() => handlepermissionClick('/pre_board')}
-                sx={{
-                    bgcolor: 'error.main',
-                    height: '60%',
-                    boxShadow: '5px 5px 5px 5px',
-                    width: '250px',
-                    backgroundImage: `url(${Exams})`,
-                    backgroundSize: '100% 100%',
-                    backgroundRepeat: 'no-repeat'
-                }}>
-
-
-            </Paper>
-            <Paper onClick = {() => handlepermissionClick('/results')}
-                sx={{
-                    bgcolor: 'success.main',
-                    height: '60%',
-                    boxShadow: '5px 5px 5px 5px',
-                    backgroundImage: `url(${Results})`,
-                    backgroundSize: '100% 100%',
-                    backgroundRepeat: 'no-repeat',
-                    width: '250px'
-                }}>
-
-            </Paper>
+            {[{
+                label: 'Our Team',
+                image:  Team,
+                path: '/members',
+                onClick: handleClick
+            }, {
+                label: 'Notice Board',
+                image: NoticBoard,
+                path: '/noticeboard',
+                onClick: handleClick
+            }, {
+                label: 'Pre-Board Exams',
+                image: Exams,
+                path: '/pre_board',
+                onClick: handlePermissionClick
+            }, {
+                label: 'Results',
+                image: Results,
+                path: '/results',
+                onClick: handlePermissionClick
+            }].map((item, index) => (
+                <Box key={index} textAlign="center">
+                    <Paper
+                        onClick={() => item.onClick(item.path)}
+                        sx={{
+                            bgcolor: 'background.default',
+                            height: { xs: '200px', sm: '250px', md: '200px' },
+                            width: { xs: '150px', sm: '200px', md: '250px' },
+                            boxShadow: 5,
+                            mt:{xs: '10px', sm: '10px', md: '20px'},
+                            backgroundImage: `url(${item.image})`,
+                            backgroundSize: 'cover 60%',
+                            backgroundPosition: 'center',
+                            backgroundRepeat: 'no-repeat',
+                            borderRadius: 2,
+                            transition: 'transform 0.3s ease',
+                            '&:hover': {
+                                transform: 'scale(1.05)',
+                                boxShadow: 8,
+                            },
+                        }}
+                    />
+                    <Typography
+                        variant="h6"
+                        sx={{
+                            mt: 1,
+                            fontSize: { xs: '14px', sm: '16px', md: '18px' },
+                            fontWeight: 'bold',
+                        }}
+                    >
+                        {item.label}
+                    </Typography>
+                </Box>
+            ))}
         </Box>
     );
 }

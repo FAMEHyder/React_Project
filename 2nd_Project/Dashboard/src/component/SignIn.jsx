@@ -1,111 +1,136 @@
+import { Container, Box, Typography, TextField, Button } from '@mui/material';
 import { useState } from 'react';
-import { TextField, Button, Container, Typography, InputAdornment, Box } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
-import { Mail, Lock } from '@mui/icons-material'; // Importing icons for email and password fields
+import logo from '../image/AboutLogo.png';
+import {useAuthStore} from '../authContext/auth';
 
-function LoginForm() {
+
+const SignIn = () => {
+  const navigate = useNavigate();
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
+  const [error, setError] = useState('');
+    const {login } = useAuthStore();
+  
 
-  const handleLogin = async (event) => {
-    event.preventDefault();
+  const handleLogin = async (e) => {
+    e.preventDefault();
+    setError('');
 
-    if (email && password) {
-      try {
-        const response = await axios.post('http://localhost:8000/user/login', {
-          email,
-          password,
-        });
+    try {
+      const response = await axios.post('http://localhost:8000/user/login', {
+        email,
+        password,
+      });
 
-        if (response.status === 200) {
-          alert('Logged in successfully!');
-          console.log("User Data from backend", response.data, response.data.userData);
-          // login(response.data)
-          navigate('/');
-        } else {
-          alert('Login failed. Please check your credentials.');
-        }
-      } catch (error) {
-        console.error('Error logging in:', error);
-        alert('An error occurred while logging in. Please try again later.');
+      if (response.status === 200) {
+       
+        login(response.data)
+        navigate('/');
       }
-    } else {
-      alert('Please enter both email and password');
+    } catch (err) {
+      setError(err.response?.data?.message || 'Login failed. Please try again.');
     }
   };
 
   return (
-    <Box
+    <Container
+      maxWidth="lg"
       sx={{
+        padding: { xs: 2, sm: 3, md: 4, lg: 5 },
+        bgcolor: 'white',
+        mt: { xs: 2, sm: 3, md: 4 },
+        mb: { xs: 2, sm: 3, md: 4 },
+        height: 'auto',
+        width: { xs: '90%', sm: '70%', md: '50%', lg: '40%' },
+        boxShadow: '0 5px 8px 5px rgba(255, 105, 135,.3)',
+        borderRadius: '9px',
         display: 'flex',
-        justifyContent: 'center',
+        flexDirection: 'column',
         alignItems: 'center',
-        height: '100vh',
       }}
     >
-      <Container
-        maxWidth="xs"
+      <Box
         sx={{
-          backgroundColor: 'white',
-          padding: '16px',
-          borderRadius: '8px',
-          boxShadow: '0px 4px 10px rgba(0, 0, 0, 0.1)',
+          height: '35vh',
+          width: '400px',
+          backgroundImage: `url(${logo})`,
+          backgroundRepeat: 'no-repeat',
+          backgroundSize: '50%',
+          backgroundPosition: 'center',
+          alignItems: 'center',
+          justifyContent: 'center',
+        }}
+      ></Box>
+      <Typography
+        variant="h4"
+        fontSize={{ xs: '2rem', sm: '2.5rem', md: '3rem' }}
+        fontFamily={'Cambria, Cochin, Georgia, Times, "Times New Roman", serif'}
+        color="blue"
+        fontWeight={600}
+        sx={{ mt: { xs: 1, sm: 2 }, textAlign: 'center' }}
+      >
+        Sign In
+      </Typography>
+
+      <form style={{ width: '100%' }} onSubmit={handleLogin}>
+        {error && (
+          <Typography
+            variant="body2"
+            color="red"
+            sx={{ mt: 1, mb: 1, textAlign: 'center' }}
+          >
+            {error}
+          </Typography>
+        )}
+        <TextField
+          label="Email"
+          type="email"
+          placeholder="abc@gmail.com"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
+        <TextField
+          label="Password"
+          type="password"
+          placeholder="********"
+          variant="outlined"
+          fullWidth
+          margin="normal"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <Button
+          type="submit"
+          variant="contained"
+          fullWidth
+          sx={{
+            mt: 2,
+            padding: { xs: 1, sm: 1.5 },
+            fontSize: { xs: '0.8rem', sm: '1rem' },
+          }}
+        >
+          Login
+        </Button>
+      </form>
+
+      <Button
+        onClick={() => navigate('/signup')}
+        sx={{
+          mt: 2,
+          fontSize: { xs: '0.8rem', sm: '1rem' },
+          color: 'blue',
+          textTransform: 'none',
         }}
       >
-        <Typography variant="h4" gutterBottom>
-          Login
-        </Typography>
-        <form onSubmit={handleLogin}>
-          <TextField
-            label="Email"
-            type="email"
-            placeholder="abc@gmail.com"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <Mail />
-                </InputAdornment>
-              ),
-            }}
-          />
-          <TextField
-            label="Password"
-            type="password"
-            placeholder="********"
-            variant="outlined"
-            fullWidth
-            margin="normal"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-            InputProps={{
-              endAdornment: (
-                <InputAdornment position="end">
-                  <Lock />
-                </InputAdornment>
-              ),
-            }}
-          />
-          <Button type="submit" variant="contained" color="primary" fullWidth>
-            Login
-          </Button>
-          <Button
-            variant="text"
-            fullWidth
-            onClick={() => navigate('/Signup')}
-          >
-            Dont have an account? Register here
-          </Button>
-        </form>
-      </Container>
-    </Box>
+        Don't have an account? Sign up now
+      </Button>
+    </Container>
   );
-}
+};
 
-export default LoginForm;
+export default SignIn;

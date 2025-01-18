@@ -18,7 +18,6 @@ import * as Yup from 'yup';
 import axios from 'axios';
 import { useAuthStore } from '../authContext/auth';
 
-
 const steps = [
   'Personal Information',
   'Educational Background',
@@ -91,7 +90,7 @@ const initialValues = [
 
 const Pre_board = () => {
   const { userId } = useAuthStore();
-  console.log("your user id is : " ,userId)
+  console.log('Your user ID is:', userId);
 
   const [activeStep, setActiveStep] = useState(0);
   const [formData, setFormData] = useState(initialValues);
@@ -113,6 +112,7 @@ const Pre_board = () => {
     const finalData = formData.reduce((acc, stepData) => ({ ...acc, ...stepData }), {});
     const formDataToSubmit = new FormData();
 
+    // Append all form fields to FormData
     Object.entries(finalData).forEach(([key, value]) => {
       if (key === 'images') {
         formDataToSubmit.append(key, value); // Append the file directly
@@ -120,6 +120,9 @@ const Pre_board = () => {
         formDataToSubmit.append(key, value);
       }
     });
+
+    // Append userId to FormData
+    formDataToSubmit.append('userId', userId);
 
     try {
       const response = await axios.post('http://localhost:8000/form/createform', formDataToSubmit, {

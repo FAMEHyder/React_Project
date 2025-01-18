@@ -45,7 +45,6 @@ const userSchema = new mongoose.Schema({
 
     Registration: {
         type: [String],
-        default: "user"
     },
 
     Marksheet: [
