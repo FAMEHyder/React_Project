@@ -74,6 +74,9 @@ const Navbar = () => {
             <Button sx={{ color: 'white' }} onClick={() => handleClick('/marksheet')}>
               Add Result
             </Button>
+            <Button sx={{ color: 'white' }} onClick={() => handleClick('/noticboard')}>
+              NoticeBoard
+            </Button>
             <Button sx={{ color: 'white' }} onClick={() => handleClick('/profile')}>
               <AccountCircle />
             </Button>

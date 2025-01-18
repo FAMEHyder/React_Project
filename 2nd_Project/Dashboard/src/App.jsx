@@ -10,6 +10,7 @@ import UserTable9Science from "./component/UserTable9Science.jsx";
 import UserTable10Science from "./component/UserTable10Science.jsx";
 import ArtsResult from "./component/ArtsResult.jsx";
 import ScienceResult from "./component/ScienceResult.jsx";
+import NoticeBoard from "./component/NoticeBoard.jsx";
 function App() {
  
   return (
@@ -26,6 +27,8 @@ function App() {
       <Route path="/user10science" element={<UserTable10Science />} />
       <Route path="/artsresult" element={<ArtsResult />} />
       <Route path="/scienceresult" element={<ScienceResult />} />
+      <Route path="/scienceresult" element={<ScienceResult />} />
+      <Route path="/noticboard" element={<NoticeBoard />} />
 
       
     </Routes>
