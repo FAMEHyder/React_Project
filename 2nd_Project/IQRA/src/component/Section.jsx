@@ -17,7 +17,7 @@ export default function Section() {
 
     const handlepermissionClick = (path) => {
         if (!user) {
-          alert('Sign in required! Click Ok to Sign in');
+          alert('Sign in required! Click Ok to Sign In');
           navigate('/Signin');
           return;
         }
