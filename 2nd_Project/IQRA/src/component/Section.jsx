@@ -57,7 +57,7 @@ export default function Section() {
 
 
             </Paper>
-            <Paper onClick = {() => handleClick('/exams')}
+            <Paper onClick = {() => handleClick('/pre_board')}
                 sx={{
                     bgcolor: 'error.main',
                     height: '60%',
