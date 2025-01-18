@@ -25,7 +25,7 @@ const Navbar = () => {
   };
   const handleprofileClick = (path) => {
     if (!user) {
-      alert('Sign in required! Click Ok to login');
+      alert('Sign in required! Click Ok to Sign In');
       navigate('/Signin');
       return;
     }
