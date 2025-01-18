@@ -1,19 +1,17 @@
-import {User} from "../Models/user.model.js";
+import Admin from "../Models/admin.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
 
 const Register = async (req, res, next) => {
-    const { fullName, dob, Class, address, userName, email, password } = req.body;
+    const { fullName, address, userName, email, password } = req.body;
     const salt = await bcrypt.genSalt(5);
     const hashedPassword = await bcrypt.hash(password, salt);
 
     try {
-        const user = new User({
+        const admin = new Admin({
 
             fullName,
-            dob,
-            Class,
             address,
             userName,
             email,
@@ -23,12 +21,12 @@ const Register = async (req, res, next) => {
 
         })
 
-        await user.save()
+        await admin.save()
         res.status(201).json({
 
             status: true,
             message: "User Created Successfully",
-            data: user
+            data: admin
         })
     } catch (error) {
         console.log(error);
@@ -46,7 +44,7 @@ export default Register;
 export const login = async (req, res) => {
   const { email } = req.body
   try {
-    const user = await User.findOne({ email })
+    const admin = await Admin.findOne({ email })
     if (!user) {
       return res.status(401).json({
         status: true,
@@ -84,55 +82,3 @@ export const login = async (req, res) => {
 
   }
 }
-
-export const getAllUsers = async (req, res, next) => {
-  try {
-    const users = await User.find(); // Fetch all users from the database
-    if (!users || users.length === 0) {
-      return res.status(404).json({
-        status: 404,
-        message: "No users found",
-      });
-    }
-    return res.status(200).json({
-      status: 200,
-      message: "Users retrieved successfully",
-      data: users,
-    });
-
-
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({
-      message: 'Error retrieving users',
-      err: error,
-    });
-  }
-};
-
-
-export const getUserById = async (req, res, next) => {
-  try {
-    const { id } = req.params; // Extract the user ID from the request parameters
-    const user = await User.findById(id); // Fetch the user by ID from the database
-
-    if (!user) {
-      return res.status(404).json({
-        status: 404,
-        message: "User not found",
-      });
-    }
-
-    return res.status(200).json({
-      status: 200,
-      message: "User retrieved successfully",
-      data: user,
-    });
-  } catch (error) {
-    console.log(error);
-    return res.status(500).json({
-      message: "Error retrieving user",
-      err: error,
-    });
-  }
-};

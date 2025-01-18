@@ -1,10 +1,9 @@
 import express from "express";
 import dotenv from 'dotenv';
-import router from './Routes/user.routes.js';
+import user from './Routes/user.routes.js';
 import Form from './Routes/form.routes.js';
-import marksheet from "./Routes/marksheet.route.js";
 import DataBaseConnection from './Database/Database.js';
-
+import admin from './Routes/admin.route.js';
 import cors from 'cors';
 
 dotenv.config();
@@ -23,9 +22,9 @@ app.use(cors(
     credentials:true
 }
 ))
-app.use('/user', router );
+app.use('/user', user );
 app.use('/form', Form );
-app.use('/marksheet', marksheet );
+app.use('/Admin', admin );
 
 
 const port = process.env.PORT || 8009

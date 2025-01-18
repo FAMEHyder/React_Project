@@ -10,8 +10,6 @@ const SignUp = () => {
   // State to capture form data
   const [formData, setFormData] = useState({
     fullName: '',
-    dob: '',
-    Class: '',
     address: '',
     userName: '',
     email: '',
@@ -115,32 +113,7 @@ const SignUp = () => {
           value={formData.fullName}
           onChange={handleChange}
         />
-        <TextField
-          name="dob"
-          label="Date of Birth"
-          type="date"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          required
-          value={formData.dob}
-          onChange={handleChange}
-          InputLabelProps={{ shrink: true }}
-        />
-        <TextField
-          name="Class"
-          label="9th Arts/10th Arts/ 9th Science / 10th Science"
-          type="text"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          required
-          value={formData.age}
-          onChange={handleChange}
-          onInput={(e) => {
-            e.target.value = e.target.value < 0 ? 0 : e.target.value;
-          }}
-        />
+       
         <TextField
           name="address"
           label="Address"

@@ -1,5 +1,5 @@
 import Form from '../Models/form.model.js';
-import User from '../Models/user.model.js'; // Import the User model
+import {User} from '../Models/user.model.js'; // Import the User model
 
 const Createform = async (req, res, next) => {
     const {
