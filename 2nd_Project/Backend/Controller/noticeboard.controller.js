@@ -9,8 +9,8 @@ export const addNotice = async (req, res) => {
     }
   
     try {
-      const newNotice = new Notice({ title, description, date });
-      const savedNotice = await newNotice.save();
+      const AddNotice = new Notice({ title, description, date });
+      await AddNotice.save();
       res.status(201).json({
         status:true,
         message: "added to notice board successfully",
