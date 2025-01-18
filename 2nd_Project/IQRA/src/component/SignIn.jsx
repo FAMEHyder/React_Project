@@ -25,9 +25,7 @@ const SignIn = () => {
       });
 
       if (response.status === 200) {
-        // Save token or user data to localStorage/sessionStorage if needed
-        // localStorage.setItem('token', response.data.token);
-        
+       
         login(response.data)
         navigate('/');
       }

@@ -14,7 +14,7 @@ export const useAuthStore = create((set, get) => ({
         console.log("Now userId is : ",userId)
         if (!token || !userId) return;
         try {
-            const response = await axios.get(`http://localhost:8000/user/getuser/${userId}`, {
+            const response = await axios.get(`http://localhost:8000/user/users/${userId}`, {
                 headers: { Authorization: `Bearer ${token}` }
             });
             set({ user: response.data.data });

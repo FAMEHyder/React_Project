@@ -4,10 +4,12 @@ import MenuIcon from '@mui/icons-material/Menu';
 import AccountCircle from '@mui/icons-material/AccountCircle';
 import NL from '../image/navbarLogo.png';
 import { useNavigate } from 'react-router-dom';
+import { useAuthStore } from '../authContext/auth';
 
 const Navbar = () => {
   const [anchorEl, setAnchorEl] = useState(null); // State for dropdown
   const navigate = useNavigate();
+  const { user } = useAuthStore();
 
   const handleMenuOpen = (event) => {
     setAnchorEl(event.currentTarget); // Set the anchor element
@@ -18,6 +20,15 @@ const Navbar = () => {
   };
 
   const handleClick = (path) => {
+    navigate(path); // Navigate to the specified path
+    handleMenuClose(); // Close the menu
+  };
+  const handleprofileClick = (path) => {
+    if (!user) {
+      alert('Sign in required! Click Ok to login');
+      navigate('/Signin');
+      return;
+    }
     navigate(path); // Navigate to the specified path
     handleMenuClose(); // Close the menu
   };
@@ -70,7 +81,7 @@ const Navbar = () => {
               Contact Us
             </Button>
             
-            <Button sx={{ color: 'white' }} onClick={() => handleClick('/ُprofile')}>
+            <Button sx={{ color: 'white' }} onClick={() => handleprofileClick('/profile')}>
               <AccountCircle />
             </Button>
           </Box>
@@ -99,7 +110,7 @@ const Navbar = () => {
             <MenuItem onClick={() => handleClick('/signin')}>Sign In</MenuItem>
             <MenuItem onClick={() => handleClick('/signup')}>Sign Up</MenuItem>
             <MenuItem onClick={() => handleClick('/contact')}>Contact Us</MenuItem>
-            <MenuItem onClick={() => handleClick('/ُprofile')}><AccountCircle /></MenuItem>
+            <MenuItem onClick={() => handleprofileClick('profile')}><AccountCircle /></MenuItem>
           </Menu>
         </Box>
       </AppBar>

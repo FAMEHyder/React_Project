@@ -1,33 +1,45 @@
 import Box from '@mui/material/Box';
 import Paper from '@mui/material/Paper';
-import Events from '../Section/Events.png';
+import NoticBoard from '../Section/NoticBoard.png';
 import Team from '../Section/Team.png';
 import Exams from '../Section/Exams.png';
+import Results from '../Section/Results.png';
+import {useNavigate} from 'react-router-dom';
 
 export default function Section() {
+    const navigate = useNavigate()
+
+    const handleClick = (path)=>{
+
+        navigate(path)
+    }
     return (
         <Box
             display="flex" // Apply flex
             flexDirection="row" // Layout direction
-            justifyContent="space-around" // Space distribution
-            alignItems="center" // Alignment of items
+             
+            alignItems="center"
+            justifyContent={'center'} // Alignment of items
+            gap = {5}
             sx={{
                 width: "99.23%",
                 height: "300px",
-                backgroundColor: "lightgray",
-                border: "5px solid red",
+
+
+                // border: "5px solid red",
             }}
         >
-            <Paper 
+            <Paper onClick = {()=>handleClick('/team')}
                 sx={{
 
                     bgcolor: 'primary.main',
-                    height: '100%',
-                    width: '100%',
-                    backgroundImage:`url(${Team})`,
+                    height: '60%',
+                    boxShadow: '5px 5px 5px 5px',
+                    width: '250px',
+                    backgroundImage: `url(${Team})`,
                     backgroundSize: '100% 100%',
-                    backgroundRepeat:'no-repeat',
-                    
+                    backgroundRepeat: 'no-repeat',
+
                 }}>
 
 
@@ -35,11 +47,12 @@ export default function Section() {
             <Paper
                 sx={{
                     bgcolor: 'secondary.main',
-                    height: '100%',
-                    width: '100%',
-                    backgroundImage:`url(${Events})`,
+                    height: '60%',
+                    boxShadow: '5px 5px 5px 5px',
+                    width: '250px',
+                    backgroundImage: `url(${NoticBoard})`,
                     backgroundSize: '100% 100%',
-                    backgroundRepeat:'no-repeat'
+                    backgroundRepeat: 'no-repeat'
                 }}>
 
 
@@ -47,11 +60,12 @@ export default function Section() {
             <Paper
                 sx={{
                     bgcolor: 'error.main',
-                    height: '100%',
-                    width: '100%',
-                    backgroundImage:`url(${Exams})`,
+                    height: '60%',
+                    boxShadow: '5px 5px 5px 5px',
+                    width: '250px',
+                    backgroundImage: `url(${Exams})`,
                     backgroundSize: '100% 100%',
-                    backgroundRepeat:'no-repeat'
+                    backgroundRepeat: 'no-repeat'
                 }}>
 
 
@@ -59,8 +73,12 @@ export default function Section() {
             <Paper
                 sx={{
                     bgcolor: 'success.main',
-                    height: '100%',
-                    width: '100%'
+                    height: '60%',
+                    boxShadow: '5px 5px 5px 5px',
+                    backgroundImage: `url(${Results})`,
+                    backgroundSize: '100% 100%',
+                    backgroundRepeat: 'no-repeat',
+                    width: '250px'
                 }}>
 
             </Paper>

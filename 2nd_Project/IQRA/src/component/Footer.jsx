@@ -1,7 +1,21 @@
 import { Box, Typography, Grid, Link } from '@mui/material';
-import { Facebook, Twitter, WhatsApp, Instagram } from '@mui/icons-material';
-
+import { Facebook, Twitter, WhatsApp, Instagram} from '@mui/icons-material';
+import { useNavigate } from 'react-router-dom';
+import { useAuthStore } from '../authContext/auth';
 const Footer = () => {
+  const navigate = useNavigate();
+  const {user} = useAuthStore();
+
+  const handleclick= (path)=> {
+    if (!user) {
+      alert('Sign in required! Click Ok to sign in');
+      navigate('/signin');
+      return;
+    }
+    navigate(path); // Navigate to the specified path
+   
+      
+  }
   return (
     <Box sx={{ backgroundColor: 'darkblue', color: 'white', padding: '20px' }}>
       <Grid container spacing={4}>
@@ -29,7 +43,7 @@ const Footer = () => {
             <Link href="/Section" color="inherit" underline="hover">Events</Link>
           </Typography>
           <Typography variant="body2">
-            <Link href="/pre-board" color="inherit" underline="hover"> Register for Pre-Board Exams</Link>
+            <Link  color="inherit" underline="hover" onClick={()=>handleclick('/pre_board')}> Register for Pre-Board Exams</Link>
           </Typography>
           <Typography variant="body2">
             <Link href="/members" color="inherit" underline="hover">Meet our Members</Link>

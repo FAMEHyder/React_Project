@@ -1,6 +1,7 @@
 import { Grid, Box, Typography } from "@mui/material";
 import logo from "../image/navbarLogo.png";
 import bg from "../image/photo.png";
+import Section from '../component/Section.jsx';
 
 const Home = () => {
   return (
@@ -187,6 +188,9 @@ const Home = () => {
         </Box>
 
       </Grid>
+      {/* This is the section component: */}
+          <Section />
+
       {/* organizational structure */}
       <Grid container spacing={2} mt={4} px={2}>
   <Grid item xs={12} sm={6} md={4} lg={3}>

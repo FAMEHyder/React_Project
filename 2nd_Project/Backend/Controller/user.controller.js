@@ -109,3 +109,30 @@ export const getAllUsers = async (req, res, next) => {
     });
   }
 };
+
+
+export const getUserById = async (req, res, next) => {
+  try {
+    const { id } = req.params; // Extract the user ID from the request parameters
+    const user = await User.findById(id); // Fetch the user by ID from the database
+
+    if (!user) {
+      return res.status(404).json({
+        status: 404,
+        message: "User not found",
+      });
+    }
+
+    return res.status(200).json({
+      status: 200,
+      message: "User retrieved successfully",
+      data: user,
+    });
+  } catch (error) {
+    console.log(error);
+    return res.status(500).json({
+      message: "Error retrieving user",
+      err: error,
+    });
+  }
+};
