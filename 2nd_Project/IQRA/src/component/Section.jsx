@@ -29,7 +29,7 @@ export default function Section() {
                 // border: "5px solid red",
             }}
         >
-            <Paper onClick = {() => handleClick('/team')}
+            <Paper onClick = {() => handleClick('/members')}
                 sx={{
 
                     bgcolor: 'primary.main',
