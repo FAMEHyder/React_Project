@@ -75,7 +75,7 @@ export const login = async (req, res) => {
     // console.log(error)
     res.status(500).json({
       status: true,
-      message: "Server Error .......",
+      message: "Server Error",
       err: error
     })
 

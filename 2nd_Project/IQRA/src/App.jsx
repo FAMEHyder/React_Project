@@ -11,6 +11,7 @@ import Section from "./component/Section.jsx";
 import UserProfile from "./component/UserProfile.jsx";
 import Marksheet from "./component/Marksheet.jsx";
 import RollNoForm from "./component/Rollno.jsx";
+import NoticeBoard from "./component/NoticeBoard.jsx";
 
 function App() {
  
@@ -27,6 +28,8 @@ function App() {
         <Route path = "/Section" element = {<Section/>} />
         <Route path = "/profile" element = {<UserProfile/>} />
         <Route path = "/results" element = {<RollNoForm/>}/>
+        <Route path = "/marksheet" element = {<Marksheet />}/>
+        <Route path = "/noticeboard" element = {<NoticeBoard />}/>
         
       </Routes>
       < Footer/>

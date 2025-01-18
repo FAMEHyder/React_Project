@@ -1,8 +1,14 @@
 import axios from 'axios';
-import React from 'react';
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid, Button } from '@mui/material';
+import { useLocation } from 'react-router-dom';
+import { useAuthStore } from '../authContext/auth';
 
 const Marksheet = () => {
+  const {user} = useAuthStore();
+  console.log("your user is now containing these info: " ,user.Marksheet)
+  const location = useLocation();
+  const { rollno } = location.state || {};
+  console.log("Your rollno is ",rollno)
   const subjects = [
     { id: 1, name: 'ENGLISH COMPULSORY', maxMarks: 75, obtainedMarks: 64 },
     { id: 2, name: 'MATHEMATICS', maxMarks: 75, obtainedMarks: 56 },
