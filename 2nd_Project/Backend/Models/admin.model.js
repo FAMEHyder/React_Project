@@ -31,19 +31,6 @@ const adminSchema = new mongoose.Schema({
         trim: true
     },
 
-    Registration: {
-        type: [String],
-        default: "user"
-    },
-
-    Marksheet: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: 'Marksheet',
-            default: null
-
-        }
-    ]
 });
 
 export default mongoose.model("Admin" ,adminSchema);

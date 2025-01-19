@@ -45,7 +45,7 @@ export const login = async (req, res) => {
   const { email } = req.body
   try {
     const admin = await Admin.findOne({ email })
-    if (!user) {
+    if (!admin) {
       return res.status(401).json({
         status: true,
         message: "Email not exits ...."
@@ -53,7 +53,6 @@ export const login = async (req, res) => {
 
     }
     const isMatch = await bcrypt.compare(req.body.password, user.password)
-    // console.log(password, "user",user.password)
     if (!isMatch) {
       return res.status(401).json({
         status: true,
@@ -67,7 +66,7 @@ export const login = async (req, res) => {
     res.cookie('acccess', token, { httpOnly: false })
     res.status(200).json({
       status: true,
-      message: `Login Successfully with ${user.userName}`,
+      message: `Login Successfully with ${admin.userName}`,
       userData: userData,
       token: token
     })

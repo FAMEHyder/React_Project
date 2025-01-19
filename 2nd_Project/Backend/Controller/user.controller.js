@@ -1,4 +1,4 @@
-import {User} from "../Models/user.model.js";
+import {User ,Marksheet} from "../Models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -134,5 +134,36 @@ export const getUserById = async (req, res, next) => {
       message: "Error retrieving user",
       err: error,
     });
+  }
+};
+
+
+
+// Create a new marksheet and link it to a user
+export const createMarksheet = async (req, res) => {
+  try {
+    const { userId, marksheetData } = req.body;
+
+    // Validate input
+    if (!userId || !marksheetData) {
+      return res.status(400).json({ message: "User ID and marksheet data are required" });
+    }
+
+    // Create a new marksheet
+    const newMarksheet = await Marksheet.create(marksheetData);
+
+    // Find the user and link the marksheet
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "User not found" });
+    }
+
+    user.Marksheet.push(newMarksheet._id);
+    await user.save();
+
+    res.status(201).json({ message: "Marksheet created and linked to user successfully", marksheet: newMarksheet });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "An error occurred", error });
   }
 };

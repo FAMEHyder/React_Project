@@ -39,7 +39,7 @@ const SignUp = () => {
     }
 
     try {
-      const response = await axios.post('http://localhost:8000/user/register', formData);
+      const response = await axios.post('http://localhost:8000/Admin/register', formData);
       if (response.status === 201) {
         alert('Registration successful!');
         navigate('/signin'); // Navigate to Sign In page
