@@ -10,6 +10,7 @@ import Pre_board from "./component/Pre_board.jsx";
 import Section from "./component/Section.jsx";
 import UserProfile from "./component/UserProfile.jsx";
 import Marksheet from "./component/Marksheet.jsx";
+import RollNoForm from "./component/Rollno.jsx";
 
 function App() {
  
@@ -25,7 +26,8 @@ function App() {
         <Route path = "/pre_board" element = {<Pre_board/>} />
         <Route path = "/Section" element = {<Section/>} />
         <Route path = "/profile" element = {<UserProfile/>} />
-        <Route path = "/results" element = {<Marksheet/>}/>
+        <Route path = "/results" element = {<RollNoForm/>}/>
+        
       </Routes>
       < Footer/>
     </Router>
