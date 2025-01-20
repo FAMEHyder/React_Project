@@ -139,31 +139,75 @@ export const getUserById = async (req, res, next) => {
 
 
 
-// Create a new marksheet and link it to a user
+
+// Create a marksheet and associate it with a user
 export const createMarksheet = async (req, res) => {
   try {
-    const { userId, marksheetData } = req.body;
+    const { userId,rollno, mathScience, biology, physics, chemistry, english, mathArts, generalScience, pakStd, urdu } = req.body;
 
-    // Validate input
-    if (!userId || !marksheetData) {
-      return res.status(400).json({ message: "User ID and marksheet data are required" });
+    // Check if user exists
+    const user = await User.findById(userId);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
     }
 
     // Create a new marksheet
-    const newMarksheet = await Marksheet.create(marksheetData);
+    const newMarksheet = new Marksheet({
+      rollno,
+      mathScience,
+      biology,
+      physics,
+      chemistry,
+      english,
+      mathArts,
+      generalScience,
+      pakStd,
+      urdu,
+    });
 
-    // Find the user and link the marksheet
-    const user = await User.findById(userId);
-    if (!user) {
-      return res.status(404).json({ message: "User not found" });
-    }
+    // Save the marksheet to the database
+    const savedMarksheet = await newMarksheet.save();
 
-    user.Marksheet.push(newMarksheet._id);
+    // Associate the marksheet with the user
+    user.Marksheet.push(savedMarksheet._id);
     await user.save();
 
-    res.status(201).json({ message: "Marksheet created and linked to user successfully", marksheet: newMarksheet });
+    res.status(201).json({ message: 'Marksheet created and associated with user', marksheet: savedMarksheet });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "An error occurred", error });
+    res.status(500).json({ message: 'Error creating marksheet', error: error.message });
+  }
+};
+
+// Get a user's marksheet(s) with populated data
+export const getUserMarksheets = async (req, res) => {
+  try {
+    const { userId } = req.params;
+
+    // Find the user and populate the marksheet data
+    const user = await User.findById(userId).populate('Marksheet');
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    res.status(200).json({ message: 'User marksheets retrieved', marksheets: user.Marksheet });
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving marksheets', error: error.message });
+  }
+};
+
+// Get a specific marksheet by marksheet ID
+export const getMarksheetById = async (req, res) => {
+  try {
+    const { marksheetId } = req.params;
+
+    // Find the marksheet by ID
+    const marksheet = await Marksheet.findById(marksheetId);
+    if (!marksheet) {
+      return res.status(404).json({ message: 'Marksheet not found' });
+    }
+
+    res.status(200).json({ message: 'Marksheet retrieved', marksheet });
+  } catch (error) {
+    res.status(500).json({ message: 'Error retrieving marksheet', error: error.message });
   }
 };

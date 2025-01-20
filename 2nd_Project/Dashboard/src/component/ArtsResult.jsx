@@ -7,23 +7,25 @@ import { Box, TextField, Button, Typography, Grid, Container } from "@mui/materi
 
 // Validation schema
 const validationSchema = Yup.object({
-  mathScience: Yup.number().required("Math Science is required").min(0, "Minimum 0").max(100, "Maximum 100"),
-  biology: Yup.number().required("Biology is required").min(0, "Minimum 0").max(100, "Maximum 100"),
-  physics: Yup.number().required("Physics is required").min(0, "Minimum 0").max(100, "Maximum 100"),
-  chemistry: Yup.number().required("Chemistry is required").min(0, "Minimum 0").max(100, "Maximum 100"),
-  english: Yup.number().required("English is required").min(0, "Minimum 0").max(100, "Maximum 100"),
-  mathArts: Yup.number().required("Math Arts is required").min(0, "Minimum 0").max(100, "Maximum 100"),
-  generalScience: Yup.number().required("General Science is required").min(0, "Minimum 0").max(100, "Maximum 100"),
-  pakStd: Yup.number().required("Pakistan Studies is required").min(0, "Minimum 0").max(100, "Maximum 100"),
-  urdu: Yup.number().required("Urdu is required").min(0, "Minimum 0").max(100, "Maximum 100"),
+  mathScience: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
+  biology: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
+  physics: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
+  chemistry: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
+  english: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
+  mathArts: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
+  generalScience: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
+  pakStd: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
+  urdu: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
 });
 
 const ArtsResult = () => {
-    const location = useLocation();
-    const { userId } = location.state || {}; 
-    console.log(" your userId in marksheet form is :", userId);
+  const location = useLocation();
+  const { userId } = location.state || {}; 
+  console.log("Your userId in marksheet form is:", userId);
+
   const formik = useFormik({
     initialValues: {
+      rollno:" ",
       english: "",
       mathArts: "",
       generalScience: "",
@@ -33,7 +35,8 @@ const ArtsResult = () => {
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        const response = await axios.post("http://localhost:8000/marksheet/createmarksheet", values);
+        // Send the userId as a query parameter
+        const response = await axios.post(`http://localhost:8000/user/marksheet?userId=${userId}`, values);
         console.log("Response:", response.data);
         alert("Marksheet submitted successfully!");
         resetForm(); // Reset the form after successful submission
@@ -45,10 +48,10 @@ const ArtsResult = () => {
   });
 
   return (
-    <Container maxWidth="md" >
-      <Box sx={{ padding: 4, backgroundColor: "white", borderRadius: 2, boxShadow: 3 ,mt:2 }}>
+    <Container maxWidth="md">
+      <Box sx={{ padding: 4, backgroundColor: "white", borderRadius: 2, boxShadow: 3, mt: 2 }}>
         <Typography variant="h5" sx={{ marginBottom: 2 }}>
-         Add Numbers to Marksheet
+          Add Numbers to Marksheet
         </Typography>
         <form onSubmit={formik.handleSubmit}>
           <Grid container spacing={3}>

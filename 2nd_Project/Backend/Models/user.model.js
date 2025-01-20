@@ -62,7 +62,7 @@ const userSchema = new mongoose.Schema({
 
 const marksheetSchema = new mongoose.Schema({
     rollno:{
-        type:number,
+        type:Number,
         required:true
     },
     mathScience:{
