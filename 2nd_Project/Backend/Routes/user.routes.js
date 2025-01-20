@@ -12,7 +12,7 @@ router.post('/register',Register );
 router.post('/login',login );
 router.get('/getAllUsers', getAllUsers );
 router.get('/users/:id', getUserById);
-router.get('/marksheet/:id', createMarksheet);
+router.post('/marksheet/:userId', createMarksheet);
 
 
 

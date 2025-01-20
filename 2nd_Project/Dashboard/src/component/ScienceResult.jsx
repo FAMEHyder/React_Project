@@ -7,7 +7,7 @@ import { Box, TextField, Button, Typography, Grid, Container } from "@mui/materi
 
 // Validation schema
 const validationSchema = Yup.object({
-  rollno: Yup.number().required("It is required").min(0, "Minimum 0").max(6, "Maximum 6"),
+  rollno: Yup.number().required("It is required"),
   mathScience: Yup.number().required("It is required").min(0, "Minimum 0").max(100, "Maximum 100"),
   biology: Yup.number().required("It is required").min(0, "Minimum 0").max(100, "Maximum 100"),
   physics: Yup.number().required("It is required").min(0, "Minimum 0").max(100, "Maximum 100"),
@@ -18,7 +18,6 @@ const validationSchema = Yup.object({
 const ScienceResult = () => {
   const location = useLocation();
   const { userId } = location.state || {}; 
-  console.log("Your userId in marksheet form is:", userId);
 
   const formik = useFormik({
     initialValues: {
@@ -31,9 +30,11 @@ const ScienceResult = () => {
     },
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
+      console.log("yeeeeeeeeeee" , values,)
+      console.log("yeeeeeeeeeee" , userId,)
       try {
         // Send the userId as a query parameter
-        const response = await axios.post(`http://localhost:8000/user/marksheet?userId=${userId}`, values);
+        const response = await axios.post(`http://localhost:8000/user/marksheet/${userId}`, values);
         console.log("Response:", response.data);
         alert("Marksheet submitted successfully!");
         resetForm(); // Reset the form after successful submission
