@@ -1,4 +1,4 @@
-import {User ,Marksheet} from "../Models/user.model.js";
+import {User ,Marksheet,Registration} from "../Models/user.model.js";
 import bcrypt from "bcryptjs";
 import jwt from "jsonwebtoken";
 
@@ -213,5 +213,113 @@ export const getMarksheetById = async (req, res) => {
     res.status(200).json({ message: 'Marksheet retrieved', marksheet });
   } catch (error) {
     res.status(500).json({ message: 'Error retrieving marksheet', error: error.message });
+  }
+};
+
+
+export const Createform = async (req, res, next) => {
+  const {
+      userId,
+      fullName,
+      fatherName,
+      phoneNumber,
+      cnic,
+      gender,
+      address,
+      Class,
+      institution,
+      field,
+      guardianName,
+      relationship,
+      guardianPhoneNumber,
+  } = req.body;
+
+  try {
+      // Validate required fields
+      if (
+          !userId ||
+          !fullName ||
+          !fatherName ||
+          !phoneNumber ||
+          !cnic ||
+          !gender ||
+          !address ||
+          !Class ||
+          !institution ||
+          !field ||
+          !guardianName ||
+          !relationship ||
+          !guardianPhoneNumber
+      ) {
+          return res.status(400).json({
+              status: "fail",
+              message: "All fields are required",
+          });
+      }
+
+      // Find the user by userId
+      const user = await User.findById(userId);
+      if (!user) {
+          return res.status(404).json({
+              status: "fail",
+              message: "User not found",
+          });
+      }
+
+      // Handle uploaded images
+      let images = [];
+      if (req.files && req.files.length > 0) {
+          images = req.files.map((file) => file.path);
+      }
+
+      // Create the form
+      const form = new Registration({
+          fullName,
+          fatherName,
+          phoneNumber,
+          cnic,
+          gender,
+          address,
+          Class,
+          institution,
+          field,
+          guardianName,
+          relationship,
+          guardianPhoneNumber,
+          images,
+      });
+
+      // Save the form
+      await form.save();
+
+      // Ensure the Registration field exists as an array
+      if (!Array.isArray(user.Registration)) {
+          user.Registration = [];
+      }
+
+      // Add the form ID to the user's Registration array
+      user.Registration.push(form._id);
+
+      // Save the updated user
+      await user.save();
+
+      // Populate the updated user with Registration data
+      const updatedUser = await User.findById(userId).populate("Registration");
+
+      res.status(201).json({
+          status: "success",
+          message: "Form created and user updated successfully",
+          data: {
+              form,
+              user: updatedUser, // Send the populated user
+          },
+      });
+  } catch (error) {
+      console.error("Error creating form:", error.message);
+      res.status(500).json({
+          status: "error",
+          message: "Internal server error",
+          error: error.message,
+      });
   }
 };

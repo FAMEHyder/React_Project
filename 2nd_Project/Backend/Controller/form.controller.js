@@ -1,5 +1,4 @@
-import Form from '../Models/form.model.js';
-import {User} from '../Models/user.model.js'; // Import the User model
+import {User,Registration} from '../Models/user.model.js'; // Import the User model
 
 const Createform = async (req, res, next) => {
     const {
@@ -35,7 +34,7 @@ const Createform = async (req, res, next) => {
         }
 
         // Create the form
-        const form = new Form({
+        const form = new Registration({
             fullName,
             fatherName,
             phoneNumber,
