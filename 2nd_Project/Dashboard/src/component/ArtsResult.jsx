@@ -7,10 +7,8 @@ import { Box, TextField, Button, Typography, Grid, Container } from "@mui/materi
 
 // Validation schema
 const validationSchema = Yup.object({
-  mathScience: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
-  biology: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
-  physics: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
-  chemistry: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
+ 
+  rollno: Yup.number().min(0, "Minimum 0").max(6, "Maximum 6"),
   english: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
   mathArts: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
   generalScience: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
