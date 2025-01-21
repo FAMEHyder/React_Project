@@ -40,45 +40,57 @@ export default Register;
 
 
 
+
 export const login = async (req, res) => {
-  const { email } = req.body
-  console.log("your email is : " , email)
+  const { email, password } = req.body;
+  console.log("Your email in the req is:", email);
+
   try {
-    const admin = await Admin.findOne({ email })
-    console.log("Admin email is : ",admin)
+    // Find the admin by email
+    const admin = await Admin.findOne({ email });
+    console.log("Admin email is:", admin);
+
+    // If admin doesn't exist, return an error
     if (!admin) {
       return res.status(401).json({
-        status: true,
-        message: "Email not exits"
-      })
-
+        status: false,
+        message: "Email does not exist",
+      });
     }
-    const isMatch = await bcrypt.compare(req.body.password, admin.password)
+
+    // Compare the password
+    const isMatch = await bcrypt.compare(password, admin.password);
     if (!isMatch) {
       return res.status(401).json({
-        status: true,
-        message: "Invalide Password...."
-      })
+        status: false,
+        message: "Invalid password",
+      });
     }
 
-    const payload = { adminId: admin._id,}
-    const token = jwt.sign(payload, process.env.JWT_SECRET)
-    const { password, ...userData } = user._doc
-    res.cookie('acccess', token, { httpOnly: false })
+    // Generate the JWT token
+    const payload = { adminId: admin._id }; // Use adminId for payload
+    const token = jwt.sign(payload, process.env.JWT_SECRET);
+
+    // Remove the password from the admin data before sending the response
+    const { password: _, ...userData } = admin._doc;
+
+    // Set the token in the cookie
+    res.cookie('access', token, { httpOnly: true });
+
+    // Send success response with user data and token
     res.status(200).json({
       status: true,
-      message: `Login Successfully with ${admin.userName}`,
-      userData: userData,
-      token: token
-    })
+      message: `Login successfully with ${admin.userName}`,
+      userData,
+      token,
+    });
 
   } catch (error) {
-    // console.log(error)
+    console.error(error);
     res.status(500).json({
-      status: true,
-      message: "Server Error",
-      err: error
-    })
-
+      status: false,
+      message: "Server error",
+      error,
+    });
   }
-}
+};
