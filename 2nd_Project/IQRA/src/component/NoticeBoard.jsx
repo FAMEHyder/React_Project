@@ -11,7 +11,7 @@ const NoticeBoard = () => {
     // Fetch data from the API
     const fetchNotices = async () => {
       try {
-        const response = await axios.get('http://localhost:8000/notice/board');
+        const response = await axios.get('http://localhost:8000/notice/GetFromBoard');
         setNotices(response.data); // Assume the API returns an array of notices
       } catch (err) {
         setError('Failed to load notices. Please try again later.');
@@ -44,7 +44,7 @@ const NoticeBoard = () => {
       <Typography variant="h4" align="center" gutterBottom>
         Notice Board
       </Typography>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} sx={{justifyContent:'center'}}>
         {notices.map((notice) => (
           <Grid item xs={12} sm={6} md={4} key={notice.id}>
             <Card elevation={3}>

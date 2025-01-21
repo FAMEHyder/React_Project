@@ -36,23 +36,24 @@ const Register = async (req, res, next) => {
         });
     }
 }
-
 export default Register;
 
 
 
 export const login = async (req, res) => {
   const { email } = req.body
+  console.log("your email is : " , email)
   try {
     const admin = await Admin.findOne({ email })
+    console.log("Admin email is : ",admin)
     if (!admin) {
       return res.status(401).json({
         status: true,
-        message: "Email not exits ...."
+        message: "Email not exits"
       })
 
     }
-    const isMatch = await bcrypt.compare(req.body.password, user.password)
+    const isMatch = await bcrypt.compare(req.body.password, admin.password)
     if (!isMatch) {
       return res.status(401).json({
         status: true,
@@ -60,7 +61,7 @@ export const login = async (req, res) => {
       })
     }
 
-    const payload = { userId: user._id,}
+    const payload = { adminId: admin._id,}
     const token = jwt.sign(payload, process.env.JWT_SECRET)
     const { password, ...userData } = user._doc
     res.cookie('acccess', token, { httpOnly: false })

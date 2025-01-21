@@ -22,6 +22,7 @@ const NoticeSchema = Yup.object().shape({
 const NoticeBoard = () => {
   const [loading, setLoading] = React.useState(false);
   const [success, setSuccess] = React.useState(false);
+  const [deleteSuccess, setDeleteSuccess] = React.useState(false);
   const [error, setError] = React.useState('');
 
   const handleSubmit = async (values, { resetForm }) => {
@@ -34,6 +35,20 @@ const NoticeBoard = () => {
       resetForm();
     } catch (err) {
       setError('Failed to add the notice. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleDelete = async () => {
+    setLoading(true);
+    setError('');
+    try {
+      // DELETE API Call
+      await axios.delete('http://localhost:8000/notice/DeleteFromBoard');
+      setDeleteSuccess(true);
+    } catch (err) {
+      setError('Failed to delete notices. Please try again later.');
     } finally {
       setLoading(false);
     }
@@ -111,7 +126,23 @@ const NoticeBoard = () => {
               helperText={touched.date && errors.date}
             />
 
-            <Box sx={{ marginTop: '20px', textAlign: 'center' }}>
+            <Box
+              sx={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginTop: '20px',
+              }}
+            >
+              <Button
+                variant="contained"
+                color="secondary"
+                onClick={handleDelete}
+                disabled={loading}
+              >
+                {loading ? <CircularProgress size={24} /> : 'Delete All Notices'}
+              </Button>
+
               <Button
                 type="submit"
                 variant="contained"
@@ -130,6 +161,13 @@ const NoticeBoard = () => {
         autoHideDuration={4000}
         onClose={() => setSuccess(false)}
         message="Notice added successfully!"
+      />
+
+      <Snackbar
+        open={deleteSuccess}
+        autoHideDuration={4000}
+        onClose={() => setDeleteSuccess(false)}
+        message="All notices deleted successfully!"
       />
     </Box>
   );

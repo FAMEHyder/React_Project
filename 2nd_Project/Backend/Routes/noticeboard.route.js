@@ -6,3 +6,5 @@ const router = express.Router()
 router.post ('/AddToBoard' ,addNotice)
 router.get ('/GetFromBoard' ,getAllNotices)
 router.delete ('/DeleteFromBoard' ,deleteAllNotices)
+
+export default router;
