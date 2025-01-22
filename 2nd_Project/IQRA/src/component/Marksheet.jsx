@@ -1,40 +1,66 @@
-import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid, Button } from '@mui/material';
+import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid, CircularProgress } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { useAuthStore } from '../authContext/auth';
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 
 const Marksheet = () => {
   const { user } = useAuthStore();
   const location = useLocation();
   const { rollno } = location.state || {};
 
+  const marksheetId = user?.Marksheet;
+  const registrationId = user?.Registration;
 
-   console.log ("Your User in the marksheet is :",user)
-   
-   const marksheetId= user.Marksheet;
-   const registrationId = user.Registration
-   
-   console.log ("Your marksheet in the marksheet is :",marksheetId)
-   console.log ("Your registration in the marksheet is :",registrationId)
+  const [marksheetData, setMarksheetData] = useState(null);
+  const [registrationData, setRegistrationData] = useState(null);
+  const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const fetchMarksheet = async () => {
+      try {
+        const marksheetResponse = await axios.get(`http://localhost:8000/user/getresult/${marksheetId}`);
+        setMarksheetData(marksheetResponse.data);
+        console.log("Your marksheet details are : ",marksheetResponse.data)
+      } catch (error) {
+        console.error('Error fetching marksheet data:', error);
+      }
+    };
 
- 
-  const marksheetData = user.Marksheet.map((entry, index) => {
+    const fetchRegistration = async () => {
+      try {
+        const registrationResponse = await axios.get(`http://localhost:8000/user/getform/${registrationId}`);
+        setRegistrationData(registrationResponse.data);
+        console.log("Your registration details are : ",registrationResponse.data)
 
-})
+      } catch (error) {
+        console.error('Error fetching registration data:', error);
+      }
+    };
+
+    if (marksheetId && registrationId) {
+      Promise.all([fetchMarksheet(), fetchRegistration()]).finally(() => setLoading(false));
+    }
+  }, [marksheetId, registrationId]);
+
   const subjects = [
-    { id: 1, name: 'ENGLISH COMPULSORY', maxMarks: 75, obtainedMarks: marksheetData.english },
-    { id: 2, name: 'MATHEMATICS', maxMarks: 75, obtainedMarks: marksheetData.mathScience },
-    { id: 3, name: 'PHYSICS', maxMarks: 75, obtainedMarks: marksheetData.physics },
-    { id: 4, name: 'CHEMISTRY', maxMarks: 75, obtainedMarks: marksheetData.chemistry },
-    { id: 5, name: 'BIOLOGY', maxMarks: 75, obtainedMarks: marksheetData.biology },
+    { id: 1, name: 'ENGLISH COMPULSORY', maxMarks: 75, obtainedMarks: marksheetData?.english || 0 },
+    { id: 2, name: 'MATHEMATICS', maxMarks: 75, obtainedMarks: marksheetData?.mathScience || 0 },
+    { id: 3, name: 'PHYSICS', maxMarks: 75, obtainedMarks: marksheetData?.physics || 0 },
+    { id: 4, name: 'CHEMISTRY', maxMarks: 75, obtainedMarks: marksheetData?.chemistry || 0 },
+    { id: 5, name: 'BIOLOGY', maxMarks: 75, obtainedMarks: marksheetData?.biology || 0 },
   ];
 
   const totalMarks = subjects.reduce((acc, subject) => acc + subject.maxMarks, 0);
   const totalObtained = subjects.reduce((acc, subject) => acc + subject.obtainedMarks, 0);
 
-  
-
-   
+  if (loading) {
+    return (
+      <Box display="flex" justifyContent="center" alignItems="center" height="100vh">
+        <CircularProgress />
+      </Box>
+    );
+  }
 
   return (
     <Box p={2}>
@@ -51,18 +77,19 @@ const Marksheet = () => {
 
           <Grid item xs={12}>
             <Box display="flex" justifyContent="space-between" mb={2}>
-              <Typography>Roll no : <strong>{rollno || 'Not Available'}</strong></Typography>
+              <Typography>Roll no : <strong>{marksheetData.rollno}</strong></Typography>
             </Box>
             <Box display="flex" justifyContent="space-between">
-              <Typography>Class : <strong>{user.Class}</strong></Typography>
+              <Typography>Class : <strong>{registrationData.Class || 'N/A'}</strong></Typography>
             </Box>
-            <Typography>School: <strong>Green Hills</strong></Typography>
+            <Typography>School: <strong>{registrationData.institution}</strong></Typography>
           </Grid>
 
           <Grid item xs={12}>
             <Typography variant="body1" gutterBottom>
-              It is to notify that <strong>{user.fullName}</strong>, Son/Daughter of <strong>Fida Ali</strong>, has qualified
-              the pre_board exams of IYEF as a regular student from Green Hills.
+              It is to notify that <strong>{registrationData.fullName || user?.fullName}</strong>, 
+              Son/Daughter of <strong>{registrationData.guardianName}</strong>, has qualified
+              the pre_board exams of IYEF as a regular student from {registrationData?.institution || 'Green Hills'}.
             </Typography>
           </Grid>
 
@@ -97,9 +124,6 @@ const Marksheet = () => {
           </Grid>
 
           <Grid item xs={12}>
-            <Typography variant="body2" mt={2}>
-              (Marks in words) Six Hundred Eighty Four
-            </Typography>
             <Typography variant="body2">IQRA YOUTH EDUCATIONAL FOUNDATION</Typography>
           </Grid>
         </Grid>
