@@ -182,40 +182,6 @@ export const createMarksheet = async (req, res) => {
   }
 };
 
-// Get a user's marksheet(s) with populated data
-export const getUserMarksheets = async (req, res) => {
-  try {
-    const { userId } = req.params;
-
-    // Find the user and populate the marksheet data
-    const user = await User.findById(userId).populate('Marksheet');
-    if (!user) {
-      return res.status(404).json({ message: 'User not found' });
-    }
-
-    res.status(200).json({ message: 'User marksheets retrieved', marksheets: user.Marksheet });
-  } catch (error) {
-    res.status(500).json({ message: 'Error retrieving marksheets', error: error.message });
-  }
-};
-
-// Get a specific marksheet by marksheet ID
-export const getMarksheetById = async (req, res) => {
-  try {
-    const { marksheetId } = req.params;
-
-    // Find the marksheet by ID
-    const marksheet = await Marksheet.findById(marksheetId);
-    if (!marksheet) {
-      return res.status(404).json({ message: 'Marksheet not found' });
-    }
-
-    res.status(200).json({ message: 'Marksheet retrieved', marksheet });
-  } catch (error) {
-    res.status(500).json({ message: 'Error retrieving marksheet', error: error.message });
-  }
-};
-
 
 export const Createform = async (req, res, next) => {
   const {
@@ -323,3 +289,38 @@ export const Createform = async (req, res, next) => {
       });
   }
 };
+
+
+
+// Controller to fetch Marksheet by ID
+export const getMarksheetById = async (req, res) => {
+  const { marksheetId } = req.params;
+
+  try {
+    const marksheet = await Marksheet.findById(marksheetId);
+    if (!marksheet) {
+      return res.status(404).json({ message: "Marksheet not found" });
+    }
+    res.status(200).json(marksheet);
+  } catch (error) {
+    console.error("Error fetching marksheet:", error);
+    res.status(500).json({ message: "Server error while fetching marksheet" });
+  }
+};
+
+// Controller to fetch Registration by ID
+export const getRegistrationById = async (req, res) => {
+  const { registrationId } = req.params;
+
+  try {
+    const registration = await Registration.findById(registrationId);
+    if (!registration) {
+      return res.status(404).json({ message: "Registration not found" });
+    }
+    res.status(200).json(registration);
+  } catch (error) {
+    console.error("Error fetching registration:", error);
+    res.status(500).json({ message: "Server error while fetching registration" });
+  }
+};
+

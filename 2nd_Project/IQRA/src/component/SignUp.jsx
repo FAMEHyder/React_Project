@@ -1,5 +1,15 @@
 import { useState } from 'react';
-import { Button, Container, Box, TextField, Typography } from '@mui/material';
+import {
+  Button,
+  Container,
+  Box,
+  TextField,
+  Typography,
+  Select,
+  MenuItem,
+  FormControl,
+  InputLabel,
+} from '@mui/material';
 import logo from '../image/AboutLogo.png';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
@@ -127,20 +137,20 @@ const SignUp = () => {
           onChange={handleChange}
           InputLabelProps={{ shrink: true }}
         />
-        <TextField
-          name="Class"
-          label="9th Arts/10th Arts/ 9th Science / 10th Science"
-          type="text"
-          variant="outlined"
-          fullWidth
-          margin="normal"
-          required
-          value={formData.age}
-          onChange={handleChange}
-          onInput={(e) => {
-            e.target.value = e.target.value < 0 ? 0 : e.target.value;
-          }}
-        />
+        <FormControl fullWidth margin="normal" required>
+          <InputLabel id="class-label">Class</InputLabel>
+          <Select
+            labelId="class-label"
+            name="Class"
+            value={formData.Class}
+            onChange={handleChange}
+          >
+            <MenuItem value="9th Arts">9th Arts</MenuItem>
+            <MenuItem value="10th Arts">10th Arts</MenuItem>
+            <MenuItem value="9th Science">9th Science</MenuItem>
+            <MenuItem value="10th Science">10th Science</MenuItem>
+          </Select>
+        </FormControl>
         <TextField
           name="address"
           label="Address"

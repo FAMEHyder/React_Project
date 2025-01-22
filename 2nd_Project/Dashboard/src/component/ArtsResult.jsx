@@ -1,40 +1,47 @@
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import axios from "axios";
-import { useLocation } from 'react-router-dom';
+import { useLocation } from "react-router-dom";
 
 import { Box, TextField, Button, Typography, Grid, Container } from "@mui/material";
 
 // Validation schema
 const validationSchema = Yup.object({
- 
   rollno: Yup.number().min(0, "Minimum 0").max(6, "Maximum 6"),
   english: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
   mathArts: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
   generalScience: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
   pakStd: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
   urdu: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
+  examinationYear: Yup.number()
+    .min(1900, "Year must be after 1900")
+    .max(new Date().getFullYear(), "Year cannot be in the future")
+    .required("Examination Year is required"),
 });
 
 const ArtsResult = () => {
   const location = useLocation();
-  const { userId } = location.state || {}; 
+  const { userId } = location.state || {};
   console.log("Your userId in marksheet form is:", userId);
 
   const formik = useFormik({
     initialValues: {
-      rollno:" ",
+      rollno: "",
       english: "",
       mathArts: "",
       generalScience: "",
       pakStd: "",
       urdu: "",
+      examinationYear: "",
     },
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
         // Send the userId as a query parameter
-        const response = await axios.post(`http://localhost:8000/user/marksheet?userId=${userId}`, values);
+        const response = await axios.post(
+          `http://localhost:8000/user/marksheet?userId=${userId}`,
+          values
+        );
         console.log("Response:", response.data);
         alert("Marksheet submitted successfully!");
         resetForm(); // Reset the form after successful submission
@@ -47,7 +54,15 @@ const ArtsResult = () => {
 
   return (
     <Container maxWidth="md">
-      <Box sx={{ padding: 4, backgroundColor: "white", borderRadius: 2, boxShadow: 3, mt: 2 }}>
+      <Box
+        sx={{
+          padding: 4,
+          backgroundColor: "white",
+          borderRadius: 2,
+          boxShadow: 3,
+          mt: 2,
+        }}
+      >
         <Typography variant="h5" sx={{ marginBottom: 2 }}>
           Add Numbers to Marksheet
         </Typography>
@@ -59,13 +74,15 @@ const ArtsResult = () => {
                   fullWidth
                   id={field}
                   name={field}
-                  label={field.replace(/([A-Z])/g, " $1").replace(/^./, (str) => str.toUpperCase())}
+                  label={field
+                    .replace(/([A-Z])/g, " $1")
+                    .replace(/^./, (str) => str.toUpperCase())}
                   value={formik.values[field]}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   error={formik.touched[field] && Boolean(formik.errors[field])}
                   helperText={formik.touched[field] && formik.errors[field]}
-                  type="number"
+                  type={field === "examinationYear" ? "number" : "number"}
                 />
               </Grid>
             ))}
