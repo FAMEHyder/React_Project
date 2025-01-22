@@ -13,6 +13,8 @@ router.post('/login',login );
 router.get('/getAllUsers', getAllUsers );
 router.get('/users/:id', getUserById);
 router.post('/marksheet/:userId', createMarksheet);
+router.get('/marksheet/:Id', getMarksheetById);
+router.get('/registration/:Id', getRegistrationById);
 
 
 
