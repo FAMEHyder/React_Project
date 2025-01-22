@@ -1,18 +1,19 @@
-import axios from 'axios';
 import { Box, Typography, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Paper, Grid, Button } from '@mui/material';
 import { useLocation } from 'react-router-dom';
 import { useAuthStore } from '../authContext/auth';
 
 const Marksheet = () => {
   const { user } = useAuthStore();
-  console.log("your user is now containing these info: ", user.Marksheet);
   const location = useLocation();
   const { rollno } = location.state || {};
-  console.log("Your rollno is ", rollno);
 
-  // Assuming the Marksheets in the user object is an array of marksheets with data
-  const marksheetData = user.Marksheet[0] || {}; // Get the first marksheet or an empty object if not available
+   console.log(user)
 
+
+ 
+  const marksheetData = user.Marksheet.map((entry, index) => {
+
+})
   const subjects = [
     { id: 1, name: 'ENGLISH COMPULSORY', maxMarks: 75, obtainedMarks: marksheetData.english },
     { id: 2, name: 'MATHEMATICS', maxMarks: 75, obtainedMarks: marksheetData.mathScience },
@@ -24,33 +25,9 @@ const Marksheet = () => {
   const totalMarks = subjects.reduce((acc, subject) => acc + subject.maxMarks, 0);
   const totalObtained = subjects.reduce((acc, subject) => acc + subject.obtainedMarks, 0);
 
-  const handleSave = async () => {
-    try {
-      const userId = userId
-      const marksheetData = {
-        mathScience: subjects[1].obtainedMarks, // Example mapping
-        biology: subjects[4].obtainedMarks,
-        physics: subjects[2].obtainedMarks,
-        chemistry: subjects[3].obtainedMarks,
-        english: subjects[0].obtainedMarks,
-        mathArts: 0,
-        generalScience: 0,
-        pakStd: 0,
-        urdu: 0,
-      };
+  
 
-      const response = await axios.post('http://localhost:8000/form/createform', {
-        userId,
-        marksheetData,
-      });
-
-      console.log(response.data);
-      alert('Marksheet saved successfully!');
-    } catch (error) {
-      console.error(error);
-      alert('An error occurred while saving the marksheet.');
-    }
-  };
+   
 
   return (
     <Box p={2}>
@@ -70,7 +47,7 @@ const Marksheet = () => {
               <Typography>Roll no : <strong>{rollno || 'Not Available'}</strong></Typography>
             </Box>
             <Box display="flex" justifyContent="space-between">
-              <Typography>Class : <strong>10th Science</strong></Typography>
+              <Typography>Class : <strong>{user.Class}</strong></Typography>
             </Box>
             <Typography>School: <strong>Green Hills</strong></Typography>
           </Grid>
