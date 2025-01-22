@@ -7,7 +7,14 @@ const Marksheet = () => {
   const location = useLocation();
   const { rollno } = location.state || {};
 
-   console.log(user)
+
+   console.log ("Your User in the marksheet is :",user)
+   
+   const marksheetId= user.Marksheet;
+   const registrationId = user.Registration
+   
+   console.log ("Your marksheet in the marksheet is :",marksheetId)
+   console.log ("Your registration in the marksheet is :",registrationId)
 
 
  

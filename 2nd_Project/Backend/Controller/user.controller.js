@@ -142,12 +142,11 @@ export const getUserById = async (req, res, next) => {
 
 // Create a marksheet and associate it with a user
 export const createMarksheet = async (req, res) => {
-  console.log("r b is : " ,req.body)
-  console.log("r p is : " ,req.param)
+  console.log("your req.body is :" ,req.body)
   
 
   try {
-    const { rollno, mathScience, biology, physics, chemistry, english, mathArts, generalScience, pakStd, urdu } = req.body;
+    const { rollno,examinationYear,  mathScience, biology, physics, chemistry, english, mathArts, generalScience, pakStd, urdu } = req.body;
     const userId = req.params.userId;
     // Check if user exists
     const user = await User.findById(userId);
@@ -158,6 +157,7 @@ export const createMarksheet = async (req, res) => {
     // Create a new marksheet
     const newMarksheet = new Marksheet({
       rollno,
+      examinationYear,
       mathScience,
       biology,
       physics,

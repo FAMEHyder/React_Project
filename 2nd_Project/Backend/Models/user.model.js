@@ -70,6 +70,10 @@ const marksheetSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
+    examinationYear:{
+        type:Number,
+        required:true
+    },
     mathScience:{
         type:Number,
        
