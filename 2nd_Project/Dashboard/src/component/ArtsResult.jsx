@@ -37,11 +37,21 @@ const ArtsResult = () => {
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        // Send the userId as a query parameter
+        // Add default subjects to the data sent to the backend
+        const payload = {
+          ...values,
+          Subject1: "English Compulsory",
+          Subject2: "Urdu Compulsory",
+          Subject3: "Pakistan Studies",
+          Subject4: "General Science",
+          Subject5: "Mathematics",
+        };
+
         const response = await axios.post(
           `http://localhost:8000/user/marksheet?userId=${userId}`,
-          values
+          payload
         );
+
         console.log("Response:", response.data);
         alert("Marksheet submitted successfully!");
         resetForm(); // Reset the form after successful submission

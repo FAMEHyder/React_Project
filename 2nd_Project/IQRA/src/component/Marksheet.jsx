@@ -44,11 +44,11 @@ const Marksheet = () => {
   }, [marksheetId, registrationId]);
 
   const subjects = [
-    { id: 1, name: 'ENGLISH COMPULSORY', maxMarks: 75, obtainedMarks: marksheetData?.english || 0 },
-    { id: 2, name: 'MATHEMATICS', maxMarks: 75, obtainedMarks: marksheetData?.mathScience || 0 },
-    { id: 3, name: 'PHYSICS', maxMarks: 75, obtainedMarks: marksheetData?.physics || 0 },
-    { id: 4, name: 'CHEMISTRY', maxMarks: 75, obtainedMarks: marksheetData?.chemistry || 0 },
-    { id: 5, name: 'BIOLOGY', maxMarks: 75, obtainedMarks: marksheetData?.biology || 0 },
+    { id: 1, name: marksheetData.Subject1, maxMarks: 75, obtainedMarks: marksheetData.english || marksheetData.english},
+    { id: 2, name: marksheetData.Subject2, maxMarks: 75, obtainedMarks: marksheetData.mathScience || marksheetData.urdu},
+    { id: 3, name: marksheetData.Subject3, maxMarks: 75, obtainedMarks: marksheetData.physics || marksheetData.pakStd},
+    { id: 4, name: marksheetData.Subject4, maxMarks: 75, obtainedMarks: marksheetData.chemistry || marksheetData.generalScience},
+    { id: 5, name: marksheetData.Subject5, maxMarks: 75, obtainedMarks: marksheetData.biology || marksheetData.mathArts},
   ];
 
   const totalMarks = subjects.reduce((acc, subject) => acc + subject.maxMarks, 0);

@@ -146,7 +146,7 @@ export const createMarksheet = async (req, res) => {
   
 
   try {
-    const { rollno,examinationYear,  mathScience, biology, physics, chemistry, english, mathArts, generalScience, pakStd, urdu } = req.body;
+    const { rollno,examinationYear, Subject1,Subject2,Subject3,Subject4,Subject5, mathScience, biology, physics, chemistry, english, mathArts, generalScience, pakStd, urdu } = req.body;
     const userId = req.params.userId;
     // Check if user exists
     const user = await User.findById(userId);
@@ -158,6 +158,11 @@ export const createMarksheet = async (req, res) => {
     const newMarksheet = new Marksheet({
       rollno,
       examinationYear,
+      Subject1,
+      Subject2,
+      Subject3,
+      Subject4,
+      Subject5,
       mathScience,
       biology,
       physics,

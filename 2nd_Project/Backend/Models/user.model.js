@@ -74,6 +74,31 @@ const marksheetSchema = new mongoose.Schema({
         type:Number,
         required:true
     },
+    Subject1:{
+        type:String,
+        required:true
+       
+    },
+    Subject2:{
+        type:String,
+        required:true
+       
+    },
+    Subject3:{
+        type:String,
+        required:true
+       
+    },
+    Subject4:{
+        type:String,
+        required:true
+       
+    },
+    Subject5:{
+        type:String,
+        required:true
+       
+    },
     mathScience:{
         type:Number,
        
