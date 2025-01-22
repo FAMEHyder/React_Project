@@ -2,7 +2,7 @@ import  express  from "express"
 
 import  Register  from '../Controller/user.controller.js';
 import { login } from "../Controller/user.controller.js";
-import { getAllUsers , getUserById ,createMarksheet} from "../Controller/user.controller.js";
+import { getAllUsers , getUserById ,createMarksheet,getMarksheetById,getRegistrationById} from "../Controller/user.controller.js";
 const router = express.Router();
 
 
