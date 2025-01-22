@@ -28,7 +28,7 @@ const UserTable9Science = () => {
       try {
         const response = await axios.get('http://localhost:8000/user/getAllUsers');
         const allUsers = response.data.data || [];
-        const filteredUsers = allUsers.filter((user) => user.Class === '9th science' || user.Class === '9th Science' || user.Class === '9 science'|| user.Class === '9 Sciences');
+        const filteredUsers = allUsers.filter((user) => user.Class === '9th science');
         setUsers(filteredUsers);
       } catch (err) {
         setError('Failed to fetch user data. Please try again later.');
