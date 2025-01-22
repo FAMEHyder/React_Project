@@ -12,6 +12,8 @@ import {
   Box,
   Typography,
   Grid,
+  MenuItem,
+  Select,
 } from '@mui/material';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import * as Yup from 'yup';
@@ -147,7 +149,7 @@ const Pre_board = () => {
         { name: 'address', label: 'Address' },
       ],
       [
-        { name: 'Class', label: 'Class' },
+        { name: 'Class', label: 'Class', type: 'dropdown', options: ['9th Arts', '10th Arts', '9th Science', '10th Science'] },
         { name: 'institution', label: 'Institution' },
         { name: 'field', label: 'Field', type: 'radio', options: ['Science', 'Arts'] },
       ],
@@ -177,7 +179,7 @@ const Pre_board = () => {
           <Form>
             <Grid container spacing={2}>
               {fields[step].map((field) => (
-                <Grid item xs={12} sm={field.type === 'radio' ? 12 : 6} key={field.name}>
+                <Grid item xs={12} sm={field.type === 'radio' || field.type === 'dropdown' ? 12 : 6} key={field.name}>
                   {field.type === 'radio' ? (
                     <FormControl>
                       <Typography>{field.label}</Typography>
@@ -206,6 +208,28 @@ const Pre_board = () => {
                         <Typography color="error">{errors[field.name]}</Typography>
                       )}
                     </>
+                  ) : field.type === 'dropdown' ? (
+                    <FormControl fullWidth>
+                      <Typography>{field.label}</Typography>
+                      <Field
+                        as={Select}
+                        name={field.name}
+                        displayEmpty
+                        error={touched[field.name] && !!errors[field.name]}
+                      >
+                        <MenuItem value="" disabled>
+                          Select {field.label}
+                        </MenuItem>
+                        {field.options.map((option) => (
+                          <MenuItem key={option} value={option}>
+                            {option}
+                          </MenuItem>
+                        ))}
+                      </Field>
+                      <ErrorMessage name={field.name}>
+                        {(msg) => <Typography color="error">{msg}</Typography>}
+                      </ErrorMessage>
+                    </FormControl>
                   ) : (
                     <Field
                       as={TextField}

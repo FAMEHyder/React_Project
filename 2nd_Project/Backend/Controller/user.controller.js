@@ -44,13 +44,13 @@ export default Register;
 
 
 export const login = async (req, res) => {
-  const { email } = req.body
+  const { userName } = req.body
   try {
-    const user = await User.findOne({ email })
+    const user = await User.findOne({ userName })
     if (!user) {
       return res.status(401).json({
         status: true,
-        message: "Email not exits ...."
+        message: "Username not exits ...."
       })
 
     }
