@@ -1,14 +1,11 @@
 import {create} from 'zustand';
 import axios from 'axios';
 
-// Define the Zustand store
 export const useAuthStore = create((set, get) => ({
     user: null,
     token: localStorage.getItem('authToken'),
     userId: null,
-    // productDetails: [],
 
-    // Fetch user data
     fetchUserData: async () => {
         const { token, userId } = get();
         console.log("Now userId is : ",userId)
@@ -25,7 +22,6 @@ export const useAuthStore = create((set, get) => ({
         }
     },
 
-    // Login function
     login: async (data) => {
         const { token, userData } = data;
         console.log("User Id and token: ",token,userData._id)   
@@ -33,8 +29,7 @@ export const useAuthStore = create((set, get) => ({
             set({ token, userId: userData._id });
             localStorage.setItem('authToken', token);
     
-            // Call fetchUserData to ensure user data is updated
-            await get().fetchUserData();  // Ensure user data is loaded after login
+            await get().fetchUserData();  
             return true;
         } catch (error) {
             console.error('Sorry Login failed:', error);
@@ -42,17 +37,15 @@ export const useAuthStore = create((set, get) => ({
         }
     },
 
-    // Logout function
     logout: () => {
         set({ user: null, token: null, userId: null });
         localStorage.removeItem('authToken');
     },
 
-    // Check if the user is authenticated
     checkAuthentication: (navigate) => {
         const { token, user } = get();
         if (!token || !user) {
-            navigate('/login'); // Redirect to Login if not authenticated
+            navigate('/login'); 
             return false;
         }
         return true;
