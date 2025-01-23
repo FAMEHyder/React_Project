@@ -43,14 +43,10 @@ export default Register;
 
 export const login = async (req, res) => {
   const { email, password } = req.body;
-  console.log("Your email in the req is:", email);
 
   try {
-    // Find the admin by email
     const admin = await Admin.findOne({ email });
-    console.log("Admin email is:", admin);
 
-    // If admin doesn't exist, return an error
     if (!admin) {
       return res.status(401).json({
         status: false,
@@ -58,7 +54,6 @@ export const login = async (req, res) => {
       });
     }
 
-    // Compare the password
     const isMatch = await bcrypt.compare(password, admin.password);
     if (!isMatch) {
       return res.status(401).json({
@@ -67,17 +62,13 @@ export const login = async (req, res) => {
       });
     }
 
-    // Generate the JWT token
-    const payload = { adminId: admin._id }; // Use adminId for payload
+    const payload = { adminId: admin._id };
     const token = jwt.sign(payload, process.env.JWT_SECRET);
 
-    // Remove the password from the admin data before sending the response
     const { password: _, ...userData } = admin._doc;
 
-    // Set the token in the cookie
     res.cookie('access', token, { httpOnly: true });
 
-    // Send success response with user data and token
     res.status(200).json({
       status: true,
       message: `Login successfully with ${admin.userName}`,

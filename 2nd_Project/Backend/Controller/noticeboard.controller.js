@@ -3,7 +3,6 @@ import Notice from '../Models/noticeboard.model.js';
 export const addNotice = async (req, res) => {
     const { title, description, date } = req.body;
   
-    // Validation
     if (!title || !description || !date) {
       return res.status(400).json({ message: 'All fields are required' });
     }
@@ -26,7 +25,7 @@ export const addNotice = async (req, res) => {
 
 export const getAllNotices = async (req, res) => {
   try {
-    const notices = await Notice.find().sort({ date: -1 }); // Sort by newest first
+    const notices = await Notice.find().sort({ date: -1 }); 
     res.status(200).json(notices);
   } catch (error) {
     res.status(500).json({ message: 'Error fetching notices', error });

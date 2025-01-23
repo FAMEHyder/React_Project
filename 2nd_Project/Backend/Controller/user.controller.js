@@ -55,7 +55,6 @@ export const login = async (req, res) => {
 
     }
     const isMatch = await bcrypt.compare(req.body.password, user.password)
-    // console.log(password, "user",user.password)
     if (!isMatch) {
       return res.status(401).json({
         status: true,
@@ -75,7 +74,6 @@ export const login = async (req, res) => {
     })
 
   } catch (error) {
-    // console.log(error)
     res.status(500).json({
       status: true,
       message: "Server Error .......",
@@ -87,7 +85,7 @@ export const login = async (req, res) => {
 
 export const getAllUsers = async (req, res, next) => {
   try {
-    const users = await User.find(); // Fetch all users from the database
+    const users = await User.find(); 
     if (!users || users.length === 0) {
       return res.status(404).json({
         status: 404,
@@ -113,8 +111,8 @@ export const getAllUsers = async (req, res, next) => {
 
 export const getUserById = async (req, res, next) => {
   try {
-    const { id } = req.params; // Extract the user ID from the request parameters
-    const user = await User.findById(id); // Fetch the user by ID from the database
+    const { id } = req.params; 
+    const user = await User.findById(id); 
 
     if (!user) {
       return res.status(404).json({
@@ -140,7 +138,6 @@ export const getUserById = async (req, res, next) => {
 
 
 
-// Create a marksheet and associate it with a user
 export const createMarksheet = async (req, res) => {
   console.log("your req.body is :" ,req.body)
   
@@ -148,13 +145,11 @@ export const createMarksheet = async (req, res) => {
   try {
     const { rollno,examinationYear, Subject1,Subject2,Subject3,Subject4,Subject5, mathScience, biology, physics, chemistry, english, mathArts, generalScience, pakStd, urdu } = req.body;
     const userId = req.params.userId;
-    // Check if user exists
     const user = await User.findById(userId);
     if (!user) {
       return res.status(404).json({ message: 'User not found' });
     }
 
-    // Create a new marksheet
     const newMarksheet = new Marksheet({
       rollno,
       examinationYear,
@@ -174,10 +169,8 @@ export const createMarksheet = async (req, res) => {
       urdu,
     });
 
-    // Save the marksheet to the database
     const savedMarksheet = await newMarksheet.save();
 
-    // Associate the marksheet with the user
     user.Marksheet.push(savedMarksheet._id);
     await user.save();
 
@@ -206,7 +199,6 @@ export const Createform = async (req, res, next) => {
   } = req.body;
 
   try {
-      // Validate required fields
       if (
           !userId ||
           !fullName ||
@@ -228,7 +220,6 @@ export const Createform = async (req, res, next) => {
           });
       }
 
-      // Find the user by userId
       const user = await User.findById(userId);
       if (!user) {
           return res.status(404).json({
@@ -237,13 +228,11 @@ export const Createform = async (req, res, next) => {
           });
       }
 
-      // Handle uploaded images
       let images = [];
       if (req.files && req.files.length > 0) {
           images = req.files.map((file) => file.path);
       }
 
-      // Create the form
       const form = new Registration({
           fullName,
           fatherName,
@@ -260,21 +249,16 @@ export const Createform = async (req, res, next) => {
           images,
       });
 
-      // Save the form
       await form.save();
 
-      // Ensure the Registration field exists as an array
       if (!Array.isArray(user.Registration)) {
           user.Registration = [];
       }
 
-      // Add the form ID to the user's Registration array
       user.Registration.push(form._id);
 
-      // Save the updated user
       await user.save();
 
-      // Populate the updated user with Registration data
       const updatedUser = await User.findById(userId).populate("Registration");
 
       res.status(201).json({
@@ -282,11 +266,10 @@ export const Createform = async (req, res, next) => {
           message: "Form created and user updated successfully",
           data: {
               form,
-              user: updatedUser, // Send the populated user
+              user: updatedUser, 
           },
       });
   } catch (error) {
-      console.error("Error creating form:", error.message);
       res.status(500).json({
           status: "error",
           message: "Internal server error",
@@ -297,7 +280,6 @@ export const Createform = async (req, res, next) => {
 
 
 
-// Controller to fetch Marksheet by ID
 export const getMarksheetById = async (req, res) => {
   const { marksheetId } = req.params;
 
@@ -308,12 +290,10 @@ export const getMarksheetById = async (req, res) => {
     }
     res.status(200).json(marksheet);
   } catch (error) {
-    console.error("Error fetching marksheet:", error);
     res.status(500).json({ message: "Server error while fetching marksheet" });
   }
 };
 
-// Controller to fetch Registration by ID
 export const getRegistrationById = async (req, res) => {
   const { registrationId } = req.params;
 
@@ -324,7 +304,6 @@ export const getRegistrationById = async (req, res) => {
     }
     res.status(200).json(registration);
   } catch (error) {
-    console.error("Error fetching registration:", error);
     res.status(500).json({ message: "Server error while fetching registration" });
   }
 };

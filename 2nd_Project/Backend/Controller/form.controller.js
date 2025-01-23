@@ -1,8 +1,8 @@
-import {User,Registration} from '../Models/user.model.js'; // Import the User model
+import {User,Registration} from '../Models/user.model.js';
 
 const Createform = async (req, res, next) => {
     const {
-        userId, // Include userId in the request body
+        userId, 
         fullName,
         fatherName,
         phoneNumber,
@@ -18,7 +18,6 @@ const Createform = async (req, res, next) => {
     } = req.body;
 
     try {
-        // Find the user by userId
         const user = await User.findById(userId);
         if (!user) {
             return res.status(404).json({
@@ -27,13 +26,11 @@ const Createform = async (req, res, next) => {
             });
         }
 
-        // Handle uploaded images
         let images = [];
         if (req.files) {
-            images = req.files.map((file) => file.path); // Store file paths in images array
+            images = req.files.map((file) => file.path);
         }
 
-        // Create the form
         const form = new Registration({
             fullName,
             fatherName,
@@ -50,11 +47,9 @@ const Createform = async (req, res, next) => {
             images,
         });
 
-        // Save the form
         await form.save();
 
-        // Update the user's Registration field
-        user.Registration.push(form._id); // Add the form ID to the Registration array
+        user.Registration.push(form._id);
         await user.save();
 
         res.status(201).json({
