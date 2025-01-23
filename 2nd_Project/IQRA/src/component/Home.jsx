@@ -46,7 +46,6 @@ const Home = () => {
           },
         }}
       >
-        {/* Logo Image */}
         <Box
           sx={{
             width: { xs: "150px", sm: "200px", md: "220px" },
@@ -76,7 +75,6 @@ const Home = () => {
           IQRA YOUTH EDUCATIONAL FOUNDATION
         </Typography>
 
-        {/* Three Boxes */}
         <Grid
           container
           spacing={2}
@@ -146,7 +144,6 @@ const Home = () => {
           ))}
         </Grid>
 
-        {/* Objectives and Goals */}
         <Box
           sx={{
             mt: 4,
@@ -188,10 +185,8 @@ const Home = () => {
         </Box>
 
       </Grid>
-      {/* This is the section component: */}
           <Section />
 
-      {/* organizational structure */}
       <Grid container spacing={2} mt={4} px={2}>
   <Grid item xs={12} sm={6} md={4} lg={3}>
     <Box sx={{ height: '100%' }}>

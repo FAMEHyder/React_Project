@@ -12,14 +12,13 @@ const Footer = () => {
       navigate('/signin');
       return;
     }
-    navigate(path); // Navigate to the specified path
+    navigate(path); 
    
       
   }
   return (
     <Box sx={{ backgroundColor: 'darkblue', color: 'white', padding: '20px' }}>
       <Grid container spacing={4}>
-        {/* About Us */}
         <Grid item xs={12} md={3}>
           <Typography variant="h6" gutterBottom>About Us</Typography>
           <Typography variant="body2">
@@ -30,7 +29,6 @@ const Footer = () => {
           </Typography>
         </Grid>
         
-        {/* Quick Links */}
         <Grid item xs={12} md={3}>
           <Typography variant="h6" gutterBottom>Quick Links</Typography>
           <Typography variant="body2">
@@ -50,7 +48,6 @@ const Footer = () => {
           </Typography>
         </Grid>
         
-        {/* Contact Us */}
         <Grid item xs={12} md={3}>
           <Typography variant="h6" gutterBottom>Contact Us</Typography>
           <Typography variant="body2">Phone: +92-344 5254658 & +92 346 4640837</Typography>
@@ -58,7 +55,6 @@ const Footer = () => {
           <Typography variant="body2">Address: Roundu Skardu, Gilgit-Baltistan</Typography>
         </Grid>
         
-        {/* Social Media */}
         <Grid item xs={12} md={3}>
           <Typography variant="h6" gutterBottom>Follow Us</Typography>
           <Box sx={{ display: 'flex', gap: 2, alignItems: 'center', mt: 1 }}>
@@ -78,7 +74,6 @@ const Footer = () => {
         </Grid>
       </Grid>
       
-      {/* Copyright */}
       <Box mt={4}>
         <Typography variant="body2" align="center">
           © 2024 Iqra Youth Educational Foundation. All rights reserved.
