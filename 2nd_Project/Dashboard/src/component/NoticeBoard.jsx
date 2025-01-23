@@ -12,7 +12,6 @@ import {
   CircularProgress,
 } from '@mui/material';
 
-// Validation Schema
 const NoticeSchema = Yup.object().shape({
   title: Yup.string().required('Title is required'),
   description: Yup.string().required('Description is required'),
@@ -29,7 +28,7 @@ const NoticeBoard = () => {
     setLoading(true);
     setError('');
     try {
-      // API Call
+
       await axios.post('http://localhost:8000/notice/AddToBoard', values);
       setSuccess(true);
       resetForm();
@@ -44,7 +43,7 @@ const NoticeBoard = () => {
     setLoading(true);
     setError('');
     try {
-      // DELETE API Call
+
       await axios.delete('http://localhost:8000/notice/DeleteFromBoard');
       setDeleteSuccess(true);
     } catch (err) {

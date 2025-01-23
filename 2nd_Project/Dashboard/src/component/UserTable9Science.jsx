@@ -51,10 +51,8 @@ const UserTable9Science = () => {
   };
 
   const handleAddResult = (id) => {
-    // Add result handling logic here, such as showing a form or updating the user result
     console.log(`Add result for user with ID: ${id}`);
     navigate('/scienceresult', { state: { userId: id } });
-    // Example: Sending a request to add a result for the user (you can expand this logic)
   };
 
   if (loading) {
@@ -87,7 +85,7 @@ const UserTable9Science = () => {
         padding: { xs: 2, sm: 3, md: 4 },
         width: '100%',
         boxSizing: 'border-box',
-        overflowX: 'auto', // Enable horizontal scrolling
+        overflowX: 'auto',
       }}
     >
       <Typography
@@ -102,7 +100,7 @@ const UserTable9Science = () => {
         sx={{
           margin: '0 auto',
           maxWidth: '100%',
-          overflowX: 'auto', // Enable scrolling for smaller screens
+          overflowX: 'auto', 
           boxShadow: 3,
         }}
       >
@@ -135,7 +133,6 @@ const UserTable9Science = () => {
                 <TableCell align="center">{user.Class}</TableCell>
                 <TableCell align="center">{user.address}</TableCell>
                 <TableCell align="center">
-                  {/* Add Result Button */}
                   <Button
                     variant="contained"
                     color="primary"
@@ -148,7 +145,6 @@ const UserTable9Science = () => {
                 </TableCell>
                 <TableCell align="center">
                   
-                  {/* Delete Button */}
                   <IconButton
                     color="error"
                     onClick={() => handleDelete(user._id)}

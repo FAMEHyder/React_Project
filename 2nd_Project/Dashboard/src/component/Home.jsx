@@ -30,7 +30,6 @@ const Home = () => {
   const [data, setData] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Simulated data fetching
   useEffect(() => {
     setTimeout(() => {
       setData({
@@ -64,7 +63,6 @@ const Home = () => {
         margin: 0,
       }}
     >
-      {/* Main Content */}
       <Box
         sx={{
           flexGrow: 1,
@@ -74,7 +72,6 @@ const Home = () => {
       >
         <Container maxWidth="xl">
           <Grid container spacing={0}>
-            {/* Student Enrollments */}
             <Grid item xs={12}>
               <Box
                 sx={{
@@ -83,7 +80,7 @@ const Home = () => {
                   bgcolor: "white",
                   borderRadius: 2,
                   boxShadow: 3,
-                  height: 400, // Adjust height for better visibility
+                  height: 400, 
                   width: "98%",
                 }}
               >

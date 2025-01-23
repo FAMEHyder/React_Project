@@ -13,7 +13,7 @@ const UserProfile = () => {
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
-        // Simulate fetching user data
+        
         const fetchedUserData = {
             name: "FAME Hyder",
             age: 23,
@@ -25,18 +25,16 @@ const UserProfile = () => {
         };
         setLoading(true);
         setTimeout(() => {
-            setUserData(fetchedUserData);  // Simulate data fetch
-            setLoading(false);  // Stop loading after fetching data
-        }, 2000);  // Simulate delay
+            setUserData(fetchedUserData);  
+            setLoading(false);  
+        }, 2000);  
     }, []);
 
     return (
-        <Box sx={{ p: 3, mt: 12, ml: { xs: 0, sm: 0, md: '250px' } }}> {/* Added ml for sidebar offset */}
+        <Box sx={{ p: 3, mt: 12, ml: { xs: 0, sm: 0, md: '250px' } }}> 
             <Grid container direction={'column'} spacing={3} justifyContent="center">
-                {/* Profile Picture Section */}
                 <Grid item xs={12} md={4} order={{ xs: 1, md: 1 }}>
                     <Paper sx={{ p: 2, textAlign: 'center' }} elevation={3}>
-                        {/* Profile Picture with Skeleton Loader */}
                         {loading ? (
                             <Skeleton variant="circular" width={150} height={150} sx={{ mx: 'auto' }} />
                         ) : (
@@ -46,13 +44,11 @@ const UserProfile = () => {
                                 sx={{ width: 150, height: 150, mx: 'auto' }}
                             />
                         )}
-                        {/* Name with Skeleton Loader */}
                         {loading ? (
                             <Skeleton variant="text" width="60%" sx={{ mx: 'auto', mt: 2 }} />
                         ) : (
                             <Typography variant="h5" sx={{ mt: 2 }}>{userData.name}</Typography>
                         )}
-                        {/* Username with Skeleton Loader */}
                         {loading ? (
                             <Skeleton variant="text" width="40%" sx={{ mx: 'auto' }} />
                         ) : (
@@ -61,10 +57,8 @@ const UserProfile = () => {
                     </Paper>
                 </Grid>
 
-                {/* User Info Section */}
                 <Grid item xs={12} md={8} order={{ xs: 2, md: 2 }}>
                     <Paper sx={{ p: 2 }} elevation={3}>
-                        {/* User Info Fields with Skeleton Loader */}
                         {loading ? (
                             <>
                                 {[...Array(6)].map((_, index) => (

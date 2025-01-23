@@ -7,25 +7,24 @@ import MenuIcon from '@mui/icons-material/Menu';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const [anchorEl, setAnchorEl] = useState(null); // State for the menu anchor (user dropdown)
-  const [anchorElUser, setAnchorElUser] = useState(null); // State for the user dropdown
+  const [anchorEl, setAnchorEl] = useState(null); 
+  const [anchorElUser, setAnchorElUser] = useState(null); 
 
   const handleUserMenuOpen = (event) => {
-    setAnchorElUser(event.currentTarget); // Open user menu on click
+    setAnchorElUser(event.currentTarget); 
   };
 
   const handleUserMenuClose = () => {
-    setAnchorElUser(null); // Close the user menu
+    setAnchorElUser(null); 
   };
 
   const handleClick = (path) => {
-    navigate(path); // Navigate to the specified path
-    handleUserMenuClose(); // Close the menu after navigation
+    navigate(path); 
+    handleUserMenuClose(); 
   };
 
   return (
     <>
-      {/* Navbar */}
       <AppBar position="static">
         <Box
           sx={{
@@ -38,7 +37,6 @@ const Navbar = () => {
             px: 2,
           }}
         >
-          {/* Logo */}
           <Box
             onClick={() => handleClick('/')}
             sx={{
@@ -55,7 +53,6 @@ const Navbar = () => {
             }}
           />
 
-          {/* Desktop Navigation */}
           <Box
             sx={{
               display: { xs: 'none', md: 'flex' },
@@ -82,15 +79,14 @@ const Navbar = () => {
             </Button>
           </Box>
 
-          {/* Mobile Dropdown Menu */}
           <IconButton
             sx={{
               display: { xs: 'block', md: 'none' },
               color: 'white',
-              position: 'absolute', // Keep position fixed
-              right: '10px', // Align on the right side
+              position: 'absolute',
+              right: '10px', 
             }}
-            onClick={handleUserMenuOpen} // Opens the user-specific dropdown
+            onClick={handleUserMenuOpen} 
           >
             <MenuIcon />
           </IconButton>
@@ -101,9 +97,8 @@ const Navbar = () => {
             onClose={handleUserMenuClose}
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            sx={{ mt: 1, mr: '10px' }} // Adjust positioning below the MenuIcon
+            sx={{ mt: 1, mr: '10px' }} 
           >
-            {/* Only the class-related buttons for "User" */}
             <MenuItem onClick={() => handleClick('/user9arts')}>9th Arts</MenuItem>
             <MenuItem onClick={() => handleClick('/user10arts')}>10th Arts</MenuItem>
             <MenuItem onClick={() => handleClick('/user9science')}>9th Science</MenuItem>

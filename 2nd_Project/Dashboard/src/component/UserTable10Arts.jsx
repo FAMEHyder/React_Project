@@ -28,7 +28,7 @@ const UserTable10Arts = () => {
       try {
         const response = await axios.get('http://localhost:8000/user/getAllUsers');
         const allUsers = response.data.data || [];
-        const filteredUsers = allUsers.filter((user) => user.Class === '10th Arts'); // Filter users where Class is '9th arts'
+        const filteredUsers = allUsers.filter((user) => user.Class === '10th Arts'); 
         setUsers(filteredUsers);
       } catch (err) {
         setError('Failed to fetch user data. Please try again later.');
@@ -51,10 +51,8 @@ const UserTable10Arts = () => {
   };
 
   const handleAddResult = (id) => {
-    // Add result handling logic here, such as showing a form or updating the user result
     console.log(`Add result for user with ID: ${id}`);
     navigate('/artsresult', { state: { userId: id } });
-    // Example: Sending a request to add a result for the user (you can expand this logic)
   };
 
   if (loading) {
@@ -87,7 +85,7 @@ const UserTable10Arts = () => {
         padding: { xs: 2, sm: 3, md: 4 },
         width: '100%',
         boxSizing: 'border-box',
-        overflowX: 'auto', // Enable horizontal scrolling
+        overflowX: 'auto', 
       }}
     >
       <Typography
@@ -102,7 +100,7 @@ const UserTable10Arts = () => {
         sx={{
           margin: '0 auto',
           maxWidth: '100%',
-          overflowX: 'auto', // Enable scrolling for smaller screens
+          overflowX: 'auto', 
           boxShadow: 3,
         }}
       >
@@ -135,7 +133,6 @@ const UserTable10Arts = () => {
                 <TableCell align="center">{user.Class}</TableCell>
                 <TableCell align="center">{user.address}</TableCell>
                 <TableCell align="center">
-                  {/* Add Result Button */}
                   <Button
                     variant="contained"
                     color="primary"
@@ -148,7 +145,6 @@ const UserTable10Arts = () => {
                 </TableCell>
                 <TableCell align="center">
                   
-                  {/* Delete Button */}
                   <IconButton
                     color="error"
                     onClick={() => handleDelete(user._id)}

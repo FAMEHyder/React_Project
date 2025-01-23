@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 
 import { Box, TextField, Button, Typography, Grid, Container } from "@mui/material";
 
-// Validation schema
 const validationSchema = Yup.object({
   rollno: Yup.number().min(0, "Minimum 0").max(6, "Maximum 6"),
   english: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
@@ -36,7 +35,6 @@ const ArtsResult = () => {
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        // Add default subjects to the data sent to the backend
         const payload = {
           ...values,
           Subject1: "English Compulsory",
@@ -53,7 +51,7 @@ const ArtsResult = () => {
 
         console.log("Response:", response.data);
         alert("Marksheet submitted successfully!");
-        resetForm(); // Reset the form after successful submission
+        resetForm();
       } catch (error) {
         console.error("Error submitting marksheet:", error);
         alert("Failed to submit marksheet. Please try again.");

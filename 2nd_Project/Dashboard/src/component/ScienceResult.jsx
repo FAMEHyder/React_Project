@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 
 import { Box, TextField, Button, Typography, Grid, Container } from "@mui/material";
 
-// Validation schema
 const validationSchema = Yup.object({
   rollno: Yup.number().required("Roll No is required"),
   examinationYear: Yup.number()
@@ -51,7 +50,6 @@ const ScienceResult = () => {
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
       try {
-        // Add default subject data to the payload
         const payload = {
           ...values,
           Subject1: "English Compulsory",
@@ -91,7 +89,6 @@ const ScienceResult = () => {
         </Typography>
         <form onSubmit={formik.handleSubmit}>
           <Grid container spacing={3}>
-            {/* Roll No and Examination Year */}
             <Grid item xs={12} sm={6}>
               <TextField
                 fullWidth
@@ -127,7 +124,6 @@ const ScienceResult = () => {
               />
             </Grid>
 
-            {/* Section for subject marks */}
             <Grid item xs={12}>
               <Typography
                 variant="h6"
@@ -137,7 +133,6 @@ const ScienceResult = () => {
               </Typography>
             </Grid>
 
-            {/* Subject Fields */}
             {["mathScience", "biology", "physics", "chemistry", "english"].map(
               (field) => (
                 <Grid item xs={12} sm={6} key={field}>
