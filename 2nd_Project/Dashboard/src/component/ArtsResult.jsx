@@ -22,7 +22,6 @@ const validationSchema = Yup.object({
 const ArtsResult = () => {
   const location = useLocation();
   const { userId } = location.state || {};
-  console.log("Your userId in marksheet form is:", userId);
 
   const formik = useFormik({
     initialValues: {
