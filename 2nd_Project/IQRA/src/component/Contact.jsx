@@ -47,7 +47,6 @@ const ContactUs = () => {
 
   return (
     <Container sx={{ p: { xs: 2, md: 4 }, maxWidth: 'lg' }}>
-      {/* Background Image Section */}
       <Box
         sx={{
           height: { xs: '200px', sm: '300px' },
@@ -61,7 +60,6 @@ const ContactUs = () => {
         }}
       />
 
-      {/* Contact Info Section */}
       <Grid container spacing={3} sx={{ mb: 4 }}>
         <Grid item xs={12} sm={6} md={3}>
           <Box sx={{ textAlign: 'center' }}>
@@ -94,7 +92,6 @@ const ContactUs = () => {
         </Grid>
       </Grid>
 
-      {/* Contact Form Section */}
       <Box
         component="form"
         onSubmit={formik.handleSubmit}
