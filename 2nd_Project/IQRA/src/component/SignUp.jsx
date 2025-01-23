@@ -17,7 +17,6 @@ import axios from 'axios';
 const SignUp = () => {
   const navigate = useNavigate();
 
-  // State to capture form data
   const [formData, setFormData] = useState({
     fullName: '',
     dob: '',
@@ -29,10 +28,8 @@ const SignUp = () => {
     confirmPassword: '',
   });
 
-  // State for error messages
   const [error, setError] = useState('');
 
-  // Handle form field changes
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({
@@ -41,7 +38,6 @@ const SignUp = () => {
     }));
   };
 
-  // Handle form submission
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -54,7 +50,7 @@ const SignUp = () => {
       const response = await axios.post('http://localhost:8000/user/register', formData);
       if (response.status === 201) {
         alert('Registration successful!');
-        navigate('/signin'); // Navigate to Sign In page
+        navigate('/signin'); 
       }
     } catch (err) {
       console.error(err);
