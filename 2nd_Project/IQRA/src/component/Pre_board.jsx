@@ -27,7 +27,6 @@ const steps = [
   'Payment Information',
 ];
 
-// Validation Schemas for each step
 const validationSchemas = [
   Yup.object().shape({
     fullName: Yup.string().required('Full Name is required'),
@@ -65,7 +64,6 @@ const validationSchemas = [
   }),
 ];
 
-// Initial values for all steps
 const initialValues = [
   {
     fullName: '',
@@ -114,16 +112,14 @@ const Pre_board = () => {
     const finalData = formData.reduce((acc, stepData) => ({ ...acc, ...stepData }), {});
     const formDataToSubmit = new FormData();
 
-    // Append all form fields to FormData
     Object.entries(finalData).forEach(([key, value]) => {
       if (key === 'images') {
-        formDataToSubmit.append(key, value); // Append the file directly
+        formDataToSubmit.append(key, value); 
       } else {
         formDataToSubmit.append(key, value);
       }
     });
 
-    // Append userId to FormData
     formDataToSubmit.append('userId', userId);
 
     try {

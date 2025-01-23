@@ -26,7 +26,6 @@ const RollNoForm = () => {
     }
 
     setErrors({});
-    // Navigate to the next component and pass data
     navigate("/marksheet", { state: { RollNo, ExaminationYear } });
   };
 

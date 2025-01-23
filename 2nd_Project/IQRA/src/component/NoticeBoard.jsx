@@ -8,11 +8,10 @@ const NoticeBoard = () => {
   const [error, setError] = useState(null);
 
   useEffect(() => {
-    // Fetch data from the API
     const fetchNotices = async () => {
       try {
         const response = await axios.get('http://localhost:8000/notice/GetFromBoard');
-        setNotices(response.data); // Assume the API returns an array of notices
+        setNotices(response.data); 
       } catch (err) {
         setError('Failed to load notices. Please try again later.');
       } finally {
