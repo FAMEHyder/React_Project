@@ -4,20 +4,30 @@ import { useNavigate } from "react-router-dom";
 
 const RollNoForm = () => {
   const [RollNo, setRollNo] = useState("");
-  const [error, setError] = useState("");
+  const [ExaminationYear, setExaminationYear] = useState("");
+  const [errors, setErrors] = useState({});
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!RollNo.trim()) {
-      setError("Roll No is required");
+    const validationErrors = {};
+
+    if (!RollNo) {
+      validationErrors.RollNo = "Roll No is required";
+    }
+    if (!ExaminationYear) {
+      validationErrors.ExaminationYear = "Examination Year is required";
+    }
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
       return;
     }
 
-    setError("");
+    setErrors({});
     // Navigate to the next component and pass data
-    navigate("/marksheet", { state: { RollNo } });
+    navigate("/marksheet", { state: { RollNo, ExaminationYear } });
   };
 
   return (
@@ -38,12 +48,24 @@ const RollNoForm = () => {
       <form onSubmit={handleSubmit}>
         <TextField
           fullWidth
+          label="Examination Year"
+          type="number"
+          variant="outlined"
+          value={ExaminationYear}
+          onChange={(e) => setExaminationYear(e.target.value)}
+          error={!!errors.ExaminationYear}
+          helperText={errors.ExaminationYear}
+          sx={{ mb: 2 }}
+        />
+        <TextField
+          fullWidth
           label="Roll No"
+          type="number"
           variant="outlined"
           value={RollNo}
           onChange={(e) => setRollNo(e.target.value)}
-          error={!!error}
-          helperText={error}
+          error={!!errors.RollNo}
+          helperText={errors.RollNo}
           sx={{ mb: 2 }}
         />
         <Button type="submit" variant="contained" color="primary" fullWidth>

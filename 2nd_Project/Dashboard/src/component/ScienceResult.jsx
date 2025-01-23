@@ -97,13 +97,14 @@ const ScienceResult = () => {
                 fullWidth
                 id="rollno"
                 name="rollno"
+                type="number"
                 label="Roll No"
                 value={formik.values.rollno}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
                 error={formik.touched.rollno && Boolean(formik.errors.rollno)}
                 helperText={formik.touched.rollno && formik.errors.rollno}
-                type="number"
+                
               />
             </Grid>
             <Grid item xs={12} sm={6}>
