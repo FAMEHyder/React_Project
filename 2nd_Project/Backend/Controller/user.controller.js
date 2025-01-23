@@ -38,7 +38,6 @@ const Register = async (req, res, next) => {
         });
     }
 }
-
 export default Register;
 
 
@@ -134,8 +133,6 @@ export const getUserById = async (req, res, next) => {
     });
   }
 };
-
-
 
 
 export const createMarksheet = async (req, res) => {
