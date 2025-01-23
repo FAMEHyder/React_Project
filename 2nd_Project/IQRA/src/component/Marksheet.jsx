@@ -7,7 +7,9 @@ import axios from 'axios';
 const Marksheet = () => {
   const { user } = useAuthStore();
   const location = useLocation();
-  const { rollno } = location.state || {};
+  const { RollNo } = location.state || {};
+
+  console.log("Your Roll Number is : ",RollNo)
 
   const marksheetId = user?.Marksheet;
   const registrationId = user?.Registration;
@@ -32,6 +34,7 @@ const Marksheet = () => {
         const registrationResponse = await axios.get(`http://localhost:8000/user/getform/${registrationId}`);
         setRegistrationData(registrationResponse.data);
         console.log("Your registration details are : ",registrationResponse.data)
+        
 
       } catch (error) {
         console.error('Error fetching registration data:', error);
@@ -44,11 +47,11 @@ const Marksheet = () => {
   }, [marksheetId, registrationId]);
 
   const subjects = [
-    { id: 1, name: marksheetData.Subject1, maxMarks: 75, obtainedMarks: marksheetData.english || marksheetData.english},
-    { id: 2, name: marksheetData.Subject2, maxMarks: 75, obtainedMarks: marksheetData.mathScience || marksheetData.urdu},
-    { id: 3, name: marksheetData.Subject3, maxMarks: 75, obtainedMarks: marksheetData.physics || marksheetData.pakStd},
-    { id: 4, name: marksheetData.Subject4, maxMarks: 75, obtainedMarks: marksheetData.chemistry || marksheetData.generalScience},
-    { id: 5, name: marksheetData.Subject5, maxMarks: 75, obtainedMarks: marksheetData.biology || marksheetData.mathArts},
+    { id: 1, name: marksheetData.Subject1 || 0, maxMarks: 75, obtainedMarks:marksheetData.english || 0},
+    { id: 2, name: marksheetData.Subject2 || 0, maxMarks: 75, obtainedMarks:marksheetData.mathScience || 0},
+    { id: 3, name: marksheetData.Subject3 || 0, maxMarks: 75, obtainedMarks:marksheetData.physics || 0},
+    { id: 4, name: marksheetData.Subject4 || 0, maxMarks: 75, obtainedMarks:marksheetData.chemistry || 0},
+    { id: 5, name: marksheetData.Subject5 || 0, maxMarks: 75, obtainedMarks:marksheetData.biology || 0},
   ];
 
   const totalMarks = subjects.reduce((acc, subject) => acc + subject.maxMarks, 0);

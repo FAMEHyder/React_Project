@@ -2,22 +2,22 @@ import { useState } from "react";
 import { TextField, Button, Box, Typography } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 
-const rollnoForm = () => {
-  const [rollno, setrollno] = useState("");
+const RollNoForm = () => {
+  const [RollNo, setRollNo] = useState("");
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    if (!rollno.trim()) {
+    if (!RollNo.trim()) {
       setError("Roll No is required");
       return;
     }
 
     setError("");
     // Navigate to the next component and pass data
-    navigate("/marksheet", { state: { rollno } });
+    navigate("/marksheet", { state: { RollNo } });
   };
 
   return (
@@ -40,8 +40,8 @@ const rollnoForm = () => {
           fullWidth
           label="Roll No"
           variant="outlined"
-          value={rollno}
-          onChange={(e) => setrollno(e.target.value)}
+          value={RollNo}
+          onChange={(e) => setRollNo(e.target.value)}
           error={!!error}
           helperText={error}
           sx={{ mb: 2 }}
@@ -54,4 +54,4 @@ const rollnoForm = () => {
   );
 };
 
-export default rollnoForm;
+export default RollNoForm;
