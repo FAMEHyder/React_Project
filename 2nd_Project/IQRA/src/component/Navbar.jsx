@@ -7,21 +7,21 @@ import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../authContext/auth';
 
 const Navbar = () => {
-  const [anchorEl, setAnchorEl] = useState(null); // State for dropdown
+  const [anchorEl, setAnchorEl] = useState(null); 
   const navigate = useNavigate();
   const { user } = useAuthStore();
 
   const handleMenuOpen = (event) => {
-    setAnchorEl(event.currentTarget); // Set the anchor element
+    setAnchorEl(event.currentTarget); 
   };
 
   const handleMenuClose = () => {
-    setAnchorEl(null); // Close the menu
+    setAnchorEl(null); 
   };
 
   const handleClick = (path) => {
-    navigate(path); // Navigate to the specified path
-    handleMenuClose(); // Close the menu
+    navigate(path); 
+    handleMenuClose(); 
   };
   const handleprofileClick = (path) => {
     if (!user) {
@@ -29,8 +29,8 @@ const Navbar = () => {
       navigate('/Signin');
       return;
     }
-    navigate(path); // Navigate to the specified path
-    handleMenuClose(); // Close the menu
+    navigate(path); 
+    handleMenuClose(); 
   };
 
   return (
@@ -47,7 +47,6 @@ const Navbar = () => {
             px: 2,
           }}
         >
-          {/* Logo */}
           <Box
             onClick={() => handleClick('/')}
             sx={{
@@ -64,7 +63,6 @@ const Navbar = () => {
             }}
           />
 
-          {/* Desktop Navigation */}
           <Box
             sx={{
               display: { xs: 'none', md: 'flex' },
@@ -86,13 +84,12 @@ const Navbar = () => {
             </Button>
           </Box>
 
-          {/* Mobile Dropdown Menu */}
           <IconButton
             sx={{
               display: { xs: 'block', md: 'none' },
               color: 'white',
-              position: 'absolute', // Keep position fixed
-              right: '10px', // Align on the right side
+              position: 'absolute', 
+              right: '10px', 
             }}
             onClick={handleMenuOpen}
           >
@@ -105,7 +102,7 @@ const Navbar = () => {
             onClose={handleMenuClose}
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             transformOrigin={{ vertical: 'top', horizontal: 'right' }}
-            sx={{ mt: 1, mr: '10px' }} // Adjust positioning below the MenuIcon
+            sx={{ mt: 1, mr: '10px' }} 
           >
             <MenuItem onClick={() => handleClick('/signin')}>Sign In</MenuItem>
             <MenuItem onClick={() => handleClick('/signup')}>Sign Up</MenuItem>
