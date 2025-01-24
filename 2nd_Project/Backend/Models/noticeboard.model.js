@@ -1,4 +1,3 @@
-
 import mongoose from "mongoose";
 
 const NoticeSchema = new mongoose.Schema(
@@ -18,7 +17,7 @@ const NoticeSchema = new mongoose.Schema(
       required: true,
     },
   },
-  { timestamps: true } // Automatically adds `createdAt` and `updatedAt` fields
+  { timestamps: true } 
 );
 
 export default mongoose.model('Notice', NoticeSchema);

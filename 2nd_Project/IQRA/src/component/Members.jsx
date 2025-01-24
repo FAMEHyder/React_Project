@@ -10,9 +10,8 @@ import Liaqat from '../Member/liaqat.png';
 import Shakeel from '../Member/Shakeel.jpg';
 import Mubarak from '../Member/Mubarak.jpg';
 import Zahid from '../Member/Zahid.jpg';
-import Carousel from 'react-slick'; // Importing the Carousel component
+import Carousel from 'react-slick'; 
 
-// Add the slick-carousel CSS for styling
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 
@@ -48,7 +47,7 @@ const Members = () => {
         dots: false,
         infinite: true,
         speed: 500,
-        slidesToShow: 2, // Show two images at a time
+        slidesToShow: 2, 
         slidesToScroll: 1,
         arrows:false,
         autoplay: true,
@@ -57,7 +56,6 @@ const Members = () => {
 
     return (
         <Grid container spacing={2} >
-            {/* Left Box */}
             <Grid item xs={12} md={4}>
                 <Box
                     sx={{
@@ -110,10 +108,8 @@ const Members = () => {
                     </Typography>
                 </Box>
             </Grid>
-            {/* Right Box with Sliders */}
             <Grid item xs={12} md={8}>
                 <Grid container spacing={4}>
-                    {/* Upper Slider */}
                     <Typography variant="h6" color="primary" align="center" fontWeight={800} fontSize={30} sx={{ml:{xs:10,sm:10,md:50,lg:45},mt:{xs:4}}}>Meet Our Team</Typography>
                     <Grid item xs={12} >
                         <Carousel {...sliderSettings}>
@@ -157,7 +153,6 @@ const Members = () => {
                         </Carousel>
                     </Grid>
 
-                    {/* Lower Slider */}
                     <Grid item xs={12} >
                         <Carousel {...sliderSettings}>
                             {members.slice(5, 10).map((member) => (

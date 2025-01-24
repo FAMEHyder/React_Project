@@ -7,7 +7,6 @@ import {
     Paper,
     Skeleton
 } from '@mui/material';
-
 const UserProfile = () => {
     const [userData, setUserData] = useState({});
     const [loading, setLoading] = useState(true);
