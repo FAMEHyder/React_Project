@@ -31,7 +31,7 @@ const UserProfile = () => {
     }, []);
 
     return (
-        <Box sx={{ p: 3, mt: 12, ml: { xs: 0, sm: 0, md: '250px' } }}> 
+        <Box sx={{ p: 3, mt: 12, ml: { xs: 0, sm: 0, md: '20px' } }}> 
             <Grid container direction={'column'} spacing={3} justifyContent="center">
                 <Grid item xs={12} md={4} order={{ xs: 1, md: 1 }}>
                     <Paper sx={{ p: 2, textAlign: 'center' }} elevation={3}>

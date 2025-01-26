@@ -4,13 +4,20 @@ import { AccountCircle } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import NL from '../image/navbarLogo.png';
 import MenuIcon from '@mui/icons-material/Menu';
+import { useAuthStore } from '../../../IQRA/src/authContext/auth';
 
 const Navbar = () => {
   const navigate = useNavigate();
+  const {user}= useAuthStore();
   const [anchorEl, setAnchorEl] = useState(null); 
   const [anchorElUser, setAnchorElUser] = useState(null); 
 
   const handleUserMenuOpen = (event) => {
+    if (!user) {
+      alert('Sign in required! Click Ok to Sign In');
+      navigate('/Signin');
+      return;
+  }
     setAnchorElUser(event.currentTarget); 
   };
 
@@ -18,10 +25,18 @@ const Navbar = () => {
     setAnchorElUser(null); 
   };
 
+  
+
+
   const handleClick = (path) => {
-    navigate(path); 
+    if (!user) {
+        alert('Sign in required! Click Ok to Sign In');
+        navigate('/Signin');
+        return;
+    }
+    navigate(path);
     handleUserMenuClose(); 
-  };
+};
 
   return (
     <>
@@ -38,7 +53,7 @@ const Navbar = () => {
           }}
         >
           <Box
-            onClick={() => handleClick('/')}
+            onClick={() => handlelogoClick('/')}
             sx={{
               cursor: 'pointer',
               backgroundImage: `url(${NL})`,
@@ -67,9 +82,6 @@ const Navbar = () => {
             </Button>
             <Button sx={{ color: 'white' }} onClick={handleUserMenuOpen}>
               User
-            </Button>
-            <Button sx={{ color: 'white' }} onClick={() => handleClick('/marksheet')}>
-              Add Result
             </Button>
             <Button sx={{ color: 'white' }} onClick={() => handleClick('/noticboard')}>
               NoticeBoard
