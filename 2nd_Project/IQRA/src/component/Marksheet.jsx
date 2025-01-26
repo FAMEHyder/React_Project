@@ -86,25 +86,25 @@ const Marksheet = () => {
           id: 2,
           name: marksheetData.Subject2 || "N/A",
           maxMarks: 75,
-          obtainedMarks: marksheetData.mathScience || 0,
+          obtainedMarks: marksheetData.mathScience || marksheetData.urdu,
         },
         {
           id: 3,
           name: marksheetData.Subject3 || "N/A",
           maxMarks: 75,
-          obtainedMarks: marksheetData.physics || 0,
+          obtainedMarks: marksheetData.physics || marksheetData.pakStd,
         },
         {
           id: 4,
           name: marksheetData.Subject4 || "N/A",
           maxMarks: 75,
-          obtainedMarks: marksheetData.chemistry || 0,
+          obtainedMarks: marksheetData.chemistry ||marksheetData.generalScience ,
         },
         {
           id: 5,
           name: marksheetData.Subject5 || "N/A",
           maxMarks: 75,
-          obtainedMarks: marksheetData.biology || 0,
+          obtainedMarks: marksheetData.biology || marksheetData.mathArts,
         },
       ]
     : [];

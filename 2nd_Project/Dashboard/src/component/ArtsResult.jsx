@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import { Box, TextField, Button, Typography, Grid, Container } from "@mui/material";
 
 const validationSchema = Yup.object({
-  rollno: Yup.number().min(0, "Minimum 0").max(6, "Maximum 6"),
+  rollno: Yup.number().required("Roll no is required"),
   english: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
   mathArts: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
   generalScience: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
@@ -45,7 +45,7 @@ const ArtsResult = () => {
         };
 
         const response = await axios.post(
-          `http://localhost:8000/user/marksheet?userId=${userId}`,
+          `http://localhost:8000/user/marksheet/${userId}`,
           payload
         );
 
