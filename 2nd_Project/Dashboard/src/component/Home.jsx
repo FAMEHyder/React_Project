@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Container, Box, Typography, Skeleton, Grid } from "@mui/material";
 import { Bar } from "react-chartjs-2";
+import axios from "axios";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -31,12 +32,28 @@ const Home = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setTimeout(() => {
-      setData({
-        classEnrollments: [40, 50, 45, 60],
-      });
-      setLoading(false);
-    }, 3000);
+    const fetchUserData = async () => {
+      try {
+        const response = await axios.get("http://localhost:8000/user/getAllUsers");
+        const users = response.data;
+
+        // Filter the data for the specific classes
+        const classEnrollments = [
+          users.filter(user => user.class === "9th Arts").length,
+          users.filter(user => user.class === "10th Arts").length,
+          users.filter(user => user.class === "9th Science").length,
+          users.filter(user => user.class === "10th Science").length,
+        ];
+
+        setData({ classEnrollments });
+      } catch (error) {
+        console.error("Error fetching user data:", error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchUserData();
   }, []);
 
   const enrollmentData = {
