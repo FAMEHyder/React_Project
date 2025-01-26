@@ -6,7 +6,7 @@ const NoticeBoard = () => {
   const [notices, setNotices] = useState([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
-// 
+// it
   useEffect(() => {
     const fetchNotices = async () => {
       try {
