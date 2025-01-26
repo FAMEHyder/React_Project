@@ -25,6 +25,10 @@ const Navbar = () => {
     setAnchorElUser(null); 
   };
 
+  const handlelogoClick =(path)=>{
+    navigate(path)
+  }
+
   
 
 
@@ -74,10 +78,10 @@ const Navbar = () => {
               gap: 2,
             }}
           >
-            <Button sx={{ color: 'white' }} onClick={() => handleClick('/signin')}>
+            <Button sx={{ color: 'white' }} onClick={() => handlelogoClick('/signin')}>
               Sign In
             </Button>
-            <Button sx={{ color: 'white' }} onClick={() => handleClick('/signup')}>
+            <Button sx={{ color: 'white' }} onClick={() => handlelogoClick('/signup')}>
               Sign Up
             </Button>
             <Button sx={{ color: 'white' }} onClick={handleUserMenuOpen}>
