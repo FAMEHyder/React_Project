@@ -8,7 +8,7 @@ import {useAuthStore} from '../authContext/auth';
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const [email, setEmail] = useState('');
+  const [userName, setuserName] = useState('');
   const [password, setPassword] = useState('');
   const [error, setError] = useState('');
     const {login } = useAuthStore();
@@ -20,7 +20,7 @@ const SignIn = () => {
 
     try {
       const response = await axios.post('http://localhost:8000/Admin/login', {
-        email,
+        userName,
         password,
       });
 
@@ -85,14 +85,14 @@ const SignIn = () => {
           </Typography>
         )}
         <TextField
-          label="Email"
-          type="email"
+          label="userName"
+          type="userName"
           placeholder="abc@gmail.com"
           variant="outlined"
           fullWidth
           margin="normal"
-          value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          value={userName}
+          onChange={(e) => setuserName(e.target.value)}
         />
         <TextField
           label="Password"

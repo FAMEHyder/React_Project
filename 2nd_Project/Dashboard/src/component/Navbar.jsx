@@ -4,16 +4,17 @@ import { AccountCircle } from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import NL from '../image/navbarLogo.png';
 import MenuIcon from '@mui/icons-material/Menu';
-import { useAuthStore } from '../../../IQRA/src/authContext/auth';
+import { useAuthStore } from '../authContext/auth.jsx';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const {user}= useAuthStore();
+  const {userId}= useAuthStore();
   const [anchorEl, setAnchorEl] = useState(null); 
   const [anchorElUser, setAnchorElUser] = useState(null); 
 
   const handleUserMenuOpen = (event) => {
-    if (!user) {
+    console.log("apka ID ye hay: " ,userId)
+    if (!userId) {
       alert('Sign in required! Click Ok to Sign In');
       navigate('/Signin');
       return;
@@ -33,11 +34,11 @@ const Navbar = () => {
 
 
   const handleClick = (path) => {
-    if (!user) {
-        alert('Sign in required! Click Ok to Sign In');
-        navigate('/Signin');
-        return;
-    }
+    if (!userId) {
+      alert('Sign in required! Click Ok to Sign In');
+      navigate('/Signin');
+      return;
+  }
     navigate(path);
     handleUserMenuClose(); 
 };

@@ -15,7 +15,7 @@ export const useAuthStore = create((set, get) => ({
                 headers: { Authorization: `Bearer ${token}` }
             });
             set({ user: response.data.data });
-            console.log("User data in authcontext store ", response.data.data);
+            console.log("User data in authcontext store ", response.data);
         } catch (error) {
             console.error('Failed to load user data:', error);
             get().logout();

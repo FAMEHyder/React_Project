@@ -42,10 +42,10 @@ export default Register;
 
 
 export const login = async (req, res) => {
-  const { email, password } = req.body;
+  const { userName, password } = req.body;
 
   try {
-    const admin = await Admin.findOne({ email });
+    const admin = await Admin.findOne({ userName });
 
     if (!admin) {
       return res.status(401).json({
