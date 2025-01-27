@@ -8,13 +8,15 @@ import { useAuthStore } from '../authContext/auth.jsx';
 
 const Navbar = () => {
   const navigate = useNavigate();
-  const {userId}= useAuthStore();
+  const {user}= useAuthStore();
   const [anchorEl, setAnchorEl] = useState(null); 
   const [anchorElUser, setAnchorElUser] = useState(null); 
+  
+
+  console.log("apka ID ye hay jinab: " ,user)
 
   const handleUserMenuOpen = (event) => {
-    console.log("apka ID ye hay: " ,userId)
-    if (!userId) {
+    if (!user) {
       alert('Sign in required! Click Ok to Sign In');
       navigate('/Signin');
       return;
@@ -34,7 +36,7 @@ const Navbar = () => {
 
 
   const handleClick = (path) => {
-    if (!userId) {
+    if (!user) {
       alert('Sign in required! Click Ok to Sign In');
       navigate('/Signin');
       return;

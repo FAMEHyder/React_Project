@@ -19,7 +19,7 @@ const SignIn = () => {
     setError('');
 
     try {
-      const response = await axios.post('http://localhost:8000/Admin/login', {
+      const response = await axios.post('http://localhost:8000/user/login', {
         userName,
         password,
       });

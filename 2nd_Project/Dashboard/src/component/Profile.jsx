@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useAuthStore } from '../authContext/auth';
 import {
     Box,
     Typography,
@@ -9,15 +10,16 @@ import {
 } from '@mui/material';
 
 const UserProfile = () => {
+    const {user} = useAuthStore()
     const [userData, setUserData] = useState({});
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         
         const fetchedUserData = {
-            name: "FAME Hyder",
+            name: user.fullName,
             age: 23,
-            username: "FAME",
+            username: user.userName,
             email: "abc@xyz.com",
             dob: "21-12-2003",
             gender: 'Male',
