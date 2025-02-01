@@ -18,12 +18,9 @@ const UserProfile = () => {
         
         const fetchedUserData = {
             name: user.fullName,
-            age: 23,
             username: user.userName,
-            email: "abc@xyz.com",
-            dob: "21-12-2003",
-            gender: 'Male',
-            address: "post office no. 123, street name 456, city name 789"
+            email: user.email,
+            address: user.address,
         };
         setLoading(true);
         setTimeout(() => {
@@ -70,11 +67,8 @@ const UserProfile = () => {
                         ) : (
                             [
                                 { label: 'Name', value: userData.name },
-                                { label: 'Age', value: userData.age },
                                 { label: 'Username', value: userData.username },
                                 { label: 'Email', value: userData.email },
-                                { label: 'DOB', value: userData.dob },
-                                { label: 'Gender', value: userData.gender },
                                 { label: 'Address', value: userData.address },
                             ].map((item, index) => (
                                 <Typography key={index} variant="body1" gutterBottom>

@@ -10,6 +10,7 @@ import Liaqat from '../Member/liaqat.png';
 import Shakeel from '../Member/Shakeel.jpg';
 import Mubarak from '../Member/Mubarak.jpg';
 import Zahid from '../Member/Zahid.jpg';
+import ather from '../Member/ather.jpg';
 import Carousel from 'react-slick'; 
 
 import "slick-carousel/slick/slick.css";
@@ -37,6 +38,7 @@ const Members = () => {
         { id: 8, name: "Shakeel Ahmad", Qaulification: "BS English Linguistics", Institution: "University of Education Lahore", image: Shakeel ,Role :'Member of Core Commitee',Proffission:'Teaching English at future generation school and college islamabad ',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03475180423',},
         { id: 9, name: "Mubarak Ali", Qaulification: "BS Urdu ", Institution: "Leads University lahore", image: Mubarak ,Role :'Member of Core Commitee',Proffission:'Proffission Not Provided',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03470414547',},
         { id: 10, name: "Zahid Ali", Qaulification: "BS International Relations ", Institution: "NUML University Islamabad", image: Zahid ,Role :'Finance Secretary of IYEF',Proffission:'Student at NMUL university Islamabad',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03196031700',},
+        { id: 11, name: "Ather Ali", Qaulification: "Under Graduate Student", Institution: "Public School and College Skardu", image: ather ,Role :'Examination Controller of IYEF',Proffission:'Teacher At Green Hills School System',Address:"Post office of Dambudas skardu ,Baltistan",Phone :'03554435333',},
     ];
 
     const handleMemberClick = (member) => {
@@ -155,7 +157,7 @@ const Members = () => {
 
                     <Grid item xs={12} >
                         <Carousel {...sliderSettings}>
-                            {members.slice(5, 10).map((member) => (
+                            {members.slice(5, 11).map((member) => (
                                 <Box
                                     key={member.id}
                                     onClick={() => handleMemberClick(member)}
