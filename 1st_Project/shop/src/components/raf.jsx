@@ -98,10 +98,7 @@ const ProductData = [
   image: eng, // Replace with a valid image URL
   description: 'English walnuts are known for their mild flavor and thin, easy-to-crack shells.',
   
-    rating: 4.5,   // Rating out of 5
-},
-];
-
+    rating: 4.5,   
 
 
 export default ProductData;
