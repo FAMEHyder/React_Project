@@ -79,9 +79,3 @@ const ProductData = [
 
 //raisins data
 {
-  id: 53,
-  Category:'Raisins',
-  price:30,
-  name: 'Sultana Raisin',
-  image: sultana,
-  description: 'Sultana raisins are light yellow and known for their juicy and sweet fla
