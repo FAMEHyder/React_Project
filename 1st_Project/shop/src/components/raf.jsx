@@ -62,3 +62,4 @@ const ProductData = [
   image: medjol, // Replace with actual image URLs
   description: 'Large, soft, and rich in flavor, Medjool dates are known as the "king of dates".',
   
+    rating: 4.5,  
