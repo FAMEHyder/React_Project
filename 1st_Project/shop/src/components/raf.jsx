@@ -64,3 +64,4 @@ const ProductData = [
   
     rating: 4.5,   // Rating out of 5
 },
+
