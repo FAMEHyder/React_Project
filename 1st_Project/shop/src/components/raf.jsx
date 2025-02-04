@@ -59,5 +59,4 @@ const ProductData = [
   Category:'Dates',
   price:50,
   name: 'Medjool',
-  image: medjol, // Replace with actual image URLs
-  description: '
+  image: medjol, // Replace with ac
