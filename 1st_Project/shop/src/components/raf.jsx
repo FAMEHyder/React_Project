@@ -70,5 +70,4 @@ const ProductData = [
   id: 53,
   Category:'Pistachios',
   price:40,
-  name: 'Kerman Pistachio',
-  image: 
+  name: 'Kerman
