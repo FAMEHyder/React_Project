@@ -84,4 +84,4 @@ const ProductData = [
   price:30,
   name: 'Sultana Raisin',
   image: sultana,
-  description: 'Sultana raisins are light yellow and known for thei
+  description: 'Sultana raisins are light y
