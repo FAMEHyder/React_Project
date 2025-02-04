@@ -47,4 +47,3 @@ const ProductData = [
   id: 21,
   Category:'Cashews',
   price:120,
-  name: 'W-180 (King of Cashews)'
