@@ -79,3 +79,26 @@ const ProductData = [
 
 //raisins data
 {
+  id: 53,
+  Category:'Raisins',
+  price:30,
+  name: 'Sultana Raisin',
+  image: sultana,
+  description: 'Sultana raisins are light yellow and known for their juicy and sweet flavor.',
+  
+    rating: 4.5,   // Rating out of 5
+
+},
+//walnutdata
+{
+  id: 65,
+  Category:'Walnuts',
+  price:23,
+  name: 'English Walnuts (Persian Walnuts)',
+  image: eng, // Replace with a valid image URL
+  description: 'English walnuts are known for their mild flavor and thin, easy-to-crack shells.',
+  
+    rating: 4.5,   // Rating o
+export default ProductData;
+
+
