@@ -58,5 +58,4 @@ const ProductData = [
   id: 33,
   Category:'Dates',
   price:50,
-  name: 'Medjool',
-  image: medjol, // R
+  name: 'Medjool
