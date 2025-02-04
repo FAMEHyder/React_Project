@@ -82,5 +82,4 @@ const ProductData = [
   id: 53,
   Category:'Raisins',
   price:30,
-  name: 'Sultana Raisin',
-  ima
+  name: 'Sultana Raisin'
