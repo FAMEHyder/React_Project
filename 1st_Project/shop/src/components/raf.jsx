@@ -92,7 +92,7 @@ const ProductData = [
 //walnutdata
 {
   id: 65,
-  Category:'Walnuts',
+  Cat
   price:23,
   name: 'English Walnuts (Persian Walnuts)',
   image: eng, // Replace with a valid image URL
