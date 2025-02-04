@@ -80,6 +80,4 @@ const ProductData = [
 //raisins data
 {
   id: 53,
-  Category:'Raisins',
-  price:30,
-  name: 'Sul
+  Category:'Raisins'
