@@ -86,15 +86,5 @@ const ProductData = [
   image: sultana,
   description: 'Sultana raisins are light yellow and known for their juicy and sweet flavor.',
   
-    rating: 4.5,  
-  id: 65,
-  Cat
-  price:23,
-  name: 'English Walnuts (Persian Walnuts)',
-  image: eng, // Replace with a valid image URL
-  description: 'English walnuts are known for their mild flavor and thin, easy-to-crack shells.',
-  
-    rating: 4.5,   // Rating o
-export default ProductData;
-
+ 
 
