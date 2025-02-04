@@ -60,4 +60,4 @@ const ProductData = [
   price:50,
   name: 'Medjool',
   image: medjol, // Replace with actual image URLs
-  description: 'Large, soft, 
+  description: '
