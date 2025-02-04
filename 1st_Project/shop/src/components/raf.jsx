@@ -83,5 +83,4 @@ const ProductData = [
   Category:'Raisins',
   price:30,
   name: 'Sultana Raisin',
-  image: sultana,
-  description: 'Sultana r
+  ima
