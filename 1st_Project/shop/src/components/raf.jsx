@@ -20,5 +20,4 @@ const ProductData = [
   {
     id: 1,
     Category:'Almonds',
-    name: 'Nonpareil',
-    imag
+    
