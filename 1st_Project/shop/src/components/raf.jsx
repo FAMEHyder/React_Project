@@ -96,4 +96,4 @@ const ProductData = [
   pric
   name: 'English Walnuts (Persian Walnuts)',
   image: eng, // Replace with a valid image URL
-  description: 'English walnuts are known for their mild flavor a
+  description: 'English walnuts are know
