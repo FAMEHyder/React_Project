@@ -72,4 +72,4 @@ const ProductData = [
   price:40,
   name: 'Kerman Pistachio',
   image: kerman,
-  description: 'Kerman pistachios are known for their large size, creamy texture, and rich flavor, making the
+  description: 'Kerman pistachios are known for their large size, creamy texture, and r
