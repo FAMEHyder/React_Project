@@ -10,8 +10,4 @@ import medjol from '../Image/medjol.png';
 
 import kerman from '../Image/kerman.png'
 
-import sultana from '../Image/sultana.png';
-
-
-
-impor
+import sultana from '../Imag
