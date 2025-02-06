@@ -1,1 +1,1 @@
-import nonpareil from '../Image/nonpareil.png
+import nonpareil from
