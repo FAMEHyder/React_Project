@@ -93,7 +93,7 @@ const ProductData = [
 {
   id: 65,
   Category:'Walnuts',
-  price:23,
+  pric
   name: 'English Walnuts (Persian Walnuts)',
   image: eng, // Replace with a valid image URL
   description: 'English walnuts are known for their mild flavor and thin, easy-to-crack 
