@@ -53,7 +53,4 @@ const ProductData = [
   
     rating: 4.5,   // Rating out of 5
 },
-//Dates Data
-{
-  id: 33,
-  Category:'Dates'
+//Dates Da
