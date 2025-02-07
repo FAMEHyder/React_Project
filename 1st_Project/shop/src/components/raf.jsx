@@ -59,4 +59,4 @@ const ProductData = [
   Category:'Dates',
   price:50,
   name: 'Medjool',
-  image: medjol
+  ima
