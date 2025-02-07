@@ -39,7 +39,4 @@ const ProductData = [
     description: 'Moorpark apricots are large, juicy, and known for their sweet, rich flavor. ' + 
                  'Due to their size and sweetness, they are a favorite among apricot lovers.',
                  
-    rating: 4.5,   // Rating out of 5
-  },
-
-//Cashe
+    rating: 4.5,   // 
