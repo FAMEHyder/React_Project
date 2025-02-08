@@ -22,5 +22,4 @@ const ProductData = [
     Category:'Almonds',
     name: 'Nonpareil',
     image: nonpareil, // Image representing the Nonpareil almond variety
-    description: 'Thin-skinned, easy to blanch, and used in many almond products. ' +
-                 'Overall, it is 
+    description: 'Thin-skinned, easy to blanch, and used in many almon
