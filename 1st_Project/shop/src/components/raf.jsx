@@ -32,5 +32,4 @@ const ProductData = [
   // Appricote Data
   { 
     id: 9,
-    Category:'Dried Apricots',
-    pric
+    Category:'Dried 
