@@ -21,4 +21,4 @@ const ProductData = [
     id: 1,
     Category:'Almonds',
     name: 'Nonpareil',
-    image: nonpareil, // Image representing the Nonpareil al
+    image: nonpareil, // Image re
