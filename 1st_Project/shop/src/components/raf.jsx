@@ -19,4 +19,4 @@ import eng from "../Image/engwalnut.png";
 const ProductData = [
   {
     id: 1,
-    Category:'Almonds',
+    Cate
