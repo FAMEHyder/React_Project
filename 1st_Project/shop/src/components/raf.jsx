@@ -1,1 +1,1 @@
-import nonparei
+import nonpare
