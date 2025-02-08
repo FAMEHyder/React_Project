@@ -23,4 +23,4 @@ const ProductData = [
     name: 'Nonpareil',
     image: nonpareil, // Image representing the Nonpareil almond variety
     description: 'Thin-skinned, easy to blanch, and used in many almond products. ' +
-                 'Overall, it is one of the most sought-after varieties in the market due to its vers
+                 'Overall, it is one of the most sought-after vari
