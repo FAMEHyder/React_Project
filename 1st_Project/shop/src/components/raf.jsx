@@ -29,7 +29,4 @@ const ProductData = [
   },
 
 
-  // Appricote Data
-  { 
-    id: 9,
-    Categ
+  // App
