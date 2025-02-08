@@ -18,5 +18,4 @@ import eng from "../Image/engwalnut.png";
 
 const ProductData = [
   {
-    id: 1,
-    Cate
+    i
