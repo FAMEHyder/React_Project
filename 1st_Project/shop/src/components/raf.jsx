@@ -13,5 +13,3 @@ import kerman from '../Image/kerman.png'
 import sultana from '../Image/sultana.png';
 
 
-
-import eng
