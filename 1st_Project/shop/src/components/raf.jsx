@@ -80,8 +80,3 @@ const ProductData = [
 //raisins data
 {
   id: 53,
-  Category:'Raisins',
-  price:
-  name: 'Sultana Raisin',
-  image: sultana,
-  description: 'Sultana raisins
