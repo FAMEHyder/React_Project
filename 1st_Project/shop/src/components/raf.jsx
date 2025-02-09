@@ -94,4 +94,4 @@ const ProductData = [
   id: 65,
   Category:'Walnuts',
   price:23,
-  name: 'English Walnuts (Persian Walnuts)'
+  name: 'English W
