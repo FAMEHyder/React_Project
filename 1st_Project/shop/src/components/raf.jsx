@@ -29,6 +29,4 @@ const ProductData = [
   },
 
 
-  // Appricote Data
-  { 
-    
+  // Apprico
