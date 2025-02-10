@@ -47,4 +47,4 @@ const ProductData = [
   id: 21,
   Category:'Cashews',
   price:120,
-  name: 'W-180 (Kin
+  name: 'W-180 
