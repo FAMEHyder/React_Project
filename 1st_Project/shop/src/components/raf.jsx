@@ -34,5 +34,4 @@ const ProductData = [
     id: 9,
     Category:'Dried Apricots',
     price: 20,
-    name: 'Moorpark Apricot',
-    image: chuli1, 
+    name: 'Moorpark Apri
