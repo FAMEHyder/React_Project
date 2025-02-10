@@ -36,4 +36,3 @@ const ProductData = [
     price: 20,
     name: 'Moorpark Apricot',
     image: chuli1, // Image representing the Moorpark apricot variety
-    description: 'Moorpark apricot
