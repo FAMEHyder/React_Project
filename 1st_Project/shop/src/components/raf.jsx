@@ -70,6 +70,3 @@ const ProductData = [
   id: 53,
   Category:'Pistachios',
   price:40,
-  image: kerman,
-  description: 'Kerman pistachios are known for their large size, creamy texture, and rich flavor, making them a popular variety.',
-  
