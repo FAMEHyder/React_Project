@@ -41,32 +41,3 @@ const ProductData = [
                  
     rating: 4.5,   // Rating out of 5
   },
-
-//Cashews Data
-{
-  id: 21,
-  Category:'Cashews',
-  price:120,
-  name: 'W-180 (King of Cashews)',
-  image: w180,
-  description: 'W-180, known as the "King of Cashews," is the largest and highest quality cashew nut available.',
-  
-    rating: 4.5,   // Rating out of 5
-},
-//Dates Data
-{
-  id: 33,
-  Category:'Dates',
-  price:50,
-  name: 'Medjool',
-  image: medjol, // Replace with actual image URLs
-  description: 'Large, soft, and rich in flavor, Medjool dates are known as the "king of dates".',
-  
-    rating: 4.5,   // Rating out of 5
-},
-
-//pischio data
-{
-  id: 53,
-  Category:'Pistachios',
-  price:40,
