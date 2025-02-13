@@ -57,7 +57,4 @@ const ProductData = [
 {
   id: 33,
   Category:'Dates',
-  price:50,
-  name: 'Medjool',
-  image: medjol, // Replace with actual image URLs
-  description: 'Large, soft, and rich in flavor, Medjool dates are known as the "king of dates".',
+  price:
