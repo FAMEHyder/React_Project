@@ -96,4 +96,4 @@ const ProductData = [
   price:23,
   name: 'English Walnuts (Persian Walnuts)',
   image: eng, // Replace with a valid image URL
-  description: 'English walnut
+  description: 'English w
