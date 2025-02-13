@@ -57,4 +57,3 @@ const ProductData = [
 {
   id: 33,
   Category:'Dates',
-  pr
