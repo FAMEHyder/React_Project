@@ -44,7 +44,3 @@ const ProductData = [
 
 //Cashews Data
 {
-  id: 21,
-  Category:'Cashews',
-  price:120,
-  n
