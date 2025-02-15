@@ -91,5 +91,4 @@ const ProductData = [
 },
 //walnutdata
 {
-  id: 65,
-  Cat
+  
