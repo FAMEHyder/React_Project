@@ -104,6 +104,5 @@ const ProductData = [
 
 
 
-export default ProductData;
-
+export default Produc
 
