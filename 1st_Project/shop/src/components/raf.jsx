@@ -86,4 +86,4 @@ const ProductData = [
   image: sultana,
   description: 'Sultana raisins are light yellow and known for their juicy and sweet flavor.',
   
-    rating: 4.5,   // Rating ou
+    
