@@ -95,5 +95,4 @@ const ProductData = [
   Category:'Walnuts',
   price:23,
   name: 'English Walnuts (Persian Walnuts)',
-  image: eng, // Replace with a valid image URL
-  description: 'English walnuts are known for
+  image: eng, // Replace with r
