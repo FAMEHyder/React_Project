@@ -99,5 +99,4 @@ const ProductData = [
   description: 'English walnuts are known for their mild flavor and thin, easy-to-crack shells.',
   
     rating: 4.5,   // Rating out of 5
-},
-]
+}
