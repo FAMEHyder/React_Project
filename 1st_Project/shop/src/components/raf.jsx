@@ -95,4 +95,4 @@ const ProductData = [
   Category:'Walnuts',
   price:23,
   name: 'English Walnuts (Persian Walnuts)',
-  image: eng, // Replace with r
+  image: eng, // Replace w
