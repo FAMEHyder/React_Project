@@ -84,6 +84,4 @@ const ProductData = [
   price:30,
   name: 'Sultana Raisin',
   image: sultana,
-  description: 'Sultana raisins are light yellow and known for their juicy and sweet flavor.',
-  
-    
+  description: 'Sultana raisins are light yellow and known for th
