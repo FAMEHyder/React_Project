@@ -68,4 +68,4 @@ const ProductData = [
 //pischio data
 {
   id: 53,
-  Category:'Pist
+  Categor
