@@ -81,7 +81,4 @@ const ProductData = [
 {
   id: 53,
   Category:'Raisins',
-  price:30,
-  name: 'Sultana Raisin',
-  image: sultana,
-  description: 'Sultana raisins are light yellow and known for th
+  price:30
