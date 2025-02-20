@@ -68,5 +68,4 @@ const ProductData = [
 //pischio data
 {
   id: 53,
-  Category:'Pistachios',
-  pri
+  Category:'Pistachios
