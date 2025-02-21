@@ -49,4 +49,4 @@ const ProductData = [
   price:120,
   name: 'W-180 (King of Cashe
   image: w180,
-  description: 'W-180, known as the "Kin
+  description: 'W-180, known as the 
