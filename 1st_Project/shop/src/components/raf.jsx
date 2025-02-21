@@ -49,4 +49,4 @@ const ProductData = [
   price:120,
   name: 'W-180 (King of Cashews)',
   image: w180,
-  description: 'W-180, known as the "King of Cashews,"
+  description: 'W-180, known as the "King of
