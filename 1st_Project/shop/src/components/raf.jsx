@@ -48,5 +48,3 @@ const ProductData = [
   Category:'Cashews',
   price:120,
   name: 'W-180 (King of Cashe
-  image: w180,
-  description: 
