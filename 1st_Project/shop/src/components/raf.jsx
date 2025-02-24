@@ -32,5 +32,4 @@ const ProductData = [
   // Appricote Data
   { 
     id: 9,
-    CategoApricot',
-    im
+    CategoApric
