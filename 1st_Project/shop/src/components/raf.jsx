@@ -37,4 +37,4 @@ const ProductData = [
     name: 'Moorpark Apricot',
     image: chuli1, // Image representing the Moorpark apricot variety
     description: 'Moorpark apricots are large, juicy, and known for their sweet, rich flavor. ' + 
-                 'Due to their size and sweetness, they a
+                 'Due to their size and sweetness, th
