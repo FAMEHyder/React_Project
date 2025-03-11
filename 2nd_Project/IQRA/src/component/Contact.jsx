@@ -23,7 +23,7 @@ const ContactUs = () => {
     onSubmit: (values, { resetForm }) => {
       emailjs
         .send(
-          'service_ji3pg89',
+          'service_bko45nn',
           'template_kuu4qem',
           {
             to_name: 'IYEF',
