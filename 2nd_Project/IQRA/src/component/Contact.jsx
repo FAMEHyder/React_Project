@@ -72,8 +72,8 @@ const ContactUs = () => {
           <Box sx={{ textAlign: 'center' }}>
             <PhoneIcon fontSize="large" color="primary" />
             <Typography variant="h6">Phone</Typography>
-            <Typography variant="body2">+923554526991</Typography>
-            <Typography variant="body2">+923417405991</Typography>
+            <Typography variant="body2">+923445254658</Typography>
+            <Typography variant="body2">+923464640837</Typography>
           </Box>
         </Grid>
         <Grid item xs={12} sm={6} md={3}>
