@@ -24,7 +24,7 @@ const ContactUs = () => {
       // EmailJS integration
       emailjs.send(
         'service_ji3pg89',           // Service ID
-        'template_kuu4qem',          // Template ID
+        'template_6z7v5cf',          // Template ID
         {
           to_name: 'SaT_Tara',  // Replace with actual recipient name if needed
           from_name: values.name,     // From name (user's name)
