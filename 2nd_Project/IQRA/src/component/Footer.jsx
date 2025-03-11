@@ -58,9 +58,7 @@ const Footer = () => {
             <Link href="https://www.facebook.com/profile.php?id=100083205736945" target="_blank" color="inherit" underline="none">
               <Facebook />
             </Link>
-            <Link href="https://twitter.com" target="_blank" color="inherit" underline="none">
-              <Twitter />
-            </Link>
+          
             <Link href="https://chat.whatsapp.com/Ee1j1Utvi3n2JQA24KrajX" target="_blank" color="inherit" underline="none">
               <WhatsApp />
             </Link>
