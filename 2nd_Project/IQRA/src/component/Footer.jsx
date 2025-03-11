@@ -1,5 +1,5 @@
 import { Box, Typography, Grid, Link } from '@mui/material';
-import { Facebook, Twitter, WhatsApp, Instagram} from '@mui/icons-material';
+import { Facebook, WhatsApp, Instagram} from '@mui/icons-material';
 import { useNavigate } from 'react-router-dom';
 import { useAuthStore } from '../authContext/auth';
 const Footer = () => {
