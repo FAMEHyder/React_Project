@@ -38,9 +38,6 @@ const Footer = () => {
             <Link href="/contact" color="inherit" underline="hover">Contact Us</Link>
           </Typography>
           <Typography variant="body2">
-            <Link href="/Section" color="inherit" underline="hover">Events</Link>
-          </Typography>
-          <Typography variant="body2">
             <Link  color="inherit" underline="hover" onClick={()=>handleclick('/pre_board')}> Register for Pre-Board Exams</Link>
           </Typography>
           <Typography variant="body2">
