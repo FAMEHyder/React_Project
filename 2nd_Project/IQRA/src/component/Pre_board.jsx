@@ -155,7 +155,7 @@ const Pre_board = () => {
         { name: 'guardianPhoneNumber', label: 'Guardian Phone Number' },
       ],
       [
-        { name: 'images', label: 'Upload Student Photo', type: 'file' },
+        { name: 'images', label: 'Upload the ScreenShot of Your easypaisa payment recipe', type: 'file' },
       ],
     ];
 
