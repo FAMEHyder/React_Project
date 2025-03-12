@@ -15,5 +15,3 @@ import sultana from '../Image/sultana.png';
 
 
 import eng from "../Image/engwalnut.png";
-
-co
