@@ -14,4 +14,4 @@ import sultana from '../Image/sultana.png';
 
 
 
-import eng fr
+import eng
