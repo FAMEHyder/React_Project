@@ -148,7 +148,7 @@ const UserTable9Arts = () => {
                 </TableCell>
                 <TableCell align="center">
                   
-                  {/* Delete Button */}
+                  {/* Delete Button code */}
                   <IconButton
                     color="error"
                     onClick={() => handleDelete(user._id)}
