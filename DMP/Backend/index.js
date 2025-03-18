@@ -2,8 +2,8 @@ import DataBaseConnection from "./Database/Database.js";
 import express from "express";
 import dotenv from "dotenv";
 import cors from "cors";
-
 dotenv.config()
+
 const app =express()
 const corsOptions = [
 
@@ -22,5 +22,5 @@ app.use(cors(
 const port = process.env.PORT ||4001
 app.listen(port,()=>{
     DataBaseConnection();
-    console.log("Server is runing")
+    console.log("Connecting! Please wait ")
 })
