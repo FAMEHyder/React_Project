@@ -4,7 +4,7 @@ dotenv.config()
 
 const DataBaseConnection = async ()=>{
     try {
-        await mongoose.connect(process.env.MANGO_URL)
+        await mongoose.connect(process.env.MONGO_URL)
         console.log("Connected to Database successfully")
     }
     catch(error){
