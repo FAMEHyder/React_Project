@@ -22,5 +22,5 @@ app.use(cors(
 const port = process.env.PORT ||4001
 app.listen(port,()=>{
     DataBaseConnection();
-    console.log("Connecting! Please wait ")
+    console.log("Connecting Please Wait!")
 })
