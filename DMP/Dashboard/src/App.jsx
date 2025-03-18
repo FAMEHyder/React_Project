@@ -1,11 +1,11 @@
-
+import FacebookPostDashboard from './component/Form.jsx';
 
 function App() {
 
 
   return (
     <>
-      <p>Hello World</p>
+      <FacebookPostDashboard />
     </>
   )
 }
