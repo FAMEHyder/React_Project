@@ -9,13 +9,13 @@ const DataBaseConnection = async ()=>{
         console.log("Connected To DataBase successfully");
     }
     catch{
-        console.log ("something went wrong");
+        console.log ("Error While Connecting");
     }
 }
 
 
-mongoose.connection.on('disconnected',()=>{
-    console.log("disconnected")
+mongoose.connection.on('Disconnected',()=>{
+    console.log("Disconnected")
 });
 
 export default DataBaseConnection;
