@@ -31,5 +31,5 @@ app.use('/Cart',Cart)
 const port = process.env.PORT || 8009
 app.listen(port, ()=>{
     DataBaseConnection();
-    console.log("Server is Running")
+    console.log("Conneceting please wait...")
 })
