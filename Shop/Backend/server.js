@@ -28,6 +28,15 @@ app.use('/purchase',purchase)
 app.use('/wish',wish)
 app.use('/Cart',Cart)
 
+// this is the image section
+// Define the path to the 'media' folder using an absolute path from the project root
+const mediaPath = path.join(__dirname, '..', 'media');
+
+// Serve the 'media' folder as static content
+app.use('/media', express.static(mediaPath));
+// these are the code to handle the images
+
+// this is the rest pert from the server
 const port = process.env.PORT || 8009
 app.listen(port, ()=>{
     DataBaseConnection();
