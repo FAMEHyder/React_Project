@@ -10,7 +10,6 @@ import Cart from './routes/cart.route.js';
 import path from 'path';
 import { fileURLToPath } from 'url';
 
-nhi 
 dotenv.config();
 
 const app = express()
@@ -47,9 +46,6 @@ const _dirname = path.dirname(_filename);
 
 // Define the path to the 'media' folder using an absolute path from the project root
 const mediaPath = path.join(__dirname, '..', 'media');
-
-// Log to verify that the path is correct
-
 
 // Serve the 'media' folder as static content
 app.use('/media', express.static(mediaPath));
