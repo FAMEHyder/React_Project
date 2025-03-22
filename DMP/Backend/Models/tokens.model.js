@@ -10,6 +10,12 @@ const tokenschema = new mongoose.schema ({
         type:Number,
         required:true,
         trim: true
+    },
+    apptoken:{
+        type: Number,
+        required:true,
+        trim:true
+        
     }
 
 })
