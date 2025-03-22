@@ -14,8 +14,8 @@ const DataBaseConnection = async ()=>{
 }
 
 
-mongoose.connection.on('disconnected',()=>{
-    console.log("disconnected")
+mongoose.connection.on('Disconnected',()=>{
+    console.log(" Disconnected")
 });
 
 export default DataBaseConnection;
