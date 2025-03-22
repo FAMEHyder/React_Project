@@ -15,7 +15,7 @@ const DataBaseConnection = async ()=>{
 
 
 mongoose.connection.on('Disconnected',()=>{
-    console.log(" Disconnected")
+    console.log("Something went wrong! Disconnected")
 });
 
 export default DataBaseConnection;
