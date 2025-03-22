@@ -19,3 +19,4 @@ const tokenschema = new mongoose.schema ({
     }
 
 })
+export default mongoose.model("Token" ,tokenschema)
