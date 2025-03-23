@@ -7,7 +7,7 @@ import { Box, TextField, Button, Typography, Grid, Container } from "@mui/materi
 
 const validationSchema = Yup.object({
     PageAccessToken: Yup.number().required("Roll no is required"),
-  english: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
+    UserToken: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
   mathArts: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
   generalScience: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
   pakStd: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
