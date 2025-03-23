@@ -20,11 +20,8 @@ const ArtsResult = () => {
     initialValues: {
         PageAccessToken: "",
         UserToken: "",
-      mathArts: "",
-      generalScience: "",
-      pakStd: "",
-      urdu: "",
-      examinationYear: "",
+        apptoken: "",
+     
     },
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
