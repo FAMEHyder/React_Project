@@ -8,14 +8,8 @@ import { Box, TextField, Button, Typography, Grid, Container } from "@mui/materi
 const validationSchema = Yup.object({
     PageAccessToken: Yup.number().required("Roll no is required"),
     UserToken: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
-  mathArts: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
-  generalScience: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
-  pakStd: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
-  urdu: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
-  examinationYear: Yup.number()
-    .min(1900, "Year must be after 1900")
-    .max(new Date().getFullYear(), "Year cannot be in the future")
-    .required("Examination Year is required"),
+    apptoken: Yup.number().min(0, "Minimum 0").max(100, "Maximum 100"),
+  
 });
 
 const ArtsResult = () => {
