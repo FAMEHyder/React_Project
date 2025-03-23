@@ -69,7 +69,7 @@ const ArtsResult = () => {
                   onBlur={formik.handleBlur}
                   error={formik.touched[field] && Boolean(formik.errors[field])}
                   helperText={formik.touched[field] && formik.errors[field]}
-                  type={field === "examinationYear" ? "number" : "number"}
+                  type={field === "EntryYear" ? "number" : "number"}
                 />
               </Grid>
             ))}
