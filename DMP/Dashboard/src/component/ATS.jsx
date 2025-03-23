@@ -25,29 +25,18 @@ const ArtsResult = () => {
     },
     validationSchema,
     onSubmit: async (values, { resetForm }) => {
-      try {
-        const payload = {
-          ...values,
-          Subject1: "English Compulsory",
-          Subject2: "Urdu Compulsory",
-          Subject3: "Pakistan Studies",
-          Subject4: "General Science",
-          Subject5: "Mathematics",
-        };
+      
 
         const response = await axios.post(
           `http://localhost:8000/user/marksheet/${userId}`,
-          payload
+        
         );
 
         console.log("Response:", response.data);
-        alert("Marksheet submitted successfully!");
+        alert("Tokens submitted successfully!");
         resetForm();
-      } catch (error) {
-        console.error("Error submitting marksheet:", error);
-        alert("Failed to submit marksheet. Please try again.");
-      }
-    },
+      } 
+    
   });
 
   return (
